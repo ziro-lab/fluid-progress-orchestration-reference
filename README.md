@@ -184,7 +184,7 @@ Important limits:
 - AI-agent reliability, malicious-input resistance, real provider/network behavior, and non-software generality are not globally proven;
 - historical "hidden oracle" fixtures were hidden from workers during their recorded runs, but once published they must not be treated as hidden for future replay claims.
 
-For exact status and scope, read **[STATUS.md](STATUS.md)** and the relevant `phase*/` reports before extending any claim.
+For exact status and scope, read **[STATUS.md](STATUS.md)** and the relevant `phase*/` reports before extending any claim. Public copies of some historical evidence have environment-specific local user-home paths normalized for publication; see **[PUBLICATION_NOTES.md](PUBLICATION_NOTES.md)**.
 
 ## Start here
 
@@ -211,9 +211,9 @@ If you want to **understand the architecture and design choices**:
 If you want to **inspect evidence**:
 
 1. [STATUS.md](STATUS.md)
-2. `validation/`
-3. `evidence/`
-4. the relevant `phase*/` directory
+2. `evidence/`
+3. the relevant `phase*/` directory
+4. [PUBLICATION_NOTES.md](PUBLICATION_NOTES.md)
 
 ## Repository map
 
@@ -231,12 +231,14 @@ If you want to **inspect evidence**:
 | `RUNTIME_BEHAVIOR.md` | Public orientation to expected runtime behavior |
 | `CURRENT_FLOW_MINI_COMPOSITION.md` | Current optional FPO × Flow Mini composition |
 | `CONTRIBUTING.md` | Feedback and contribution guidance |
+| `SECURITY.md` | Security reporting scope and guidance |
+| `PUBLICATION_NOTES.md` | Clean-snapshot and public-copy redaction notes |
 
 ## Runtime boundary
 
 The repository is intentionally larger than the runtime control context.
 
-`docs/`, `review/`, `validation/`, `examples/`, historical phase material, and optional extensions are not automatically runtime authority. `spec/v0.2/runtime/RUNTIME_MANIFEST.md` defines the normative runtime surface for the current specification candidate.
+Historical phase material, evidence, reports, examples, and optional integrations are not automatically runtime authority. `spec/v0.2/runtime/RUNTIME_MANIFEST.md` defines the normative runtime surface for the current specification candidate.
 
 ## Feedback and contributions
 
