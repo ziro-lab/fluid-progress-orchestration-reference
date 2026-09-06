@@ -1,0 +1,13 @@
+{
+  "details": {
+    "fresh_ready": true,
+    "load_bearing_decisions_recovered": true,
+    "owner_state_revision": "owner-r2",
+    "transcript_used": false
+  },
+  "evidence_ref": "phase7b/evidence/H1.json",
+  "independent": true,
+  "probe_id": "H1",
+  "schema": "fpo.phase7b.validation.v1",
+  "status": "PASS"
+}

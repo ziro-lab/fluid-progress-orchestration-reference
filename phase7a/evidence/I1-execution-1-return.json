@@ -1,0 +1,133 @@
+{
+  "schema": "fpo.phase7a.flow-mini-return.v1",
+  "fixture": "I1",
+  "stage": "execution",
+  "dispatch_id": "P7A-I1-EXECUTION-1",
+  "input_sha256": "7160dc5351524839847a9cc98fccb84a6747d252a07195509435561ca4e6924b",
+  "status": "DONE",
+  "current_revision": "fb74cac46a3833195262f6e4a3a78c3034b819a9+working-tree",
+  "provider": {
+    "model": "gpt-5.6-luna",
+    "reasoning": "xhigh"
+  },
+  "fresh_context": true,
+  "requirements": [
+    "Implement the README-defined build_slugs(labels) behavior in the bounded I1 project.",
+    "Preserve original input order and duplicates, including original rejection indices and continuation after rejection.",
+    "Keep the public interface, exact JSON-shaped item fields, deterministic output, and standard-library-only implementation.",
+    "Validate locally and update the bounded WORKPLAN without modifying files outside the bounded project except this Return."
+  ],
+  "observations": [
+    {
+      "id": "obs-001",
+      "result": "Core coherent",
+      "details": "CONTRACT, ACCEPTANCE, WORKPLAN share Core Generation P7A-I1-PLANNING-1-G1; EXECUTION matches Controller Revision FM-EXEC-0.5.0-r3."
+    },
+    {
+      "id": "obs-002",
+      "result": "Mismatch confirmed",
+      "details": "The pre-change implementation sorted labels before enumeration, which changed accepted order and rejection indices; the pre-change suite reproduced this as one failure."
+    },
+    {
+      "id": "obs-003",
+      "result": "Implementation complete",
+      "details": "slugger.py now enumerates the caller-provided labels directly; trimming, ASCII slug normalization, rejection continuation, and result shapes remain unchanged."
+    }
+  ],
+  "planning": {
+    "reference_only": true,
+    "core_generation": "P7A-I1-PLANNING-1-G1",
+    "stage": "correct and validate deterministic build_slugs(labels) behavior",
+    "mechanics": "minimal source change plus focused regression coverage"
+  },
+  "operations": [
+    {
+      "operation_id": "op-001-reconcile",
+      "action": "reconcile",
+      "result": "Core and bounded Current Reality inspected before editing"
+    },
+    {
+      "operation_id": "op-002-implement",
+      "action": "edit",
+      "result": "Removed input sorting by changing enumeration to use labels directly"
+    },
+    {
+      "operation_id": "op-003-regression",
+      "action": "edit",
+      "result": "Added focused tests for normalization, exact shapes, determinism, and input non-mutation"
+    },
+    {
+      "operation_id": "op-004-validate-suite",
+      "action": "validate",
+      "result": "Complete local unittest suite passed: 4 tests"
+    },
+    {
+      "operation_id": "op-005-validate-fresh",
+      "action": "validate",
+      "result": "Fresh Python process passed exact A1-A4 scenario assertions"
+    },
+    {
+      "operation_id": "op-006-record",
+      "action": "record",
+      "result": "WORKPLAN updated to DONE with current evidence"
+    }
+  ],
+  "local_validation": {
+    "status": "PASS",
+    "runtime": "Python 3.12.13 bundled runtime",
+    "full_suite": {
+      "command": "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -m unittest discover -s tests -v",
+      "tests_run": 4,
+      "result": "Ran 4 tests; OK"
+    },
+    "fresh_process": {
+      "result": "A1-A4 fresh-process validation: PASS",
+      "coverage": [
+        "exact top-level and item shapes",
+        "original order and duplicates",
+        "original rejection indices and continuation",
+        "trimming, ASCII lowercasing, separator runs, digits, and non-ASCII-only empty slug",
+        "determinism and caller input non-mutation"
+      ]
+    },
+    "source_inspection": "No sorted iteration, randomness, timestamps, or environment-derived fields were found in the final source."
+  },
+  "evidence": [
+    {
+      "subject": "A1",
+      "result": "PASS",
+      "details": "Exact accepted order, duplicate preservation, empty rejected array, and accepted item keys observed."
+    },
+    {
+      "subject": "A2",
+      "result": "PASS",
+      "details": "Trimming and ASCII slug normalization observed for whitespace, uppercase, separator runs, digits, punctuation, and non-ASCII input."
+    },
+    {
+      "subject": "A3",
+      "result": "PASS",
+      "details": "Only non-strings and empty-after-trimming strings rejected; original indices, short reasons, order, and later processing observed."
+    },
+    {
+      "subject": "A4",
+      "result": "PASS",
+      "details": "Repeated calls produced equal complete structures; final source has no nondeterministic fields."
+    },
+    {
+      "subject": "scope",
+      "result": "PASS",
+      "details": "Implementation, focused tests, WORKPLAN, and this assigned Return are the only task artifacts changed; no commit or push performed."
+    }
+  ],
+  "blockers": [],
+  "reentry": {
+    "required": false,
+    "reason": "No contract, stage, design, input, or validation boundary change was required."
+  },
+  "next_action": "FPO may inspect this candidate Return and the bounded implementation; no further implementation-local action is required.",
+  "notes": [
+    "DONE denotes implementation-local Flow Mini validation only; it is not FPO acceptance or close.",
+    "The fixed EXECUTION.md and the other Core files were not rewritten.",
+    "No files outside the bounded I1 project were modified except this assigned Return file."
+  ]
+}

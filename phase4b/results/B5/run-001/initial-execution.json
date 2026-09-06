@@ -1,0 +1,1 @@
+{"command":["C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe","app.py"],"failure_reason":"explicit encoding evidence is absent from the source and the fixture's observed output is not accepted","returncode":0,"schema":"fpo.phase4b.b5-initial-execution.v1","stderr":"","stdout":"cafﾃｩ\n","validation_status":"FAIL"}

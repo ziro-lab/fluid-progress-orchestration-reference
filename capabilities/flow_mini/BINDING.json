@@ -1,0 +1,115 @@
+{
+  "binding_id": "codex.flow-mini@1",
+  "capability_id": "codex.flow-mini",
+  "capability_revision": "1",
+  "provider": {
+    "kind": "codex_plugin",
+    "repository": "ziro-lab/Flow-Mini-Harness",
+    "commit": "462055e88346d7531c9494e011d2c1d19128f20a",
+    "plugin_name": "flow-mini-harness",
+    "plugin_version": "0.1.1",
+    "bundle_path": "plugin/BUNDLE.json",
+    "bundle_version": "0.1.1"
+  },
+  "flow_mini": {
+    "version": "0.5.0",
+    "status": "Implementation Core Convergence Candidate r3",
+    "source_path": "versions/v0.5.0-candidate-r3",
+    "controller_revision": "FM-EXEC-0.5.0-r3",
+    "source_archive_sha256": "454f835efac1f09d774ccc3a4bce76352761f208a6dffba9305b646f2d18f93c"
+  },
+  "standard": {
+    "skill_path": "skills/flow-mini/SKILL.md",
+    "fpo_managed_fresh_transition_requires": [
+      "attempt_id",
+      "target_revision_ref",
+      "current_flow_mini_core_generation",
+      "controller_revision",
+      "fresh_or_fresh_equivalent_execution_attestation",
+      "return_target",
+      "compatible_host_or_provider_binding"
+    ]
+  },
+  "parallel": {
+    "activation": "explicit",
+    "skill_path": "skills/flow-mini-parallel/SKILL.md",
+    "profile_path": "profiles/same-sol-parallel-supervision/v0.1.2.1-candidate",
+    "profile_version": "0.1.2.1",
+    "profile_archive_sha256": "b4004d8afadddc20da998ff84b1ee0682b2b311614e04dec5232833b3fe9b2be",
+    "runtime_proven": false
+  },
+  "authority_boundary": {
+    "fpo_owns": [
+      "work_definition",
+      "work_level_plan",
+      "work_control",
+      "delegated_attempt",
+      "return_adoption",
+      "independent_acceptance",
+      "complex_recovery",
+      "settlement_and_close"
+    ],
+    "flow_mini_owns": [
+      "implementation_planning",
+      "implementation_execution",
+      "implementation_local_validation",
+      "implementation_local_replan",
+      "stage_local_parallel_supervision_when_explicit"
+    ],
+    "provider_owns": [
+      "physical_worker_identity",
+      "workspace_isolation",
+      "effect_mediation",
+      "stop_release_and_slot_state",
+      "settlement_proof"
+    ]
+  },
+  "dispatch_binding": {
+    "freeze_into_dispatch": [
+      "attempt_id",
+      "capability_id",
+      "capability_revision",
+      "binding_ref",
+      "definition_ref",
+      "plan_ref",
+      "target_revision_ref",
+      "policy_revision"
+    ],
+    "binding_ref": "capabilities/flow_mini/BINDING.json"
+  },
+  "return_binding": {
+    "owner": "P3",
+    "must_match_return_fields": [
+      "dispatch_id",
+      "attempt_id",
+      "provider_identity",
+      "capability_id",
+      "capability_revision"
+    ],
+    "reconcile_through_current_dispatch_or_operation": [
+      "binding_ref",
+      "definition_ref",
+      "plan_ref",
+      "target_revision_ref",
+      "policy_revision"
+    ],
+    "flow_mini_done_is_fpo_acceptance": false,
+    "flow_mini_done_is_fpo_close": false
+  },
+  "failure_policy": {
+    "missing_or_mismatched_binding": "do_not_dispatch",
+    "missing_fresh_context_attestation": "preserve_ordinary_flow_mini_fresh_boundary_or_stop",
+    "unknown_effect": "reconcile_before_retry",
+    "complex_recovery": "return_to_fpo_p5",
+    "silent_revision_fallback": false
+  },
+  "current_composition_ref": "CURRENT_FLOW_MINI_COMPOSITION.md",
+  "live_field_gate": {
+    "flow_mini_field_test_ref": "Flow-Mini-Harness:plugin/FIELD_TEST.md",
+    "required_cases": [
+      "S7",
+      "S8"
+    ],
+    "status": "NOT_RUN"
+  }
+}

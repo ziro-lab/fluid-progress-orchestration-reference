@@ -1,0 +1,44 @@
+{
+  "case_id": "C1",
+  "run_number": 1,
+  "capability_run_id": "human-last-C1-001",
+  "dispatch_id": "DISP-C1-001",
+  "operation_id": "OP-C1-001",
+  "capability_revision": "phase4c-v1",
+  "decision": "NO_HUMAN",
+  "autonomous_routes_available": [
+    "trim surrounding whitespace while preserving internal capitalization"
+  ],
+  "autonomous_routes_attempted": [
+    "apply the existing trim-surrounding-whitespace policy to the supplied label"
+  ],
+  "evidence_refs": [
+    "C1-local-policy.local_evidence.input_label",
+    "C1-local-policy.local_evidence.existing_policy",
+    "C1-local-policy.local_evidence.effect_scope",
+    "C1-local-policy.local_evidence.validation",
+    "dispatch.authority_boundary"
+  ],
+  "facts": [
+    "The supplied label is \"  Release Candidate  \".",
+    "The existing local policy directs trimming surrounding whitespace when no user-selected style exists and preserving internal capitalization.",
+    "The requested effect is a sandbox-local reversible text edit.",
+    "The stated validation condition is that the saved label equals \"Release Candidate\" and no internal characters change."
+  ],
+  "findings": [
+    "A safe autonomous route exists: trim only the surrounding whitespace.",
+    "The local policy resolves the style choice without requiring a person to choose a label style.",
+    "The route is bounded, reversible, and its result is directly validated by the supplied local condition.",
+    "Bounded public research is not needed for this local-policy decision."
+  ],
+  "uncertainties": [],
+  "notes": [
+    "No human preference, authority, evidence, or capability boundary remains.",
+    "No external sources were inspected."
+  ],
+  "research_trace": {
+    "queries": [],
+    "rounds": 0,
+    "sources_inspected": []
+  }
+}

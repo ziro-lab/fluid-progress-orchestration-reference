@@ -1,0 +1,102 @@
+{
+  "details": {
+    "durable_intent_observable": true,
+    "effect_intent": {
+      "attempt_id": "ATT-001",
+      "binding": {
+        "attempt_id": "ATT-001",
+        "child_identity": [
+          "ATT-001",
+          "child-001"
+        ],
+        "child_sub_id": "child-001",
+        "components": [
+          {
+            "name": "approval",
+            "ref": {
+              "digest": "74f475e92e0ded492c2cf82173637f9e652898c11248d12633391ca28689f753",
+              "revision": "approval-r1",
+              "source": "owner-native"
+            },
+            "source": "owner-native"
+          },
+          {
+            "name": "attempt",
+            "ref": {
+              "digest": "3fddc745a3e9fc26a63b640aba4e41223d13e3f69b4b785d1fbb257b97e473cb",
+              "revision": "ATT-001-r1",
+              "source": "owner-native"
+            },
+            "source": "owner-native"
+          },
+          {
+            "name": "capability",
+            "ref": {
+              "digest": "a76b5b02567fa5951e63cfd6160e6ef887f7b1f5f0a171addc4eeedff6bb5b16",
+              "revision": "capability-r1",
+              "source": "owner-native"
+            },
+            "source": "owner-native"
+          },
+          {
+            "name": "definition",
+            "ref": {
+              "digest": "5988cae994d1a0a4eee9e603387a50bc126df14c7f44af6c134433dedb4ab5b6",
+              "revision": "definition-r1",
+              "source": "owner-native"
+            },
+            "source": "owner-native"
+          },
+          {
+            "name": "dispatch",
+            "ref": {
+              "digest": "6ba42fdd5be67cac1e680b928d13beaa778d729b7d4f9fb85360d96f45626849",
+              "revision": "dispatch-r1",
+              "source": "owner-native"
+            },
+            "source": "owner-native"
+          },
+          {
+            "name": "plan",
+            "ref": {
+              "digest": "023f3a28ceb16ed24565a0d57bc08b2a361d675c03e7063e943e11aa58dde5b1",
+              "revision": "plan-r1",
+              "source": "owner-native"
+            },
+            "source": "owner-native"
+          },
+          {
+            "name": "target",
+            "ref": {
+              "digest": "78ce59e231669eb5b97377c26f0ac4bd2d5848584983660688dc358cd29da2e8",
+              "revision": "target-r1",
+              "source": "owner-native"
+            },
+            "source": "owner-native"
+          }
+        ],
+        "execution_basis_fingerprint": "7e2158a6ef38ef7b09510edf947197ce186d7c6879fc152f94482d60dc758f69",
+        "schema": "fpo.parallel.execution-binding.derived.v1"
+      },
+      "child_identity": [
+        "ATT-001",
+        "child-001"
+      ],
+      "currentness_recheck": true,
+      "effect_id": "effect:ATT-001:child-001:E1a-write",
+      "mediated": true,
+      "mutation_domain": "shared",
+      "schema": "fpo.parallel.effect-intent.derived.v1",
+      "state": "OPEN"
+    },
+    "t1a_recheck_observable": true
+  },
+  "metrics": {
+    "mediated_effects": 1
+  },
+  "parent_oracle": true,
+  "probe_id": "E1a",
+  "schema": "fpo.phase7b.attempt.v1",
+  "status": "PASS",
+  "worker_context": null
+}

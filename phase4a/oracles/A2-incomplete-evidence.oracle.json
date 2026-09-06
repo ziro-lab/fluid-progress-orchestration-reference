@@ -1,0 +1,9 @@
+{
+  "case_id": "A2",
+  "allowed_capability_revision": "phase4a-v1",
+  "required_gap_patterns": ["missing|absent|incomplete|required", "acceptance|evidence|independent|validation|check"],
+  "required_support_refs": ["obs/output-match-001"],
+  "required_requested_observation_patterns": ["acceptance|evidence|independent|validation|check"],
+  "forbidden_authority_keys": ["checkpoint", "accepted", "closed", "work_lifecycle", "approval_granted", "budget_override"],
+  "expected_oracle_conformance": "observed output match is separated from missing acceptance evidence and an additional observation is requested"
+}

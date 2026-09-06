@@ -1,0 +1,13 @@
+{
+  "details": {
+    "narrowed_claim_accepted": false,
+    "trusted_constraints_preserved": true,
+    "widened_claim_accepted": true
+  },
+  "metrics": {},
+  "parent_oracle": true,
+  "probe_id": "X6",
+  "schema": "fpo.phase7b.attempt.v1",
+  "status": "PASS",
+  "worker_context": null
+}

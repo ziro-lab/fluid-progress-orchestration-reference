@@ -1,0 +1,20 @@
+{
+  "details": {
+    "compensation": {
+      "reason": "intervening-valid-change",
+      "status": "REJECTED_SAFE"
+    },
+    "current_value": {
+      "value": "intervening-change"
+    },
+    "intervening_revision_preserved": true
+  },
+  "metrics": {
+    "unsafe_compensation_overwrite": 0
+  },
+  "parent_oracle": true,
+  "probe_id": "R1",
+  "schema": "fpo.phase7b.attempt.v1",
+  "status": "PASS",
+  "worker_context": null
+}

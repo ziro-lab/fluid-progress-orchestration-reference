@@ -1,0 +1,83 @@
+{
+  "schema": "fpo.phase5a.generation-return.v1",
+  "generation_id": "G6",
+  "work_id": "FPO-5A-001",
+  "work_revision": "r5",
+  "decision": "VALIDATE",
+  "observed_facts": [
+    "COM-0005 with source immutable-r5.json and rebuilt projection PROJ-0005 is the latest valid authority.",
+    "The current post-repair evidence is V-002 FAIL: the actual result uses key Title while the expected canonical result uses title; the evidence is not independent and is not acceptance evidence.",
+    "H-002 identifies missing key canonicalization as the remaining narrow defect; the proposed change preserves inline # data and existing quoted-value normalization.",
+    "The G4 and G5 alternate repair proposals have owner-adoption records with status PASS and adopted_after_validation true.",
+    "The local policy requires inline # to remain data, and the independent validator requires exactly title Alpha # tag with mode safe."
+  ],
+  "new_observations": [
+    {
+      "observation_id": "G6-O-001",
+      "text": "The available current evidence establishes a validation gap, not acceptance: validator-report-post-repair.json reports independent false and acceptance_evidence false, while independent-validator.py defines the required canonical result.",
+      "source_ref": "workspace/validator-report-post-repair.json"
+    },
+    {
+      "observation_id": "G6-O-002",
+      "text": "The alternate key-canonicalization repair is owner-adopted for this continuation and must be treated as adopted, but G6 has not executed it.",
+      "source_ref": "generations/G5/owner-adoption.json"
+    }
+  ],
+  "evidence_refs": [
+    "source/immutable-r5.json",
+    "commits/COM-0005.json",
+    "projections/PROJ-0005.json",
+    "generations/G4/owner-adoption.json",
+    "generations/G5/owner-adoption.json",
+    "workspace/validator-report.json",
+    "workspace/validator-report-post-repair.json",
+    "workspace/independent-validator.py",
+    "workspace/policy.json"
+  ],
+  "uncertainties_seen": [],
+  "hypothesis_updates": [
+    {
+      "hypothesis_id": "H-002",
+      "status": "updated",
+      "statement": "The remaining V-002 failure is caused by missing key canonicalization; the owner-adopted narrow repair should lowercase the normalized key while preserving inline # data and existing quoted-value normalization.",
+      "basis_refs": [
+        "workspace/repaired-001/profile_loader.py",
+        "workspace/validator-report-post-repair.json",
+        "workspace/independent-validator.py",
+        "workspace/policy.json",
+        "generations/G5/owner-adoption.json"
+      ]
+    },
+    {
+      "hypothesis_id": "H-000",
+      "status": "invalidated",
+      "statement": "Treating every inline # as a comment remains invalid under the local policy and current source-bound evidence.",
+      "basis_refs": [
+        "source/immutable-r5.json",
+        "workspace/policy.json",
+        "source/SRC-5A-G3-001.json"
+      ]
+    }
+  ],
+  "route_rejections": [
+    {
+      "route": "Split values at # as an unconditional comment rule",
+      "reason": "The local policy requires inline # to remain data, and the route is already invalidated by current authority."
+    },
+    {
+      "route": "Treat validator-report-post-repair.json as acceptance",
+      "reason": "It explicitly reports independent false and acceptance_evidence false."
+    },
+    {
+      "route": "Execute the alternate repair or claim acceptance in G6",
+      "reason": "G6 may record proposals and observations only; repair execution and acceptance remain outside this generation's authority."
+    }
+  ],
+  "validation_proposal": {
+    "validator_ref": "workspace/independent-validator.py",
+    "independent": true,
+    "acceptance_evidence_required": true
+  },
+  "proposed_next_action": "After the already owner-adopted alternate key-canonicalization repair is applied, run workspace/independent-validator.py against the resulting projection and record its independent result as acceptance evidence; do not treat this Return as acceptance.",
+  "summary": "V-002 remains unresolved in the current non-independent evidence. The owner-adopted alternate repair is acknowledged, and independent final validation is proposed without executing repair or claiming acceptance."
+}

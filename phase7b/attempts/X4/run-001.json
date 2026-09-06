@@ -1,0 +1,30 @@
+{
+  "details": {
+    "closure": "SETTLED",
+    "premature_publish_rejected": true,
+    "published_manifest": {
+      "artifact_id": "x4-artifact",
+      "content_digest": "acc998723bd38f04a4b9e1ed70afc3fc88c7f3838a1f697bc32d6c9d59e5553c",
+      "immutable_revision": "acc998723bd38f04a4b9e1ed70afc3fc88c7f3838a1f697bc32d6c9d59e5553c",
+      "schema": "fpo.existing.artifact-manifest.v1",
+      "source": "provider-freeze"
+    },
+    "reconstructed_manifest": {
+      "artifact_id": "x4-artifact",
+      "content_digest": "acc998723bd38f04a4b9e1ed70afc3fc88c7f3838a1f697bc32d6c9d59e5553c",
+      "immutable_revision": "acc998723bd38f04a4b9e1ed70afc3fc88c7f3838a1f697bc32d6c9d59e5553c",
+      "schema": "fpo.existing.artifact-manifest.v1",
+      "source": "provider-freeze"
+    },
+    "writes_complete": true
+  },
+  "metrics": {
+    "premature_publication": 0,
+    "torn_publication_adoption": 0
+  },
+  "parent_oracle": true,
+  "probe_id": "X4",
+  "schema": "fpo.phase7b.attempt.v1",
+  "status": "PASS",
+  "worker_context": null
+}

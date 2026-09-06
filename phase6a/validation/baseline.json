@@ -1,0 +1,20 @@
+{
+  "expected_initial_failure": true,
+  "result": {
+    "args": [
+      "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "returncode": 1,
+    "stderr": "test_invalid_task_does_not_abort_report (test_task_runner.TaskRunnerTests.test_invalid_task_does_not_abort_report) ... ok\ntest_success_failure_and_order (test_task_runner.TaskRunnerTests.test_success_failure_and_order) ... ok\ntest_timeout_is_reported_without_fake_success (test_task_runner.TaskRunnerTests.test_timeout_is_reported_without_fake_success) ... FAIL\n\n======================================================================\nFAIL: test_timeout_is_reported_without_fake_success (test_task_runner.TaskRunnerTests.test_timeout_is_reported_without_fake_success)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"E:\\TEST\\FPO_Runtime_Probe_Starter\\.phase2-sync\\phase6a\\fixture\\task-runner\\tests\\test_task_runner.py\", line 45, in test_timeout_is_reported_without_fake_success\n    self.assertEqual(result[\"status\"], \"timed_out\")\nAssertionError: 'success' != 'timed_out'\n- success\n+ timed_out\n\n\n----------------------------------------------------------------------\nRan 3 tests in 0.617s\n\nFAILED (failures=1)\n",
+    "stdout": "",
+    "timed_out": false
+  },
+  "schema": "fpo.phase6a.baseline-validation.v1",
+  "status": "FAIL"
+}

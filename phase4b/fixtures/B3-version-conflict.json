@@ -1,0 +1,17 @@
+{
+  "case_id": "B3",
+  "title": "Version-scoped conflict about asyncio.wait_for timeout exception",
+  "runtime_target": "Python 3.12",
+  "local_failure": {
+    "code": "try: await asyncio.wait_for(job(), timeout=1)\\nexcept asyncio.TimeoutError: handle_timeout()",
+    "validation": "FAIL: compatibility review cannot determine the supported timeout exception contract"
+  },
+  "local_evidence_limit": "The local review note has no source revision and the deployed Python version is the only trusted version fact.",
+  "candidate_interpretations": [
+    "Use asyncio.TimeoutError because an older versioned document names it.",
+    "Use built-in TimeoutError because the Python 3.12 contract names it.",
+    "Catch broad Exception and ignore the version distinction."
+  ],
+  "research_question": "Compare versioned primary Python documentation for the relevant behavior, identify whether the apparent conflict is version/scope dependent, and propose a bounded action without using majority vote.",
+  "research_instruction": "Inspect source origin, version, and wording. If the conflict cannot be safely resolved, preserve uncertainty; never prefer a source merely because it was found first or is more numerous."
+}

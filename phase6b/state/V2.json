@@ -1,0 +1,8 @@
+{
+  "current_revision": "initial",
+  "fixture": "V2",
+  "schema": "fpo.phase6b.external-state.v1",
+  "state": "seeded",
+  "transcript": null,
+  "workspace_digest": "30911e66619701704beb69a9f5045b18b78e8934b130cbdc0a49903e1c4ce82c"
+}

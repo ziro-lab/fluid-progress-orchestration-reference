@@ -1,0 +1,1 @@
+{"case_id":"B4","checks":{"alternate_route_used":true,"budget":true,"fabricated_source_zero":true,"failed_route_detected":true,"human_escalation_zero":true},"oracle":{"alternate_route_required":true,"case_id":"B4","fabricated_source":0,"failed_route_detected":true,"human_escalation":0,"max_queries":6,"max_research_rounds":3,"max_sources":6},"status":"PASS","violations":[]}

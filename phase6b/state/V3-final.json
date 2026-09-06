@@ -1,0 +1,8 @@
+{
+  "false_close": false,
+  "fixture": "V3",
+  "human_response": "not-provided",
+  "independent_validation": true,
+  "schema": "fpo.phase6b.final-state.v1",
+  "status": "suspended/blocker"
+}

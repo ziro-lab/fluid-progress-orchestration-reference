@@ -1,0 +1,12 @@
+{
+  "attempt_ref": "phase7b/attempts/X1b/run-001.json",
+  "details": {
+    "missing_component_rejected": true,
+    "mutable_alias_rejected": true,
+    "worker_required_override_ignored": true
+  },
+  "metrics": {},
+  "probe_id": "X1b",
+  "schema": "fpo.phase7b.evidence.v1",
+  "status": "PASS"
+}

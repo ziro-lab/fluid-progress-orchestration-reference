@@ -1,0 +1,67 @@
+{
+  "schema": "fpo.phase5b.worker-return.v1",
+  "case_id": "N5",
+  "generation_id": "N5-G5",
+  "work_id": "FPO-5B-N5",
+  "work_revision": "r4",
+  "decision": "PROPOSE_REPAIR",
+  "route_id": "N5-RECOVERY-B",
+  "route_semantic_key": "recovery-b",
+  "observed_facts": [
+    {
+      "fact_id": "N5-G5-F1",
+      "text": "FAILURE-B remains active at the recovery-B-selected handoff state.",
+      "evidence_refs": [
+        "phase5b/fixture/no-progress-work.json#N5"
+      ]
+    },
+    {
+      "fact_id": "N5-G5-F2",
+      "text": "Recovery A is invalidated for FAILURE-B; recovery B is the materially distinct owner-selected route.",
+      "evidence_refs": [
+        "phase5b/handoffs/HO-N5-G5-001.json"
+      ]
+    }
+  ],
+  "evidence_refs": [
+    "phase5b/fixture/no-progress-work.json#N5",
+    "phase5b/handoffs/HO-N5-G5-001.json"
+  ],
+  "hypothesis_updates": [
+    {
+      "hypothesis_id": "N5-H-B",
+      "status": "updated",
+      "statement": "Failure B requires a materially distinct recovery route; recovery B is the selected route.",
+      "basis_refs": [
+        "phase5b/handoffs/HO-N5-G5-001.json"
+      ]
+    }
+  ],
+  "route_attempts": [
+    {
+      "route_id": "N5-RECOVERY-B",
+      "semantic_key": "recovery-b",
+      "materially_distinct": true,
+      "attempt_status": "proposed"
+    }
+  ],
+  "route_rejections": [
+    {
+      "route_id": "N5-RECOVERY-A",
+      "semantic_key": "recovery-a",
+      "reason": "Recovery A led to FAILURE-B and is invalidated for the current failure; reusing it would not be semantically distinct."
+    }
+  ],
+  "material_progress_signals": [],
+  "observed_checkpoint": "recovery-B-selected",
+  "proposal": {
+    "proposal_id": "N5-G5-PROP-RECOVERY-B",
+    "operation_id": "N5-RECOVERY-B",
+    "route_id": "N5-RECOVERY-B",
+    "target_ref": "phase5b/source/N5-immutable-r4.json",
+    "owner_adoption_required": true,
+    "reversible": true,
+    "known_good_ref": "phase5b/commits/COM-N5-0004.json"
+  },
+  "notes": "Recovery B is recorded as a reversible owner-controlled proposal only; no execution is recorded."
+}

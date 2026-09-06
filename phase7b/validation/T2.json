@@ -1,0 +1,11 @@
+{
+  "details": {
+    "current_owner_wins": true,
+    "delayed_return_adopted": false
+  },
+  "evidence_ref": "phase7b/evidence/T2.json",
+  "independent": true,
+  "probe_id": "T2",
+  "schema": "fpo.phase7b.validation.v1",
+  "status": "PASS"
+}

@@ -1,0 +1,65 @@
+{
+  "capability_id": "codex.flow-mini",
+  "revision": "1",
+  "provider_identity": "codex-plugin:ziro-lab/Flow-Mini-Harness",
+  "provides": [
+    "bounded_implementation_planning",
+    "implementation_execution",
+    "implementation_local_validation",
+    "implementation_local_replan",
+    "structured_implementation_return",
+    "explicit_same_sol_parallel_supervision"
+  ],
+  "accepts": [
+    "fpo.dispatch_packet@0.2",
+    "current_target_or_subject",
+    "current_flow_mini_core_or_authorized_implementation_source"
+  ],
+  "returns": [
+    "bounded_implementation_result",
+    "structured_gap_or_blocker",
+    "fpo_escalation_material_when_complex_recovery_is_required"
+  ],
+  "side_effect_profile": {
+    "product_write": "only within dispatched Target/write scope",
+    "fpo_control_write": false,
+    "fpo_acceptance": false,
+    "fpo_close": false,
+    "external_effects": "only when separately authorized and mediated"
+  },
+  "security_scope": {
+    "paths": "dispatch/Host constrained",
+    "network": "none by default; dispatch/approval constrained when needed",
+    "secret_handles": "none by default"
+  },
+  "operational_profile": {
+    "health": "host-attestation-required",
+    "availability": "conditional-on-current-binding-and-compatible-Codex-host",
+    "cost_class": "model-dependent",
+    "latency_class": "model-dependent",
+    "cancel_support": "host-dependent",
+    "stream_support": "host-dependent",
+    "reconcile_support": true,
+    "idempotency": "operation-specific"
+  },
+  "fitness": {
+    "evidence_refs": [
+      "phase7a/report.md",
+      "phase7c/PROOF_SCOPE.md"
+    ],
+    "current_plugin_live_proven": false,
+    "notes": "Phase 7A proves the recorded fixed Flow Mini r3 capability boundary; current Plugin/FPO Host composition still requires the S7/S8 field gate."
+  },
+  "compatibility": {
+    "fpo_runtime": "v0.2",
+    "flow_mini_version": "0.5.0",
+    "flow_mini_status": "Implementation Core Convergence Candidate r3",
+    "controller_revision": "FM-EXEC-0.5.0-r3",
+    "plugin_version": "0.1.1",
+    "parallel_profile_version": "0.1.2.1"
+  },
+  "fallback_capability_refs": [],
+  "binding_ref": "capabilities/flow_mini/BINDING.json",
+  "selection_rule": "Select only after resolving binding_ref and confirming exact provider identity/revision plus required Host/Fresh-context capability. Missing or ambiguous binding is not availability.",
+  "status": "conditional"
+}

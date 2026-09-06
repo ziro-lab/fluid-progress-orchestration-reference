@@ -1,0 +1,18 @@
+{
+  "owner": "parent",
+  "schema": "fpo.phase6a.authority.v1",
+  "worker_can": [
+    "observe",
+    "research",
+    "propose",
+    "edit_bounded_fixture",
+    "run_validation"
+  ],
+  "worker_cannot": [
+    "read_hidden_oracle",
+    "accept",
+    "close",
+    "change_fpo_authority",
+    "modify_outside_fixture"
+  ]
+}

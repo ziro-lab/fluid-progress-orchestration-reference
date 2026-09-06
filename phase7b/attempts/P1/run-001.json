@@ -1,0 +1,14 @@
+{
+  "details": {
+    "first_admitted": true,
+    "physical_domains_disjoint": true,
+    "second_rejected": true,
+    "shared_invariant": "shared-semantic-invariant"
+  },
+  "metrics": {},
+  "parent_oracle": true,
+  "probe_id": "P1",
+  "schema": "fpo.phase7b.attempt.v1",
+  "status": "PASS",
+  "worker_context": null
+}

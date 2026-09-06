@@ -1,0 +1,129 @@
+{
+  "capability_run_id": "research-B5-001",
+  "dispatch_id": "DISP-B5-001",
+  "operation_id": "OP-B5-001",
+  "capability_revision": "phase4b-v1",
+  "facts": [
+    {
+      "id": "F1",
+      "statement": "The fixture targets Python 3.12 and shows subprocess.run called with capture_output=True and text=True but without an encoding argument; it requires café\\n and records cafÃ©\\n.",
+      "evidence_refs": ["fixture:B5.initial_execution"]
+    },
+    {
+      "id": "F2",
+      "statement": "Python 3.12 subprocess documentation states that when text is true, subprocess opens stdin, stdout, and stderr in text mode using the specified encoding and errors or the io.TextIOWrapper default; stdout is a string when text=True.",
+      "evidence_refs": ["SRC-SUBPROCESS-312"]
+    },
+    {
+      "id": "F3",
+      "statement": "Python 3.12 io documentation states that TextIOWrapper's default encoding is locale.getencoding(), and recommends specifying encoding explicitly for UTF-8 text, including encoding=\"utf-8\".",
+      "evidence_refs": ["SRC-IO-312"]
+    }
+  ],
+  "findings": [
+    {
+      "id": "FN1",
+      "statement": "The missing encoding contract is that text=True selects text-mode decoding but, without encoding, subprocess uses the runtime's TextIOWrapper default; the source therefore does not guarantee that UTF-8 child bytes are decoded as UTF-8.",
+      "support_refs": ["SRC-SUBPROCESS-312", "SRC-IO-312"],
+      "confidence": "high"
+    },
+    {
+      "id": "FN2",
+      "statement": "The fixture's cafÃ© observation is consistent with UTF-8 child bytes being decoded with a non-UTF-8 default, but the exact runtime codec and provenance cannot be identified from the fixture and documentation alone.",
+      "support_refs": ["SRC-SUBPROCESS-312", "SRC-IO-312", "fixture:B5.initial_execution"],
+      "confidence": "medium"
+    },
+    {
+      "id": "FN3",
+      "statement": "The minimal repair surface is the existing subprocess.run call: explicitly supply encoding=\"utf-8\" while preserving the command, capture_output=True, text=True, and surrounding print behavior.",
+      "support_refs": ["SRC-SUBPROCESS-312", "SRC-IO-312", "fixture:B5.source_code_after_required"],
+      "confidence": "high"
+    }
+  ],
+  "evidence_refs": ["SRC-SUBPROCESS-312", "SRC-IO-312", "fixture:B5.initial_execution"],
+  "uncertainties": [
+    {
+      "id": "U1",
+      "statement": "The fixture does not report the runtime platform, locale.getencoding(), UTF-8 mode state, or the actual encoding selected by the text wrapper, so the exact default codec causing the observed mojibake is unverified."
+    },
+    {
+      "id": "U2",
+      "statement": "The child emitter's raw stdout bytes are not independently observed in the supplied fixture; the fixture specifies UTF-8 bytes, but a raw-byte diagnostic would separate child emission from parent decoding."
+    }
+  ],
+  "proposals": [
+    {
+      "id": "P1",
+      "type": "repair",
+      "statement": "Make one reversible local source edit by changing the call to subprocess.run([sys.executable, 'emit.py'], capture_output=True, text=True, encoding=\"utf-8\").",
+      "support_refs": ["SRC-SUBPROCESS-312", "SRC-IO-312", "fixture:B5.source_code_after_required"]
+    },
+    {
+      "id": "P2",
+      "type": "next_action",
+      "statement": "Have the independent validator inspect the call for explicit encoding=\"utf-8\" and rerun the bounded case, checking that the captured output is exactly café\\n.",
+      "support_refs": ["SRC-SUBPROCESS-312", "fixture:B5.initial_execution"]
+    }
+  ],
+  "requested_observations": [
+    {
+      "id": "RO1",
+      "request": "Record the execution platform, Python version, sys.flags.utf8_mode, locale.getencoding(), and the text stream encoding used for the subprocess capture before the repair.",
+      "rationale": "These observations identify which runtime default was selected and whether UTF-8 mode affected the missing-encoding path."
+    },
+    {
+      "id": "RO2",
+      "request": "Run a diagnostic capture with text=False and record the child stdout bytes in hexadecimal, then compare those bytes with UTF-8 decoding.",
+      "rationale": "The raw bytes distinguish an emitter-side encoding issue from a parent-side text-mode decoding issue."
+    }
+  ],
+  "notes": [
+    "Only public, read-only Python documentation was used as research evidence.",
+    "This return contains research findings and a repair proposal only; it makes no FPO acceptance, lifecycle, checkpoint, approval, closure, or blocker decision."
+  ],
+  "research_trace": {
+    "queries": [
+      "site:docs.python.org/3/library/subprocess.html subprocess.run text=True encoding parameter",
+      "site:docs.python.org/3/library/subprocess.html Popen text mode encoding locale.getencoding",
+      "site:docs.python.org/3/library/io.html TextIOWrapper default encoding locale",
+      "site:docs.python.org/3/library/locale.html getpreferredencoding subprocess text mode"
+    ],
+    "rounds": 2,
+    "sources_inspected": [
+      "https://docs.python.org/3.12/library/subprocess.html",
+      "https://docs.python.org/3.12/library/io.html"
+    ],
+    "budget": {
+      "max_research_rounds": 3,
+      "max_distinct_queries": 6,
+      "max_accepted_sources": 6
+    }
+  },
+  "source_claims": [
+    {
+      "source_id": "SRC-SUBPROCESS-312",
+      "url": "https://docs.python.org/3.12/library/subprocess.html",
+      "title": "subprocess — Subprocess management — Python 3.12.13 documentation",
+      "publisher": "Python Software Foundation",
+      "source_class": "official_documentation",
+      "revision": "Python 3.12.13 documentation",
+      "supports": ["F2", "FN1", "FN3", "P1", "P2"],
+      "observation": "The documented subprocess rule says text=True opens the standard streams in text mode; an explicit encoding is used when supplied, otherwise the io.TextIOWrapper default is used."
+    },
+    {
+      "source_id": "SRC-IO-312",
+      "url": "https://docs.python.org/3.12/library/io.html",
+      "title": "io — Core tools for working with streams — Python 3.12.13 documentation",
+      "publisher": "Python Software Foundation",
+      "source_class": "official_documentation",
+      "revision": "Python 3.12.13 documentation",
+      "supports": ["F3", "FN1", "FN2", "FN3", "P1"],
+      "observation": "The documented TextIOWrapper default is locale.getencoding(); the text-encoding guidance recommends explicit encoding and gives encoding=\"utf-8\" for UTF-8 text."
+    }
+  ],
+  "hypothesis_trace": {
+    "initial": "The missing encoding argument is causing the parent to decode UTF-8 child output with an incompatible default.",
+    "after_research": "Python documentation confirms that text=True activates text mode but, absent encoding, subprocess delegates to the locale-dependent TextIOWrapper default in Python 3.12; explicitly setting encoding=\"utf-8\" is the minimal local repair. The exact runtime codec remains unproven.",
+    "revision_reason": "The research confirms the mechanism and repair surface, while the supplied fixture lacks runtime locale/UTF-8-mode and raw child-byte observations needed to establish exact provenance."
+  }
+}

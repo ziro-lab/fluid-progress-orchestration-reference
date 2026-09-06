@@ -1,0 +1,31 @@
+{
+  "schema": "fpo.phase5b.worker-return.v1",
+  "case_id": "N2",
+  "generation_id": "N2-G1",
+  "work_id": "FPO-5B-N2",
+  "work_revision": "r0",
+  "decision": "STOP",
+  "route_id": "N2-G1-observe-evidence-unchanged",
+  "route_semantic_key": "observe-repeated-evidence",
+  "observed_facts": [
+    {
+      "fact_id": "N2-G1-F001",
+      "text": "同一の証拠参照 fixture/no-progress-work.json#N2 に対する観測を3回確認したが、いずれも同一内容の重複であり、新しい有効証拠や material progress は得られなかった。",
+      "evidence_refs": [
+        "phase5b/fixture/no-progress-work.json#N2"
+      ]
+    }
+  ],
+  "evidence_refs": [
+    "phase5b/fixture/no-progress-work.json#N2"
+  ],
+  "hypothesis_updates": [],
+  "route_attempts": [],
+  "route_rejections": [],
+  "material_progress_signals": [],
+  "observed_checkpoint": "observation",
+  "notes": "観測回数は3回で、observation_signature は全回で同一。evidence_gain は0であり、証拠不変のため停止する。",
+  "observation_signature": "N2-evidence-unchanged-duplicate",
+  "observation_count": 3,
+  "evidence_gain": 0
+}

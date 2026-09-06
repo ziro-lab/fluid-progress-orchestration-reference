@@ -1,0 +1,8 @@
+{
+  "false_close": false,
+  "fixture": "V2",
+  "human_response": null,
+  "independent_validation": true,
+  "schema": "fpo.phase6b.final-state.v1",
+  "status": "closed/completed"
+}

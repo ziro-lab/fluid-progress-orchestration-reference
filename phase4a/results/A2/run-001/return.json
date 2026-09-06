@@ -1,0 +1,82 @@
+{
+  "capability_run_id": "caprun-A2-001",
+  "dispatch_id": "DISP-A2-001",
+  "operation_id": "OP-A2-001",
+  "capability_revision": "phase4a-v1",
+  "facts": [
+    {
+      "id": "fact-output-match-001",
+      "statement": "The observed output text is \"FPO\\n\", which matches the expected text \"FPO\\n\" with the newline preserved.",
+      "evidence_refs": [
+        "fixture/expected.txt",
+        "fixture/observed.txt",
+        "obs/output-match-001"
+      ]
+    },
+    {
+      "id": "fact-acceptance-evidence-failure-001",
+      "statement": "The supplied validation record reports FAIL because the required independent acceptance evidence record is missing.",
+      "evidence_refs": [
+        "fixture/validation.json",
+        "required/independent-acceptance-001"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "finding-output-signal-001",
+      "statement": "The output-match signal supports that the supplied output satisfies the stated content transformation, but it is not independent acceptance evidence and is insufficient by itself to establish acceptance or closure.",
+      "support_refs": [
+        "obs/output-match-001",
+        "fixture/expected.txt",
+        "fixture/observed.txt"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "finding-evidence-incomplete-001",
+      "statement": "Independent acceptance evidence is incomplete in the supplied evidence set: the required independent acceptance check and its evidence record are absent.",
+      "support_refs": [
+        "fixture/validation.json",
+        "required/independent-acceptance-001"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "evidence_refs": [
+    "fixture/expected.txt",
+    "fixture/observed.txt",
+    "fixture/validation.json",
+    "obs/output-match-001",
+    "required/independent-acceptance-001"
+  ],
+  "uncertainties": [
+    {
+      "id": "uncertainty-acceptance-source-001",
+      "statement": "It is unknown whether the independent acceptance check was not run, exists outside the supplied evidence set, or whether another required criterion remains untested."
+    }
+  ],
+  "proposals": [
+    {
+      "id": "proposal-next-observation-001",
+      "type": "next_action",
+      "statement": "Obtain and record one independent acceptance check of the observed output against the expected behavior, including its result and evidence reference.",
+      "support_refs": [
+        "fixture/validation.json",
+        "required/independent-acceptance-001"
+      ]
+    }
+  ],
+  "requested_observations": [
+    {
+      "id": "request-independent-acceptance-001",
+      "request": "Provide the result and evidence record/reference for one independent acceptance check that verifies the observed output content and newline preservation against the expected output.",
+      "rationale": "This is the smallest additional observation that addresses the explicitly missing independent acceptance evidence; the output-match signal is already observed."
+    }
+  ],
+  "notes": [
+    "The observed output-match signal is reported separately from the missing independent acceptance evidence.",
+    "No acceptance or closure decision is made.",
+    "The supplied input is fpo with a newline; the stated expected transformation is uppercase alphabetic characters with the newline preserved."
+  ]
+}

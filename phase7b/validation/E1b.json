@@ -1,0 +1,11 @@
+{
+  "details": {
+    "destination_unchanged": true,
+    "direct_persist_blocked": true
+  },
+  "evidence_ref": "phase7b/evidence/E1b.json",
+  "independent": true,
+  "probe_id": "E1b",
+  "schema": "fpo.phase7b.validation.v1",
+  "status": "PASS"
+}

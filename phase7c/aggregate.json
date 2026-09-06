@@ -1,0 +1,81 @@
+{
+  "baseline_integrity": {
+    "changed_protected_paths": [],
+    "phase7b_aggregate_pass": true,
+    "phase7b_regression_pass": true,
+    "protected_paths_unchanged": true
+  },
+  "efficiency_observation": "NOT_A_BENCHMARK; J1 used two justified lanes, J2 used serial route",
+  "flow_mini_integrity": {
+    "candidate_archive_hash_matches": true,
+    "candidate_archive_sha256": "454f835efac1f09d774ccc3a4bce76352761f208a6dffba9305b646f2d18f93c",
+    "execution_template_hash_matches": true,
+    "execution_template_sha256": "3aec52d7a53a16aee677ea640070106f7caf39becd10f252acd6ef83b612fbfc",
+    "revision": "0.5.0/r2"
+  },
+  "invariants": {
+    "ai_authority_promotion_zero": true,
+    "commit_integrity_pass": true,
+    "duplicate_effect_zero": true,
+    "duplicate_physical_child_zero": true,
+    "false_acceptance_zero": true,
+    "false_close_zero": true,
+    "false_settled_fenced_zero": true,
+    "flow_mini_done_to_fpo_acceptance_close_zero": true,
+    "hidden_oracle_leakage_zero": true,
+    "phase0_7b_regression_pass": true,
+    "preintegration_validation_reused_zero": true,
+    "premature_torn_publication_zero": true,
+    "projection_rebuild_pass": true,
+    "stale_binding_effect_zero": true,
+    "transcript_dependency_zero": true,
+    "unmediated_persistent_effect_zero": true,
+    "validated_revision_equals_accepted_revision": true,
+    "worker_safety_narrowing_zero": true
+  },
+  "jobs": {
+    "J1": {
+      "fan_in_count": 1,
+      "final_state": "closed/completed",
+      "independent_validation": "PASS",
+      "lane_count": 2,
+      "selected_route": "parallel",
+      "status": "PASS"
+    },
+    "J2": {
+      "fan_in_count": 0,
+      "final_state": "closed/completed",
+      "independent_validation": "PASS",
+      "lane_count": 1,
+      "selected_route": "serial",
+      "status": "PASS"
+    }
+  },
+  "metrics": {
+    "duplicate_effect": 0,
+    "duplicate_work": 0,
+    "fan_in_count": 1,
+    "implementation_replans": 0,
+    "integration_rework": 0,
+    "material_progress_events": 8,
+    "recovery_actions": 0,
+    "requirements_discovered": 5,
+    "unnecessary_parallel_workers": 0,
+    "validation_failures": 2
+  },
+  "overall_verdict": "PASS",
+  "provider_usage": {
+    "actual_model_calls": 0,
+    "declared_execution_policy": "Luna xhigh",
+    "declared_planning_policy": "Sol Medium",
+    "emergency_sol_calls": 0,
+    "flow_mini_execution_invocations": 3,
+    "flow_mini_planning_invocations": 2,
+    "fresh_capability_processes": 3,
+    "human_requests": 0,
+    "recovery_skill_calls": 0,
+    "research_calls": 0
+  },
+  "schema": "fpo.phase7c.naturalistic-integrated-parallel-aggregate.v1",
+  "starting_revision": "802fb802b509e2c93d8d1d49cdccbd4eaf2f480e"
+}

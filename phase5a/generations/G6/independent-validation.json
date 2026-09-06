@@ -1,0 +1,1 @@
+{"acceptance_evidence":true,"independent":true,"input_ref":"workspace/repaired-002/profile_loader.py","observed_result":{"mode":"safe","title":"Alpha # tag"},"schema":"fpo.phase5a.independent-validation.v1","status":"PASS","validator":"workspace/independent-validator.py"}

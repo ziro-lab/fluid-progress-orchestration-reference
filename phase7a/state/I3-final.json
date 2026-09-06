@@ -1,0 +1,11 @@
+{
+  "current_revision": "after-fpo-acceptance",
+  "false_close": false,
+  "fixture": "I3",
+  "flow_mini_done": true,
+  "independent_validation": true,
+  "schema": "fpo.phase7a.fpo-final-state.v1",
+  "status": "closed/completed",
+  "transcript": null,
+  "workspace_digest": "7a42fcf3347126c064105efc30313ae7db8fc34ce08adca8ed8fc2123d8ac439"
+}

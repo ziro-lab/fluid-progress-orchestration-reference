@@ -1,0 +1,1 @@
+{"action_id":"ACT-C2-001","human_needed":false,"resolution":"Use built-in TimeoutError for the Python 3.12 target; retain a specific handler.","schema":"fpo.phase4c.autonomous-resolution.v1","source_ref":"phase4c/research-evidence/SRC-C2-001.json"}

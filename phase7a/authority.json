@@ -1,0 +1,18 @@
+{
+  "flow_mini_done_is_not": [
+    "FPO acceptance",
+    "FPO close"
+  ],
+  "flow_mini_return_is": "candidate evidence/proposal",
+  "hidden_oracle": "parent-only",
+  "owner": "parent FPO",
+  "schema": "fpo.phase7a.authority.v1",
+  "worker_cannot": [
+    "read oracle",
+    "accept",
+    "close",
+    "change upstream design",
+    "perform FPO research",
+    "modify outside bounded fixture"
+  ]
+}

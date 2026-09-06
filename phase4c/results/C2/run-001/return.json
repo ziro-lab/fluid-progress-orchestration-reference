@@ -1,0 +1,79 @@
+{
+  "case_id": "C2",
+  "run_number": 1,
+  "capability_run_id": "human-last-C2-001",
+  "dispatch_id": "DISP-C2-001",
+  "operation_id": "OP-C2-001",
+  "capability_revision": "phase4c-v1",
+  "decision": "NO_HUMAN",
+  "autonomous_routes_available": [
+    "inspect versioned official Python documentation",
+    "use the target-version documented timeout exception contract"
+  ],
+  "autonomous_routes_attempted": [
+    "inspected the official Python 3.12 asyncio task documentation",
+    "inspected the official Python 3.12 asyncio exceptions documentation"
+  ],
+  "evidence_refs": [
+    "local:phase4c/fixtures/C2-research-route.json:local_evidence.trusted_fact",
+    "local:phase4c/fixtures/C2-research-route.json:local_evidence.code",
+    "https://docs.python.org/3.12/library/asyncio-task.html",
+    "https://docs.python.org/3.12/library/asyncio-exceptions.html"
+  ],
+  "facts": [
+    "The supplied trusted fact identifies Python 3.12 as the deployed interpreter target.",
+    "The supplied code awaits asyncio.wait_for(job(), timeout=1) and catches asyncio.TimeoutError.",
+    "The Python 3.12 asyncio.wait_for documentation states that a timeout raises TimeoutError and records that Python 3.11 changed this from asyncio.TimeoutError.",
+    "The Python 3.12 asyncio exceptions documentation states that asyncio.TimeoutError is a deprecated alias of TimeoutError."
+  ],
+  "findings": [
+    "Bounded primary-source research resolves the target-version contract: the canonical exception name to document and use is the built-in TimeoutError.",
+    "The existing asyncio.TimeoutError catch remains behaviorally compatible in Python 3.12 because the documented asyncio.TimeoutError name is an alias of TimeoutError.",
+    "The broad Exception route is unnecessary and less precise; no human selection is needed."
+  ],
+  "uncertainties": [
+    "The local review note has no source revision, so its dispute cannot be resolved from local evidence alone; it is resolved for this target by the inspected Python 3.12 documentation.",
+    "The inspected documentation establishes the exception contract but does not determine any project-specific logging or remediation behavior in handle_timeout()."
+  ],
+  "notes": [
+    "The target-version evidence resolves the research question, so no escalation proposal is emitted."
+  ],
+  "research_trace": {
+    "queries": [
+      "site:docs.python.org/3.12/library/asyncio-task.html asyncio.wait_for TimeoutError Python 3.12",
+      "site:docs.python.org/3.12/library/asyncio-exceptions.html TimeoutError Python 3.12"
+    ],
+    "rounds": 2,
+    "sources_inspected": [
+      "https://docs.python.org/3.12/library/asyncio-task.html",
+      "https://docs.python.org/3.12/library/asyncio-exceptions.html"
+    ]
+  },
+  "source_claims": [
+    {
+      "source_id": "SRC-C2-PY312-ASYNCIO-TASK",
+      "url": "https://docs.python.org/3.12/library/asyncio-task.html",
+      "title": "Coroutines and Tasks — Python 3.12.13 documentation",
+      "publisher": "Python Software Foundation",
+      "source_class": "official_documentation",
+      "revision": "Python 3.12.13 documentation",
+      "supports": [
+        "asyncio.wait_for timeout behavior",
+        "the Python 3.11 change from asyncio.TimeoutError to TimeoutError"
+      ],
+      "observation": "The versioned page states that asyncio.wait_for cancels the task and raises TimeoutError when a timeout occurs, and that since Python 3.11 it raises TimeoutError instead of asyncio.TimeoutError."
+    },
+    {
+      "source_id": "SRC-C2-PY312-ASYNCIO-EXCEPTIONS",
+      "url": "https://docs.python.org/3.12/library/asyncio-exceptions.html",
+      "title": "Exceptions — Python 3.12.13 documentation",
+      "publisher": "Python Software Foundation",
+      "source_class": "official_documentation",
+      "revision": "Python 3.12.13 documentation",
+      "supports": [
+        "the identity and status of asyncio.TimeoutError"
+      ],
+      "observation": "The versioned page describes asyncio.TimeoutError as a deprecated alias of TimeoutError and says it was made an alias in Python 3.11."
+    }
+  ]
+}

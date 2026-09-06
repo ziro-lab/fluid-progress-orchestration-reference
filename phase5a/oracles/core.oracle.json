@@ -1,0 +1,35 @@
+{
+  "schema": "fpo.phase5a.core-oracle.v1",
+  "purpose": "Parent-only deterministic grading; never exposed to Fresh workers.",
+  "generation_sequence": ["G1", "G2", "G3", "G4", "G5", "G6"],
+  "minimums": {
+    "fresh_generations": 6,
+    "hypothesis_updates": 2,
+    "research_operations": 1,
+    "route_rejections": 1,
+    "repair_operations": 2,
+    "post_repair_failures": 1
+  },
+  "required_final": {
+    "independent_validation": "PASS",
+    "checkpoint": "closed",
+    "work_lifecycle": "terminated",
+    "terminal_disposition": "completed"
+  },
+  "invariants": [
+    "ai_authority_promotion_zero",
+    "transcript_dependency_zero",
+    "stale_handoff_adoption_zero",
+    "summary_prose_authority_promotion_zero",
+    "invalidated_hypothesis_resurrection_zero",
+    "false_close_zero",
+    "false_acceptance_zero",
+    "duplicate_repair_effect_zero",
+    "research_operation_not_repair_operation",
+    "acceptance_before_independent_validation_zero",
+    "immutable_source_authoritative",
+    "projection_rebuild_pass",
+    "commit_integrity_pass",
+    "baseline_integrity_pass"
+  ]
+}

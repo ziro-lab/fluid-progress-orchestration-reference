@@ -1,0 +1,8 @@
+{
+  "class": "MECHANICAL",
+  "independent": true,
+  "probe_id": "X1a",
+  "schema": "fpo.phase7b.fixture.v1",
+  "seed_ref": "phase7b/fixtures/manifest.json",
+  "trusted_oracle_ref": "phase7b/oracles/parallel.oracle.json"
+}

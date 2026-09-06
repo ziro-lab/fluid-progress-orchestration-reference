@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fpo.phase5a.generation-return.v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "generation_id",
+    "work_id",
+    "work_revision",
+    "decision",
+    "observed_facts",
+    "new_observations",
+    "evidence_refs",
+    "uncertainties_seen",
+    "hypothesis_updates",
+    "route_rejections",
+    "proposed_next_action",
+    "summary"
+  ],
+  "properties": {
+    "schema": { "const": "fpo.phase5a.generation-return.v1" },
+    "generation_id": { "type": "string", "pattern": "^G[1-6]$" },
+    "work_id": { "type": "string", "minLength": 1 },
+    "work_revision": { "type": "string", "pattern": "^r[0-9]+$" },
+    "decision": { "type": "string", "enum": ["OBSERVE", "RESEARCH", "PROPOSE_REPAIR", "REASSESS", "VALIDATE", "PROPOSE_ACCEPT"] },
+    "observed_facts": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "new_observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["observation_id", "text", "source_ref"],
+        "properties": {
+          "observation_id": { "type": "string", "minLength": 1 },
+          "text": { "type": "string", "minLength": 1 },
+          "source_ref": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "evidence_refs": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "uncertainties_seen": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "hypothesis_updates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["hypothesis_id", "status", "statement", "basis_refs"],
+        "properties": {
+          "hypothesis_id": { "type": "string", "minLength": 1 },
+          "status": { "type": "string", "enum": ["proposed", "updated", "adopted", "invalidated", "superseded"] },
+          "statement": { "type": "string", "minLength": 1 },
+          "basis_refs": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+        }
+      }
+    },
+    "route_rejections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["route", "reason"],
+        "properties": {
+          "route": { "type": "string", "minLength": 1 },
+          "reason": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "research_trace": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["queries", "sources", "rounds"],
+      "properties": {
+        "queries": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["url", "claim"],
+            "properties": {
+              "url": { "type": "string", "format": "uri" },
+              "claim": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "rounds": { "type": "integer", "minimum": 1, "maximum": 2 }
+      }
+    },
+    "repair_proposal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["proposal_id", "operation_id", "target_ref", "change_summary", "reversible", "requires_owner_adoption"],
+      "properties": {
+        "proposal_id": { "type": "string", "minLength": 1 },
+        "operation_id": { "type": "string", "minLength": 1 },
+        "target_ref": { "type": "string", "minLength": 1 },
+        "change_summary": { "type": "string", "minLength": 1 },
+        "reversible": { "const": true },
+        "requires_owner_adoption": { "const": true }
+      }
+    },
+    "validation_proposal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["validator_ref", "independent", "acceptance_evidence_required"],
+      "properties": {
+        "validator_ref": { "type": "string", "minLength": 1 },
+        "independent": { "const": true },
+        "acceptance_evidence_required": { "const": true }
+      }
+    },
+    "proposed_next_action": { "type": "string", "minLength": 1 },
+    "summary": { "type": "string", "minLength": 1 }
+  }
+}

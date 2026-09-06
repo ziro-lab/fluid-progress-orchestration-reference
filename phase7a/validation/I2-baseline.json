@@ -1,0 +1,21 @@
+{
+  "expected_initial_failure": true,
+  "fixture": "I2",
+  "result": {
+    "args": [
+      "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "returncode": 1,
+    "stderr": "test_resolved_canary_badge (test_badge.BadgeTests.test_resolved_canary_badge) ... FAIL\ntest_resolved_stable_badge (test_badge.BadgeTests.test_resolved_stable_badge) ... FAIL\n\n======================================================================\nFAIL: test_resolved_canary_badge (test_badge.BadgeTests.test_resolved_canary_badge)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"E:\\TEST\\FPO_Runtime_Probe_Starter\\.phase2-sync\\phase7a\\fixture\\i2-design-gap\\tests\\test_badge.py\", line 14, in test_resolved_canary_badge\n    self.assertEqual(render_badge(\"canary\", \"1.2.3\"), {\"text\": \"canary 1.2.3\", \"color\": \"amber\"})\nAssertionError: {'text': 'release 1.2.3', 'color': 'blue'} != {'text': 'canary 1.2.3', 'color': 'amber'}\n- {'color': 'blue', 'text': 'release 1.2.3'}\n?             --              ^^^^^^\n\n+ {'color': 'amber', 'text': 'canary 1.2.3'}\n?            ++  +            ++++ ^\n\n\n======================================================================\nFAIL: test_resolved_stable_badge (test_badge.BadgeTests.test_resolved_stable_badge)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"E:\\TEST\\FPO_Runtime_Probe_Starter\\.phase2-sync\\phase7a\\fixture\\i2-design-gap\\tests\\test_badge.py\", line 11, in test_resolved_stable_badge\n    self.assertEqual(render_badge(\"stable\", \"1.2.3\"), {\"text\": \"stable 1.2.3\", \"color\": \"green\"})\nAssertionError: {'text': 'release 1.2.3', 'color': 'blue'} != {'text': 'stable 1.2.3', 'color': 'green'}\n- {'color': 'blue', 'text': 'release 1.2.3'}\n?            ^^^             ^^  ---\n\n+ {'color': 'green', 'text': 'stable 1.2.3'}\n?            ^^ ++            ^^^^\n\n\n----------------------------------------------------------------------\nRan 2 tests in 0.001s\n\nFAILED (failures=2)\n",
+    "stdout": "",
+    "timed_out": false
+  },
+  "schema": "fpo.phase7a.baseline-validation.v1",
+  "status": "FAIL"
+}

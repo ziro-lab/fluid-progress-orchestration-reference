@@ -1,0 +1,40 @@
+{
+  "schema": "fpo.phase5b.worker-return.v1",
+  "case_id": "N5",
+  "generation_id": "N5-G1",
+  "work_id": "FPO-5B-N5",
+  "work_revision": "r0",
+  "decision": "DIAGNOSE",
+  "route_id": "R-N5-G1-DIAGNOSE-FAILURE-A",
+  "route_semantic_key": "diagnose-current-failure-without-effect",
+  "observed_facts": [
+    {
+      "fact_id": "FAILURE-A",
+      "text": "Failure A is the current failure: the handoff remains at checkpoint failure-A with status FAIL, failure_id N5-INITIAL, and no acceptance evidence.",
+      "evidence_refs": [
+        "phase5b/fixture/no-progress-work.json#N5",
+        "phase5b/source/N5-immutable-r0.json"
+      ]
+    }
+  ],
+  "evidence_refs": [
+    "phase5b/fixture/no-progress-work.json#N5",
+    "phase5b/source/N5-immutable-r0.json"
+  ],
+  "hypothesis_updates": [
+    {
+      "hypothesis_id": "N5-H-A",
+      "status": "proposed",
+      "statement": "The current FAILURE-A is sustained because no accepted evidence or independent acceptance evidence is present in the source-bound handoff state; diagnosis should preserve the failure state until a materially distinct, owner-adopted recovery route produces valid evidence.",
+      "basis_refs": [
+        "phase5b/source/N5-immutable-r0.json",
+        "phase5b/fixture/no-progress-work.json#N5"
+      ]
+    }
+  ],
+  "route_attempts": [],
+  "route_rejections": [],
+  "material_progress_signals": [],
+  "observed_checkpoint": "failure-A",
+  "notes": "Diagnosed the current FAILURE-A only; no repair, rollback, close, acceptance, or authority mutation was performed or claimed. No proposal is included."
+}

@@ -1,0 +1,12 @@
+{
+  "details": {
+    "late_artifact_authority": false,
+    "stale_eligible": false,
+    "stale_return_adopted": false
+  },
+  "evidence_ref": "phase7b/evidence/H3.json",
+  "independent": true,
+  "probe_id": "H3",
+  "schema": "fpo.phase7b.validation.v1",
+  "status": "PASS"
+}

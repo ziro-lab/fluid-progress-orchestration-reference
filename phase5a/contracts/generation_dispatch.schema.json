@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fpo.phase5a.generation-dispatch.v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "dispatch_id", "generation_id", "work_id", "input_handoff_ref", "current_source_ref", "valid_commit_ref", "normative_refs", "allowed_retrieval_refs", "prohibitions"],
+  "properties": {
+    "schema": { "const": "fpo.phase5a.generation-dispatch.v1" },
+    "dispatch_id": { "type": "string", "pattern": "^DISP-5A-G[1-6]-[0-9]{3}$" },
+    "generation_id": { "type": "string", "pattern": "^G[1-6]$" },
+    "work_id": { "type": "string", "minLength": 1 },
+    "input_handoff_ref": { "type": "string", "minLength": 1 },
+    "current_source_ref": { "type": "string", "minLength": 1 },
+    "valid_commit_ref": { "type": "string", "minLength": 1 },
+    "normative_refs": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "allowed_retrieval_refs": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "prohibitions": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+  }
+}

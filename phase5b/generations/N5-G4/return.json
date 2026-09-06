@@ -1,0 +1,59 @@
+{
+  "schema": "fpo.phase5b.worker-return.v1",
+  "case_id": "N5",
+  "generation_id": "N5-G4",
+  "work_id": "FPO-5B-N5",
+  "work_revision": "r3",
+  "decision": "PROPOSE_ROUTE_CHANGE",
+  "route_id": "N5-RECOVERY-B",
+  "route_semantic_key": "recovery-b",
+  "observed_facts": [
+    {
+      "fact_id": "N5-G4-F1",
+      "text": "The current failure is FAILURE-B at checkpoint diagnosis-B, with no acceptance evidence.",
+      "evidence_refs": [
+        "phase5b/fixture/no-progress-work.json#N5",
+        "phase5b/source/N5-immutable-r3.json"
+      ]
+    },
+    {
+      "fact_id": "N5-G4-F2",
+      "text": "The recovery-a route is invalidated for FAILURE-B and must not be reused.",
+      "evidence_refs": [
+        "phase5b/source/N5-immutable-r3.json"
+      ]
+    }
+  ],
+  "evidence_refs": [
+    "phase5b/fixture/no-progress-work.json#N5",
+    "phase5b/source/N5-immutable-r3.json"
+  ],
+  "hypothesis_updates": [],
+  "route_attempts": [
+    {
+      "route_id": "N5-RECOVERY-B",
+      "semantic_key": "recovery-b",
+      "materially_distinct": true,
+      "attempt_status": "proposed"
+    }
+  ],
+  "route_rejections": [
+    {
+      "route_id": "N5-RECOVERY-A",
+      "semantic_key": "recovery-a",
+      "reason": "Recovery A led to FAILURE-B and is invalidated for the current failure; reusing it would not be semantically distinct."
+    }
+  ],
+  "material_progress_signals": [
+    "safe_route_narrowing"
+  ],
+  "observed_checkpoint": "diagnosis-B",
+  "proposal": {
+    "proposal_id": "N5-G4-PROPOSAL-RECOVERY-B",
+    "operation_id": "N5-RECOVERY-B",
+    "route_id": "N5-RECOVERY-B",
+    "owner_adoption_required": true,
+    "reversible": true
+  },
+  "notes": "Proposal only: recovery-b is materially distinct and requires owner adoption. No recovery or repair effect was executed."
+}

@@ -1,0 +1,16 @@
+{
+  "details": {
+    "check_then_mutate_gap": false,
+    "destination_revision": "r1-a",
+    "mechanism": "destination-CAS",
+    "outcomes": {
+      "effect:ATT-T1B-A:child:T1b-A": "COMMITTED",
+      "effect:ATT-T1B-B:child:T1b-B": "CAS_REJECTED"
+    }
+  },
+  "evidence_ref": "phase7b/evidence/T1b.json",
+  "independent": true,
+  "probe_id": "T1b",
+  "schema": "fpo.phase7b.validation.v1",
+  "status": "PASS"
+}

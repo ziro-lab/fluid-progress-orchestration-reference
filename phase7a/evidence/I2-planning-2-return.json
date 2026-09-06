@@ -1,0 +1,78 @@
+{
+  "schema": "fpo.phase7a.flow-mini-return.v1",
+  "fixture": "I2",
+  "stage": "planning",
+  "dispatch_id": "P7A-I2-PLANNING-2",
+  "input_sha256": "d32fce322092bd06fde05858d713197b74f88177ab33f08b50af230aff2360fc",
+  "status": "PLANNING READY",
+  "current_revision": "P7A-I2-PLANNING-2-d32fce32",
+  "provider": {
+    "model": "gpt-5.6-sol",
+    "reasoning": "medium"
+  },
+  "fresh_context": true,
+  "requirements": [
+    "Preserve the existing render_badge(channel, version) interface and return a dictionary with text and color fields.",
+    "Render stable badges as stable <version> in green.",
+    "Render canary badges as canary <version> in amber.",
+    "Keep output deterministic and preserve the caller-supplied channel and version in badge text without invention or substitution.",
+    "Do not add product semantics for unsupported channels or unusual input types, and do not perform unrelated refactoring."
+  ],
+  "observations": [
+    "The parent-supplied design resolution identifies channel-label text with stable green and canary amber as the current settled design for this bounded stage.",
+    "The current src/badge.py always emits release <version> with blue, so decided behavior is not yet implemented.",
+    "The current tests already exercise the stable and canary examples at the direct Python function boundary.",
+    "The bounded project had no populated .flow-mini Core before this planning materialization.",
+    "Behavior outside the stable and canary variants is not settled and is intentionally not invented by this plan."
+  ],
+  "planning": {
+    "core_generation": "P7A-I2-PLANNING-2-d32fce32",
+    "controller_revision": "FM-EXEC-0.5.0-r3",
+    "stage_boundary": "Implement and validate the settled stable and canary behavior in the bounded release-badge project, then re-ground and report the terminal stage state.",
+    "artifacts": [
+      "phase7a/fixture/i2-design-gap/.flow-mini/CONTRACT.md",
+      "phase7a/fixture/i2-design-gap/.flow-mini/ACCEPTANCE.md",
+      "phase7a/fixture/i2-design-gap/.flow-mini/WORKPLAN.md",
+      "phase7a/fixture/i2-design-gap/.flow-mini/EXECUTION.md"
+    ],
+    "proof_obligations": [
+      "Directly observe exact stable output at the real implementation boundary.",
+      "Directly observe exact canary output at the real implementation boundary.",
+      "Observe determinism and exact propagation of supplied channel/version text across both settled variants and more than one representative version string.",
+      "Run the complete bounded-project test suite and preserve the two-field result shape."
+    ],
+    "implementation_boundary": "Use the smallest dependency-free local change; changing supported-channel semantics, fallback/error behavior, dependency basis, stage scope, or proof strength requires re-entry at the owning layer."
+  },
+  "operations": [],
+  "local_validation": {
+    "status": "passed",
+    "scope": "Planning-artifact validation only; no source implementation or implementation test execution was performed.",
+    "checks": [
+      "Four populated Core files are present in the bounded project.",
+      "CONTRACT, ACCEPTANCE, and WORKPLAN carry the same non-empty Core Generation.",
+      "CONTRACT binds FM-EXEC-0.5.0-r3 and project-local EXECUTION carries the same controller revision.",
+      "Project-local EXECUTION is byte-identical to the pinned candidate template.",
+      "The Return parses as one JSON object and conforms to the assigned field constraints."
+    ]
+  },
+  "evidence": [
+    "phase7a/fixture/i2-design-gap/README.md",
+    "phase7a/fixture/i2-design-gap/design/owner-resolution.md",
+    "phase7a/evidence/I2-design-resolution.json",
+    "phase7a/fixture/i2-design-gap/src/badge.py",
+    "phase7a/fixture/i2-design-gap/tests/test_badge.py",
+    "Pinned Flow Mini v0.5.0 candidate entry, planning, architecture, and four Core templates"
+  ],
+  "blockers": [],
+  "reentry": {
+    "required": false,
+    "basis": "The parent owner resolution resolves the prior badge-meaning conflict for stable and canary, so implementation planning can proceed without redefining upstream semantics.",
+    "trigger": "Re-enter Design only if the resolution is withdrawn or superseded, or if completion requires semantics for unsupported channels or input-validation behavior."
+  },
+  "next_action": "Start a fresh Execution context from the four populated Core files, reconcile current reality, implement the smallest bounded change, and collect the specified current evidence.",
+  "notes": [
+    "Planning stopped at PLANNING READY.",
+    "No src code was modified and no implementation validation was run.",
+    "No commit or push was performed."
+  ]
+}

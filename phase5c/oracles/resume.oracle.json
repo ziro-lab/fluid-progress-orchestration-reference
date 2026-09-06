@@ -1,0 +1,13 @@
+{
+  "schema": "fpo.phase5c.resume-oracle.v1",
+  "cases": ["R1", "R2", "R3", "R4", "R5"],
+  "expected": {
+    "transcript_dependency": 0,
+    "restart_from_zero": 0,
+    "duplicate_effect": 0,
+    "unsupported_assumption": 0,
+    "stale_state_adoption": 0,
+    "unnecessary_research": 0,
+    "duplicate_work": 0
+  }
+}

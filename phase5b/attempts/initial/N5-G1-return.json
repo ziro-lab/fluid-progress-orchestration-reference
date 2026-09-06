@@ -1,0 +1,28 @@
+{
+  "schema": "fpo.phase5b.worker-return.v1",
+  "work_id": "FPO-5B-N5",
+  "case_id": "N5",
+  "generation_id": "N5-G1",
+  "dispatch_id": "DISP-5B-N5-G1-001",
+  "handoff_id": "HO-N5-G1-001",
+  "source_ref": "phase5b/source/N5-immutable-r0.json",
+  "valid_commit_ref": "phase5b/commits/COM-N5-0000.json",
+  "evidence_refs": [
+    "phase5b/source/N5-immutable-r0.json",
+    "phase5b/fixture/no-progress-work.json#N5"
+  ],
+  "diagnosis": {
+    "failure_id": "N5-INITIAL",
+    "finding": "Failure A remains current in the source-bound state; no accepted evidence, active hypothesis, recovery history, repair history, or route history is present.",
+    "uncertainty_reduction": false
+  },
+  "material_progress": false,
+  "progress_reason": "The Fresh generation has no new valid evidence, blocker resolution, invalid hypothesis elimination, safe route narrowing, validated recovery, or achievement advancement.",
+  "proposal": {
+    "action": "propose_recovery_route",
+    "route_id": "recovery-route-B",
+    "semantic_distinction": "Use a recovery route distinct from Failure A; do not revive any invalidated route.",
+    "requires_owner_adoption": true,
+    "owner_executes_effects_and_validation": true
+  }
+}

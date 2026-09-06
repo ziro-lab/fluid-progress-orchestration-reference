@@ -1,0 +1,13 @@
+{
+  "details": {
+    "hidden_dependency": "hidden-semantic-index",
+    "unsafe_narrowing": true,
+    "worker_claim_accepted_as_complete": false
+  },
+  "metrics": {},
+  "parent_oracle": true,
+  "probe_id": "D1",
+  "schema": "fpo.phase7b.attempt.v1",
+  "status": "PASS",
+  "worker_context": null
+}

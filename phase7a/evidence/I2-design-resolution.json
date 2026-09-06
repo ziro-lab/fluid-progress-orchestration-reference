@@ -1,0 +1,8 @@
+{
+  "design_reentry": true,
+  "fixture": "I2",
+  "owner": "FPO parent after upstream re-entry",
+  "resolution": "channel label; stable green; canary amber",
+  "schema": "fpo.phase7a.design-resolution.v1",
+  "source": "phase7a/fixture/i2-design-gap/design/owner-resolution.md"
+}

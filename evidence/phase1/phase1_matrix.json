@@ -1,0 +1,222 @@
+{
+  "status": "PASS",
+  "manifest_root": "fpo-spec/Fluid_Progress_Orchestration_v0.2_Architectural_Hardening_Candidate/runtime",
+  "finding_classification": {
+    "category": "Runtime integration defect",
+    "summary": "SPEC_RUNTIME_ROOTとRUNNER_ROOTの取り違え。Phase 0のhash-only fallbackがこれを隠していた。"
+  },
+  "cases": [
+    {
+      "status": "PASS",
+      "case_id": "C1",
+      "run_path": "runs/phase1/C1",
+      "metrics": {
+        "case_id": "C1",
+        "initial_run_id": "C1-initial-2026-08-25T22:08:25Z",
+        "recovery_run_id": "C1-recovery-2026-08-25T22:08:25Z",
+        "crash_point": "after_dispatch_commit_before_capability_submit",
+        "last_commit_before_crash": "COM-0004",
+        "reconcile_count": 1,
+        "provider_invocation_count": 1,
+        "provider_effect_count": 1,
+        "return_count": 1,
+        "adoption_count": 1,
+        "final_checkpoint": "closed",
+        "final_disposition": "completed",
+        "last_commit_after_recovery": "COM-0010",
+        "invariants": {
+          "duplicate_effect": true,
+          "false_close": true,
+          "no_guessing": true,
+          "single_adoption": true,
+          "commit_chain": true,
+          "projection_rebuild": true,
+          "authority": true
+        },
+        "final_runtime_validation": {
+          "status": "PASS",
+          "checks": {
+            "manifest_boundary": "PASS",
+            "schema_validation": "PASS",
+            "commit_chain_and_cas": "PASS",
+            "dispatch_return_binding": "PASS",
+            "worker_output": "PASS",
+            "input_unchanged": "PASS",
+            "single_effect": "PASS",
+            "authority_adoption": "PASS",
+            "evidence_and_acceptance": "PASS",
+            "terminal_consistency": "PASS",
+            "projection_rebuild": "PASS"
+          },
+          "failures": [],
+          "dispatch_sha256": "320db9b97dad4cc5ff33063b3487f245536e9cfa0c7f9ee4682879b53b6af656",
+          "return_sha256": "ef2650dff2f20a96c2b384ec1882adaf5ac921488af426136f47e4b52c080f60",
+          "input_sha256": "a948904f2f0f479b8f8197694b30184b0d2ed1c1cd2a1ec0fb85d299a192a447",
+          "output_sha256": "2949725604dd9eef82100f8ff39fcced9d3682700ee2fb5c4205e3e584defee6",
+          "frontmatter_file_count": 71,
+          "commit_count": 10,
+          "operation_ref": "records/OP-0005.md"
+        }
+      }
+    },
+    {
+      "status": "PASS",
+      "case_id": "C2",
+      "run_path": "runs/phase1/C2",
+      "metrics": {
+        "case_id": "C2",
+        "initial_run_id": "C2-initial-2026-08-25T22:08:26Z",
+        "recovery_run_id": "C2-recovery-2026-08-25T22:08:27Z",
+        "crash_point": "after_provider_submit_before_remote_id_persist",
+        "last_commit_before_crash": "COM-0004",
+        "reconcile_count": 1,
+        "provider_invocation_count": 1,
+        "provider_effect_count": 1,
+        "return_count": 1,
+        "adoption_count": 1,
+        "final_checkpoint": "closed",
+        "final_disposition": "completed",
+        "last_commit_after_recovery": "COM-0010",
+        "invariants": {
+          "duplicate_effect": true,
+          "false_close": true,
+          "no_guessing": true,
+          "single_adoption": true,
+          "commit_chain": true,
+          "projection_rebuild": true,
+          "authority": true
+        },
+        "final_runtime_validation": {
+          "status": "PASS",
+          "checks": {
+            "manifest_boundary": "PASS",
+            "schema_validation": "PASS",
+            "commit_chain_and_cas": "PASS",
+            "dispatch_return_binding": "PASS",
+            "worker_output": "PASS",
+            "input_unchanged": "PASS",
+            "single_effect": "PASS",
+            "authority_adoption": "PASS",
+            "evidence_and_acceptance": "PASS",
+            "terminal_consistency": "PASS",
+            "projection_rebuild": "PASS"
+          },
+          "failures": [],
+          "dispatch_sha256": "9c39f4f07885490a01121d882ec88760059510fef670300c2b5228948db6dc11",
+          "return_sha256": "dc7b32cfe80076e4c58dae38e9947759977525a7d2c550e2d2cdc232d4c7b811",
+          "input_sha256": "a948904f2f0f479b8f8197694b30184b0d2ed1c1cd2a1ec0fb85d299a192a447",
+          "output_sha256": "2949725604dd9eef82100f8ff39fcced9d3682700ee2fb5c4205e3e584defee6",
+          "frontmatter_file_count": 71,
+          "commit_count": 10,
+          "operation_ref": "records/OP-0005.md"
+        }
+      }
+    },
+    {
+      "status": "PASS",
+      "case_id": "C3",
+      "run_path": "runs/phase1/C3",
+      "metrics": {
+        "case_id": "C3",
+        "initial_run_id": "C3-initial-2026-08-25T22:08:27Z",
+        "recovery_run_id": "C3-recovery-2026-08-25T22:08:28Z",
+        "crash_point": "operation_running",
+        "last_commit_before_crash": "COM-0004",
+        "reconcile_count": 1,
+        "provider_invocation_count": 1,
+        "provider_effect_count": 1,
+        "return_count": 1,
+        "adoption_count": 1,
+        "final_checkpoint": "closed",
+        "final_disposition": "completed",
+        "last_commit_after_recovery": "COM-0010",
+        "invariants": {
+          "duplicate_effect": true,
+          "false_close": true,
+          "no_guessing": true,
+          "single_adoption": true,
+          "commit_chain": true,
+          "projection_rebuild": true,
+          "authority": true
+        },
+        "final_runtime_validation": {
+          "status": "PASS",
+          "checks": {
+            "manifest_boundary": "PASS",
+            "schema_validation": "PASS",
+            "commit_chain_and_cas": "PASS",
+            "dispatch_return_binding": "PASS",
+            "worker_output": "PASS",
+            "input_unchanged": "PASS",
+            "single_effect": "PASS",
+            "authority_adoption": "PASS",
+            "evidence_and_acceptance": "PASS",
+            "terminal_consistency": "PASS",
+            "projection_rebuild": "PASS"
+          },
+          "failures": [],
+          "dispatch_sha256": "9c853ff48b9f7da6e0cf43d650f41df78d264a8d438c2d58f53278490fdfd33f",
+          "return_sha256": "e0dec116649f99b8bc0726b9d9c6dda0a5b152705ff5d50067addc2341347966",
+          "input_sha256": "a948904f2f0f479b8f8197694b30184b0d2ed1c1cd2a1ec0fb85d299a192a447",
+          "output_sha256": "2949725604dd9eef82100f8ff39fcced9d3682700ee2fb5c4205e3e584defee6",
+          "frontmatter_file_count": 71,
+          "commit_count": 10,
+          "operation_ref": "records/OP-0005.md"
+        }
+      }
+    },
+    {
+      "status": "PASS",
+      "case_id": "C4",
+      "run_path": "runs/phase1/C4",
+      "metrics": {
+        "case_id": "C4",
+        "initial_run_id": "C4-initial-2026-08-25T22:08:29Z",
+        "recovery_run_id": "C4-recovery-2026-08-25T22:08:29Z",
+        "crash_point": "after_immutable_return_before_p3_adoption",
+        "last_commit_before_crash": "COM-0007",
+        "reconcile_count": 1,
+        "provider_invocation_count": 1,
+        "provider_effect_count": 1,
+        "return_count": 1,
+        "adoption_count": 1,
+        "final_checkpoint": "closed",
+        "final_disposition": "completed",
+        "last_commit_after_recovery": "COM-0010",
+        "invariants": {
+          "duplicate_effect": true,
+          "false_close": true,
+          "no_guessing": true,
+          "single_adoption": true,
+          "commit_chain": true,
+          "projection_rebuild": true,
+          "authority": true
+        },
+        "final_runtime_validation": {
+          "status": "PASS",
+          "checks": {
+            "manifest_boundary": "PASS",
+            "schema_validation": "PASS",
+            "commit_chain_and_cas": "PASS",
+            "dispatch_return_binding": "PASS",
+            "worker_output": "PASS",
+            "input_unchanged": "PASS",
+            "single_effect": "PASS",
+            "authority_adoption": "PASS",
+            "evidence_and_acceptance": "PASS",
+            "terminal_consistency": "PASS",
+            "projection_rebuild": "PASS"
+          },
+          "failures": [],
+          "dispatch_sha256": "8de3d40c40f312a2d46f578f48aecd8807e9282afa008343ccb3ed0b5214bb49",
+          "return_sha256": "f418b6763cdbbe0b28de8076c74fa40b0c10604bae297449f35e52e799ed06a4",
+          "input_sha256": "a948904f2f0f479b8f8197694b30184b0d2ed1c1cd2a1ec0fb85d299a192a447",
+          "output_sha256": "2949725604dd9eef82100f8ff39fcced9d3682700ee2fb5c4205e3e584defee6",
+          "frontmatter_file_count": 71,
+          "commit_count": 10,
+          "operation_ref": "records/OP-0005.md"
+        }
+      }
+    }
+  ]
+}

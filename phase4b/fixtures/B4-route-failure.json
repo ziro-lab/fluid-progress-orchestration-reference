@@ -1,0 +1,8 @@
+{
+  "case_id": "B4",
+  "title": "Research route failure with safe alternate route",
+  "failed_route": {"url": "https://docs.python.org/404/phase4b-missing.html", "status": 404, "reason": "deterministic injected route failure"},
+  "research_target": "The official Python subprocess text-mode encoding rule used by this probe.",
+  "alternate_route_policy": "Use a direct official documentation page already allowed by the public read-only domain policy. Do not fabricate a source from the failed route.",
+  "budget": {"max_research_rounds": 3, "max_distinct_queries": 6, "max_accepted_sources": 6}
+}

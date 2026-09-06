@@ -1,0 +1,68 @@
+{
+  "schema": "fpo.phase5a.generation-return.v1",
+  "generation_id": "G1",
+  "work_id": "FPO-5A-001",
+  "work_revision": "r0",
+  "decision": "PROPOSE_REPAIR",
+  "observed_facts": [
+    "The valid authority is COM-0000 at state revision 0 with source immutable-r0.json.",
+    "The local policy defines an inline # as data.",
+    "The validator report shows expected title 'Alpha # tag' but actual title 'Alpha'.",
+    "profile_loader.py unconditionally truncates each non-comment line at the first #.",
+    "The current validator result is FAIL and is not independent acceptance evidence."
+  ],
+  "new_observations": [
+    {
+      "observation_id": "O-001",
+      "text": "V-001 is explained by inline-hash truncation in profile_loader.py; the available local evidence does not indicate a separate value-normalization cause.",
+      "source_ref": "phase5a/workspace/profile_loader.py"
+    }
+  ],
+  "evidence_refs": [
+    "phase5a/source/immutable-r0.json",
+    "phase5a/commits/COM-0000.json",
+    "phase5a/workspace/policy.json",
+    "phase5a/workspace/validator-report.json",
+    "phase5a/workspace/profile_loader.py"
+  ],
+  "uncertainties_seen": [
+    "U-001 is resolved by local policy: inline # is data.",
+    "U-002 is resolved for the current failure by comparing the validator report with profile_loader.py: parsing truncation is the cause."
+  ],
+  "hypothesis_updates": [
+    {
+      "hypothesis_id": "H-001",
+      "status": "proposed",
+      "statement": "The initial validation failure is caused by unconditional inline-hash truncation in profile_loader.py, while the existing quoted-value normalization remains applicable.",
+      "basis_refs": [
+        "phase5a/workspace/policy.json",
+        "phase5a/workspace/validator-report.json",
+        "phase5a/workspace/profile_loader.py"
+      ]
+    }
+  ],
+  "repair_proposal": {
+    "proposal_id": "P-001",
+    "operation_id": "OP-001",
+    "target_ref": "phase5a/workspace/profile_loader.py",
+    "change_summary": "Preserve inline # characters in values while retaining whole-line comment handling and quoted-value normalization.",
+    "reversible": true,
+    "requires_owner_adoption": true
+  },
+  "route_rejections": [
+    {
+      "route": "execute_repair",
+      "reason": "Repair requires owner adoption and is prohibited for this generation."
+    },
+    {
+      "route": "claim_acceptance",
+      "reason": "The persisted validator result is FAIL and independent acceptance evidence is absent."
+    },
+    {
+      "route": "external_research",
+      "reason": "The local policy and bounded implementation evidence resolve the current questions."
+    }
+  ],
+  "proposed_next_action": "Owner adopts reversible proposal P-001 to stop treating inline # as a comment delimiter in profile_loader.py, then requests independent validation.",
+  "summary": "Local evidence identifies inline-hash truncation as the narrow cause of V-001. Propose owner adoption of a reversible repair; do not execute it or claim acceptance."
+}

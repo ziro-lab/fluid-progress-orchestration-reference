@@ -1,0 +1,78 @@
+{
+  "status": "PASS",
+  "run_id": "20260825T220824Z",
+  "run_path": "runs/20260825T220824Z",
+  "work_id": "W-PHASE0",
+  "checkpoint": "closed",
+  "work_control_lifecycle": "terminated",
+  "disposition": "completed",
+  "input_sha256": "a948904f2f0f479b8f8197694b30184b0d2ed1c1cd2a1ec0fb85d299a192a447",
+  "output_sha256": "2949725604dd9eef82100f8ff39fcced9d3682700ee2fb5c4205e3e584defee6",
+  "output_path": "workspace/output/output.txt",
+  "dispatch_digest": "dcaa20b2638580647f777c8b59fac88d9e45882b501ee34447b58cfca9d8e9b4",
+  "return_digest": "1da7b21465c42d76f271ab4f6b2e9b86ec8934717a13a29051396d862005f0fc",
+  "record_ids": {
+    "source": "SRC-0001",
+    "definition": "DEF-0001",
+    "plan": "PLAN-0001",
+    "operation": "OP-0005",
+    "artifact": "ART-0001",
+    "evidence": [
+      "records/EVD-0001.md",
+      "records/EVD-0002.md",
+      "records/EVD-0003.md",
+      "records/EVD-0004.md",
+      "records/EVD-0005.md",
+      "records/EVD-0006.md",
+      "records/EVD-0007.md"
+    ],
+    "verdicts": [
+      "records/VER-0001.md",
+      "records/VER-0002.md",
+      "records/VER-0003.md",
+      "records/VER-0004.md",
+      "records/VER-0005.md",
+      "records/VER-0006.md",
+      "records/VER-0007.md"
+    ],
+    "settlement": "records/SET-0001.md",
+    "work_state": "WS-0006",
+    "work_control": "WC-0002"
+  },
+  "commit_ids": [
+    "COM-0001",
+    "COM-0002",
+    "COM-0003",
+    "COM-0004",
+    "COM-0005",
+    "COM-0006",
+    "COM-0007",
+    "COM-0008",
+    "COM-0009",
+    "COM-0010"
+  ],
+  "validation": {
+    "status": "PASS",
+    "checks": {
+      "manifest_boundary": "PASS",
+      "schema_validation": "PASS",
+      "commit_chain_and_cas": "PASS",
+      "dispatch_return_binding": "PASS",
+      "worker_output": "PASS",
+      "input_unchanged": "PASS",
+      "single_effect": "PASS",
+      "authority_adoption": "PASS",
+      "evidence_and_acceptance": "PASS",
+      "terminal_consistency": "PASS",
+      "projection_rebuild": "PASS"
+    },
+    "failures": [],
+    "dispatch_sha256": "dcaa20b2638580647f777c8b59fac88d9e45882b501ee34447b58cfca9d8e9b4",
+    "return_sha256": "1da7b21465c42d76f271ab4f6b2e9b86ec8934717a13a29051396d862005f0fc",
+    "input_sha256": "a948904f2f0f479b8f8197694b30184b0d2ed1c1cd2a1ec0fb85d299a192a447",
+    "output_sha256": "2949725604dd9eef82100f8ff39fcced9d3682700ee2fb5c4205e3e584defee6",
+    "frontmatter_file_count": 71,
+    "commit_count": 10,
+    "operation_ref": "records/OP-0005.md"
+  }
+}

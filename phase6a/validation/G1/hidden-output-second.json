@@ -1,0 +1,32 @@
+{
+  "results": [
+    {
+      "exit_code": 0,
+      "id": "ok",
+      "status": "success",
+      "stderr": "",
+      "stdout": "ok\n"
+    },
+    {
+      "exit_code": 3,
+      "id": "bad",
+      "status": "failed",
+      "stderr": "",
+      "stdout": "bad\n"
+    },
+    {
+      "exit_code": null,
+      "id": "slow",
+      "status": "timed_out",
+      "stderr": "",
+      "stdout": "before\n"
+    },
+    {
+      "exit_code": null,
+      "id": "bad-shape",
+      "status": "invalid",
+      "stderr": "",
+      "stdout": ""
+    }
+  ]
+}

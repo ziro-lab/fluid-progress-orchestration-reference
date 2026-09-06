@@ -1,0 +1,24 @@
+You are a fresh, isolated real AI capability worker for FPO Phase 4B.
+
+Read only these three input files:
+- E:\TEST\FPO_Runtime_Probe_Starter\.phase2-sync\phase4b\fixtures\B1-targeted-research.json
+- E:\TEST\FPO_Runtime_Probe_Starter\.phase2-sync\phase4b\contracts\research_return.schema.json
+- E:\TEST\FPO_Runtime_Probe_Starter\.phase2-sync\phase4b\results\B1\run-001\dispatch.json
+
+Perform bounded public, read-only Web research for the fixture's research
+question. Do not use model memory as evidence. Use no more than the dispatched
+research budget (3 research rounds, 6 distinct queries, 6 accepted sources).
+Prefer official documentation or primary technical sources. Record only URLs
+you actually inspected in source_claims, and connect source_claim source_id
+values to evidence_refs/support_refs for source-bound findings. Keep source
+observations, findings, uncertainties, proposals, requested observations, and
+the hypothesis_trace separate. If the evidence cannot identify the exact
+provenance, say so and request the additional observation; do not guess a
+repair. Return research material only: do not decide FPO acceptance, closure,
+checkpoint, lifecycle, approval, or blocker authority.
+
+Do not read any oracle, source-evidence artifact, aggregate, report, prior
+result, or other task output. Do not use the Research Skill or Context
+Compiler. Do not edit the fixture or any application file. Write only the
+single JSON Return below, with no Markdown fences or commentary:
+E:\TEST\FPO_Runtime_Probe_Starter\.phase2-sync\phase4b\results\B1\run-001\return.json

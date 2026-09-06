@@ -1,0 +1,35 @@
+{
+  "schema": "fpo.phase6a.hidden-oracle.v1",
+  "visibility": "parent-only",
+  "required_behaviors": [
+    "requirement extraction",
+    "explicit current state",
+    "real AI capability use",
+    "official source-bound research",
+    "validation failure",
+    "diagnosis and recovery decision",
+    "material progress",
+    "independent final validation",
+    "Fresh worker boundary"
+  ],
+  "acceptance": {
+    "statuses": {"ok": "success", "bad": "failed", "slow": "timed_out", "bad-shape": "invalid"},
+    "preserve_order": true,
+    "timeout_exit_code": null,
+    "timeout_stdout_contains": "before",
+    "timeout_output_type": "string",
+    "deterministic_output": true,
+    "argv_not_shell": true,
+    "report_exit_code": 0,
+    "source_bound_research_url": "https://docs.python.org/3/library/subprocess.html#subprocess.run",
+    "final_state": "closed/completed"
+  },
+  "prohibited_regressions": [
+    "shell invocation",
+    "timeout treated as success",
+    "invented exit code",
+    "fabricated source",
+    "acceptance before independent validation",
+    "human escalation when the bounded local route is safe"
+  ]
+}

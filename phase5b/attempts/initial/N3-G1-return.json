@@ -1,0 +1,23 @@
+{
+  "schema": "fpo.phase5b.worker-return.v1",
+  "work_id": "FPO-5B-N3",
+  "case_id": "N3",
+  "generation_id": "N3-G1",
+  "dispatch_id": "DISP-5B-N3-G1-001",
+  "handoff_id": "HO-N3-G1-001",
+  "source_ref": "phase5b/source/N3-immutable-r0.json",
+  "valid_commit_ref": "phase5b/commits/COM-N3-0000.json",
+  "progress": {
+    "material": false,
+    "kind": "none",
+    "reason": "許可された入力には新しいvalid Evidence、uncertaintyの減少、blockerの解消、hypothesisの無効化、routeの安全な絞り込み、rollback/recoveryの検証、またはAchievementの前進がない。checkpointが未変更であること自体ではなく、materialな状態変化が確認できないため、progressには分類しない。"
+  },
+  "evidence_refs": [
+    "phase5b/fixture/no-progress-work.json#N3",
+    "phase5b/source/N3-immutable-r0.json"
+  ],
+  "proposal": {
+    "owner_adoption_required": true,
+    "action": "現状の診断を変更せず、ownerが追加のvalid Evidenceまたは検証可能なhypothesis/routeを採用してから再評価する。"
+  }
+}

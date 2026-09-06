@@ -1,0 +1,135 @@
+{
+  "capability_run_id": "research-B3-001",
+  "dispatch_id": "DISP-B3-001",
+  "operation_id": "OP-B3-001",
+  "capability_revision": "phase4b-v1",
+  "facts": [
+    {
+      "id": "FACT-B3-01",
+      "statement": "The Python 3.12 asyncio.wait_for documentation states that a timeout cancels the task and raises the built-in TimeoutError; its example catches TimeoutError.",
+      "evidence_refs": ["SRC-PY312-TASK"]
+    },
+    {
+      "id": "FACT-B3-02",
+      "statement": "The Python 3.10 asyncio.wait_for documentation states that a timeout cancels the task and raises asyncio.TimeoutError, and its example catches asyncio.TimeoutError.",
+      "evidence_refs": ["SRC-PY310-TASK"]
+    },
+    {
+      "id": "FACT-B3-03",
+      "statement": "The Python 3.12 asyncio exceptions documentation describes asyncio.TimeoutError as a deprecated alias of the built-in TimeoutError and records that it became an alias in Python 3.11.",
+      "evidence_refs": ["SRC-PY312-EXC"]
+    }
+  ],
+  "findings": [
+    {
+      "id": "FIND-B3-01",
+      "statement": "The apparent exception-name conflict is version-dependent: Python 3.10 documentation uses asyncio.TimeoutError, while Python 3.12 documentation uses built-in TimeoutError for asyncio.wait_for.",
+      "support_refs": ["SRC-PY310-TASK", "SRC-PY312-TASK"],
+      "confidence": "high"
+    },
+    {
+      "id": "FIND-B3-02",
+      "statement": "For Python 3.12, the two names refer to the same exception class because asyncio.TimeoutError is documented as an alias of TimeoutError; the older spelling is nevertheless documented as deprecated.",
+      "support_refs": ["SRC-PY312-TASK", "SRC-PY312-EXC"],
+      "confidence": "high"
+    },
+    {
+      "id": "FIND-B3-03",
+      "statement": "The sources support a specific timeout-exception handler for the stated Python 3.12 scope; they do not support broadening this path to catch Exception merely to hide the version distinction.",
+      "support_refs": ["SRC-PY312-TASK", "SRC-PY310-TASK"],
+      "confidence": "medium"
+    }
+  ],
+  "evidence_refs": ["SRC-PY312-TASK", "SRC-PY310-TASK", "SRC-PY312-EXC"],
+  "uncertainties": [
+    {
+      "id": "UNC-B3-01",
+      "statement": "The fixture establishes Python 3.12 as the deployed target but does not establish whether the project also supports interpreters before Python 3.11; the exact provenance and revision of the older document mentioned in the local review note are also unavailable."
+    }
+  ],
+  "proposals": [
+    {
+      "id": "PROP-B3-01",
+      "type": "repair",
+      "statement": "For code scoped to Python 3.12, use the built-in TimeoutError in the asyncio.wait_for handler and keep the handler specific. If pre-3.11 interpreters must also be supported, resolve that compatibility requirement before applying a cross-version repair.",
+      "support_refs": ["SRC-PY312-TASK", "SRC-PY312-EXC", "SRC-PY310-TASK"]
+    },
+    {
+      "id": "PROP-B3-02",
+      "type": "next_action",
+      "statement": "Confirm the supported Python interpreter range and inspect the exact revision or URL of the older source cited by the local review before treating the old asyncio.TimeoutError wording as a required compatibility constraint.",
+      "support_refs": ["SRC-PY310-TASK", "SRC-PY312-TASK", "SRC-PY312-EXC"]
+    }
+  ],
+  "requested_observations": [
+    {
+      "id": "OBS-B3-01",
+      "request": "Provide the project's supported Python-version range from authoritative project metadata or deployment configuration, specifically whether any version below 3.11 remains supported.",
+      "rationale": "The correct compatibility action depends on whether the deployed Python 3.12 target is the complete support scope or only one member of a wider range."
+    },
+    {
+      "id": "OBS-B3-02",
+      "request": "Provide the exact URL and revision of the older versioned document referenced by the local review note, if that source must be reconciled.",
+      "rationale": "The public versioned documentation explains the change, but it cannot identify the provenance of an unspecified older source."
+    }
+  ],
+  "notes": [
+    "Only public, read-only official Python documentation was used as research evidence.",
+    "The conclusion is based on versioned wording and the documented alias relationship, not on source count or discovery order.",
+    "This return contains research material only and makes no FPO authority, acceptance, closure, checkpoint, lifecycle, approval, or blocker determination."
+  ],
+  "research_trace": {
+    "queries": [
+      "site:docs.python.org/3.12/library/asyncio-task.html asyncio.wait_for TimeoutError",
+      "site:docs.python.org/3.10/library/asyncio-task.html asyncio.wait_for asyncio.TimeoutError"
+    ],
+    "rounds": 2,
+    "sources_inspected": [
+      "https://docs.python.org/3.12/library/asyncio-task.html",
+      "https://docs.python.org/3.10/library/asyncio-task.html?highlight=run_in_executor",
+      "https://docs.python.org/3.12/library/asyncio-exceptions.html"
+    ],
+    "budget": {
+      "max_research_rounds": 3,
+      "max_distinct_queries": 6,
+      "max_accepted_sources": 6
+    }
+  },
+  "source_claims": [
+    {
+      "source_id": "SRC-PY312-TASK",
+      "url": "https://docs.python.org/3.12/library/asyncio-task.html",
+      "title": "Coroutines and Tasks — Python 3.12.13 documentation",
+      "publisher": "Python Software Foundation",
+      "source_class": "official_documentation",
+      "revision": "Python 3.12.13 documentation",
+      "supports": ["FACT-B3-01", "FIND-B3-01", "FIND-B3-02", "FIND-B3-03", "PROP-B3-01"],
+      "observation": "The asyncio.wait_for section says a timeout raises TimeoutError, shows except TimeoutError in its example, and records the change in Python 3.11 from asyncio.TimeoutError."
+    },
+    {
+      "source_id": "SRC-PY310-TASK",
+      "url": "https://docs.python.org/3.10/library/asyncio-task.html?highlight=run_in_executor",
+      "title": "Coroutines and Tasks — Python 3.10.20 documentation",
+      "publisher": "Python Software Foundation",
+      "source_class": "official_documentation",
+      "revision": "Python 3.10.20 documentation",
+      "supports": ["FACT-B3-02", "FIND-B3-01", "FIND-B3-03", "PROP-B3-01", "PROP-B3-02"],
+      "observation": "The asyncio.wait_for section says a timeout raises asyncio.TimeoutError and shows except asyncio.TimeoutError in its example."
+    },
+    {
+      "source_id": "SRC-PY312-EXC",
+      "url": "https://docs.python.org/3.12/library/asyncio-exceptions.html",
+      "title": "Exceptions — Python 3.12.13 documentation",
+      "publisher": "Python Software Foundation",
+      "source_class": "official_documentation",
+      "revision": "Python 3.12.13 documentation",
+      "supports": ["FACT-B3-03", "FIND-B3-02", "PROP-B3-01", "PROP-B3-02"],
+      "observation": "The asyncio.TimeoutError entry calls it a deprecated alias of TimeoutError and says the alias relationship was made in Python 3.11."
+    }
+  ],
+  "hypothesis_trace": {
+    "initial": "The conflicting snippets may indicate either a source-version mismatch or two different timeout APIs; no conclusion is assumed before inspecting versioned primary documentation.",
+    "after_research": "For asyncio.wait_for, the apparent conflict is version-dependent: Python 3.10 documentation names asyncio.TimeoutError, while Python 3.12 documentation names built-in TimeoutError and documents asyncio.TimeoutError as its deprecated alias. Built-in TimeoutError is canonical for the stated Python 3.12 target, but older-interpreter support remains unverified.",
+    "revision_reason": "Versioned official documentation directly records the Python 3.11 exception-name change and the alias relationship; the available fixture does not establish whether pre-3.11 compatibility is required or identify the older source's exact provenance."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "declared_model_policy": "gpt-5.6-sol/medium",
+  "fpo_acceptance": false,
+  "fresh_context": true,
+  "job": "J1",
+  "parallel_candidates": [
+    "labels",
+    "versions"
+  ],
+  "prior_transcript": false,
+  "project": "E:\\TEST\\FPO_Runtime_Probe_Starter\\.phase2-sync\\phase7c\\fixtures\\j1-natural-parallel",
+  "provider": "local-flow-mini-planning-adapter",
+  "rationale": "multiple failing module-level checks have disjoint source dependencies",
+  "schema": "fpo.phase7c.flow-mini-planning.v1",
+  "seed": "Make these small tools usable according to their project materials, validate the result, and confirm completion.",
+  "selected_route": "parallel"
+}

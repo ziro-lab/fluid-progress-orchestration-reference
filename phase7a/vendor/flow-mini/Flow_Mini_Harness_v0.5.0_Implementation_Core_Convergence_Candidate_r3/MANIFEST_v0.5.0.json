@@ -1,0 +1,186 @@
+{
+  "name": "Flow Mini Harness",
+  "version": "0.5.0",
+  "status": "Implementation Core Convergence Candidate r3",
+  "baseline": "v0.4.1.2 Decision Boundary Integrity Hardening Candidate r1",
+  "scope": "Implementation Planning + Execution; upstream Design excluded from Core",
+  "core_files": [
+    "CONTRACT.md",
+    "ACCEPTANCE.md",
+    "WORKPLAN.md",
+    "EXECUTION.md"
+  ],
+  "semantic_surfaces": [
+    "Stage Truth",
+    "Mutable Work State",
+    "Fixed Controller Law"
+  ],
+  "design_bootstrap": {
+    "core": false,
+    "optional": "bootstrap/BARE_DESIGN_BOOTSTRAP.md",
+    "mandatory_handoff_format": false,
+    "bundled_full_design_framework": false
+  },
+  "convergence": {
+    "problem_form": "minimize independent change/authority surfaces while preserving or improving implementation safety/continuity",
+    "review_inputs": [
+      "normal baseline decomposition",
+      "多角マップ v0.5.0 runtime Candidate",
+      "問題分かるくん v0.4.2 FPO Adapter Hardened Candidate",
+      "設計できるくん v0.8.27 Problem First Convergence Candidate"
+    ],
+    "verdict": "RESTRUCTURE IMPLEMENTATION LAYER / RETAIN USER WORKFLOW"
+  },
+  "preserved_behaviors": [
+    "separate Implementation Planning and Execution contexts",
+    "Goal Horizon != Active Stage and Material upstream Waypoint preservation",
+    "Acceptance meaning -> proof obligation -> evidence separation",
+    "durable WORKPLAN resume",
+    "Core-first / references-lazy fresh-context behavior",
+    "stale evidence rejection and material variant binding",
+    "unknown/partial effect reconciliation before retry",
+    "terminal canonical re-grounding",
+    "owner-specific REPLAN vs DESIGN REENTRY",
+    "existing-project convention / accepted-baseline / ordinary-user-burden protection"
+  ],
+  "new_or_strengthened": [
+    "four-Core runtime via POLICY -> EXECUTION composition",
+    "no mandatory Compact Handoff generation",
+    "optional bare design bootstrap outside Core with durable Fresh-context transfer",
+    "Execution-local mechanics adaptation within fixed plan/proof/safety-recovery-confirmation commitments",
+    "typed direct-source normalization without mandatory schema",
+    "Planning-owned Implementation Commitments in CONTRACT",
+    "shared Core Generation coherence across CONTRACT/ACCEPTANCE/WORKPLAN",
+    "observation preconditions, Waypoint/revision/domain-fact preservation, project-convention and ordinary-user-burden guards",
+    "Controller Revision binding between CONTRACT and project-local fixed EXECUTION",
+    "effect-free cross-Core contradiction rejection even when Core Generation matches",
+    "virtual adversarial semantic probe recorded before Fresh-agent runtime evidence"
+  ],
+  "excluded_subsystems": [
+    "memory DB",
+    "embedding/vector retrieval",
+    "scheduler",
+    "agent router",
+    "lock manager",
+    "parallel conflict detector",
+    "persistent CURRENT_CONTEXT file"
+  ],
+  "size_baseline_bytes": {
+    "v0.4.1.2_planning_prompt": 14093,
+    "v0.4.1.2_policy_plus_execution": 10991,
+    "v0.5_planning_prompt": 12123,
+    "v0.5_execution": 9904,
+    "v0.5_bare_bootstrap_optional": 2630
+  },
+  "validation": {
+    "static_checker": "validation/check_candidate.py",
+    "fresh_extract_release_gate": "validation/check_release_zip.py",
+    "behavior_scenarios": "CP-01..CP-46",
+    "runtime_probes": "P1..P26",
+    "runtime_ab_required_before_promotion": true,
+    "virtual_adversarial_probe": "validation/VIRTUAL_ADVERSARIAL_PROBE_REPORT.md"
+  },
+  "files": [
+    {
+      "path": "00_ENTRY.md",
+      "bytes": 5925,
+      "sha256": "2b923b53516e9c058acab0051de33d5077f07a02ba5f39437452b5c8082b3d13"
+    },
+    {
+      "path": "00_README.md",
+      "bytes": 8932,
+      "sha256": "0858c469cba6725f8943248f32cf5af9d336f94ed98c523dfd7c38e98137e894"
+    },
+    {
+      "path": "01_IMPLEMENTATION_PLANNING.md",
+      "bytes": 12123,
+      "sha256": "1917942e8164d2b52923c3018ac98c9aebe1fa65d19b3edf3d6faffcfc9a8ba3"
+    },
+    {
+      "path": "02_ARCHITECTURE.md",
+      "bytes": 3446,
+      "sha256": "10b5aedc75514939509bcf7cc8dd2528cce59f6907e3a2af5018cccf6a3d832f"
+    },
+    {
+      "path": "03_CHANGELOG_v0.5.0.md",
+      "bytes": 4158,
+      "sha256": "e5171b5be5f249066080deb26e49cf814d911f363af960051b37d6e323e0af0c"
+    },
+    {
+      "path": "04_MIGRATION_TO_v0.5.0.md",
+      "bytes": 3224,
+      "sha256": "e56ccf6c1b14d9c722f8d110b6235276fa7a9619e5d65c640439e7bc4ff46ba6"
+    },
+    {
+      "path": "bootstrap/BARE_DESIGN_BOOTSTRAP.md",
+      "bytes": 2630,
+      "sha256": "68ec859906b6bd5a48aeaede8122d4c9f23f7ad3ec68117c16c3c0d07cd7ac23"
+    },
+    {
+      "path": "bootstrap/README.md",
+      "bytes": 502,
+      "sha256": "ff670d928f8aeb86ea38d2032a5a20118126b6dd59bed4b07761c7e26989c3c3"
+    },
+    {
+      "path": "profiles/codex/CODEX_PROFILE.md",
+      "bytes": 1722,
+      "sha256": "14453e911c37584474ab1d9681a8077df04ecca1ac3bb7263caa2a7c254c9c88"
+    },
+    {
+      "path": "profiles/codex/README.md",
+      "bytes": 269,
+      "sha256": "b119020903e6fa5eea055fbb2f5f2fbb810213354dc3635968e38693cdd5edfc"
+    },
+    {
+      "path": "review/V050_RESTRUCTURE_DECISION.md",
+      "bytes": 2741,
+      "sha256": "ac18a5fb5401614707a306997e809a9765ac32e1229ff2192b65e812c1844f12"
+    },
+    {
+      "path": "templates/.flow-mini/ACCEPTANCE.md",
+      "bytes": 2104,
+      "sha256": "7bff9784bd71dae1e4495e80e634ac96e920a303c6bbf828b69c1b2cc023f666"
+    },
+    {
+      "path": "templates/.flow-mini/CONTRACT.md",
+      "bytes": 3497,
+      "sha256": "189fc5e51cd062bdda4f0550ac8b0218246442865788ca5ed7aed0ccb71b07c5"
+    },
+    {
+      "path": "templates/.flow-mini/EXECUTION.md",
+      "bytes": 9904,
+      "sha256": "3aec52d7a53a16aee677ea640070106f7caf39becd10f252acd6ef83b612fbfc"
+    },
+    {
+      "path": "templates/.flow-mini/WORKPLAN.md",
+      "bytes": 2478,
+      "sha256": "4df6b0cd18a45c8ba1a103ca9074585528c13f7b13a3eda481cade414c97dacb"
+    },
+    {
+      "path": "validation/BEHAVIOR_SCENARIOS.md",
+      "bytes": 7673,
+      "sha256": "c4fdce3de04ac8812b65a938467ef96d11d56eea6df2b532972635808169776c"
+    },
+    {
+      "path": "validation/RUNTIME_AB_PROBE.md",
+      "bytes": 7750,
+      "sha256": "f2ac9581661d1d40ef36c94038220854f2113a90099372f32c935a73f16599ea"
+    },
+    {
+      "path": "validation/VIRTUAL_ADVERSARIAL_PROBE_REPORT.md",
+      "bytes": 7739,
+      "sha256": "96417acd02646e1cbd36fb1736acd59278d109f4fc995430e97c2daf59f8ed75"
+    },
+    {
+      "path": "validation/check_candidate.py",
+      "bytes": 17606,
+      "sha256": "5328cefe7bbd63f9b8147b84de1ee04525a797709047c830c0f3c6a84f685997"
+    },
+    {
+      "path": "validation/check_release_zip.py",
+      "bytes": 2397,
+      "sha256": "4a57256b18a2fe92cfcc3a6e9927af11e8cc873ea2e5f147bfe211cc03927842"
+    }
+  ],
+  "package_revision": "r2"
+}

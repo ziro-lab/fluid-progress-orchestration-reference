@@ -1,0 +1,11 @@
+{
+  "accepted_as": "evidence/proposal only",
+  "ai_return_authoritative": false,
+  "decision": "accepted-as-planning-evidence",
+  "fixture": "I1",
+  "owner": "FPO parent",
+  "reason": "parent FPO retains acceptance and close authority",
+  "return_status": "PLANNING READY",
+  "schema": "fpo.phase7a.parent-adoption.v1",
+  "stage": "planning-1"
+}

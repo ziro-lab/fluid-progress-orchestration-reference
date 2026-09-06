@@ -1,0 +1,137 @@
+{
+  "capability_run_id": "research-B1-001",
+  "dispatch_id": "DISP-B1-001",
+  "operation_id": "OP-B1-001",
+  "capability_revision": "phase4b-v1",
+  "facts": [
+    {
+      "id": "F-SUBPROCESS-TEXT",
+      "statement": "Python 3.12 subprocess documentation states that when encoding or errors is specified, or text is true, subprocess stdin, stdout, and stderr are opened in text mode using the specified values or the defaults for io.TextIOWrapper.",
+      "evidence_refs": ["SRC-PY-SUBPROCESS-312"]
+    },
+    {
+      "id": "F-SUBPROCESS-LOCALE",
+      "statement": "The same Python 3.12 documentation identifies text as the alias of universal_newlines and documents locale.getpreferredencoding(False) as the encoding used when universal_newlines is true and no explicit encoding is supplied.",
+      "evidence_refs": ["SRC-PY-SUBPROCESS-312"]
+    },
+    {
+      "id": "F-IO-DEFAULT",
+      "statement": "Python 3.12 io documentation says the default encoding of TextIOWrapper is locale-specific, recommends specifying an encoding explicitly for UTF-8 data, and gives encoding=\"utf-8\" for that purpose.",
+      "evidence_refs": ["SRC-PY-IO-312"]
+    },
+    {
+      "id": "F-LOCALE-SEMANTICS",
+      "statement": "Python 3.12 locale documentation says locale.getpreferredencoding(False) returns a locale encoding according to user preferences, while Python UTF-8 Mode makes it return utf-8.",
+      "evidence_refs": ["SRC-PY-LOCALE-312"]
+    }
+  ],
+  "findings": [
+    {
+      "id": "FND-B1-RULE",
+      "statement": "For Python 3.12 subprocess text mode with encoding omitted, the documented rule is locale-dependent decoding through the TextIOWrapper/default locale path; it is not an unconditional UTF-8 rule. The subprocess documentation specifically names locale.getpreferredencoding(False) for the text/universal_newlines path.",
+      "support_refs": ["SRC-PY-SUBPROCESS-312", "SRC-PY-IO-312", "SRC-PY-LOCALE-312"],
+      "confidence": "high"
+    },
+    {
+      "id": "FND-B1-PROVENANCE",
+      "statement": "The fixture's cafÃ© output is consistent with UTF-8 bytes being decoded under a non-UTF-8 effective encoding, but the public documentation and fixture do not identify the runtime's exact locale, code page, or UTF-8-mode state.",
+      "support_refs": ["SRC-PY-SUBPROCESS-312", "SRC-PY-IO-312", "SRC-PY-LOCALE-312"],
+      "confidence": "medium"
+    },
+    {
+      "id": "FND-B1-REPAIR",
+      "statement": "The smallest supported repair for a child process whose contract is UTF-8 is to pass encoding=\"utf-8\" directly to subprocess.run while retaining text=True and capture_output=True.",
+      "support_refs": ["SRC-PY-SUBPROCESS-312", "SRC-PY-IO-312"],
+      "confidence": "high"
+    }
+  ],
+  "evidence_refs": [
+    "SRC-PY-SUBPROCESS-312",
+    "SRC-PY-IO-312",
+    "SRC-PY-LOCALE-312"
+  ],
+  "uncertainties": [
+    {
+      "id": "U-B1-EFFECTIVE-ENCODING",
+      "statement": "The exact encoding that produced the local mojibake cannot be established without observing the runtime platform, locale/code page, Python UTF-8-mode state, and locale.getpreferredencoding(False) value at the failing call."
+    },
+    {
+      "id": "U-B1-RAW-BYTES",
+      "statement": "The fixture describes the child output as UTF-8 bytes, but no independent runtime capture of the raw stdout bytes is available in this research return."
+    }
+  ],
+  "proposals": [
+    {
+      "id": "P-B1-UTF8-EXPLICIT",
+      "type": "repair",
+      "statement": "Use subprocess.run(command, capture_output=True, text=True, encoding=\"utf-8\") when the child-process output contract is UTF-8.",
+      "support_refs": ["SRC-PY-SUBPROCESS-312", "SRC-PY-IO-312"]
+    }
+  ],
+  "requested_observations": [
+    {
+      "id": "O-B1-RUNTIME-DECODER",
+      "request": "At the failing Python 3.12 runtime, record platform, locale/code-page settings, sys.flags.utf8_mode, locale.getpreferredencoding(False), locale.getencoding(), and a raw stdout-byte capture before decoding.",
+      "rationale": "These observations distinguish the documented locale-dependent default from Python UTF-8 Mode and establish the exact provenance of the observed mojibake without guessing."
+    }
+  ],
+  "notes": [
+    "Research was public and read-only and used official Python 3.12 documentation only.",
+    "No exact runtime provenance is claimed because the effective locale and raw-byte capture were not available.",
+    "This return contains research material only and does not make an FPO authority, acceptance, closure, checkpoint, lifecycle, approval, or blocker decision."
+  ],
+  "research_trace": {
+    "queries": [
+      "site:docs.python.org/3.12/library/subprocess.html subprocess.run text encoding omitted locale Python 3.12",
+      "site:docs.python.org/3.12/library/subprocess.html encoding errors text universal_newlines subprocess.run"
+    ],
+    "rounds": 3,
+    "sources_inspected": [
+      "https://docs.python.org/3.12/library/subprocess.html",
+      "https://docs.python.org/3.12/library/io.html",
+      "https://docs.python.org/3.12/library/locale.html"
+    ],
+    "budget": {
+      "max_research_rounds": 3,
+      "max_distinct_queries": 6,
+      "max_accepted_sources": 6
+    }
+  },
+  "source_claims": [
+    {
+      "source_id": "SRC-PY-SUBPROCESS-312",
+      "url": "https://docs.python.org/3.12/library/subprocess.html",
+      "title": "subprocess — Subprocess management — Python 3.12.13 documentation",
+      "publisher": "Python Software Foundation",
+      "source_class": "official_documentation",
+      "revision": "Python 3.12.13",
+      "supports": ["F-SUBPROCESS-TEXT", "F-SUBPROCESS-LOCALE", "FND-B1-RULE", "FND-B1-REPAIR"],
+      "observation": "The run() and Frequently Used Arguments sections state that text=True opens the standard streams in text mode, using explicit encoding/errors or io.TextIOWrapper defaults; they also state that text aliases universal_newlines and document locale.getpreferredencoding(False) for universal_newlines=True."
+    },
+    {
+      "source_id": "SRC-PY-IO-312",
+      "url": "https://docs.python.org/3.12/library/io.html",
+      "title": "io — Core tools for working with streams — Python 3.12.13 documentation",
+      "publisher": "Python Software Foundation",
+      "source_class": "official_documentation",
+      "revision": "Python 3.12.13",
+      "supports": ["F-IO-DEFAULT", "FND-B1-RULE", "FND-B1-REPAIR"],
+      "observation": "The Text Encoding section says TextIOWrapper's default encoding is locale-specific and recommends encoding=\"utf-8\" for UTF-8 data; the TextIOWrapper description identifies the locale-based default."
+    },
+    {
+      "source_id": "SRC-PY-LOCALE-312",
+      "url": "https://docs.python.org/3.12/library/locale.html",
+      "title": "locale — Internationalization services — Python 3.12.13 documentation",
+      "publisher": "Python Software Foundation",
+      "source_class": "official_documentation",
+      "revision": "Python 3.12.13",
+      "supports": ["F-LOCALE-SEMANTICS", "FND-B1-RULE", "FND-B1-PROVENANCE"],
+      "observation": "The locale documentation describes locale.getpreferredencoding(False) as a user-preference-based locale encoding and states that Python UTF-8 Mode makes it return utf-8; it also documents platform-specific locale encoding behavior."
+    }
+  ],
+  "hypothesis_trace": {
+    "initial": "The effective decoding rule for subprocess text mode was unknown; possible explanations included a locale-dependent default, process-wide UTF-8 mode, or a later post-processing issue.",
+    "after_research": "Python 3.12 documentation identifies the no-encoding subprocess text-mode path as locale-dependent, with locale.getpreferredencoding(False) documented for the text/universal_newlines behavior; UTF-8 Mode can make that function return utf-8. The observed mojibake is consistent with a non-UTF-8 decoder, but the exact runtime provenance remains unconfirmed. The smallest supported repair is explicit encoding=\"utf-8\".",
+    "revision_reason": "Official Python 3.12 subprocess, io, and locale documentation supplied the default-encoding rule and the explicit-UTF-8 repair guidance, while no runtime observation was available to identify the exact effective encoding."
+  }
+}

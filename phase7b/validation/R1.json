@@ -1,0 +1,17 @@
+{
+  "details": {
+    "compensation": {
+      "reason": "intervening-valid-change",
+      "status": "REJECTED_SAFE"
+    },
+    "current_value": {
+      "value": "intervening-change"
+    },
+    "intervening_revision_preserved": true
+  },
+  "evidence_ref": "phase7b/evidence/R1.json",
+  "independent": true,
+  "probe_id": "R1",
+  "schema": "fpo.phase7b.validation.v1",
+  "status": "PASS"
+}

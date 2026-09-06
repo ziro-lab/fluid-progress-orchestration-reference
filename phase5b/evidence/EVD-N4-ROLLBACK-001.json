@@ -1,0 +1,1 @@
+{"case_id":"N4","claim":"The owner-authorized rollback returned the Work to the known-good checkpoint and reduced the blocker.","evidence_id":"EVD-N4-ROLLBACK-001","parent_verified":true,"schema":"fpo.phase5b.evidence.v1","source_refs":["generations/N4-G2/return.json","phase5b/source/N4-immutable-r0.json"],"status":"accepted"}

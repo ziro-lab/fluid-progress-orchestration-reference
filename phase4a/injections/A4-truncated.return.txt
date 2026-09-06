@@ -1,0 +1,1 @@
+{"capability_run_id":"caprun-A4-000","dispatch_id":"DISP-A4-000","operation_id":"OP-A4-000","capability_revision":"phase4a-v1","facts":[

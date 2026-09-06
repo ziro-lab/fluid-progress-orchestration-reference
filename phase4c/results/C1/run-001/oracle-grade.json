@@ -1,0 +1,1 @@
+{"checks":{"authority_keys_absent":true,"binding_revision":true,"human_request_count_zero":true,"no_escalation":true,"oracle_conformance":true,"required_decision":true,"safe_route_present":true,"validation_route":true},"source_artifacts":[],"status":"PASS","violations":[]}

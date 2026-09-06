@@ -1,0 +1,19 @@
+{
+  "schema": "fpo.parallel.repo-snapshot-manifest.v1",
+  "version": "0.1.4.2",
+  "source_zip_sha256": "566d7cf8f6f7ce47bb61ad1355153bf00f6fce2398cf225f170f8d581c1e7a16",
+  "archive_in_source_zip": true,
+  "archive_mirrored_to_repo": false,
+  "files": [
+    {"path":"00_README.md","sha256":"5d63db84f0dd6cb4f0a401c2b45781e2f1719b514a8c41377cadaccfee43b506","bytes":2261},
+    {"path":"01_PARALLEL_SAFETY_CONFORMANCE_v0.1.4.2.md","sha256":"92efd629a0591a282fb47a6d0e23352a257fcfc977facf447dfd81798fff037b","bytes":7764},
+    {"path":"02_PROVIDER_IMPLEMENTATION_CONFORMANCE_v0.1.4.2.md","sha256":"aeb3ec031ea3240afc6eb82596b701aa19611cb7ebb9dd1a366c48e8e8dd9b2e","bytes":5122},
+    {"path":"03_EXISTING_FPO_FLOWMINI_MAPPING_v0.1.4.2.md","sha256":"b3dc8641be31786a1ac85f1c0fde318a16ebd0a03f955a32cb960168ebd77f34","bytes":2346},
+    {"path":"04_OPERATIONAL_POLICIES_v0.1.4.2.md","sha256":"a90c279826ba13b384a203ef00709e077cc97343e3f8fa5f09dd7efc2c2dc233","bytes":1633},
+    {"path":"05_PROBE_PACK_AND_MAPPING_v0.1.4.2.md","sha256":"20c007815589247399dec925ce36b92c2a28e1fd1dd044e7c0829d116cd4e1be","bytes":2344},
+    {"path":"06_IMPLEMENTATION_HANDOFF_v0.1.4.2.md","sha256":"cb14cc97a1c534cedf572779d3db9b0650f5f59ae52e89508d314b79f9912660","bytes":2455},
+    {"path":"07_COMPRESSION_CONFORMANCE_AUDIT_v0.1.4.2.md","sha256":"e7481b15b3affcdee46395cb86048b224db1727e49b76359d557900ab0d53dc1","bytes":3258},
+    {"path":"08_PROVEN_SUBJECT_TEMPLATE.json","sha256":"00c261107f54bcef90f538a333bcc4b514d71746223c800614eab494d1f4cd46","bytes":629},
+    {"path":"RUNTIME_CONTEXT_MANIFEST.json","sha256":"e5c599abdbbf464309e0a5445d158eb091bd73583c385db3b529839a3555eb8c","bytes":661}
+  ]
+}

@@ -1,0 +1,289 @@
+{
+  "acceptance": {
+    "accepted_after_independent_validation": true,
+    "accepted_revision": "6188699a26023793feb778a1f21473521e90954cae39ee13bf837c2f78360acc",
+    "flow_mini_done_is_not_acceptance": true,
+    "job": "J2",
+    "preintegration_validation_reused": false,
+    "schema": "fpo.phase7c.fpo-acceptance.v1",
+    "status": "closed/completed",
+    "validated_revision": "6188699a26023793feb778a1f21473521e90954cae39ee13bf837c2f78360acc"
+  },
+  "final_validation": {
+    "independent": true,
+    "job": "J2",
+    "schema": "fpo.phase7c.independent-validation.v1",
+    "status": "PASS",
+    "subject_digest": "6188699a26023793feb778a1f21473521e90954cae39ee13bf837c2f78360acc",
+    "subject_snapshot": {
+      "src/threshold.py": "b67f8c62aafeeedcc3f4e466b1ee6ebe7779a6b94fb034ce1d9a0fa5c0567519",
+      "tests/test_threshold.py": "b38370d7c175da8ae8d7671eb499db6422d9b8fddb6d78455ba9c2abf74a9215"
+    },
+    "test_result": {
+      "pattern": "test*.py",
+      "returncode": 0,
+      "status": "PASS",
+      "stderr": "test_empty_name (test_threshold.ThresholdTests.test_empty_name) ... ok\ntest_threshold (test_threshold.ThresholdTests.test_threshold) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n",
+      "stdout": ""
+    }
+  },
+  "inspection": {
+    "baseline": {
+      "pattern": "test*.py",
+      "returncode": 1,
+      "status": "FAIL",
+      "stderr": "test_empty_name (test_threshold.ThresholdTests.test_empty_name) ... FAIL\ntest_threshold (test_threshold.ThresholdTests.test_threshold) ... FAIL\n\n======================================================================\nFAIL: test_empty_name (test_threshold.ThresholdTests.test_empty_name)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"E:\\TEST\\FPO_Runtime_Probe_Starter\\.phase2-sync\\phase7c\\fixtures\\j2-serial\\tests\\test_threshold.py\", line 12, in test_empty_name\n    with self.assertRaises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ValueError not raised\n\n======================================================================\nFAIL: test_threshold (test_threshold.ThresholdTests.test_threshold)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"E:\\TEST\\FPO_Runtime_Probe_Starter\\.phase2-sync\\phase7c\\fixtures\\j2-serial\\tests\\test_threshold.py\", line 9, in test_threshold\n    self.assertEqual(parse_threshold(' warning = 7 '), ('warning', 7))\nAssertionError: Tuples differ: (' warning ', 7) != ('warning', 7)\n\nFirst differing element 0:\n' warning '\n'warning'\n\n- (' warning ', 7)\n?   -       -\n\n+ ('warning', 7)\n\n----------------------------------------------------------------------\nRan 2 tests in 0.001s\n\nFAILED (failures=2)\n",
+      "stdout": ""
+    },
+    "independent_targets": false,
+    "job": "J2",
+    "parallel_candidates": [
+      "threshold"
+    ],
+    "rationale": "one narrow failing surface or dependent work makes fan-out overhead unjustified",
+    "requirements_discovered": [
+      "parse_threshold(text)` must accept `name = integer` with surrounding whitespace and return `(name, integer)`."
+    ],
+    "selected_route": "serial",
+    "source_files": [
+      "threshold.py"
+    ],
+    "targets": [
+      "threshold"
+    ],
+    "test_files": [
+      "test_threshold.py"
+    ]
+  },
+  "provider": {
+    "admissions": [
+      {
+        "admitted": true,
+        "child_identity": [
+          "ATT-J2-001",
+          "lane-threshold"
+        ]
+      }
+    ],
+    "closures": [
+      "SETTLED"
+    ],
+    "commits": [
+      {
+        "destination": "j2-threshold",
+        "effect_id": "effect:ATT-J2-001:lane-threshold:J2-threshold-effect",
+        "expected_revision": "r0",
+        "mechanism": "destination-CAS",
+        "result_revision": "threshold-r1",
+        "schema": "fpo.parallel.external-commit-proof.v1"
+      }
+    ],
+    "effects": [
+      {
+        "attempt_id": "ATT-J2-001",
+        "binding": {
+          "attempt_id": "ATT-J2-001",
+          "child_identity": [
+            "ATT-J2-001",
+            "lane-threshold"
+          ],
+          "child_sub_id": "lane-threshold",
+          "components": [
+            {
+              "name": "approval",
+              "ref": {
+                "digest": "74f475e92e0ded492c2cf82173637f9e652898c11248d12633391ca28689f753",
+                "revision": "approval-r1",
+                "source": "owner-native"
+              },
+              "source": "owner-native"
+            },
+            {
+              "name": "attempt",
+              "ref": {
+                "digest": "48dd8f004aa3716da8a4a5f544541a6e812b75ab2612a2877becc085fb3a94b8",
+                "revision": "ATT-J2-001-r1",
+                "source": "owner-native"
+              },
+              "source": "owner-native"
+            },
+            {
+              "name": "capability",
+              "ref": {
+                "digest": "a76b5b02567fa5951e63cfd6160e6ef887f7b1f5f0a171addc4eeedff6bb5b16",
+                "revision": "capability-r1",
+                "source": "owner-native"
+              },
+              "source": "owner-native"
+            },
+            {
+              "name": "definition",
+              "ref": {
+                "digest": "5988cae994d1a0a4eee9e603387a50bc126df14c7f44af6c134433dedb4ab5b6",
+                "revision": "definition-r1",
+                "source": "owner-native"
+              },
+              "source": "owner-native"
+            },
+            {
+              "name": "dispatch",
+              "ref": {
+                "digest": "6ba42fdd5be67cac1e680b928d13beaa778d729b7d4f9fb85360d96f45626849",
+                "revision": "dispatch-r1",
+                "source": "owner-native"
+              },
+              "source": "owner-native"
+            },
+            {
+              "name": "plan",
+              "ref": {
+                "digest": "023f3a28ceb16ed24565a0d57bc08b2a361d675c03e7063e943e11aa58dde5b1",
+                "revision": "plan-r1",
+                "source": "owner-native"
+              },
+              "source": "owner-native"
+            },
+            {
+              "name": "target",
+              "ref": {
+                "digest": "78ce59e231669eb5b97377c26f0ac4bd2d5848584983660688dc358cd29da2e8",
+                "revision": "target-r1",
+                "source": "owner-native"
+              },
+              "source": "owner-native"
+            }
+          ],
+          "execution_basis_fingerprint": "891c96d3dee8c54efd79d09d7b853270a18e0598ca7f22a73ca5d40ff9822a8f",
+          "schema": "fpo.parallel.execution-binding.derived.v1"
+        },
+        "child_identity": [
+          "ATT-J2-001",
+          "lane-threshold"
+        ],
+        "commit": {
+          "destination": "j2-threshold",
+          "effect_id": "effect:ATT-J2-001:lane-threshold:J2-threshold-effect",
+          "expected_revision": "r0",
+          "mechanism": "destination-CAS",
+          "result_revision": "threshold-r1",
+          "schema": "fpo.parallel.external-commit-proof.v1"
+        },
+        "currentness_recheck": true,
+        "effect_id": "effect:ATT-J2-001:lane-threshold:J2-threshold-effect",
+        "mediated": true,
+        "mutation_domain": "j2-threshold",
+        "schema": "fpo.parallel.effect-intent.derived.v1",
+        "state": "COMMITTED"
+      }
+    ],
+    "operations": [
+      {
+        "attempt_id": "ATT-J2-001",
+        "capability": "parallel-file-write",
+        "child_sub_id": "lane-threshold",
+        "conflict_domains": [
+          "physical:j2-threshold"
+        ],
+        "destination": "j2-threshold",
+        "effect_class": "file-write",
+        "invariants": [
+          "J2-threshold-integrity"
+        ],
+        "provider_path": "local-cas",
+        "refs": {
+          "approval": {
+            "digest": "74f475e92e0ded492c2cf82173637f9e652898c11248d12633391ca28689f753",
+            "revision": "approval-r1",
+            "source": "owner-native"
+          },
+          "attempt": {
+            "digest": "48dd8f004aa3716da8a4a5f544541a6e812b75ab2612a2877becc085fb3a94b8",
+            "revision": "ATT-J2-001-r1",
+            "source": "owner-native"
+          },
+          "capability": {
+            "digest": "a76b5b02567fa5951e63cfd6160e6ef887f7b1f5f0a171addc4eeedff6bb5b16",
+            "revision": "capability-r1",
+            "source": "owner-native"
+          },
+          "definition": {
+            "digest": "5988cae994d1a0a4eee9e603387a50bc126df14c7f44af6c134433dedb4ab5b6",
+            "revision": "definition-r1",
+            "source": "owner-native"
+          },
+          "dispatch": {
+            "digest": "6ba42fdd5be67cac1e680b928d13beaa778d729b7d4f9fb85360d96f45626849",
+            "revision": "dispatch-r1",
+            "source": "owner-native"
+          },
+          "plan": {
+            "digest": "023f3a28ceb16ed24565a0d57bc08b2a361d675c03e7063e943e11aa58dde5b1",
+            "revision": "plan-r1",
+            "source": "owner-native"
+          },
+          "target": {
+            "digest": "78ce59e231669eb5b97377c26f0ac4bd2d5848584983660688dc358cd29da2e8",
+            "revision": "target-r1",
+            "source": "owner-native"
+          }
+        },
+        "required_at_spawn": [
+          {
+            "applicable": true,
+            "channel": "process_tree"
+          },
+          {
+            "applicable": true,
+            "channel": "queued_callback"
+          }
+        ]
+      }
+    ]
+  },
+  "publication": {
+    "artifact_manifest": {
+      "artifact_id": "J2-subject",
+      "content_digest": "6188699a26023793feb778a1f21473521e90954cae39ee13bf837c2f78360acc",
+      "immutable_revision": "6188699a26023793feb778a1f21473521e90954cae39ee13bf837c2f78360acc",
+      "schema": "fpo.existing.artifact-manifest.v1",
+      "source": "provider-freeze"
+    },
+    "frozen": {
+      "alias": "J2-subject",
+      "closure": "SETTLED",
+      "content": {
+        "src/threshold.py": "b67f8c62aafeeedcc3f4e466b1ee6ebe7779a6b94fb034ce1d9a0fa5c0567519",
+        "tests/test_threshold.py": "b38370d7c175da8ae8d7671eb499db6422d9b8fddb6d78455ba9c2abf74a9215"
+      },
+      "freeze_proof": {
+        "single_lane": true
+      },
+      "immutable_revision": "6188699a26023793feb778a1f21473521e90954cae39ee13bf837c2f78360acc",
+      "schema": "fpo.parallel.frozen-subject.v1"
+    }
+  },
+  "worker": {
+    "changed_files": [
+      "src/threshold.py"
+    ],
+    "declared_model_policy": "gpt-5.6-luna/xhigh",
+    "fresh_context": true,
+    "job": "J2",
+    "lane": "threshold",
+    "local_validation": {
+      "pattern": "test_threshold.py",
+      "returncode": 0,
+      "status": "PASS",
+      "stderr": "test_empty_name (test_threshold.ThresholdTests.test_empty_name) ... ok\ntest_threshold (test_threshold.ThresholdTests.test_threshold) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n",
+      "stdout": ""
+    },
+    "next_action": "parent adoption and independent validation",
+    "prior_hidden_reasoning": false,
+    "prior_transcript": false,
+    "provider": "local-flow-mini-adapter",
+    "return_sha256": "cc4ed0668380f179a399eb30d8bdf365bb4c9a587c40c36840d15378253fce5b",
+    "schema": "fpo.phase7c.flow-mini-return.v1",
+    "status": "DONE",
+    "worker_process": "fresh-subprocess"
+  }
+}

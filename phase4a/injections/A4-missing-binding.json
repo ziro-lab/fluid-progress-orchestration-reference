@@ -1,0 +1,12 @@
+{
+  "capability_run_id": "caprun-A4-001",
+  "dispatch_id": "DISP-A4-001",
+  "capability_revision": "phase4a-v1",
+  "facts": [],
+  "findings": [],
+  "evidence_refs": [],
+  "uncertainties": [],
+  "proposals": [],
+  "requested_observations": [],
+  "notes": ["operation_id is intentionally missing"]
+}

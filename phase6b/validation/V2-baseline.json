@@ -1,0 +1,21 @@
+{
+  "expected_initial_failure": true,
+  "fixture": "V2",
+  "result": {
+    "args": [
+      "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "returncode": 1,
+    "stderr": "test_invalid_timestamp_raises (test_iso_compat.IsoCompatibilityTests.test_invalid_timestamp_raises) ... ok\ntest_offsets_remain_aware (test_iso_compat.IsoCompatibilityTests.test_offsets_remain_aware) ... ok\ntest_utc_z_is_supported_on_both_profiles (test_iso_compat.IsoCompatibilityTests.test_utc_z_is_supported_on_both_profiles) ... ERROR\n\n======================================================================\nERROR: test_utc_z_is_supported_on_both_profiles (test_iso_compat.IsoCompatibilityTests.test_utc_z_is_supported_on_both_profiles)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"E:\\TEST\\FPO_Runtime_Probe_Starter\\.phase2-sync\\phase6b\\fixture\\v2-research\\tests\\test_iso_compat.py\", line 15, in test_utc_z_is_supported_on_both_profiles\n    value = parse_timestamp(\"2024-01-02T03:04:05Z\", profile)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\TEST\\FPO_Runtime_Probe_Starter\\.phase2-sync\\phase6b\\fixture\\v2-research\\src\\iso_compat.py\", line 10, in parse_timestamp\n    raise ValueError(\"UTC Z is not supported by this runtime profile\")\nValueError: UTC Z is not supported by this runtime profile\n\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nFAILED (errors=1)\n",
+    "stdout": "",
+    "timed_out": false
+  },
+  "schema": "fpo.phase6b.baseline-validation.v1",
+  "status": "FAIL"
+}

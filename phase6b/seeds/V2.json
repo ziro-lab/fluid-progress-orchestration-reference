@@ -1,0 +1,5 @@
+{
+  "fixture": "V2",
+  "schema": "fpo.phase6b.user-seed.v1",
+  "seed": "Make this compatibility parser usable according to its README, including any needed investigation, change, validation, and completion confirmation."
+}

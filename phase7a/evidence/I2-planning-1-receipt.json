@@ -1,0 +1,14 @@
+{
+  "agent_id": "01a04b99-13c8-7010-a918-24773d4f124a",
+  "dispatch_id": "P7A-I2-PLANNING-1",
+  "evidence_ref": "phase7a/evidence/I2-planning-1-return.json",
+  "fixture": "I2",
+  "fresh_worker": true,
+  "input_sha256": "0b04514fa94b6cb2bc8189cf4c6f44824accf5260f31e5e1194f04106bf75643",
+  "prior_hidden_reasoning": false,
+  "prior_transcript": false,
+  "raw_return_sha256": "40ce0e9c71afff435e620cc612d18814d89ac7db3271816e54cdb6589402bd9d",
+  "schema": "fpo.phase7a.worker-receipt.v1",
+  "stage": "planning-1",
+  "status": "recorded"
+}

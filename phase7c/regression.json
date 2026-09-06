@@ -1,0 +1,9 @@
+{
+  "changed_protected_paths": [],
+  "flow_mini_integrity": true,
+  "mode": "evidence_verification_only",
+  "phase0_7b_baseline_integrity": true,
+  "projection_rebuild": true,
+  "schema": "fpo.phase7c.regression.v1",
+  "status": "PASS"
+}

@@ -1,0 +1,1 @@
+{"acceptance_after_validation":true,"acceptance_before_validation":false,"acceptance_id":"ACC-B5-001","evidence_ref":"validation.json","owner":"probe owner","repair_effect_ref":"repair-effect.json","schema":"fpo.phase4b.owner-acceptance.v1","verdict":"PASS"}

@@ -1,0 +1,1 @@
+{"case_id":"C5","required_decision":"ESCALATE","required_reason_code":"HUMAN_EVIDENCE","required_human_request_count":1,"required_request_type":"observation","required_specific_observation":true,"decision_delegated_to_human":false,"available_automation_ignored":false}

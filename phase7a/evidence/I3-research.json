@@ -1,0 +1,15 @@
+{
+  "accepted_for_resume": true,
+  "claim": "Manifest schema v2 uses track for the release channel, preserves artifact order, and accepts stable or canary.",
+  "fixture": "I3",
+  "owner": "FPO parent",
+  "read_only": true,
+  "schema": "fpo.phase7a.source-bound-research.v1",
+  "source_binding": {
+    "artifact_order": "preserve-input-order",
+    "channel_field": "track",
+    "schema_version": 2
+  },
+  "source_url": "https://vendor.example.invalid/release-manifest/v2",
+  "tool": "fixture/i3-external-gap/tools/vendor_release_contract.py"
+}

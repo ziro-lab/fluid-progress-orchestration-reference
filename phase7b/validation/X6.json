@@ -1,0 +1,12 @@
+{
+  "details": {
+    "narrowed_claim_accepted": false,
+    "trusted_constraints_preserved": true,
+    "widened_claim_accepted": true
+  },
+  "evidence_ref": "phase7b/evidence/X6.json",
+  "independent": true,
+  "probe_id": "X6",
+  "schema": "fpo.phase7b.validation.v1",
+  "status": "PASS"
+}

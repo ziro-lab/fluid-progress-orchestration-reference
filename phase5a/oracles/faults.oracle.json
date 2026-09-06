@@ -1,0 +1,10 @@
+{
+  "schema": "fpo.phase5a.fault-oracle.v1",
+  "purpose": "Parent-only deterministic fault grading; never exposed to Fresh workers.",
+  "faults": {
+    "H1": "Missing convenience handoff field is reconstructed from immutable source.",
+    "H2": "Stale handoff is rejected and current source wins.",
+    "H3": "Contradictory summary prose cannot promote authority or close the Work.",
+    "H4": "No prior chat transcript is required for continuity."
+  }
+}

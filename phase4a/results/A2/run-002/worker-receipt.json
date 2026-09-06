@@ -1,0 +1,1 @@
+{"agent_id":"01a03e08-1eb6-7f42-8d85-1268e5197d8d","case_id":"A2","fresh_worker":true,"invocation_type":"fresh multi-agent child worker","real_ai_invocation":true,"recorded_at":"2026-08-26T12:26:40Z","return_ref":"return.json","return_sha256":"a310e56d343094ac7fe831dbc49bed2927a1ed1a877d193427354792df58545e","run_number":2,"schema":"fpo.phase4a.real-ai-worker-receipt.v1"}

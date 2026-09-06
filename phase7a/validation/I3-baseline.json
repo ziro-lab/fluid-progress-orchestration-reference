@@ -1,0 +1,21 @@
+{
+  "expected_initial_failure": false,
+  "fixture": "I3",
+  "result": {
+    "args": [
+      "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "returncode": 0,
+    "stderr": "test_local_shape_is_deterministic (test_manifest.ManifestTests.test_local_shape_is_deterministic) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+    "stdout": "",
+    "timed_out": false
+  },
+  "schema": "fpo.phase7a.baseline-validation.v1",
+  "status": "PASS"
+}

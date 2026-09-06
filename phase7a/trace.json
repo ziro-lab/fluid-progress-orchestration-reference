@@ -1,0 +1,1115 @@
+{
+  "events": [
+    {
+      "authority": "parent FPO",
+      "budget": "bounded",
+      "fixture": "I1",
+      "kind": "seed",
+      "project": "phase7a/fixture/i1-local",
+      "seed_ref": "phase7a/seeds/I1.json",
+      "sequence": 1
+    },
+    {
+      "current_revision": "initial",
+      "fixture": "I1",
+      "kind": "initial-observation",
+      "sequence": 2,
+      "workspace_digest": "5454be90d6f2c31388004ea531e664d2e4e529b44be57e613a7d03b7d60bf38c"
+    },
+    {
+      "expected_initial_failure": true,
+      "fixture": "I1",
+      "kind": "baseline-validation",
+      "sequence": 3,
+      "status": "FAIL"
+    },
+    {
+      "dispatch_id": "P7A-I1-EXECUTION-1",
+      "fixture": "I1",
+      "fresh": true,
+      "input_sha256": "7160dc5351524839847a9cc98fccb84a6747d252a07195509435561ca4e6924b",
+      "kind": "dispatch",
+      "provider": {
+        "model": "gpt-5.6-luna",
+        "reasoning": "xhigh"
+      },
+      "route": "parent FPO selected capability boundary",
+      "sequence": 4,
+      "stage": "execution-1"
+    },
+    {
+      "blockers": [],
+      "current_revision": "fb74cac46a3833195262f6e4a3a78c3034b819a9+working-tree",
+      "evidence": [
+        {
+          "details": "Exact accepted order, duplicate preservation, empty rejected array, and accepted item keys observed.",
+          "result": "PASS",
+          "subject": "A1"
+        },
+        {
+          "details": "Trimming and ASCII slug normalization observed for whitespace, uppercase, separator runs, digits, punctuation, and non-ASCII input.",
+          "result": "PASS",
+          "subject": "A2"
+        },
+        {
+          "details": "Only non-strings and empty-after-trimming strings rejected; original indices, short reasons, order, and later processing observed.",
+          "result": "PASS",
+          "subject": "A3"
+        },
+        {
+          "details": "Repeated calls produced equal complete structures; final source has no nondeterministic fields.",
+          "result": "PASS",
+          "subject": "A4"
+        },
+        {
+          "details": "Implementation, focused tests, WORKPLAN, and this assigned Return are the only task artifacts changed; no commit or push performed.",
+          "result": "PASS",
+          "subject": "scope"
+        }
+      ],
+      "fixture": "I1",
+      "fresh_context": true,
+      "kind": "flow-mini-return",
+      "local_validation": {
+        "fresh_process": {
+          "coverage": [
+            "exact top-level and item shapes",
+            "original order and duplicates",
+            "original rejection indices and continuation",
+            "trimming, ASCII lowercasing, separator runs, digits, and non-ASCII-only empty slug",
+            "determinism and caller input non-mutation"
+          ],
+          "result": "A1-A4 fresh-process validation: PASS"
+        },
+        "full_suite": {
+          "command": "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -m unittest discover -s tests -v",
+          "result": "Ran 4 tests; OK",
+          "tests_run": 4
+        },
+        "runtime": "Python 3.12.13 bundled runtime",
+        "source_inspection": "No sorted iteration, randomness, timestamps, or environment-derived fields were found in the final source.",
+        "status": "PASS"
+      },
+      "next_action": "FPO may inspect this candidate Return and the bounded implementation; no further implementation-local action is required.",
+      "observations": [
+        {
+          "details": "CONTRACT, ACCEPTANCE, WORKPLAN share Core Generation P7A-I1-PLANNING-1-G1; EXECUTION matches Controller Revision FM-EXEC-0.5.0-r3.",
+          "id": "obs-001",
+          "result": "Core coherent"
+        },
+        {
+          "details": "The pre-change implementation sorted labels before enumeration, which changed accepted order and rejection indices; the pre-change suite reproduced this as one failure.",
+          "id": "obs-002",
+          "result": "Mismatch confirmed"
+        },
+        {
+          "details": "slugger.py now enumerates the caller-provided labels directly; trimming, ASCII slug normalization, rejection continuation, and result shapes remain unchanged.",
+          "id": "obs-003",
+          "result": "Implementation complete"
+        }
+      ],
+      "operations": [
+        {
+          "action": "reconcile",
+          "operation_id": "op-001-reconcile",
+          "result": "Core and bounded Current Reality inspected before editing"
+        },
+        {
+          "action": "edit",
+          "operation_id": "op-002-implement",
+          "result": "Removed input sorting by changing enumeration to use labels directly"
+        },
+        {
+          "action": "edit",
+          "operation_id": "op-003-regression",
+          "result": "Added focused tests for normalization, exact shapes, determinism, and input non-mutation"
+        },
+        {
+          "action": "validate",
+          "operation_id": "op-004-validate-suite",
+          "result": "Complete local unittest suite passed: 4 tests"
+        },
+        {
+          "action": "validate",
+          "operation_id": "op-005-validate-fresh",
+          "result": "Fresh Python process passed exact A1-A4 scenario assertions"
+        },
+        {
+          "action": "record",
+          "operation_id": "op-006-record",
+          "result": "WORKPLAN updated to DONE with current evidence"
+        }
+      ],
+      "planning": {
+        "core_generation": "P7A-I1-PLANNING-1-G1",
+        "mechanics": "minimal source change plus focused regression coverage",
+        "reference_only": true,
+        "stage": "correct and validate deterministic build_slugs(labels) behavior"
+      },
+      "reentry": {
+        "reason": "No contract, stage, design, input, or validation boundary change was required.",
+        "required": false
+      },
+      "requirements": [
+        "Implement the README-defined build_slugs(labels) behavior in the bounded I1 project.",
+        "Preserve original input order and duplicates, including original rejection indices and continuation after rejection.",
+        "Keep the public interface, exact JSON-shaped item fields, deterministic output, and standard-library-only implementation.",
+        "Validate locally and update the bounded WORKPLAN without modifying files outside the bounded project except this Return."
+      ],
+      "sequence": 5,
+      "stage": "execution-1",
+      "status": "DONE",
+      "transcript_dependency": false
+    },
+    {
+      "ai_return_authoritative": false,
+      "decision": "accepted-as-implementation-return",
+      "fixture": "I1",
+      "kind": "fpo-adoption",
+      "owner": "FPO parent",
+      "sequence": 6,
+      "stage": "execution-1"
+    },
+    {
+      "dispatch_id": "P7A-I1-PLANNING-1",
+      "fixture": "I1",
+      "fresh": true,
+      "input_sha256": "9fda41f53d9289c0f594526312b827b6d3ad8375f65ea99d9902a42eb3f3a27c",
+      "kind": "dispatch",
+      "provider": {
+        "model": "gpt-5.6-sol",
+        "reasoning": "medium"
+      },
+      "route": "parent FPO selected capability boundary",
+      "sequence": 7,
+      "stage": "planning-1"
+    },
+    {
+      "blockers": [],
+      "current_revision": "fb74cac46a3833195262f6e4a3a78c3034b819a9",
+      "evidence": [
+        {
+          "locator": "phase7a/fixture/i1-local/README.md; src/slugger.py; tests/test_slugger.py",
+          "revision": "fb74cac46a3833195262f6e4a3a78c3034b819a9",
+          "subject": "bounded project source"
+        },
+        {
+          "sha256": "737846dfa6ddefb3c909fd94c0c39bee51c9ca32f03374c85fd3aaa18a2d90fd",
+          "subject": "CONTRACT.md planning artifact"
+        },
+        {
+          "sha256": "a1695d8fdcf7677b0ace6c13952adbe545597992c21a446a97c1b8b72a23a27a",
+          "subject": "ACCEPTANCE.md planning artifact"
+        },
+        {
+          "sha256": "86c6a5da65bca68d53d008b064b8899c44fc242259966eb12d32e5c46c9710dc",
+          "subject": "WORKPLAN.md planning artifact"
+        },
+        {
+          "sha256": "3aec52d7a53a16aee677ea640070106f7caf39becd10f252acd6ef83b612fbfc",
+          "subject": "EXECUTION.md pinned-template identity"
+        }
+      ],
+      "fixture": "I1",
+      "fresh_context": true,
+      "kind": "flow-mini-return",
+      "local_validation": {
+        "checks": [
+          "The bounded project contains exactly four regular files under .flow-mini.",
+          "CONTRACT.md, ACCEPTANCE.md, and WORKPLAN.md use the same non-empty Core Generation.",
+          "CONTRACT.md binds FM-EXEC-0.5.0-r3, matching the project-local EXECUTION.md header.",
+          "EXECUTION.md is byte-for-byte identical to the pinned candidate template.",
+          "The Return parses as one JSON object and is checked against the assigned return schema."
+        ],
+        "result": "PASS",
+        "scope": "Planning artifact validation only; no source implementation or implementation test run was performed."
+      },
+      "next_action": "Start a separate Fresh Flow Mini Execution invocation for the bounded I1 project; do not implement in this planning invocation.",
+      "observations": [
+        "README.md is the current normative project material for the bounded behavior.",
+        "src/slugger.py currently sorts labels by their string representation before enumeration, which violates original-order preservation and can invalidate rejection indices.",
+        "The existing implementation already contains suitable standard-library trimming, rejection, regex normalization, and result construction logic.",
+        "Existing tests cover order/duplicates and rejection continuation/indexes but do not explicitly cover all normalization, exact-shape, deterministic-output, and punctuation/non-ASCII-only cases.",
+        "A trimmed non-empty value composed only of characters outside ASCII letters/digits remains accepted under the stated rejection rules, even when its slug is empty."
+      ],
+      "operations": [],
+      "planning": {
+        "active_stage": "Correct original-order processing, add focused missing regression coverage, and validate the complete final behavior.",
+        "controller_revision": "FM-EXEC-0.5.0-r3",
+        "core_generation": "P7A-I1-PLANNING-1-G1",
+        "goal_horizon": "Implement and validate the complete README-defined label slugger behavior in the bounded project.",
+        "implementation_commitments": [
+          "Keep the public function and direct deterministic single-pass structure.",
+          "Enumerate the original input sequence without sorting, deduplication, mutation, or index remapping.",
+          "Use only the Python standard library and make the smallest source/test changes required.",
+          "Validate exact result shape, ordering, rejection continuation, normalization boundaries, determinism, and regressions."
+        ],
+        "normal_return": "All planned proof obligations have current evidence and the bounded public function is usable as documented.",
+        "planned_files": [
+          ".flow-mini/CONTRACT.md",
+          ".flow-mini/ACCEPTANCE.md",
+          ".flow-mini/WORKPLAN.md",
+          ".flow-mini/EXECUTION.md"
+        ]
+      },
+      "reentry": {
+        "execution_ready": true,
+        "recheck_triggers": [
+          "Material change to README.md, src/slugger.py, tests/test_slugger.py, the bounded target, or repository revision.",
+          "Core Generation mismatch, controller revision mismatch, or a material cross-core contradiction."
+        ],
+        "resume_status": "ACTIVE",
+        "start_from": "Read the four current .flow-mini files in a fresh implementation context, reconcile repository reality, then perform WORKPLAN R1."
+      },
+      "requirements": [
+        "Process labels in original input order and preserve duplicates.",
+        "Trim strings, lowercase ASCII letters, collapse each non-ASCII-alphanumeric run to one hyphen, and strip boundary hyphens.",
+        "Reject only non-string and empty-after-trimming values, report original zero-based indices with short reasons, and continue later items.",
+        "Return only deterministic accepted/rejected structures with the documented per-item fields.",
+        "Keep all implementation effects within the bounded I1 project and avoid unnecessary dependencies or architecture changes."
+      ],
+      "sequence": 8,
+      "stage": "planning-1",
+      "status": "PLANNING READY",
+      "transcript_dependency": false
+    },
+    {
+      "ai_return_authoritative": false,
+      "decision": "accepted-as-planning-evidence",
+      "fixture": "I1",
+      "kind": "fpo-adoption",
+      "owner": "FPO parent",
+      "sequence": 9,
+      "stage": "planning-1"
+    },
+    {
+      "fixture": "I1",
+      "flow_mini_done": true,
+      "hidden_oracle": "parent-only",
+      "independent": true,
+      "kind": "independent-validation",
+      "sequence": 10,
+      "status": "PASS"
+    },
+    {
+      "after_independent_validation": true,
+      "fixture": "I1",
+      "flow_mini_done_is_not_acceptance": true,
+      "flow_mini_done_is_not_close": true,
+      "kind": "fpo-acceptance-close",
+      "owner": "FPO parent",
+      "sequence": 11,
+      "status": "closed/completed"
+    },
+    {
+      "authority": "parent FPO",
+      "budget": "bounded",
+      "fixture": "I2",
+      "kind": "seed",
+      "project": "phase7a/fixture/i2-design-gap",
+      "seed_ref": "phase7a/seeds/I2.json",
+      "sequence": 12
+    },
+    {
+      "current_revision": "initial",
+      "fixture": "I2",
+      "kind": "initial-observation",
+      "sequence": 13,
+      "workspace_digest": "41e18723671d536ad8f0ffb20bd0aa57a14e60c82d74b22011f61ccf41f4aaf9"
+    },
+    {
+      "expected_initial_failure": true,
+      "fixture": "I2",
+      "kind": "baseline-validation",
+      "sequence": 14,
+      "status": "FAIL"
+    },
+    {
+      "dispatch_id": "P7A-I2-EXECUTION-1",
+      "fixture": "I2",
+      "fresh": true,
+      "input_sha256": "322e83eb5cc8c87956d87da722517bef40cdc7a875c69bc42315c9c22235afb3",
+      "kind": "dispatch",
+      "provider": {
+        "model": "gpt-5.6-luna",
+        "reasoning": "xhigh"
+      },
+      "route": "parent FPO selected capability boundary",
+      "sequence": 15,
+      "stage": "execution-1"
+    },
+    {
+      "blockers": [],
+      "current_revision": "FM-EXEC-0.5.0-r3",
+      "evidence": [
+        "phase7a/fixture/i2-design-gap/src/badge.py",
+        "phase7a/fixture/i2-design-gap/tests/test_badge.py",
+        "phase7a/fixture/i2-design-gap/.flow-mini/CONTRACT.md",
+        "phase7a/fixture/i2-design-gap/.flow-mini/ACCEPTANCE.md",
+        "phase7a/fixture/i2-design-gap/.flow-mini/WORKPLAN.md",
+        "phase7a/fixture/i2-design-gap/.flow-mini/EXECUTION.md",
+        "phase7a/fixture/i2-design-gap/design/owner-resolution.md"
+      ],
+      "fixture": "I2",
+      "fresh_context": true,
+      "kind": "flow-mini-return",
+      "local_validation": {
+        "bounded_suite": {
+          "command": "bundled Python -m unittest discover -s tests -v",
+          "result": "PASS: 2/2"
+        },
+        "focused_runtime": {
+          "result": "PASS: stable and canary expected dictionaries, deterministic repeated calls, supplied version propagation, and exact text/color shape"
+        },
+        "syntax": {
+          "command": "bundled Python -m py_compile src\\badge.py",
+          "result": "PASS"
+        }
+      },
+      "next_action": "Upstream FPO may review this implementation Return; no further implementation action is required in this bounded Stage.",
+      "observations": [
+        "The current four-file Core has coherent Core Generation P7A-I2-PLANNING-2-d32fce32 and Controller Revision FM-EXEC-0.5.0-r3.",
+        "The resolved design settles channel-label text with stable→green and canary→amber.",
+        "Before implementation, src/badge.py returned release <version> with blue, and the existing two tests failed against the settled behavior.",
+        "After implementation, the bounded source directly returns the settled stable/canary mappings and retains the existing function boundary."
+      ],
+      "operations": [
+        {
+          "action": "Read the current four .flow-mini files and bounded I2 project materials; inspect source, tests, and scoped VCS state.",
+          "operation_id": "op-001-reconcile",
+          "result": "Core coherence confirmed; the implementation was the known release/blue behavior and no pre-existing bounded-project diff was present."
+        },
+        {
+          "action": "Update phase7a/fixture/i2-design-gap/src/badge.py with the smallest local channel-color mapping and caller-supplied text construction.",
+          "operation_id": "op-002-implement",
+          "result": "Implemented stable→green and canary→amber while preserving the public call shape and result fields."
+        },
+        {
+          "action": "Run the complete bounded-project unittest suite with the bundled Python runtime.",
+          "operation_id": "op-003-suite",
+          "result": "Passed 2 tests: test_resolved_canary_badge and test_resolved_stable_badge."
+        },
+        {
+          "action": "Run direct runtime checks for both settled channels, repeated-call determinism, a second version string, and exact result shape; compile the source.",
+          "operation_id": "op-004-focused",
+          "result": "All focused checks passed, including version 2026.08.29+build.7 propagation; py_compile passed."
+        },
+        {
+          "action": "Record implementation and validation evidence in the existing .flow-mini/WORKPLAN.md without changing Core Generation.",
+          "operation_id": "op-005-workplan",
+          "result": "R1, R2, and R3 are marked complete and Resume Status is DONE."
+        }
+      ],
+      "planning": {
+        "core_generation": "P7A-I2-PLANNING-2-d32fce32",
+        "execution_scope": "Small dependency-free source change and implementation-local validation inside the bounded I2 project",
+        "reference": "Current .flow-mini CONTRACT.md, ACCEPTANCE.md, WORKPLAN.md, and fixed EXECUTION.md"
+      },
+      "reentry": {
+        "reason": "The current settled design and implementation boundary were sufficient; no unresolved design or implementation contract conflict was observed.",
+        "required": false
+      },
+      "requirements": [
+        "Preserve render_badge(channel, version) and its {text, color} result shape.",
+        "For stable, return text stable <version> and color green.",
+        "For canary, return text canary <version> and color amber.",
+        "Keep output deterministic and propagate the supplied channel and version text without substitution."
+      ],
+      "sequence": 16,
+      "stage": "execution-1",
+      "status": "DONE",
+      "transcript_dependency": false
+    },
+    {
+      "ai_return_authoritative": false,
+      "decision": "accepted-as-implementation-return",
+      "fixture": "I2",
+      "kind": "fpo-adoption",
+      "owner": "FPO parent",
+      "sequence": 17,
+      "stage": "execution-1"
+    },
+    {
+      "dispatch_id": "P7A-I2-PLANNING-1",
+      "fixture": "I2",
+      "fresh": true,
+      "input_sha256": "0b04514fa94b6cb2bc8189cf4c6f44824accf5260f31e5e1194f04106bf75643",
+      "kind": "dispatch",
+      "provider": {
+        "model": "gpt-5.6-sol",
+        "reasoning": "medium"
+      },
+      "route": "parent FPO selected capability boundary",
+      "sequence": 18,
+      "stage": "planning-1"
+    },
+    {
+      "blockers": [
+        {
+          "blocked_semantics": [
+            "Settled Design for badge text",
+            "Settled Design for badge color mapping",
+            "design-level Acceptance meaning and authoritative precedence"
+          ],
+          "condition": "Two non-superseded current owner briefs prescribe mutually incompatible user-visible results.",
+          "owner": "upstream design owner"
+        }
+      ],
+      "current_revision": "fb74cac46a3833195262f6e4a3a78c3034b819a9",
+      "evidence": [
+        {
+          "locator": "phase7a/fixture/i2-design-gap/README.md",
+          "supports": "The project explicitly reports two current-looking owner briefs with different badge-text meanings and directs escalation of the design gap."
+        },
+        {
+          "locator": "phase7a/fixture/i2-design-gap/design/brief-release.md",
+          "supports": "Current owner brief specifying release-plus-version text and blue color, with no supersession marker."
+        },
+        {
+          "locator": "phase7a/fixture/i2-design-gap/design/brief-channel.md",
+          "supports": "Current owner brief specifying channel-plus-version text and stable/green plus canary/amber colors, with no supersession marker."
+        },
+        {
+          "locator": "phase7a/fixture/i2-design-gap/src/badge.py",
+          "supports": "Current implementation follows the release brief."
+        },
+        {
+          "locator": "phase7a/fixture/i2-design-gap/tests/test_badge.py",
+          "supports": "Current tests follow the conflicting channel brief."
+        },
+        {
+          "locator": "phase7a/vendor/flow-mini/Flow_Mini_Harness_v0.5.0_Implementation_Core_Convergence_Candidate_r3/01_IMPLEMENTATION_PLANNING.md",
+          "supports": "Material ambiguity that would change upstream-owned meaning requires DESIGN_REENTRY_REQUIRED rather than Planning reinterpretation."
+        }
+      ],
+      "fixture": "I2",
+      "fresh_context": true,
+      "kind": "flow-mini-return",
+      "local_validation": {
+        "checks": [
+          "Inspected only the bounded I2 project, the pinned Flow Mini candidate documents/templates named by the worker prompt, the assigned worker prompt, and the Return schema.",
+          "Confirmed that no .flow-mini files were created in the bounded project.",
+          "Parsed return.json as JSON and validated it against phase7a/contracts/flow-mini-return.schema.json."
+        ],
+        "result": "PASS",
+        "scope": "planning return only; no implementation validation performed"
+      },
+      "next_action": "Return to the upstream design owner to reconcile or supersede the two current briefs; after an authoritative design is available, dispatch a fresh Implementation Planning context.",
+      "observations": [
+        {
+          "detail": "design/brief-release.md and design/brief-channel.md both identify themselves as current owner briefs and neither contains a supersession marker.",
+          "kind": "source_conflict"
+        },
+        {
+          "detail": "The release brief requires text 'release <version>' with blue for every badge, while the channel brief requires text '<channel> <version>' with green for stable and amber for canary. The conflict changes user-visible badge meaning and color behavior.",
+          "kind": "semantic_conflict"
+        },
+        {
+          "detail": "src/badge.py currently follows the release-presentation meaning, while tests/test_badge.py expects the channel-presentation meaning. Implementation and tests therefore embody opposite unresolved briefs and cannot establish product authority.",
+          "kind": "current_reality"
+        },
+        {
+          "detail": "Flow Mini v0.5.0 assigns Settled Design and design-level Acceptance meaning to upstream Design. Resolving this conflict would require Planning to redesign or select authority, so Planning Ready is not permitted.",
+          "kind": "route_basis"
+        }
+      ],
+      "operations": [],
+      "planning": {
+        "active_stage": null,
+        "bare_design_bootstrap_used": false,
+        "core_materialized": false,
+        "planning_ready": false,
+        "preserved_boundary": "No .flow-mini plan was created and neither owner brief was changed.",
+        "reason": "No safe Active Implementation Stage can be compiled until the upstream owner establishes one authoritative badge presentation meaning and its corresponding acceptance behavior.",
+        "route": "DESIGN_REENTRY_REQUIRED"
+      },
+      "reentry": {
+        "owner_state_change": "The upstream design owner must designate a single authoritative badge-presentation rule, explicitly supersede or reconcile the other brief, and state the expected channel/version and color behavior used for acceptance.",
+        "required": true,
+        "resume_condition": "A current authoritative design source resolves precedence and provides one coherent expected result for stable and canary inputs without requiring Planning to choose product meaning.",
+        "type": "design"
+      },
+      "requirements": [
+        "Make the bounded release-badge tool usable according to authoritative current project materials, then implement, validate, and confirm completion only after the design is settled.",
+        "render_badge(channel, version) must return an object with text and color fields.",
+        "Output must be deterministic and must not invent a channel or version.",
+        "Preserve upstream Goal, Requirements, Scope, Settled Design, Acceptance meaning, and Authority; Planning must not choose among contradictory owner briefs."
+      ],
+      "sequence": 19,
+      "stage": "planning-1",
+      "status": "DESIGN_REENTRY_REQUIRED",
+      "transcript_dependency": false
+    },
+    {
+      "ai_return_authoritative": false,
+      "decision": "accepted-as-design-gap-evidence",
+      "fixture": "I2",
+      "kind": "fpo-adoption",
+      "owner": "FPO parent",
+      "sequence": 20,
+      "stage": "planning-1"
+    },
+    {
+      "fixture": "I2",
+      "kind": "design-reentry",
+      "owner": "upstream Design / FPO",
+      "ref": "phase7a/evidence/I2-design-resolution.json",
+      "sequence": 21
+    },
+    {
+      "dispatch_id": "P7A-I2-PLANNING-2",
+      "fixture": "I2",
+      "fresh": true,
+      "input_sha256": "d32fce322092bd06fde05858d713197b74f88177ab33f08b50af230aff2360fc",
+      "kind": "dispatch",
+      "provider": {
+        "model": "gpt-5.6-sol",
+        "reasoning": "medium"
+      },
+      "route": "parent FPO selected capability boundary",
+      "sequence": 22,
+      "stage": "planning-2"
+    },
+    {
+      "blockers": [],
+      "current_revision": "P7A-I2-PLANNING-2-d32fce32",
+      "evidence": [
+        "phase7a/fixture/i2-design-gap/README.md",
+        "phase7a/fixture/i2-design-gap/design/owner-resolution.md",
+        "phase7a/evidence/I2-design-resolution.json",
+        "phase7a/fixture/i2-design-gap/src/badge.py",
+        "phase7a/fixture/i2-design-gap/tests/test_badge.py",
+        "Pinned Flow Mini v0.5.0 candidate entry, planning, architecture, and four Core templates"
+      ],
+      "fixture": "I2",
+      "fresh_context": true,
+      "kind": "flow-mini-return",
+      "local_validation": {
+        "checks": [
+          "Four populated Core files are present in the bounded project.",
+          "CONTRACT, ACCEPTANCE, and WORKPLAN carry the same non-empty Core Generation.",
+          "CONTRACT binds FM-EXEC-0.5.0-r3 and project-local EXECUTION carries the same controller revision.",
+          "Project-local EXECUTION is byte-identical to the pinned candidate template.",
+          "The Return parses as one JSON object and conforms to the assigned field constraints."
+        ],
+        "scope": "Planning-artifact validation only; no source implementation or implementation test execution was performed.",
+        "status": "passed"
+      },
+      "next_action": "Start a fresh Execution context from the four populated Core files, reconcile current reality, implement the smallest bounded change, and collect the specified current evidence.",
+      "observations": [
+        "The parent-supplied design resolution identifies channel-label text with stable green and canary amber as the current settled design for this bounded stage.",
+        "The current src/badge.py always emits release <version> with blue, so decided behavior is not yet implemented.",
+        "The current tests already exercise the stable and canary examples at the direct Python function boundary.",
+        "The bounded project had no populated .flow-mini Core before this planning materialization.",
+        "Behavior outside the stable and canary variants is not settled and is intentionally not invented by this plan."
+      ],
+      "operations": [],
+      "planning": {
+        "artifacts": [
+          "phase7a/fixture/i2-design-gap/.flow-mini/CONTRACT.md",
+          "phase7a/fixture/i2-design-gap/.flow-mini/ACCEPTANCE.md",
+          "phase7a/fixture/i2-design-gap/.flow-mini/WORKPLAN.md",
+          "phase7a/fixture/i2-design-gap/.flow-mini/EXECUTION.md"
+        ],
+        "controller_revision": "FM-EXEC-0.5.0-r3",
+        "core_generation": "P7A-I2-PLANNING-2-d32fce32",
+        "implementation_boundary": "Use the smallest dependency-free local change; changing supported-channel semantics, fallback/error behavior, dependency basis, stage scope, or proof strength requires re-entry at the owning layer.",
+        "proof_obligations": [
+          "Directly observe exact stable output at the real implementation boundary.",
+          "Directly observe exact canary output at the real implementation boundary.",
+          "Observe determinism and exact propagation of supplied channel/version text across both settled variants and more than one representative version string.",
+          "Run the complete bounded-project test suite and preserve the two-field result shape."
+        ],
+        "stage_boundary": "Implement and validate the settled stable and canary behavior in the bounded release-badge project, then re-ground and report the terminal stage state."
+      },
+      "reentry": {
+        "basis": "The parent owner resolution resolves the prior badge-meaning conflict for stable and canary, so implementation planning can proceed without redefining upstream semantics.",
+        "required": false,
+        "trigger": "Re-enter Design only if the resolution is withdrawn or superseded, or if completion requires semantics for unsupported channels or input-validation behavior."
+      },
+      "requirements": [
+        "Preserve the existing render_badge(channel, version) interface and return a dictionary with text and color fields.",
+        "Render stable badges as stable <version> in green.",
+        "Render canary badges as canary <version> in amber.",
+        "Keep output deterministic and preserve the caller-supplied channel and version in badge text without invention or substitution.",
+        "Do not add product semantics for unsupported channels or unusual input types, and do not perform unrelated refactoring."
+      ],
+      "sequence": 23,
+      "stage": "planning-2",
+      "status": "PLANNING READY",
+      "transcript_dependency": false
+    },
+    {
+      "ai_return_authoritative": false,
+      "decision": "accepted-as-planning-evidence",
+      "fixture": "I2",
+      "kind": "fpo-adoption",
+      "owner": "FPO parent",
+      "sequence": 24,
+      "stage": "planning-2"
+    },
+    {
+      "fixture": "I2",
+      "flow_mini_done": true,
+      "hidden_oracle": "parent-only",
+      "independent": true,
+      "kind": "independent-validation",
+      "sequence": 25,
+      "status": "PASS"
+    },
+    {
+      "after_independent_validation": true,
+      "fixture": "I2",
+      "flow_mini_done_is_not_acceptance": true,
+      "flow_mini_done_is_not_close": true,
+      "kind": "fpo-acceptance-close",
+      "owner": "FPO parent",
+      "sequence": 26,
+      "status": "closed/completed"
+    },
+    {
+      "authority": "parent FPO",
+      "budget": "bounded",
+      "fixture": "I3",
+      "kind": "seed",
+      "project": "phase7a/fixture/i3-external-gap",
+      "seed_ref": "phase7a/seeds/I3.json",
+      "sequence": 27
+    },
+    {
+      "current_revision": "initial",
+      "fixture": "I3",
+      "kind": "initial-observation",
+      "sequence": 28,
+      "workspace_digest": "7a42fcf3347126c064105efc30313ae7db8fc34ce08adca8ed8fc2123d8ac439"
+    },
+    {
+      "expected_initial_failure": false,
+      "fixture": "I3",
+      "kind": "baseline-validation",
+      "sequence": 29,
+      "status": "PASS"
+    },
+    {
+      "dispatch_id": "P7A-I3-EXECUTION-1",
+      "fixture": "I3",
+      "fresh": true,
+      "input_sha256": "180ccaa4c6f4f41567f687953844a02e08f50599395a792d6ded36ebc1f85364",
+      "kind": "dispatch",
+      "provider": {
+        "model": "gpt-5.6-luna",
+        "reasoning": "xhigh"
+      },
+      "route": "parent FPO selected capability boundary",
+      "sequence": 30,
+      "stage": "execution-1"
+    },
+    {
+      "blockers": [
+        {
+          "effect": "Implementing now would require unsupported vendor-specific guesses.",
+          "kind": "EXTERNAL_CONTRACT_GAP",
+          "missing": [
+            "applicable official contract identity and revision",
+            "manifest schema version and exact output representation",
+            "channel field name and semantics, including validation/default/omission behavior if applicable",
+            "artifact ordering rule and normalization details"
+          ],
+          "scope": "vendor-specific manifest behavior"
+        }
+      ],
+      "current_revision": "FM-EXEC-0.5.0-r3",
+      "evidence": [
+        {
+          "claim": "Required vendor-specific contract inputs are explicitly unavailable locally.",
+          "identity": "current bounded I3 README",
+          "kind": "bounded-project-observation",
+          "locator": "phase7a/fixture/i3-external-gap/README.md"
+        },
+        {
+          "claim": "Required inputs are FPO-persisted source-bound Evidence for contract/version identity, schema version, channel semantics, and artifact ordering.",
+          "identity": "current I3 Flow Mini CONTRACT",
+          "kind": "bounded-project-observation",
+          "locator": "phase7a/fixture/i3-external-gap/.flow-mini/CONTRACT.md"
+        },
+        {
+          "claim": "A1 is a precondition; A3-A5 remain not run until the required external Evidence exists.",
+          "identity": "current I3 Flow Mini ACCEPTANCE",
+          "kind": "bounded-project-observation",
+          "locator": "phase7a/fixture/i3-external-gap/.flow-mini/ACCEPTANCE.md"
+        }
+      ],
+      "fixture": "I3",
+      "fresh_context": true,
+      "kind": "flow-mini-return",
+      "local_validation": {
+        "checks": [
+          {
+            "name": "vendor-contract-dependent implementation checks",
+            "result": "NOT_RUN",
+            "scope": "schema version, channel behavior, artifact ordering, and determinism"
+          },
+          {
+            "name": "source preservation",
+            "result": "OBSERVED",
+            "scope": "src/manifest.py and tests/test_manifest.py were not modified"
+          }
+        ],
+        "reason": "Implementation-local validation is unsafe and not applicable while Acceptance A1's required external contract Evidence is unavailable.",
+        "status": "NOT_RUN"
+      },
+      "next_action": "FPO should perform official read-only research and persist source-bound Evidence; on re-entry, verify identity, applicability, completeness, and consistency before any source implementation.",
+      "observations": [
+        {
+          "locator": "phase7a/fixture/i3-external-gap/README.md",
+          "result": "The README explicitly states that the vendor-specific channel field contract, manifest schema version, and artifact-ordering contract are absent and must not be guessed.",
+          "subject": "bounded project contract"
+        },
+        {
+          "locator": "phase7a/fixture/i3-external-gap/src/manifest.py",
+          "result": "The callable currently preserves name and version, applies a local stable default for channel, and lexically sorts artifacts; these behaviors are not vendor-contract Evidence.",
+          "subject": "current implementation"
+        },
+        {
+          "locator": "phase7a/fixture/i3-external-gap/tests/test_manifest.py",
+          "result": "The existing test checks only name and version and does not establish schema version, channel semantics, artifact ordering, or the applicable contract identity.",
+          "subject": "current local coverage"
+        },
+        {
+          "locator": "phase7a/fixture/i3-external-gap/tools/vendor_release_contract.py",
+          "result": "The file identifies itself as a parent-only snapshot; it was not used as source-bound Evidence, and no official tool was read or invoked.",
+          "subject": "excluded local snapshot"
+        }
+      ],
+      "operations": [
+        {
+          "action": "Reconciled the four Flow Mini files and bounded I3 project evidence.",
+          "files_changed": [
+            "phase7a/fixture/i3-external-gap/.flow-mini/WORKPLAN.md"
+          ],
+          "operation_id": "P7A-I3-EXECUTION-1-OP-RECONCILE",
+          "result": "External contract gap remains unresolved; WORKPLAN remains BLOCKED.",
+          "source_state": "preserved"
+        },
+        {
+          "action": "Recorded the structured GAP Return.",
+          "files_changed": [
+            "phase7a/runs/I3/execution-1/return.json"
+          ],
+          "operation_id": "P7A-I3-EXECUTION-1-OP-RETURN",
+          "result": "return.json contains one JSON object for this dispatch."
+        }
+      ],
+      "planning": {
+        "controller_revision": "FM-EXEC-0.5.0-r3",
+        "core_generation": "P7A-I3-PLANNING-1-G1",
+        "implementation_change": "none",
+        "resume_status": "BLOCKED"
+      },
+      "reentry": {
+        "condition": "Resume only after FPO persists applicable source-bound Evidence covering every missing vendor-contract input and provides a durable locator.",
+        "kind": "EXTERNAL_RESEARCH_REQUIRED",
+        "owner": "FPO",
+        "required_inputs": [
+          "contract identity and applicable version",
+          "schema version and output shape",
+          "channel field name and semantics",
+          "artifact ordering and normalization rule"
+        ]
+      },
+      "requirements": [
+        "Implement and validate the bounded build_manifest(config) behavior only when the applicable vendor-specific contract is established by local source-bound Evidence.",
+        "Do not guess schema version, channel field semantics, or artifact ordering from the stub, weak tests, or a parent-only snapshot.",
+        "Preserve the implementation state and do not modify source while the external contract gap remains unresolved."
+      ],
+      "sequence": 31,
+      "stage": "execution-1",
+      "status": "GAP",
+      "transcript_dependency": false
+    },
+    {
+      "ai_return_authoritative": false,
+      "decision": "accepted-as-external-gap-evidence",
+      "fixture": "I3",
+      "kind": "fpo-adoption",
+      "owner": "FPO parent",
+      "sequence": 32,
+      "stage": "execution-1"
+    },
+    {
+      "fixture": "I3",
+      "kind": "research-reentry",
+      "owner": "FPO Research",
+      "ref": "phase7a/evidence/I3-research.json",
+      "sequence": 33
+    },
+    {
+      "dispatch_id": "P7A-I3-EXECUTION-2",
+      "fixture": "I3",
+      "fresh": true,
+      "input_sha256": "6195581db9ca9cc19cf98dee04e9be153b42bbb0a5bbde67c3c0d8710add8ba8",
+      "kind": "dispatch",
+      "provider": {
+        "model": "gpt-5.6-luna",
+        "reasoning": "xhigh"
+      },
+      "route": "parent FPO selected capability boundary",
+      "sequence": 34,
+      "stage": "execution-2"
+    },
+    {
+      "blockers": [],
+      "current_revision": "FM-EXEC-0.5.0-r3",
+      "evidence": [
+        {
+          "accepted_for_resume": true,
+          "claims_used": [
+            "schema_version=2",
+            "channel_field=track",
+            "stable and canary are accepted",
+            "artifact_order=preserve-input-order"
+          ],
+          "ref": "phase7a/evidence/I3-research.json",
+          "schema": "fpo.phase7a.source-bound-research.v1"
+        },
+        {
+          "ref": "phase7a/fixture/i3-external-gap/.flow-mini/WORKPLAN.md",
+          "result": "Resume Status updated from BLOCKED to DONE with implementation and validation evidence."
+        }
+      ],
+      "fixture": "I3",
+      "fresh_context": true,
+      "kind": "flow-mini-return",
+      "local_validation": {
+        "commands": [
+          {
+            "command": "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -m unittest discover -s tests -v",
+            "result": "4 tests passed",
+            "runtime": "workspace bundled Python"
+          },
+          {
+            "command": "direct public callable assertions",
+            "result": "PASS"
+          }
+        ],
+        "status": "PASS"
+      },
+      "next_action": "FPO may independently evaluate this implementation Return and continue its acceptance/close flow.",
+      "observations": [
+        "The persisted Evidence is accepted_for_resume and binds schema version 2, channel field track, stable/canary values, and preserve-input-order artifact behavior.",
+        "The previous implementation emitted channel, defaulted a missing channel to stable, and sorted artifacts lexically.",
+        "The current bounded project now emits the Evidence-bound schema-v2 shape and retains the public callable interface."
+      ],
+      "operations": [
+        {
+          "action": "Reconcile the persisted Evidence with the bounded Flow Mini stage.",
+          "operation_id": "P7A-I3-EXECUTION-2-OP-01",
+          "result": "Input gap resolved; implementation stage remained within scope."
+        },
+        {
+          "action": "Implement src/manifest.py from the persisted Evidence.",
+          "operation_id": "P7A-I3-EXECUTION-2-OP-02",
+          "result": "Added schema_version 2, mapped channel to track, validated stable/canary, and copied artifacts in input order."
+        },
+        {
+          "action": "Add focused tests at the public callable boundary.",
+          "operation_id": "P7A-I3-EXECUTION-2-OP-03",
+          "result": "Covered exact output, both valid tracks, invalid-track rejection, order preservation, and determinism."
+        },
+        {
+          "action": "Run the bounded project's local unittest suite.",
+          "operation_id": "P7A-I3-EXECUTION-2-OP-04",
+          "result": "4 tests passed."
+        },
+        {
+          "action": "Run direct focused validation against build_manifest(config).",
+          "operation_id": "P7A-I3-EXECUTION-2-OP-05",
+          "result": "PASS for exact output, both tracks, nontrivial order, repeated equality, and input non-mutation."
+        }
+      ],
+      "planning": {
+        "core_generation": "P7A-I3-PLANNING-1-G1",
+        "mode": "reference-only",
+        "reference": "phase7a/fixture/i3-external-gap/.flow-mini/WORKPLAN.md"
+      },
+      "reentry": {
+        "condition": "Reopen only if the persisted Evidence or bounded project contract materially changes.",
+        "out_of_scope": "FPO evaluation and close",
+        "required": false
+      },
+      "requirements": [
+        "Implement the bounded project's public build_manifest(config) callable.",
+        "Reuse phase7a/evidence/I3-research.json as the only vendor-specific input.",
+        "Preserve artifact input order and leave FPO acceptance and close to FPO."
+      ],
+      "sequence": 35,
+      "stage": "execution-2",
+      "status": "DONE",
+      "transcript_dependency": false
+    },
+    {
+      "ai_return_authoritative": false,
+      "decision": "accepted-as-implementation-return",
+      "fixture": "I3",
+      "kind": "fpo-adoption",
+      "owner": "FPO parent",
+      "sequence": 36,
+      "stage": "execution-2"
+    },
+    {
+      "dispatch_id": "P7A-I3-PLANNING-1",
+      "fixture": "I3",
+      "fresh": true,
+      "input_sha256": "86b1c3d471b9270ecf36fddca88e322a324b331565b778fad5209e7c3f991dd4",
+      "kind": "dispatch",
+      "provider": {
+        "model": "gpt-5.6-sol",
+        "reasoning": "medium"
+      },
+      "route": "parent FPO selected capability boundary",
+      "sequence": 37,
+      "stage": "planning-1"
+    },
+    {
+      "blockers": [
+        {
+          "id": "B1",
+          "owner": "FPO",
+          "resume_condition": "FPO persists and supplies durable, applicable, non-conflicting Evidence covering every required vendor-specific input.",
+          "state": "OPEN",
+          "text": "Official source-bound Evidence is required for the applicable vendor contract identity, manifest schema version/representation, channel field semantics, and artifact-ordering rule."
+        }
+      ],
+      "current_revision": "P7A-I3-PLANNING-1-G1",
+      "evidence": [
+        {
+          "claim": "The bounded goal and prohibition on guessing missing vendor-specific facts.",
+          "role": "Normative",
+          "source": "phase7a/fixture/i3-external-gap/README.md"
+        },
+        {
+          "claim": "Current implementation reality only.",
+          "role": "Fact-Evidence",
+          "source": "phase7a/fixture/i3-external-gap/src/manifest.py"
+        },
+        {
+          "claim": "Current local test coverage only.",
+          "role": "Fact-Evidence",
+          "source": "phase7a/fixture/i3-external-gap/tests/test_manifest.py"
+        },
+        {
+          "claim": "Four-Core structure, ownership boundaries, readiness checks, and fixed controller revision.",
+          "role": "Planning mechanism",
+          "source": "pinned Flow Mini v0.5.0 candidate r3"
+        }
+      ],
+      "fixture": "I3",
+      "fresh_context": true,
+      "kind": "flow-mini-return",
+      "local_validation": {
+        "checks": [
+          "PASS: four Core files exist",
+          "PASS: Core Generation P7A-I3-PLANNING-1-G1 matches across CONTRACT, ACCEPTANCE, and WORKPLAN",
+          "PASS: CONTRACT Controller Revision FM-EXEC-0.5.0-r3 matches the EXECUTION template header",
+          "PASS: EXECUTION.md is byte-identical to the pinned candidate template (SHA-256 3AEC52D7A53A16AEE677EA640070106F7CAF39BECD10F252ACD6EF83B612FBFC)",
+          "PASS: return.json parses as one JSON object with all schema-required top-level keys, no forbidden keys, exact dispatch metadata, and empty operations",
+          "PASS: no src implementation change was made"
+        ],
+        "implementation_validation": "NOT RUN",
+        "scope": "planning artifacts only",
+        "status": "PASS"
+      },
+      "next_action": "FPO should perform the official read-only research it owns and persist source-bound Evidence for the missing vendor-contract facts; then dispatch a fresh Execution context to reconcile that input before any src change.",
+      "observations": [
+        {
+          "kind": "current_reality",
+          "text": "The current function returns name/version, applies a local channel default, and sorts artifacts; these behaviors are not authoritative vendor-contract facts."
+        },
+        {
+          "kind": "current_reality",
+          "text": "The existing test observes only preservation of name and version for one input and cannot prove the vendor schema, channel semantics, ordering, or full determinism obligation."
+        },
+        {
+          "kind": "open",
+          "text": "Authoritative local Evidence does not establish the applicable contract identity, schema version, channel field semantics, or artifact-ordering rule."
+        },
+        {
+          "kind": "excluded_reference",
+          "text": "tools/vendor_release_contract.py identifies itself as parent-only; its claims were not adopted as authority or used to set expected vendor values."
+        }
+      ],
+      "operations": [],
+      "planning": {
+        "active_stage": "After FPO-persisted vendor-contract Evidence is available, implement the smallest conforming build_manifest behavior and validate all material contract dimensions plus determinism.",
+        "controller_revision": "FM-EXEC-0.5.0-r3",
+        "core_generation": "P7A-I3-PLANNING-1-G1",
+        "files": [
+          ".flow-mini/CONTRACT.md",
+          ".flow-mini/ACCEPTANCE.md",
+          ".flow-mini/WORKPLAN.md",
+          ".flow-mini/EXECUTION.md"
+        ],
+        "implementation_changed": false,
+        "result": "PLANNING READY",
+        "resume_status": "BLOCKED"
+      },
+      "reentry": {
+        "condition": "Required FPO-persisted Evidence is available and does not materially change upstream-owned Goal, Requirements, Scope, Settled Design, acceptance meaning, or Authority.",
+        "otherwise": "Route to Planning for changed implementation basis or Design re-entry for changed upstream-owned semantics.",
+        "route": "execution_after_input_reconciliation"
+      },
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "build_manifest(config) accepts the documented name, version, channel, and artifacts mapping and produces a deterministic vendor manifest."
+        },
+        {
+          "id": "R2",
+          "text": "The implementation must conform to official version-specific schema, channel, and artifact-ordering semantics without guessing absent vendor facts."
+        },
+        {
+          "id": "R3",
+          "text": "When those facts are unavailable, preserve a structured blocker for FPO-owned research and source-bound Evidence persistence."
+        },
+        {
+          "id": "R4",
+          "text": "Planning must stop at PLANNING READY, make no src implementation change, and remain inside the bounded project except for this assigned Return."
+        }
+      ],
+      "sequence": 38,
+      "stage": "planning-1",
+      "status": "PLANNING_READY_BLOCKED_EXTERNAL_INPUT",
+      "transcript_dependency": false
+    },
+    {
+      "ai_return_authoritative": false,
+      "decision": "accepted-as-planning-evidence",
+      "fixture": "I3",
+      "kind": "fpo-adoption",
+      "owner": "FPO parent",
+      "sequence": 39,
+      "stage": "planning-1"
+    },
+    {
+      "fixture": "I3",
+      "flow_mini_done": true,
+      "hidden_oracle": "parent-only",
+      "independent": true,
+      "kind": "independent-validation",
+      "sequence": 40,
+      "status": "PASS"
+    },
+    {
+      "after_independent_validation": true,
+      "fixture": "I3",
+      "flow_mini_done_is_not_acceptance": true,
+      "flow_mini_done_is_not_close": true,
+      "kind": "fpo-acceptance-close",
+      "owner": "FPO parent",
+      "sequence": 41,
+      "status": "closed/completed"
+    }
+  ],
+  "posthoc": true,
+  "schema": "fpo.phase7a.posthoc-trace.v1"
+}

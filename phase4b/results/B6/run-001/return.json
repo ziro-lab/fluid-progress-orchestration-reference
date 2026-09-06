@@ -1,0 +1,207 @@
+{
+  "capability_run_id": "research-B6-001",
+  "dispatch_id": "DISP-B6-001",
+  "operation_id": "OP-B6-001",
+  "capability_revision": "phase4b-v1",
+  "facts": [
+    {
+      "id": "FACT-1",
+      "statement": "The Python 3.12 asyncio documentation states that asyncio.wait_for cancels the awaited task on timeout and raises TimeoutError; it also states that it waits for cancellation to complete, so total waiting time may exceed the timeout.",
+      "evidence_refs": ["SRC-1"]
+    },
+    {
+      "id": "FACT-2",
+      "statement": "The CPython 3.12 branch implementation of asyncio.wait_for uses an explicit cancel-and-wait path for timeout values at or below zero, and otherwise executes the awaitable inside timeouts.timeout(timeout).",
+      "evidence_refs": ["SRC-2"]
+    },
+    {
+      "id": "FACT-3",
+      "statement": "The Python 3.12 sys documentation identifies sys.version as containing the interpreter version plus build-number and compiler information; sys.version_info contains major, minor, micro, releaselevel, and serial; sys.implementation exposes implementation identity and version information and may contain implementation-specific attributes.",
+      "evidence_refs": ["SRC-3"]
+    },
+    {
+      "id": "FACT-4",
+      "statement": "The official Python release pages distinguish Python 3.12.0, the stable major release dated October 2, 2023, from later maintenance releases; Python 3.12.10 is described as the tenth maintenance release and as containing about 230 bug fixes, build improvements, and documentation changes since 3.12.9.",
+      "evidence_refs": ["SRC-5", "SRC-6"]
+    },
+    {
+      "id": "FACT-5",
+      "statement": "The official What’s New in Python 3.12 page records multiple upstream asyncio changes in the 3.12 series, including eager task execution and other event-loop/task changes.",
+      "evidence_refs": ["SRC-4"]
+    }
+  ],
+  "findings": [
+    {
+      "id": "FINDING-1",
+      "statement": "Public research establishes upstream CPython asyncio timeout semantics and an upstream 3.12-branch implementation path, but it does not establish the behavior of the named private vendor build.",
+      "support_refs": ["SRC-1", "SRC-2", "SRC-3"],
+      "confidence": "medium"
+    },
+    {
+      "id": "FINDING-2",
+      "statement": "The label Python 3.12 compatibility is not sufficient to identify one exact upstream implementation state, because the 3.12 series contains multiple maintenance releases with accumulated fixes and build changes.",
+      "support_refs": ["SRC-5", "SRC-6"],
+      "confidence": "high"
+    },
+    {
+      "id": "FINDING-3",
+      "statement": "The exact private build provenance and whether an undocumented vendor patch changed asyncio timeout handling remain unresolved. The inspected public sources provide upstream documentation, source, and release information, but no private build manifest, build hash, or vendor patch diff tied to the deployments.",
+      "support_refs": ["SRC-1", "SRC-2", "SRC-3", "SRC-4", "SRC-5", "SRC-6"],
+      "confidence": "medium"
+    },
+    {
+      "id": "FINDING-4",
+      "statement": "A local cancellation-wrapper difference remains a live explanation because the documented timeout behavior is implemented through task cancellation and depends on how cancellation is propagated or suppressed.",
+      "support_refs": ["SRC-1", "SRC-2"],
+      "confidence": "medium"
+    }
+  ],
+  "evidence_refs": ["SRC-1", "SRC-2", "SRC-3", "SRC-4", "SRC-5", "SRC-6"],
+  "uncertainties": [
+    {
+      "id": "UNCERTAINTY-1",
+      "statement": "The exact vendor patch level, source revision, build hash, and manifest contents for both deployments are unavailable in the fixture and were not identified by the bounded public research."
+    },
+    {
+      "id": "UNCERTAINTY-2",
+      "statement": "The redacted stack trace and package name without a build hash do not distinguish an upstream patch-level difference from an application-local cancellation wrapper difference."
+    },
+    {
+      "id": "UNCERTAINTY-3",
+      "statement": "The public upstream sources do not reveal whether the private vendor applied an undocumented change to asyncio timeout handling."
+    }
+  ],
+  "proposals": [
+    {
+      "id": "PROPOSAL-1",
+      "type": "observation",
+      "statement": "Collect a verbatim runtime provenance record from each deployment, including sys.version, sys.version_info, sys.implementation and its implementation-specific attributes, executable path, installed distribution metadata, and any vendor build or manifest hash.",
+      "support_refs": ["SRC-3"]
+    },
+    {
+      "id": "PROPOSAL-2",
+      "type": "observation",
+      "statement": "Capture a minimal timeout/cancellation reproducer from both deployments with the API used, timeout value, exception class and module, cancellation state, whether CancelledError was suppressed, and elapsed time.",
+      "support_refs": ["SRC-1", "SRC-2"]
+    },
+    {
+      "id": "PROPOSAL-3",
+      "type": "next_action",
+      "statement": "Obtain the private vendor build manifest and patch diff tied to the exact build identifier before attributing the divergence to an undocumented vendor patch.",
+      "support_refs": ["SRC-3", "SRC-5", "SRC-6"]
+    }
+  ],
+  "requested_observations": [
+    {
+      "id": "REQUEST-1",
+      "request": "From both deployments, provide exact sys.version, sys.version_info, sys.implementation including extra implementation-specific attributes, the interpreter executable path, installed distribution metadata, and the vendor build or manifest hash if available.",
+      "rationale": "The official sys documentation identifies the runtime and build-related fields that can bind an observation to a concrete interpreter implementation; the current fixture lacks those values."
+    },
+    {
+      "id": "REQUEST-2",
+      "request": "Provide a minimally redacted timeout/cancellation trace and reproducer result from each deployment, including whether the code uses asyncio.wait_for or asyncio.timeout, the timeout value, exception class and module, cancellation state, CancelledError handling, and elapsed time.",
+      "rationale": "The upstream behavior is defined through cancellation and timeout conversion, so the exact API and cancellation path are needed to compare the deployments."
+    },
+    {
+      "id": "REQUEST-3",
+      "request": "Provide the vendor build manifest or patch diff for asyncio timeout handling, tied to the exact build identifier observed in each deployment.",
+      "rationale": "Generic upstream version documentation cannot establish an undocumented private patch or prove that it was present in either deployment."
+    }
+  ],
+  "notes": [
+    "Bounded public read-only research only; no private vendor source, manifest, or application file was inspected.",
+    "The fixture supplied no vendor name or public build identifier, so the research used generic upstream Python and CPython sources as reference material only.",
+    "No source was treated as evidence of the missing private provenance, and no repair was guessed."
+  ],
+  "research_trace": {
+    "queries": [
+      "site:docs.python.org/3.12/library/asyncio-task.html asyncio timeout Python 3.12",
+      "site:docs.python.org/3.12/whatsnew asyncio timeout Python 3.12 changes",
+      "site:github.com/python/cpython asyncio timeout Python 3.12 changes",
+      "site:docs.python.org/3.12/library/sys.html sys.version sys.version_info sys.implementation",
+      "site:github.com/python/cpython/blob/3.12 Lib/asyncio/tasks.py wait_for TimeoutError",
+      "site:python.org/downloads/release Python 3.12.0 release notes maintenance release official"
+    ],
+    "rounds": 3,
+    "sources_inspected": [
+      "https://docs.python.org/3.12/library/asyncio-task.html",
+      "https://docs.python.org/3.12/library/sys.html",
+      "https://docs.python.org/3.12/whatsnew/3.12.html",
+      "https://github.com/python/cpython/blob/3.12/Lib/asyncio/tasks.py?plain=1",
+      "https://www.python.org/downloads/release/python-3120/",
+      "https://www.python.org/downloads/release/python-31210/"
+    ],
+    "budget": {
+      "max_research_rounds": 3,
+      "max_distinct_queries": 6,
+      "max_accepted_sources": 6
+    }
+  },
+  "source_claims": [
+    {
+      "source_id": "SRC-1",
+      "url": "https://docs.python.org/3.12/library/asyncio-task.html",
+      "title": "Coroutines and Tasks — Python 3.12.13 documentation",
+      "publisher": "Python Software Foundation",
+      "source_class": "official_documentation",
+      "revision": "Python 3.12.13 documentation; inspected 2026-08-26",
+      "supports": ["FACT-1", "FINDING-1", "FINDING-4", "PROPOSAL-2"],
+      "observation": "The page documents asyncio.wait_for timeout cancellation, TimeoutError conversion, waiting for actual cancellation, and the relationship between asyncio.timeout and task cancellation."
+    },
+    {
+      "source_id": "SRC-2",
+      "url": "https://github.com/python/cpython/blob/3.12/Lib/asyncio/tasks.py?plain=1",
+      "title": "cpython/Lib/asyncio/tasks.py at 3.12",
+      "publisher": "Python Software Foundation / python/cpython",
+      "source_class": "official_repository",
+      "revision": "CPython 3.12 branch; inspected 2026-08-26",
+      "supports": ["FACT-2", "FINDING-1", "FINDING-4", "PROPOSAL-2"],
+      "observation": "The 3.12 branch source shows asyncio.wait_for's timeout <= 0 cancel-and-wait path and its normal path using timeouts.timeout(timeout)."
+    },
+    {
+      "source_id": "SRC-3",
+      "url": "https://docs.python.org/3.12/library/sys.html",
+      "title": "sys — System-specific parameters and functions — Python 3.12.13 documentation",
+      "publisher": "Python Software Foundation",
+      "source_class": "official_documentation",
+      "revision": "Python 3.12.13 documentation; inspected 2026-08-26",
+      "supports": ["FACT-3", "FINDING-1", "FINDING-3", "PROPOSAL-1", "PROPOSAL-3", "REQUEST-1"],
+      "observation": "The page defines sys.version, sys.version_info, and sys.implementation as runtime identity and version/build-related observation points, including possible implementation-specific attributes."
+    },
+    {
+      "source_id": "SRC-4",
+      "url": "https://docs.python.org/3.12/whatsnew/3.12.html",
+      "title": "What’s New In Python 3.12",
+      "publisher": "Python Software Foundation",
+      "source_class": "official_documentation",
+      "revision": "Python 3.12.13 documentation; inspected 2026-08-26",
+      "supports": ["FACT-5", "FINDING-3"],
+      "observation": "The page records multiple upstream asyncio changes in the Python 3.12 series, showing that a generic 3.12 label refers to a feature series with defined upstream changes but not a private vendor build."
+    },
+    {
+      "source_id": "SRC-5",
+      "url": "https://www.python.org/downloads/release/python-3120/",
+      "title": "Python Release Python 3.12.0",
+      "publisher": "Python Software Foundation",
+      "source_class": "official_documentation",
+      "revision": "Python 3.12.0 release page; inspected 2026-08-26",
+      "supports": ["FACT-4", "FINDING-2", "FINDING-3", "PROPOSAL-3"],
+      "observation": "The release page identifies 3.12.0 as the stable Python 3.12 major release dated October 2, 2023 and notes that it was superseded by later 3.12 releases."
+    },
+    {
+      "source_id": "SRC-6",
+      "url": "https://www.python.org/downloads/release/python-31210/",
+      "title": "Python Release Python 3.12.10",
+      "publisher": "Python Software Foundation",
+      "source_class": "official_documentation",
+      "revision": "Python 3.12.10 release page; inspected 2026-08-26",
+      "supports": ["FACT-4", "FINDING-2", "FINDING-3", "PROPOSAL-3"],
+      "observation": "The release page identifies 3.12.10 as the tenth maintenance release and reports about 230 bug fixes, build improvements, and documentation changes since 3.12.9."
+    }
+  ],
+  "hypothesis_trace": {
+    "initial": "The timeout difference may reflect different Python patch/build revisions, a local cancellation wrapper, or an undocumented vendor patch; public generic Python 3.12 documents might narrow behavior but cannot by themselves prove private provenance.",
+    "after_research": "Upstream asyncio semantics and an upstream 3.12-branch implementation can be described, and the 3.12 series has multiple maintenance states, but the exact private vendor build provenance and whether it changed asyncio timeout behavior remain unresolved.",
+    "revision_reason": "The inspected sources were generic upstream documentation, upstream source, and official release pages; none tied the redacted deployment evidence or package name to a private vendor build hash, manifest, or vendor patch diff."
+  }
+}

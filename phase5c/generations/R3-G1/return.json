@@ -1,0 +1,40 @@
+{
+  "schema": "fpo.phase5c.resume-return.v1",
+  "case_id": "R3",
+  "generation_id": "R3-G1",
+  "work_id": "FPO-5C-R3",
+  "source_revision": "r4",
+  "decision": "RESUME",
+  "next_action": "use-current-source",
+  "observed_facts": [
+    {
+      "fact_id": "F-R3-001",
+      "text": "The current immutable source revision r4 supersedes the stale r3 handoff.",
+      "source_refs": [
+        "phase5c/source/R3-immutable-r4.json"
+      ]
+    }
+  ],
+  "used_source_refs": [
+    "phase5c/source/R3-immutable-r4.json",
+    "phase5c/commits/COM-R3-r4.json"
+  ],
+  "evidence_refs": [
+    "E-R3-001"
+  ],
+  "uncertainty_ids": [],
+  "route_ids": [],
+  "stale_revision_seen": "r3",
+  "current_source_wins": true,
+  "metrics": {
+    "transcript_dependency": 0,
+    "restart_from_zero": 0,
+    "duplicate_effect": 0,
+    "unsupported_assumption": 0,
+    "stale_state_adoption": 0,
+    "unnecessary_research": 0,
+    "duplicate_work": 0,
+    "correct_next_stage": true
+  },
+  "notes": "Resume uses the current source as authoritative."
+}

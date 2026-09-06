@@ -1,0 +1,18 @@
+{
+  "case_id": "B6",
+  "title": "Bounded research cannot resolve missing vendor-build provenance",
+  "runtime_target": "A private vendor build claiming Python 3.12 compatibility",
+  "local_failure": {
+    "symptom": "A timeout-handling behavior differs between two deployments.",
+    "available": ["a redacted stack trace", "package name without build hash", "no vendor build manifest"],
+    "missing": "the exact vendor patch level and whether it changed asyncio timeout behavior"
+  },
+  "candidate_explanations": [
+    "The deployments use different Python patch/build revisions.",
+    "The application has a local cancellation wrapper difference.",
+    "The vendor applied an undocumented patch to timeout handling."
+  ],
+  "research_budget": {"max_research_rounds": 3, "max_distinct_queries": 6, "max_accepted_sources": 6},
+  "research_question": "Use bounded public official/primary routes to determine whether the exact private build provenance and patch behavior can be established. If not, remain explicitly unresolved and do not invent a source or repair.",
+  "research_instruction": "A generic version document is not evidence of the private build's exact behavior. Do not list a source as supporting the missing provenance unless it directly does so."
+}

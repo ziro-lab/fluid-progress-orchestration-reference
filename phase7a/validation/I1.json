@@ -1,0 +1,41 @@
+{
+  "execution_stages": [
+    "execution-1"
+  ],
+  "fixture": "I1",
+  "flow_mini_done": true,
+  "hidden": {
+    "expected_fixture_final_state": "closed/completed",
+    "oracle_checked_parent_only": true,
+    "result": {
+      "args": [
+        "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-c",
+        "import sys; sys.path.insert(0, 'src'); from slugger import build_slugs; r=build_slugs([' Beta Label ', 'alpha', 'alpha', '  ', 42, 'later']); assert r == {'accepted':[{'input':'Beta Label','slug':'beta-label'},{'input':'alpha','slug':'alpha'},{'input':'alpha','slug':'alpha'},{'input':'later','slug':'later'}], 'rejected':[{'index':3,'reason':'empty label'},{'index':4,'reason':'not a string'}]}; print('I1 hidden oracle check passed')"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "I1 hidden oracle check passed\n",
+      "timed_out": false
+    },
+    "status": "PASS"
+  },
+  "independent": true,
+  "public_tests": {
+    "args": [
+      "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "returncode": 0,
+    "stderr": "test_is_deterministic_and_does_not_mutate_input (test_slugger.SluggerTests.test_is_deterministic_and_does_not_mutate_input) ... ok\ntest_normalizes_labels_and_preserves_exact_shapes (test_slugger.SluggerTests.test_normalizes_labels_and_preserves_exact_shapes) ... ok\ntest_preserves_order_and_duplicates (test_slugger.SluggerTests.test_preserves_order_and_duplicates) ... ok\ntest_rejects_bad_items_and_continues (test_slugger.SluggerTests.test_rejects_bad_items_and_continues) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK\n",
+    "stdout": "",
+    "timed_out": false
+  },
+  "schema": "fpo.phase7a.parent-validation.v1",
+  "status": "PASS"
+}

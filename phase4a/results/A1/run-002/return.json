@@ -1,0 +1,59 @@
+{
+  "capability_run_id": "caprun-A1-002",
+  "dispatch_id": "DISP-A1-002",
+  "operation_id": "OP-A1-002",
+  "capability_revision": "phase4a-v1",
+  "facts": [
+    {
+      "id": "F1",
+      "statement": "The input text is aBc followed by a newline.",
+      "evidence_refs": ["input"]
+    },
+    {
+      "id": "F2",
+      "statement": "The expected output is ABC followed by the preserved newline.",
+      "evidence_refs": ["expected_behavior"]
+    },
+    {
+      "id": "F3",
+      "statement": "The observed output is AbC followed by a newline, so the second character differs from the expected output while the newline is preserved.",
+      "evidence_refs": ["observed_output", "expected_behavior"]
+    },
+    {
+      "id": "F4",
+      "statement": "The expected_output_match validation failed because the observed output is not byte-for-byte equal to the expected output.",
+      "evidence_refs": ["failing_validation"]
+    }
+  ],
+  "findings": [
+    {
+      "id": "D1",
+      "statement": "The most supported bounded diagnosis is an incomplete or partial uppercase transformation: the character B was not converted to uppercase, although the surrounding alphabetic characters and newline match the expected shape.",
+      "support_refs": ["F2", "F3", "F4", "plausible_causes[0]"],
+      "confidence": "medium"
+    }
+  ],
+  "evidence_refs": ["input", "expected_behavior", "observed_output", "failing_validation", "plausible_causes[0]"],
+  "uncertainties": [
+    {
+      "id": "U1",
+      "statement": "The supplied evidence does not distinguish incomplete processing from a stale or different input revision, or from an encoding or locale effect; the actual transform implementation and file revisions were not supplied."
+    }
+  ],
+  "proposals": [
+    {
+      "id": "P1",
+      "type": "next_action",
+      "statement": "Inspect the transform's per-character processing for the second character, rerun it on the supplied input aBc followed by a newline, and compare the result byte-for-byte with the supplied expected output.",
+      "support_refs": ["F1", "F2", "F3", "D1"]
+    }
+  ],
+  "requested_observations": [
+    {
+      "id": "O1",
+      "request": "Provide the exact input and observed-file revision identifiers plus their raw bytes and encoding information.",
+      "rationale": "This check can separate a partial transformation defect from the stated stale-revision or encoding/locale alternatives."
+    }
+  ],
+  "notes": ["This is a bounded diagnosis based only on the supplied fixture evidence; no file was changed beyond this return."]
+}

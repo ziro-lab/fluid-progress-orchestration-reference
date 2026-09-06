@@ -1,0 +1,1 @@
+{"case_id":"A2","dispatch_ref":"dispatch.json","fixture_ref":"phase4a/fixtures/A2-incomplete-evidence.json","oracle_excluded_from_worker_context":true,"prepared_at":"2026-08-26T12:24:48Z","return_path":"return.json","return_schema_ref":"phase4a/contracts/ai_capability_return.schema.json","run_number":2,"schema":"fpo.phase4a.prepared-run.v1","worker_must_be_fresh":true}

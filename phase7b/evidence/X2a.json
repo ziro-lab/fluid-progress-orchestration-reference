@@ -1,0 +1,22 @@
+{
+  "attempt_ref": "phase7b/attempts/X2a/run-001.json",
+  "details": {
+    "fenced": "FENCED",
+    "incomplete": "UNKNOWN",
+    "required_channels": [
+      {
+        "applicable": true,
+        "channel": "process_tree"
+      },
+      {
+        "applicable": true,
+        "channel": "queued_callback"
+      }
+    ],
+    "settled": "SETTLED"
+  },
+  "metrics": {},
+  "probe_id": "X2a",
+  "schema": "fpo.phase7b.evidence.v1",
+  "status": "PASS"
+}

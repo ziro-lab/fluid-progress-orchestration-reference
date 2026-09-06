@@ -1,0 +1,21 @@
+{
+  "expected_initial_failure": true,
+  "fixture": "V3",
+  "result": {
+    "args": [
+      "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "returncode": 1,
+    "stderr": "test_explicit_channel_can_be_prepared (test_release.ReleaseTests.test_explicit_channel_can_be_prepared) ... ok\ntest_missing_channel_is_not_guessed (test_release.ReleaseTests.test_missing_channel_is_not_guessed) ... FAIL\n\n======================================================================\nFAIL: test_missing_channel_is_not_guessed (test_release.ReleaseTests.test_missing_channel_is_not_guessed)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"E:\\TEST\\FPO_Runtime_Probe_Starter\\.phase2-sync\\phase6b\\fixture\\v3-human\\tests\\test_release.py\", line 14, in test_missing_channel_is_not_guessed\n    self.assertEqual(result[\"status\"], \"human_request\")\nAssertionError: 'ready' != 'human_request'\n- ready\n+ human_request\n\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nFAILED (failures=1)\n",
+    "stdout": "",
+    "timed_out": false
+  },
+  "schema": "fpo.phase6b.baseline-validation.v1",
+  "status": "FAIL"
+}

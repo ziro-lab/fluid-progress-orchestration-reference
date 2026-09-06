@@ -1,0 +1,1 @@
+{"case_id":"C6","last_event_ref":"response-events/EVT-0002.json","schema":"fpo.phase4c.journal.projection.v1","state":{"acceptance_verdict":"UNKNOWN","achievement_adopted_from_ai":0,"active_blockers":[],"approval_state":"granted","checkpoint":"executed","control_state":"running","human_response_adopted":1,"terminal_disposition":null,"work_lifecycle":"active"},"state_revision":2}

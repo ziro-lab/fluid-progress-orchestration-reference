@@ -1,0 +1,41 @@
+{
+  "execution_stages": [
+    "execution-1"
+  ],
+  "fixture": "I2",
+  "flow_mini_done": true,
+  "hidden": {
+    "expected_fixture_final_state": "closed/completed",
+    "oracle_checked_parent_only": true,
+    "result": {
+      "args": [
+        "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-c",
+        "import sys; sys.path.insert(0, 'src'); from badge import render_badge; assert render_badge('stable','1.2.3') == {'text':'stable 1.2.3','color':'green'}; assert render_badge('canary','1.2.3') == {'text':'canary 1.2.3','color':'amber'}; print('I2 hidden oracle check passed')"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "I2 hidden oracle check passed\n",
+      "timed_out": false
+    },
+    "status": "PASS"
+  },
+  "independent": true,
+  "public_tests": {
+    "args": [
+      "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "returncode": 0,
+    "stderr": "test_resolved_canary_badge (test_badge.BadgeTests.test_resolved_canary_badge) ... ok\ntest_resolved_stable_badge (test_badge.BadgeTests.test_resolved_stable_badge) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n",
+    "stdout": "",
+    "timed_out": false
+  },
+  "schema": "fpo.phase7a.parent-validation.v1",
+  "status": "PASS"
+}

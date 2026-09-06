@@ -1,0 +1,13 @@
+{
+  "details": {
+    "missing_component_rejected": true,
+    "mutable_alias_rejected": true,
+    "worker_required_override_ignored": true
+  },
+  "metrics": {},
+  "parent_oracle": true,
+  "probe_id": "X1b",
+  "schema": "fpo.phase7b.attempt.v1",
+  "status": "PASS",
+  "worker_context": null
+}

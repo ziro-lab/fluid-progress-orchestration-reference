@@ -1,0 +1,35 @@
+{
+  "tasks": [
+    {
+      "command": [
+        "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-c",
+        "print('ok')"
+      ],
+      "id": "ok",
+      "timeout_seconds": 1.0
+    },
+    {
+      "command": [
+        "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-c",
+        "import sys; print('bad'); sys.exit(3)"
+      ],
+      "id": "bad",
+      "timeout_seconds": 1.0
+    },
+    {
+      "command": [
+        "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-c",
+        "import time; print('before', flush=True); time.sleep(0.3)"
+      ],
+      "id": "slow",
+      "timeout_seconds": 0.05
+    },
+    {
+      "command": "not-an-argv",
+      "id": "bad-shape"
+    }
+  ]
+}

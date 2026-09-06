@@ -1,0 +1,63 @@
+{
+  "schema": "fpo.phase5b.worker-return.v1",
+  "case_id": "N4",
+  "generation_id": "N4-G1",
+  "work_id": "FPO-5B-N4",
+  "work_revision": "r0",
+  "decision": "PROPOSE_ROLLBACK",
+  "route_id": "N4-G1-RB-OWNER-REV-001",
+  "route_semantic_key": "owner-controlled-reversible-rollback-to-known-good",
+  "observed_facts": [
+    {
+      "fact_id": "N4-F001",
+      "text": "The current result is FAIL with failure_id N4-INITIAL and no acceptance evidence.",
+      "evidence_refs": ["phase5b/source/N4-immutable-r0.json#current_result"]
+    },
+    {
+      "fact_id": "N4-F002",
+      "text": "The current checkpoint is known-good, the active blocker is repair-not-tried, and the valid commit is COM-N4-0000.",
+      "evidence_refs": ["phase5b/source/N4-immutable-r0.json#checkpoint", "phase5b/source/N4-immutable-r0.json#active_blockers", "phase5b/source/N4-immutable-r0.json#latest_valid_commit"]
+    },
+    {
+      "fact_id": "N4-F003",
+      "text": "Case N4 is the Rollback Is Progress case with budget 3; no repair or rollback has been attempted in the supplied state.",
+      "evidence_refs": ["phase5b/fixture/no-progress-work.json#cases.N4", "phase5b/source/N4-immutable-r0.json#repair_history", "phase5b/source/N4-immutable-r0.json#recovery_history"]
+    }
+  ],
+  "evidence_refs": [
+    "phase5b/source/N4-immutable-r0.json",
+    "phase5b/fixture/no-progress-work.json#cases.N4"
+  ],
+  "hypothesis_updates": [
+    {
+      "hypothesis_id": "N4-H001",
+      "status": "proposed",
+      "statement": "An owner-controlled, reversible rollback to COM-N4-0000 is the safe next route; recovery must remain unclaimed until owner adoption and independent validation.",
+      "basis_refs": ["phase5b/source/N4-immutable-r0.json#latest_valid_commit", "phase5b/source/N4-immutable-r0.json#current_result"]
+    }
+  ],
+  "route_attempts": [],
+  "route_rejections": [
+    {
+      "route_id": "N4-G1-DIRECT-MUTATION-001",
+      "semantic_key": "child-executed-repair-or-rollback",
+      "reason": "Not admissible for this child: direct mutation requires owner adoption and must not be treated as recovery or acceptance."
+    }
+  ],
+  "material_progress_signals": ["safe_route_narrowing"],
+  "observed_checkpoint": "known-good",
+  "proposal": {
+    "proposal_id": "N4-G1-PROP-001",
+    "operation_id": "N4-G1-OP-OWNER-ROLLBACK-001",
+    "route_id": "N4-G1-RB-OWNER-REV-001",
+    "target_ref": "phase5b/commits/COM-N4-0000.json",
+    "owner_adoption_required": true,
+    "reversible": true,
+    "known_good_ref": "phase5b/commits/COM-N4-0000.json"
+  },
+  "validation_request": {
+    "independent": true,
+    "acceptance_evidence_required": true
+  },
+  "notes": "This is an owner-adoption proposal only. No repair or rollback was executed, and no recovery, checkpoint transition, acceptance, or closure is claimed."
+}

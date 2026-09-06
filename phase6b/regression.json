@@ -1,0 +1,9 @@
+{
+  "baseline_commit": "7f50e216037394cf50472c749b4e641f440eab3f",
+  "changed_protected_paths": [],
+  "mode": "evidence_verification_only",
+  "phase0_6a_baseline_integrity": true,
+  "protected_paths_unchanged": true,
+  "schema": "fpo.phase6b.regression.v1",
+  "status": "PASS"
+}

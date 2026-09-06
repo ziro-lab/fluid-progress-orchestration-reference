@@ -1,0 +1,32 @@
+{
+  "schema": "fpo.phase5b.worker-return.v1",
+  "case_id": "N2",
+  "generation_id": "N2-G1",
+  "work_id": "FPO-5B-N2",
+  "work_revision": "r0",
+  "decision": "OBSERVE",
+  "route_id": "N2-observation",
+  "route_semantic_key": "repeated-observation",
+  "observed_facts": [
+    {
+      "fact_id": "N2-G1-F1",
+      "text": "The available observation and evidence reference are identical to the current handoff/source state; this is a duplicate and provides no new valid evidence.",
+      "evidence_refs": [
+        "phase5b/fixture/no-progress-work.json#N2"
+      ]
+    }
+  ],
+  "evidence_refs": [
+    "phase5b/fixture/no-progress-work.json#N2"
+  ],
+  "hypothesis_updates": [],
+  "route_attempts": [],
+  "route_rejections": [],
+  "material_progress_signals": [],
+  "observed_checkpoint": "observation",
+  "observation_signature": "N2|observation|N2-INITIAL|evidence-unchanged|phase5b/fixture/no-progress-work.json#N2",
+  "observation_count": 2,
+  "evidence_gain": 0,
+  "uncertainties_seen": [],
+  "notes": "Repeated observation/evidence is counted as a duplicate. No material progress is reported; no repair, rollback, close, acceptance, or authority change is proposed."
+}

@@ -1,0 +1,42 @@
+{
+  "execution_stages": [
+    "execution-1",
+    "execution-2"
+  ],
+  "fixture": "I3",
+  "flow_mini_done": true,
+  "hidden": {
+    "expected_fixture_final_state": "closed/completed",
+    "oracle_checked_parent_only": true,
+    "result": {
+      "args": [
+        "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-c",
+        "import sys; sys.path.insert(0, 'src'); from manifest import build_manifest; r=build_manifest({'name':'demo','version':'2.0.0','channel':'canary','artifacts':['b.tgz','a.tgz']}); assert r['schema_version'] == 2; assert r['track'] == 'canary'; assert r['version'] == '2.0.0'; assert r['artifacts'] == ['b.tgz','a.tgz']; assert 'channel' not in r; print('I3 hidden oracle check passed')"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "I3 hidden oracle check passed\n",
+      "timed_out": false
+    },
+    "status": "PASS"
+  },
+  "independent": true,
+  "public_tests": {
+    "args": [
+      "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "returncode": 0,
+    "stderr": "test_equivalent_inputs_are_deterministic (test_manifest.ManifestTests.test_equivalent_inputs_are_deterministic) ... ok\ntest_schema_v2_preserves_identity_track_and_artifact_order (test_manifest.ManifestTests.test_schema_v2_preserves_identity_track_and_artifact_order) ... ok\ntest_stable_track_is_accepted (test_manifest.ManifestTests.test_stable_track_is_accepted) ... ok\ntest_unknown_track_is_rejected (test_manifest.ManifestTests.test_unknown_track_is_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK\n",
+    "stdout": "",
+    "timed_out": false
+  },
+  "schema": "fpo.phase7a.parent-validation.v1",
+  "status": "PASS"
+}

@@ -1,0 +1,15 @@
+{
+  "current_revision": "FM-EXEC-0.5.0-r3",
+  "fixture": "I3",
+  "last_stage": "execution-2",
+  "research_ref": "phase7a/evidence/I3-research.json",
+  "schema": "fpo.phase7a.external-state.v1",
+  "source_digest": "68dc7b0873b5bfed67827076d6a40242e518cfa5b51c6197c24a4c33579cd78f",
+  "source_digest_after_external_gap": "fd38cb602a067457c9b5841b100057437794e336c972cb43d3492832a67c05f3",
+  "source_digest_before_external_gap": "fd38cb602a067457c9b5841b100057437794e336c972cb43d3492832a67c05f3",
+  "state": "research-resolved",
+  "transcript": null,
+  "validation_ref": "phase7a/validation/I3.json",
+  "validation_status": "PASS",
+  "workspace_digest": "7a42fcf3347126c064105efc30313ae7db8fc34ce08adca8ed8fc2123d8ac439"
+}

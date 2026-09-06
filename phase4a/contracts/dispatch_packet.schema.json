@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fpo.phase4a.dispatch-packet.v1",
+  "title": "FPO Phase 4A AI Dispatch Packet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "case_id",
+    "capability_run_id",
+    "dispatch_id",
+    "operation_id",
+    "capability_id",
+    "capability_revision",
+    "fixture_ref",
+    "return_schema_ref",
+    "authority_boundary"
+  ],
+  "properties": {
+    "schema": {"const": "fpo.phase4a.dispatch-packet.v1"},
+    "case_id": {"type": "string", "enum": ["A1", "A2", "A3", "A4"]},
+    "capability_run_id": {"type": "string", "minLength": 1},
+    "dispatch_id": {"type": "string", "pattern": "^DISP-A[1-4]-[0-9]{3}$"},
+    "operation_id": {"type": "string", "pattern": "^OP-A[1-4]-[0-9]{3}$"},
+    "capability_id": {"const": "ai.diagnostic.capability"},
+    "capability_revision": {"const": "phase4a-v1"},
+    "fixture_ref": {"type": "string", "minLength": 1},
+    "return_schema_ref": {"const": "phase4a/contracts/ai_capability_return.schema.json"},
+    "authority_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["return_only", "may_change_fpo_authority"],
+      "properties": {
+        "return_only": {"const": true},
+        "may_change_fpo_authority": {"const": false}
+      }
+    }
+  }
+}

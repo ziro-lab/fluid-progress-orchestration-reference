@@ -1,0 +1,23 @@
+{
+  "schema": "fpo.phase7a.reference-manifest.v1",
+  "flow_mini_candidate": {
+    "archive": "phase7-references/Flow_Mini_Harness_v0.5.0_Implementation_Core_Convergence_Candidate_r3.zip",
+    "sha256": "454f835efac1f09d774ccc3a4bce76352761f208a6dffba9305b646f2d18f93c",
+    "package_revision": "r2",
+    "version": "0.5.0",
+    "status": "Implementation Core Convergence Candidate r3",
+    "used_surfaces": [
+      "01_IMPLEMENTATION_PLANNING.md",
+      "02_ARCHITECTURE.md",
+      "templates/.flow-mini/CONTRACT.md",
+      "templates/.flow-mini/ACCEPTANCE.md",
+      "templates/.flow-mini/WORKPLAN.md",
+      "templates/.flow-mini/EXECUTION.md"
+    ]
+  },
+  "parallel_candidate": {
+    "archive": "phase7-references/FPO_Parallel_Model_Profile_v0.1.4.2_Implementation_Conformance_Candidate.zip",
+    "used_in_phase": false,
+    "deferred_to": "Phase 7B"
+  }
+}

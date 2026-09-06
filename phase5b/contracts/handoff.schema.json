@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["schema", "handoff_id", "case_id", "generation_id", "work_id", "work_revision", "source_ref", "valid_commit_ref", "state_projection", "allowed_refs", "prohibitions"],
+  "properties": {
+    "schema": {"const": "fpo.phase5b.handoff.v1"},
+    "handoff_id": {"type": "string"},
+    "case_id": {"type": "string"},
+    "generation_id": {"type": "string"},
+    "work_id": {"type": "string"},
+    "work_revision": {"type": "string"},
+    "source_ref": {"type": "string"},
+    "valid_commit_ref": {"type": "string"},
+    "state_projection": {"type": "object"},
+    "allowed_refs": {"type": "array", "items": {"type": "string"}},
+    "prohibitions": {"type": "array", "items": {"type": "string"}}
+  }
+}

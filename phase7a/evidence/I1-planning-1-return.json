@@ -1,0 +1,98 @@
+{
+  "schema": "fpo.phase7a.flow-mini-return.v1",
+  "fixture": "I1",
+  "stage": "planning",
+  "dispatch_id": "P7A-I1-PLANNING-1",
+  "input_sha256": "9fda41f53d9289c0f594526312b827b6d3ad8375f65ea99d9902a42eb3f3a27c",
+  "status": "PLANNING READY",
+  "current_revision": "fb74cac46a3833195262f6e4a3a78c3034b819a9",
+  "provider": {
+    "model": "gpt-5.6-sol",
+    "reasoning": "medium"
+  },
+  "fresh_context": true,
+  "requirements": [
+    "Process labels in original input order and preserve duplicates.",
+    "Trim strings, lowercase ASCII letters, collapse each non-ASCII-alphanumeric run to one hyphen, and strip boundary hyphens.",
+    "Reject only non-string and empty-after-trimming values, report original zero-based indices with short reasons, and continue later items.",
+    "Return only deterministic accepted/rejected structures with the documented per-item fields.",
+    "Keep all implementation effects within the bounded I1 project and avoid unnecessary dependencies or architecture changes."
+  ],
+  "observations": [
+    "README.md is the current normative project material for the bounded behavior.",
+    "src/slugger.py currently sorts labels by their string representation before enumeration, which violates original-order preservation and can invalidate rejection indices.",
+    "The existing implementation already contains suitable standard-library trimming, rejection, regex normalization, and result construction logic.",
+    "Existing tests cover order/duplicates and rejection continuation/indexes but do not explicitly cover all normalization, exact-shape, deterministic-output, and punctuation/non-ASCII-only cases.",
+    "A trimmed non-empty value composed only of characters outside ASCII letters/digits remains accepted under the stated rejection rules, even when its slug is empty."
+  ],
+  "planning": {
+    "core_generation": "P7A-I1-PLANNING-1-G1",
+    "controller_revision": "FM-EXEC-0.5.0-r3",
+    "goal_horizon": "Implement and validate the complete README-defined label slugger behavior in the bounded project.",
+    "active_stage": "Correct original-order processing, add focused missing regression coverage, and validate the complete final behavior.",
+    "normal_return": "All planned proof obligations have current evidence and the bounded public function is usable as documented.",
+    "implementation_commitments": [
+      "Keep the public function and direct deterministic single-pass structure.",
+      "Enumerate the original input sequence without sorting, deduplication, mutation, or index remapping.",
+      "Use only the Python standard library and make the smallest source/test changes required.",
+      "Validate exact result shape, ordering, rejection continuation, normalization boundaries, determinism, and regressions."
+    ],
+    "planned_files": [
+      ".flow-mini/CONTRACT.md",
+      ".flow-mini/ACCEPTANCE.md",
+      ".flow-mini/WORKPLAN.md",
+      ".flow-mini/EXECUTION.md"
+    ]
+  },
+  "operations": [],
+  "local_validation": {
+    "scope": "Planning artifact validation only; no source implementation or implementation test run was performed.",
+    "checks": [
+      "The bounded project contains exactly four regular files under .flow-mini.",
+      "CONTRACT.md, ACCEPTANCE.md, and WORKPLAN.md use the same non-empty Core Generation.",
+      "CONTRACT.md binds FM-EXEC-0.5.0-r3, matching the project-local EXECUTION.md header.",
+      "EXECUTION.md is byte-for-byte identical to the pinned candidate template.",
+      "The Return parses as one JSON object and is checked against the assigned return schema."
+    ],
+    "result": "PASS"
+  },
+  "evidence": [
+    {
+      "subject": "bounded project source",
+      "locator": "phase7a/fixture/i1-local/README.md; src/slugger.py; tests/test_slugger.py",
+      "revision": "fb74cac46a3833195262f6e4a3a78c3034b819a9"
+    },
+    {
+      "subject": "CONTRACT.md planning artifact",
+      "sha256": "737846dfa6ddefb3c909fd94c0c39bee51c9ca32f03374c85fd3aaa18a2d90fd"
+    },
+    {
+      "subject": "ACCEPTANCE.md planning artifact",
+      "sha256": "a1695d8fdcf7677b0ace6c13952adbe545597992c21a446a97c1b8b72a23a27a"
+    },
+    {
+      "subject": "WORKPLAN.md planning artifact",
+      "sha256": "86c6a5da65bca68d53d008b064b8899c44fc242259966eb12d32e5c46c9710dc"
+    },
+    {
+      "subject": "EXECUTION.md pinned-template identity",
+      "sha256": "3aec52d7a53a16aee677ea640070106f7caf39becd10f252acd6ef83b612fbfc"
+    }
+  ],
+  "blockers": [],
+  "reentry": {
+    "execution_ready": true,
+    "resume_status": "ACTIVE",
+    "start_from": "Read the four current .flow-mini files in a fresh implementation context, reconcile repository reality, then perform WORKPLAN R1.",
+    "recheck_triggers": [
+      "Material change to README.md, src/slugger.py, tests/test_slugger.py, the bounded target, or repository revision.",
+      "Core Generation mismatch, controller revision mismatch, or a material cross-core contradiction."
+    ]
+  },
+  "next_action": "Start a separate Fresh Flow Mini Execution invocation for the bounded I1 project; do not implement in this planning invocation.",
+  "notes": [
+    "Planning stopped at PLANNING READY.",
+    "No src code was modified, and no commit or push was performed.",
+    "No out-of-scope oracle, other run, parent report, or FPO source was read."
+  ]
+}

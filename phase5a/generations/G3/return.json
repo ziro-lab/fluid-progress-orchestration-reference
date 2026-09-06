@@ -1,0 +1,88 @@
+{
+  "schema": "fpo.phase5a.generation-return.v1",
+  "generation_id": "G3",
+  "work_id": "FPO-5A-001",
+  "work_revision": "r2",
+  "decision": "PROPOSE_REPAIR",
+  "observed_facts": [
+    "COM-0002 and source/immutable-r2.json are the latest valid authority at state revision 2; PROJ-0002 matches that source hash.",
+    "The current blocker is initial-validation-failure V-001: the validator report is FAIL, independent is false, and acceptance_evidence is false.",
+    "Local policy requires inline # to remain data and requires quoted values to be normalized.",
+    "normalize_profile unconditionally truncates each non-comment line at the first #, producing title Alpha instead of Alpha # tag; its quote stripping is a separate operation.",
+    "The independent validator expects {\"title\": \"Alpha # tag\", \"mode\": \"safe\"}."
+  ],
+  "new_observations": [
+    {
+      "observation_id": "G3-O-001",
+      "text": "The Python 3.12 configparser documentation states that inline comments are disabled by default, while # and ; are whole-line comment prefixes; it also warns that enabling inline comments prevents those characters from being used in values.",
+      "source_ref": "https://docs.python.org/3.12/library/configparser.html"
+    },
+    {
+      "observation_id": "G3-O-002",
+      "text": "The bounded research supports narrowing U-002 to unconditional inline-hash truncation during parsing/normalization; no separate quoted-value normalization cause is indicated by the current local evidence.",
+      "source_ref": "phase5a/workspace/profile_loader.py"
+    }
+  ],
+  "evidence_refs": [
+    "phase5a/source/immutable-r2.json",
+    "phase5a/commits/COM-0002.json",
+    "phase5a/projections/PROJ-0002.json",
+    "phase5a/workspace/profile_loader.py",
+    "phase5a/workspace/policy.json",
+    "phase5a/workspace/validator-report.json",
+    "phase5a/workspace/independent-validator.py"
+  ],
+  "uncertainties_seen": [
+    "U-002: whether the failure is caused by parsing, value normalization, or both; research narrows it to unconditional inline-hash truncation, but acceptance remains unproven until owner adoption and independent validation."
+  ],
+  "hypothesis_updates": [
+    {
+      "hypothesis_id": "H-001",
+      "status": "updated",
+      "statement": "The initial validation failure is caused by unconditional inline-hash truncation in profile_loader.py; preserving inline # as data is consistent with the local policy and the Python 3.12 configparser default behavior, while existing quoted-value normalization remains applicable.",
+      "basis_refs": [
+        "phase5a/workspace/profile_loader.py",
+        "phase5a/workspace/policy.json",
+        "phase5a/workspace/validator-report.json",
+        "https://docs.python.org/3.12/library/configparser.html"
+      ]
+    }
+  ],
+  "route_rejections": [
+    {
+      "route": "Split every value at the first #",
+      "reason": "It conflicts with local policy inline_hash_is_data=true and is inconsistent with the bounded primary-source confirmation that inline comments are disabled by default."
+    },
+    {
+      "route": "Execute the repair or claim acceptance from this Return",
+      "reason": "Only the owner may adopt a repair, and a worker Return or research result is not independent acceptance evidence."
+    }
+  ],
+  "research_trace": {
+    "queries": [
+      "Python 3.12 configparser inline_comment_prefixes default behavior"
+    ],
+    "sources": [
+      {
+        "url": "https://docs.python.org/3.12/library/configparser.html",
+        "claim": "In Python 3.12 configparser, inline_comment_prefixes defaults to None, so inline comments are disabled by default; # and ; remain whole-line comment prefixes, and enabling inline comments can prevent those characters from being used in values."
+      }
+    ],
+    "rounds": 1
+  },
+  "repair_proposal": {
+    "proposal_id": "RP-5A-G3-001",
+    "operation_id": "OP-5A-G3-001",
+    "target_ref": "phase5a/workspace/profile_loader.py",
+    "change_summary": "Remove unconditional inline # truncation while retaining whole-line comment handling and the existing quoted-value normalization; the owner must adopt the reversible change before validation.",
+    "reversible": true,
+    "requires_owner_adoption": true
+  },
+  "validation_proposal": {
+    "validator_ref": "workspace/independent-validator.py",
+    "independent": true,
+    "acceptance_evidence_required": true
+  },
+  "proposed_next_action": "The owner should review and adopt the reversible profile_loader.py repair proposal, then run workspace/independent-validator.py and record its independent result; G3 does not execute the repair or claim acceptance.",
+  "summary": "Bounded research confirms H-001 and supports a repair proposal. The Work remains running with V-001 unresolved and no acceptance evidence."
+}

@@ -1,0 +1,43 @@
+{
+  "flow_mini_candidate": "Flow_Mini_Harness_v0.5.0_Implementation_Core_Convergence_Candidate_r3",
+  "flow_mini_does_not_own": [
+    "fpo_acceptance",
+    "fpo_close",
+    "fpo_approval",
+    "fpo_research_authority",
+    "upstream_design_authority"
+  ],
+  "flow_mini_owns": [
+    "bounded_implementation_planning",
+    "implementation_execution",
+    "implementation_local_validation",
+    "implementation_local_replan",
+    "structured_return"
+  ],
+  "fpo_owns": [
+    "goal",
+    "requirement",
+    "design",
+    "research",
+    "recovery",
+    "approval",
+    "dispatch",
+    "adoption",
+    "acceptance",
+    "close"
+  ],
+  "implementation_workforce": {
+    "fresh_context": true,
+    "model": "gpt-5.6-luna",
+    "reasoning": "xhigh"
+  },
+  "planning_supervision": {
+    "fresh_context": true,
+    "model": "gpt-5.6-sol",
+    "reasoning": "medium"
+  },
+  "queue_on_slot_shortage": true,
+  "schema": "fpo.phase7a.provider-policy.v1",
+  "sol_is_fpo_emergency_escalation": false,
+  "top_level_fallback": false
+}

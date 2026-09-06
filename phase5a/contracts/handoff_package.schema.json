@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fpo.phase5a.handoff-package.v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "handoff_id",
+    "work_id",
+    "work_revision",
+    "checkpoint",
+    "work_control",
+    "active_blockers",
+    "accepted_facts",
+    "evidence_refs",
+    "uncertainties",
+    "active_hypothesis",
+    "budget_remaining",
+    "latest_valid_commit",
+    "retrieval_pointers",
+    "prohibited_routes",
+    "invalidated_hypotheses",
+    "summary_notes",
+    "current_result",
+    "workspace_refs",
+    "repair_history",
+    "operation_history",
+    "state_source_ref"
+  ],
+  "properties": {
+    "schema": { "const": "fpo.phase5a.handoff-package.v1" },
+    "handoff_id": { "type": "string", "pattern": "^HO-(?:G[1-6]|CURRENT)-[0-9]{3}$" },
+    "work_id": { "type": "string", "minLength": 1 },
+    "work_revision": { "type": "string", "pattern": "^r[0-9]+$" },
+    "checkpoint": {
+      "type": "string",
+      "enum": ["diagnosis", "observation", "research", "repair_ready", "post_repair_validation", "final_validation", "closed"]
+    },
+    "work_control": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lifecycle", "control_state", "approval_state", "acceptance_verdict"],
+      "properties": {
+        "lifecycle": { "type": "string", "enum": ["active", "suspended", "terminated"] },
+        "control_state": { "type": "string", "enum": ["running", "stopped"] },
+        "approval_state": { "type": "string", "enum": ["granted", "unknown"] },
+        "acceptance_verdict": { "type": "string", "enum": ["UNKNOWN", "PASS"] }
+      }
+    },
+    "active_blockers": { "type": "array", "items": { "type": "string" } },
+    "accepted_facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["fact_id", "text", "source_refs"],
+        "properties": {
+          "fact_id": { "type": "string", "minLength": 1 },
+          "text": { "type": "string", "minLength": 1 },
+          "source_refs": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+        }
+      }
+    },
+    "evidence_refs": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "uncertainties": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["uncertainty_id", "question", "status"],
+        "properties": {
+          "uncertainty_id": { "type": "string", "minLength": 1 },
+          "question": { "type": "string", "minLength": 1 },
+          "status": { "type": "string", "enum": ["open", "resolved"] }
+        }
+      }
+    },
+    "active_hypothesis": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["hypothesis_id", "statement", "status", "basis_refs"],
+      "properties": {
+        "hypothesis_id": { "type": "string", "minLength": 1 },
+        "statement": { "type": "string", "minLength": 1 },
+        "status": { "type": "string", "enum": ["active", "adopted"] },
+        "basis_refs": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "budget_remaining": { "type": "integer", "minimum": 0 },
+    "latest_valid_commit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["commit_id", "state_revision", "source_ref"],
+      "properties": {
+        "commit_id": { "type": "string", "pattern": "^COM-[0-9]{4}$" },
+        "state_revision": { "type": "integer", "minimum": 0 },
+        "source_ref": { "type": "string", "minLength": 1 }
+      }
+    },
+    "retrieval_pointers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["pointer_id", "ref", "purpose"],
+        "properties": {
+          "pointer_id": { "type": "string", "minLength": 1 },
+          "ref": { "type": "string", "minLength": 1 },
+          "purpose": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "prohibited_routes": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "invalidated_hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["hypothesis_id", "reason", "invalidated_at_generation"],
+        "properties": {
+          "hypothesis_id": { "type": "string", "minLength": 1 },
+          "reason": { "type": "string", "minLength": 1 },
+          "invalidated_at_generation": { "type": "string", "pattern": "^G[1-6]$" }
+        }
+      }
+    },
+    "summary_notes": { "type": "string", "minLength": 1 },
+    "current_result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "failure_id", "validator", "independent", "acceptance_evidence"],
+      "properties": {
+        "status": { "type": "string", "enum": ["FAIL", "PASS", "UNKNOWN"] },
+        "failure_id": { "type": "string", "minLength": 1 },
+        "validator": { "type": "string", "minLength": 1 },
+        "independent": { "type": "boolean" },
+        "acceptance_evidence": { "type": "boolean" }
+      }
+    },
+    "workspace_refs": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "repair_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["operation_id", "target_ref", "status"],
+        "properties": {
+          "operation_id": { "type": "string", "minLength": 1 },
+          "target_ref": { "type": "string", "minLength": 1 },
+          "status": { "type": "string", "enum": ["adopted", "executed"] }
+        }
+      }
+    },
+    "operation_history": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "state_source_ref": { "type": "string", "minLength": 1 }
+  }
+}

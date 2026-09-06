@@ -1,0 +1,1 @@
+{"command":["C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe","app.py"],"expected_output":"café\n","returncode":0,"schema":"fpo.phase4b.independent-validation.v1","source_contains_explicit_encoding":true,"status":"PASS","stderr":"","stdout":"café\n","validation_id":"VAL-B5-001"}

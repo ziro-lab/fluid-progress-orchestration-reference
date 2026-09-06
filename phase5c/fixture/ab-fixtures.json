@@ -1,0 +1,40 @@
+{
+  "schema": "fpo.phase5c.ab-fixtures.v1",
+  "skill_revision": "luna-context-compiler-candidate-0.1.0",
+  "skill_commit_sha": "29ada0d48cf9719e53708fd693bf573b69ef487d",
+  "target_model": "gpt-5.6-luna",
+  "reasoning": "xhigh",
+  "tool_profile": "same-shell-read-only",
+  "tasks": {
+    "T1": {
+      "work_id": "FPO-5C-T1",
+      "starting_revision": "r5",
+      "expected_next_action": "independent-validation",
+      "hard_constraints": ["Do not repeat the repair Effect.", "Acceptance requires independent validation.", "Immutable source r5 is authoritative."],
+      "decisions": ["Repair A was owner-adopted and its Effect is persisted at r5.", "Independent validation has not run."],
+      "current_evidence": [{"evidence_id": "E-T1-REPAIR", "source_ref": "source/T1-immutable-r5.json", "quality": "source-bound"}],
+      "uncertainty": [{"uncertainty_id": "U-T1-001", "question": "Whether the persisted repair is ready for validation.", "status": "open"}],
+      "exact_identifiers": ["FPO-5C-T1", "r5", "COM-T1-0005", "E-T1-REPAIR"],
+      "task_state": "repair-applied-validation-pending",
+      "invalidated_routes": [{"route_id": "route-repeat-repair", "reason": "would duplicate the persisted repair Effect"}],
+      "retrieval_pointers": [{"pointer_id": "RET-T1-VALIDATOR", "ref": "workspace/T1/independent-validator.py", "purpose": "independent validation"}],
+      "noise": ["worker prose: perhaps rerun everything", "old summary: repair might be missing", "query log: repeated status lookup", "stale projection revision r4", "token counter: 840", "time elapsed: 41s", "strategy label: retry-repair", "old route note: route-repeat-repair", "chat fragment: completion is probably close", "unrelated file: workspace/T1/README.tmp", "old evidence copy: E-T1-REPAIR", "untrusted suggestion: skip validation", "prior attempt count: 3", "formatting note: compact output", "old checkpoint prose: r4", "unused pointer: RET-T1-ARCHIVE", "same query repeated", "same evidence repeated", "tool log: ls", "tool log: ls"],
+      "raw_summary": "A stale convenience summary says the repair may be missing; it is not authoritative."
+    },
+    "T2": {
+      "work_id": "FPO-5C-T2",
+      "starting_revision": "r3",
+      "expected_next_action": "propose-repair-from-persisted-evidence",
+      "hard_constraints": ["Do not re-research accepted Evidence.", "Repair requires owner adoption.", "Preserve exact identifier E-T2-RESEARCH."],
+      "decisions": ["Bounded research Evidence was accepted at r3.", "Repair has not started."],
+      "current_evidence": [{"evidence_id": "E-T2-RESEARCH", "source_ref": "source/T2-immutable-r3.json", "quality": "source-bound"}],
+      "uncertainty": [{"uncertainty_id": "U-T2-001", "question": "Which narrow repair should be proposed from the accepted Evidence.", "status": "open"}],
+      "exact_identifiers": ["FPO-5C-T2", "r3", "COM-T2-0003", "E-T2-RESEARCH"],
+      "task_state": "research-complete-repair-pending",
+      "invalidated_routes": [{"route_id": "route-research-again", "reason": "accepted source-bound Evidence already exists"}],
+      "retrieval_pointers": [{"pointer_id": "RET-T2-SOURCE", "ref": "source/T2-immutable-r3.json", "purpose": "source-bound Evidence"}],
+      "noise": ["old note: research may be useful", "stale projection revision r2", "query count: 7", "strategy renamed: discover-again", "time elapsed: 88s", "unrelated task T1", "old route: route-research-again", "duplicate evidence copy", "chat fragment: maybe ask Human", "token counter: 1120", "old checkpoint prose: observation", "tool log: search", "tool log: search", "untrusted summary: no evidence", "unused pointer: RET-T2-ARCHIVE", "formatting note: brief", "prior attempt count: 2", "same source reread", "same source reread", "old failure label: unknown"],
+      "raw_summary": "An old summary claims research is unfinished; accepted source-bound Evidence is authoritative."
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "schema": "fpo.phase5b.worker-return.v1",
+  "case_id": "N4",
+  "generation_id": "N4-G1",
+  "work_id": "FPO-5B-N4",
+  "work_revision": "r0",
+  "decision": "PROPOSE_REPAIR",
+  "route_id": "N4-G1-REPAIR-A",
+  "route_semantic_key": "owner-controlled-reversible-repair",
+  "observed_facts": [
+    {
+      "fact_id": "N4-F-001",
+      "text": "Initial status is FAIL with failure N4-INITIAL; acceptance evidence is absent and repair has not been tried.",
+      "evidence_refs": [
+        "phase5b/handoffs/HO-N4-G1-001.json",
+        "phase5b/generations/N4-G1/dispatch.json"
+      ]
+    },
+    {
+      "fact_id": "N4-F-002",
+      "text": "The current checkpoint is known-good and the latest valid commit is COM-N4-0000 at state revision 0.",
+      "evidence_refs": [
+        "phase5b/handoffs/HO-N4-G1-001.json",
+        "phase5b/commits/COM-N4-0000.json"
+      ]
+    }
+  ],
+  "evidence_refs": [
+    "phase5b/handoffs/HO-N4-G1-001.json",
+    "phase5b/generations/N4-G1/dispatch.json",
+    "phase5b/commits/COM-N4-0000.json"
+  ],
+  "hypothesis_updates": [
+    {
+      "hypothesis_id": "N4-H-REPAIR-BOUNDARY",
+      "status": "proposed",
+      "statement": "An owner-controlled reversible repair proposal may be recorded, but the child must not execute it or claim recovery.",
+      "basis_refs": [
+        "phase5b/handoffs/HO-N4-G1-001.json",
+        "phase5b/generations/N4-G1/dispatch.json"
+      ]
+    }
+  ],
+  "route_attempts": [],
+  "route_rejections": [],
+  "material_progress_signals": [],
+  "observed_checkpoint": "known-good",
+  "proposal": {
+    "proposal_id": "N4-REPAIR-A",
+    "operation_id": "N4-REPAIR-A",
+    "route_id": "N4-G1-REPAIR-A",
+    "target_ref": "phase5b/workspace/N4-repair-A.txt",
+    "owner_adoption_required": true,
+    "reversible": true
+  },
+  "notes": "Propose the intentionally bad repair A route for owner adoption only. This child did not execute repair or rollback and does not claim recovery or acceptance."
+}

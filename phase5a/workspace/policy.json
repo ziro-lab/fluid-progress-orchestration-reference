@@ -1,0 +1,7 @@
+{
+  "schema": "fpo.phase5a.local-policy.v1",
+  "inline_hash_is_data": true,
+  "quoted_values_are_normalized": true,
+  "allowed_modes": ["safe", "strict"],
+  "source": "phase5a/workspace/policy.json"
+}

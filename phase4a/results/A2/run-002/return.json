@@ -1,0 +1,72 @@
+{
+  "capability_run_id": "caprun-A2-002",
+  "dispatch_id": "DISP-A2-002",
+  "operation_id": "OP-A2-002",
+  "capability_revision": "phase4a-v1",
+  "facts": [
+    {
+      "id": "fact-A2-001",
+      "statement": "The observed output text is \"FPO\\n\", which matches the expected text \"FPO\\n\".",
+      "evidence_refs": ["obs/output-match-001", "fixture/observed.txt", "fixture/expected.txt"]
+    },
+    {
+      "id": "fact-A2-002",
+      "statement": "The supplied validation record reports acceptance_evidence_complete as FAIL because the required independent acceptance evidence record is missing.",
+      "evidence_refs": ["fixture/validation.json", "required/independent-acceptance-001"]
+    },
+    {
+      "id": "fact-A2-003",
+      "statement": "The supplied evidence set contains an output-match observation but does not contain the required independent acceptance check and evidence record.",
+      "evidence_refs": ["obs/output-match-001", "required/independent-acceptance-001"]
+    }
+  ],
+  "findings": [
+    {
+      "id": "finding-A2-001",
+      "statement": "An observed output-match signal is present: the output matches the expected text.",
+      "support_refs": ["obs/output-match-001", "fixture/observed.txt", "fixture/expected.txt"],
+      "confidence": "high"
+    },
+    {
+      "id": "finding-A2-002",
+      "statement": "Independent acceptance evidence is incomplete in the supplied evidence, so the output-match signal is not by itself evidence of acceptance or closure.",
+      "support_refs": ["fixture/validation.json", "required/independent-acceptance-001"],
+      "confidence": "high"
+    }
+  ],
+  "evidence_refs": [
+    "fixture/observed.txt",
+    "fixture/expected.txt",
+    "fixture/validation.json",
+    "obs/output-match-001",
+    "required/independent-acceptance-001"
+  ],
+  "uncertainties": [
+    {
+      "id": "uncertainty-A2-001",
+      "statement": "The supplied evidence does not establish whether the independent acceptance check was not run or whether its evidence exists outside the supplied evidence set."
+    },
+    {
+      "id": "uncertainty-A2-002",
+      "statement": "The supplied evidence is insufficient to determine acceptance status beyond the observed output-match signal."
+    }
+  ],
+  "proposals": [
+    {
+      "id": "proposal-A2-001",
+      "type": "observation",
+      "statement": "Obtain the independent acceptance check result and its evidence record for this operation.",
+      "support_refs": ["required/independent-acceptance-001", "fixture/validation.json"]
+    }
+  ],
+  "requested_observations": [
+    {
+      "id": "requested-observation-A2-001",
+      "request": "Provide the result and evidence record of one independent acceptance check against the expected output for this operation.",
+      "rationale": "The output-match signal is already observed; the missing independent acceptance record is the smallest unresolved evidence gap identified by the failing validation."
+    }
+  ],
+  "notes": [
+    "The observed output-match signal is reported separately from the missing independent acceptance evidence; this return makes no acceptance or closure decision."
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "schema": "fpo.phase5b.worker-return.v1",
+  "case_id": "N5",
+  "generation_id": "N5-G3",
+  "work_id": "FPO-5B-N5",
+  "work_revision": "r2",
+  "decision": "DIAGNOSE",
+  "route_id": "N5-DIAGNOSE-B-001",
+  "route_semantic_key": "diagnose-failure-b",
+  "observed_facts": [
+    {
+      "fact_id": "N5-F-B-001",
+      "text": "現在のhandoffは、Recovery A (N5-RECOVERY-A) の適用済み履歴の後に、active blockerおよびcurrent resultとしてFAILURE-Bを記録している。",
+      "evidence_refs": [
+        "phase5b/fixture/no-progress-work.json#N5",
+        "phase5b/source/N5-immutable-r2.json"
+      ]
+    }
+  ],
+  "evidence_refs": [
+    "phase5b/fixture/no-progress-work.json#N5",
+    "phase5b/source/N5-immutable-r2.json"
+  ],
+  "hypothesis_updates": [
+    {
+      "hypothesis_id": "N5-H-A",
+      "status": "invalidated",
+      "statement": "N5-H-A（Failure Aがfirst route boundaryに起因するという仮説）は、現在のFAILURE-Bを説明する仮説としては不十分であり、FAILURE-Bへそのまま適用しない。",
+      "basis_refs": [
+        "phase5b/source/N5-immutable-r2.json",
+        "phase5b/fixture/no-progress-work.json#N5"
+      ]
+    },
+    {
+      "hypothesis_id": "N5-H-B",
+      "status": "proposed",
+      "statement": "FAILURE-BはRecovery A後の別のboundaryまたはstate transitionに起因する新しい失敗であり、原因はRecovery Aの有効性を仮定せず独立に診断する必要がある。",
+      "basis_refs": [
+        "phase5b/source/N5-immutable-r2.json",
+        "phase5b/fixture/no-progress-work.json#N5"
+      ]
+    }
+  ],
+  "route_attempts": [],
+  "route_rejections": [
+    {
+      "route_id": "N5-RECOVERY-A",
+      "semantic_key": "recovery-a",
+      "reason": "FAILURE-BはRecovery A適用後に記録された新しいfailureであり、recovery-aはFAILURE-Bに対して意味的に再利用不可。"
+    }
+  ],
+  "material_progress_signals": [
+    "invalid_hypothesis_elimination",
+    "safe_route_narrowing"
+  ],
+  "observed_checkpoint": "failure-B",
+  "notes": "DIAGNOSEのみ。Recovery Aの効果は仮定せず、recovery-aの再利用を拒否した。effect、repair、rollback、close、acceptanceは実行していない。"
+}

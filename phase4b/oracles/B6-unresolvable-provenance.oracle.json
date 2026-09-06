@@ -1,0 +1,1 @@
+{"case_id":"B6","required_unresolved_patterns":["unknown|cannot|not enough|unresolved|provenance|build"],"required_blocker_patterns":["blocker|human|additional observation|build hash|manifest"],"source_claim_count":0,"fabricated_source":0,"guess_repair":0,"max_research_rounds":3,"max_queries":6,"max_sources":6}

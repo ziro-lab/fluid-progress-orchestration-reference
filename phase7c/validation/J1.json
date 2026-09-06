@@ -1,0 +1,22 @@
+{
+  "independent": true,
+  "job": "J1",
+  "schema": "fpo.phase7c.independent-validation.v1",
+  "status": "PASS",
+  "subject_digest": "1edb9347ea553e99d11376584134f84f7984444d464bf85679865ff9c6514689",
+  "subject_snapshot": {
+    "src/labels.py": "e4a1445ce2003539450f4ec9d26a7c7a1b8fc201c32291175a4a04af084a9757",
+    "src/report.py": "f2ce625c8cd6bad0b0ff3c5fc4f69296ca0431aa3e9fa6151f91a6b6ffb79125",
+    "src/versions.py": "5b193168d324fac2d4d9cf06e68e0805fd9894fe76f9f23257fced216da16061",
+    "tests/test_labels.py": "36651e845fba87a7206509c5ae346abcc31a8e195bfe5102dd006a6a4d609507",
+    "tests/test_report.py": "9843b7d216e36f792fa60a4193e0e8c0fe71d7cc1fc9de052b5ed9cc7e627c84",
+    "tests/test_versions.py": "215e1b51503aabf15f42c23d2b31e575a1cb56ff0b7e513ee1c66771867a3d6f"
+  },
+  "test_result": {
+    "pattern": "test*.py",
+    "returncode": 0,
+    "status": "PASS",
+    "stderr": "test_label (test_labels.LabelTests.test_label) ... ok\ntest_report (test_report.ReportTests.test_report) ... ok\ntest_versions (test_versions.VersionTests.test_versions) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n",
+    "stdout": ""
+  }
+}

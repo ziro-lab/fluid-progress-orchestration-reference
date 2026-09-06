@@ -1,0 +1,13 @@
+{
+  "details": {
+    "late_artifact_authority": false,
+    "stale_eligible": false,
+    "stale_return_adopted": false
+  },
+  "metrics": {},
+  "parent_oracle": true,
+  "probe_id": "H3",
+  "schema": "fpo.phase7b.attempt.v1",
+  "status": "PASS",
+  "worker_context": null
+}

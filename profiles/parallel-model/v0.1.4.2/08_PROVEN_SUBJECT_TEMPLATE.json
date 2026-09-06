@@ -1,0 +1,17 @@
+{
+  "schema": "fpo.parallel.proven-subject.v1",
+  "claim_status": "TEMPLATE_ONLY",
+  "fpo_core_revision": "<exact revision>",
+  "parallel_profile_revision": "0.1.4.2",
+  "provider_revision": "<exact revision>",
+  "capability_profile_revisions": [
+    "<exact revision>"
+  ],
+  "host_policy_revision": "<exact revision>",
+  "flow_mini_revision": "<exact revision or null>",
+  "probe_pack_revision": "0.1.4.2",
+  "runtime_environment_identity": "<exact identity>",
+  "evidence_refs": [],
+  "safety_verdict": "<PROVEN|PASS_WITH_FINDINGS|FAIL>",
+  "parallel_efficiency": "<CHARACTERIZED|PARTIALLY_CHARACTERIZED|NOT_CHARACTERIZED>"
+}

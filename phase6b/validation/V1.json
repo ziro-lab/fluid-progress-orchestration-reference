@@ -1,0 +1,25 @@
+{
+  "fixture": "V1",
+  "hidden": {
+    "failures": [],
+    "oracle_checked_parent_only": true
+  },
+  "independent": true,
+  "public_tests": {
+    "args": [
+      "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "returncode": 0,
+    "stderr": "test_preserves_input_order_and_exact_total (test_ledger.LedgerTests.test_preserves_input_order_and_exact_total) ... ok\ntest_rejects_bad_records_without_abort (test_ledger.LedgerTests.test_rejects_bad_records_without_abort) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n",
+    "stdout": "",
+    "timed_out": false
+  },
+  "schema": "fpo.phase6b.parent-validation.v1",
+  "status": "PASS"
+}

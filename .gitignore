@@ -1,0 +1,21 @@
+# Generated runtime state
+runtime-probe/runs/
+runtime-probe/workspace/output/*
+!runtime-probe/workspace/output/README.md
+runs/
+workspace/output/*
+!workspace/output/README.md
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Local scratch / editor
+*.tmp
+*.bak
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

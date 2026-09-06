@@ -1,0 +1,47 @@
+{
+  "schema": "fpo.phase5c.resume-return.v1",
+  "case_id": "R2",
+  "generation_id": "R2-G1",
+  "work_id": "FPO-5C-R2",
+  "source_revision": "r2",
+  "decision": "RESUME",
+  "next_action": "diagnose-unresolved-recovery",
+  "observed_facts": [
+    {
+      "fact_id": "F-R2-G1-001",
+      "text": "The current handoff records the result as IN_PROGRESS with acceptance_evidence false and uncertainty U-R2-001 as open.",
+      "source_refs": ["phase5c/handoffs/HO-R2-G1-001.json"]
+    },
+    {
+      "fact_id": "F-R2-G1-002",
+      "text": "The current handoff explicitly marks H-R2-UNADOPTED as unadopted and candidate-only; it is not treated as a Fact.",
+      "source_refs": ["phase5c/handoffs/HO-R2-G1-001.json"]
+    },
+    {
+      "fact_id": "F-R2-G1-003",
+      "text": "The current dispatch identifies revision r2 and the current source and valid commit references.",
+      "source_refs": ["phase5c/generations/R2-G1/dispatch.json"]
+    }
+  ],
+  "used_source_refs": [
+    "phase5c/source/R2-immutable-r2.json",
+    "phase5c/commits/COM-R2-r2.json"
+  ],
+  "evidence_refs": ["E-R2-001"],
+  "uncertainty_ids": ["U-R2-001"],
+  "route_ids": [],
+  "adopted_hypothesis_ids": [],
+  "unadopted_hypothesis_ids": ["H-R2-UNADOPTED"],
+  "current_source_wins": true,
+  "metrics": {
+    "transcript_dependency": 0,
+    "restart_from_zero": 0,
+    "duplicate_effect": 0,
+    "unsupported_assumption": 0,
+    "stale_state_adoption": 0,
+    "unnecessary_research": 0,
+    "duplicate_work": 0,
+    "correct_next_stage": true
+  },
+  "notes": "The unresolved recovery remains to be diagnosed from the current revision; no state-changing operation was performed."
+}

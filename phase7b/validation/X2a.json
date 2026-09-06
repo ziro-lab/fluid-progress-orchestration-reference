@@ -1,0 +1,22 @@
+{
+  "details": {
+    "fenced": "FENCED",
+    "incomplete": "UNKNOWN",
+    "required_channels": [
+      {
+        "applicable": true,
+        "channel": "process_tree"
+      },
+      {
+        "applicable": true,
+        "channel": "queued_callback"
+      }
+    ],
+    "settled": "SETTLED"
+  },
+  "evidence_ref": "phase7b/evidence/X2a.json",
+  "independent": true,
+  "probe_id": "X2a",
+  "schema": "fpo.phase7b.validation.v1",
+  "status": "PASS"
+}

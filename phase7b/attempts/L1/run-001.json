@@ -1,0 +1,13 @@
+{
+  "details": {
+    "mutation_domain_reusable_after_settled": true,
+    "mutation_domain_reusable_while_unknown": false,
+    "slot_released": true
+  },
+  "metrics": {},
+  "parent_oracle": true,
+  "probe_id": "L1",
+  "schema": "fpo.phase7b.attempt.v1",
+  "status": "PASS",
+  "worker_context": null
+}

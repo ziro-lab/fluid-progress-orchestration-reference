@@ -1,0 +1,11 @@
+{
+  "details": {
+    "admitted": true,
+    "begin_effect_rejected_after_supersession": true
+  },
+  "evidence_ref": "phase7b/evidence/T1a.json",
+  "independent": true,
+  "probe_id": "T1a",
+  "schema": "fpo.phase7b.validation.v1",
+  "status": "PASS"
+}

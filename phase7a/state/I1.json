@@ -1,0 +1,12 @@
+{
+  "current_revision": "fb74cac46a3833195262f6e4a3a78c3034b819a9+working-tree",
+  "fixture": "I1",
+  "last_stage": "execution-1",
+  "schema": "fpo.phase7a.external-state.v1",
+  "source_digest": "21699cb24b697f6820777b296b364b43d2ba3901bee5c604d7bf2700d0e8a6d6",
+  "state": "seeded",
+  "transcript": null,
+  "validation_ref": "phase7a/validation/I1.json",
+  "validation_status": "PASS",
+  "workspace_digest": "5454be90d6f2c31388004ea531e664d2e4e529b44be57e613a7d03b7d60bf38c"
+}

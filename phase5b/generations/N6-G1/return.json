@@ -1,0 +1,73 @@
+{
+  "schema": "fpo.phase5b.worker-return.v1",
+  "case_id": "N6",
+  "generation_id": "N6-G1",
+  "work_id": "FPO-5B-N6",
+  "work_revision": "r0",
+  "decision": "STOP",
+  "route_id": "N6-G1-STOP-001",
+  "route_semantic_key": "finite-stop-no-useful-unseen-route",
+  "observed_facts": [
+    {
+      "fact_id": "N6-G1-F001",
+      "text": "Current handoff reports routes-exhausted as the active blocker and no accepted evidence.",
+      "evidence_refs": [
+        "phase5b/handoffs/HO-N6-G1-001.json#state_projection",
+        "phase5b/fixture/no-progress-work.json#N6"
+      ]
+    },
+    {
+      "fact_id": "N6-G1-F002",
+      "text": "The current checkpoint is diagnosis, the current result is FAIL, acceptance evidence is false, and the remaining budget is 3.",
+      "evidence_refs": [
+        "phase5b/handoffs/HO-N6-G1-001.json#state_projection"
+      ]
+    }
+  ],
+  "evidence_refs": [
+    "phase5b/fixture/no-progress-work.json#N6",
+    "phase5b/handoffs/HO-N6-G1-001.json#state_projection"
+  ],
+  "hypothesis_updates": [],
+  "route_attempts": [
+    {
+      "route_id": "N6-G1-ROUTE-OBSERVE-001",
+      "semantic_key": "additional-observation-recheck",
+      "materially_distinct": true,
+      "attempt_status": "rejected"
+    },
+    {
+      "route_id": "N6-G1-ROUTE-SOURCE-001",
+      "semantic_key": "alternate-source-comparison",
+      "materially_distinct": true,
+      "attempt_status": "rejected"
+    },
+    {
+      "route_id": "N6-G1-ROUTE-VALIDATE-001",
+      "semantic_key": "independent-validation-probe",
+      "materially_distinct": true,
+      "attempt_status": "rejected"
+    }
+  ],
+  "route_rejections": [
+    {
+      "route_id": "N6-G1-ROUTE-OBSERVE-001",
+      "semantic_key": "additional-observation-recheck",
+      "reason": "Rejected: activity-only observation would not produce new valid evidence; no useful unseen route remains."
+    },
+    {
+      "route_id": "N6-G1-ROUTE-SOURCE-001",
+      "semantic_key": "alternate-source-comparison",
+      "reason": "Rejected: the current immutable source and projection expose no new actionable route within the case scope."
+    },
+    {
+      "route_id": "N6-G1-ROUTE-VALIDATE-001",
+      "semantic_key": "independent-validation-probe",
+      "reason": "Rejected: no acceptance evidence or blocker resolution can be obtained from this remaining route."
+    }
+  ],
+  "material_progress_signals": [],
+  "observed_checkpoint": "diagnosis",
+  "stop_reason": "no useful unseen route",
+  "notes": "Finite stop recommended because the handoff marks routes-exhausted, accepted evidence is empty, and the current result remains FAIL. No repair, rollback, close, acceptance, or authority mutation was performed or claimed."
+}

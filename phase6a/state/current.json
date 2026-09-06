@@ -1,0 +1,8 @@
+{
+  "budget_ref": "phase6a/budget.json",
+  "current_revision": "after-acceptance",
+  "schema": "fpo.phase6a.external-state.v1",
+  "state": "closed/completed",
+  "transcript": null,
+  "workspace_digest": "093f2f36516e4eb36ca7638c94b169bf2a28855c5f5d30681c4dcc2bdec7a8c8"
+}

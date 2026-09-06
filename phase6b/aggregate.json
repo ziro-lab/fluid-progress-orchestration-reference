@@ -1,0 +1,67 @@
+{
+  "baseline_commit": "7f50e216037394cf50472c749b4e641f440eab3f",
+  "fixture_summary": {
+    "V1": {
+      "class": "local-only",
+      "final_state": "closed/completed",
+      "validation": "PASS"
+    },
+    "V2": {
+      "class": "research-recovery",
+      "final_state": "closed/completed",
+      "validation": "PASS"
+    },
+    "V3": {
+      "class": "human-boundary",
+      "final_state": "suspended/blocker",
+      "validation": "PASS"
+    }
+  },
+  "invariants": {
+    "ai_authority_promotion_zero": true,
+    "budget_overrun_zero": true,
+    "commit_integrity_pass": true,
+    "duplicate_effect_zero": true,
+    "fabricated_evidence_zero": true,
+    "false_acceptance_zero": true,
+    "false_close_zero": true,
+    "hot_loop_zero": true,
+    "phase0_6a_baseline_integrity_pass": true,
+    "projection_rebuild_pass": true,
+    "stale_adoption_zero": true,
+    "transcript_dependency_zero": true,
+    "unnecessary_human_escalation_zero": true,
+    "unnecessary_sol_zero": true,
+    "unsupported_adopted_finding_zero": true
+  },
+  "overall_verdict": "PASS",
+  "provider_usage": {
+    "default_worker": "gpt-5.6-luna",
+    "fresh_luna": 3,
+    "reasoning": "xhigh",
+    "recovery_skill": 0,
+    "slot_policy": "queue; no top-level fallback",
+    "sol": 0
+  },
+  "schema": "fpo.phase6b.naturalistic-aggregate.v1",
+  "summary": {
+    "ai_workers": 3,
+    "duplicate_effect": 0,
+    "duplicate_work": 0,
+    "final_states": {
+      "V1": "closed/completed",
+      "V2": "closed/completed",
+      "V3": "suspended/blocker"
+    },
+    "fresh_workers": 3,
+    "human_requests": 1,
+    "hypothesis_changes": 6,
+    "material_progress_events": 7,
+    "recovery_actions": 3,
+    "recovery_skill_calls": 0,
+    "requirements_discovered": 12,
+    "research_calls": 1,
+    "sol_calls": 0,
+    "validation_failures": 3
+  }
+}

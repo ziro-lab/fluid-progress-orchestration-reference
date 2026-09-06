@@ -1,0 +1,22 @@
+{
+  "schema": "fpo.phase5b.worker-return.v1",
+  "work_id": "FPO-5B-N6",
+  "case_id": "N6",
+  "generation_id": "N6-G1",
+  "dispatch_id": "DISP-5B-N6-G1-001",
+  "handoff_id": "HO-N6-G1-001",
+  "source_ref": "phase5b/source/N6-immutable-r0.json",
+  "valid_commit_ref": "phase5b/commits/COM-N6-0000.json",
+  "material_progress": false,
+  "assessment": {
+    "remaining_routes": [],
+    "budget_remaining": 3,
+    "blocker": "routes-exhausted",
+    "justification": "The authoritative source shows no active hypotheses or invalidated routes to investigate, and the current blocker is already routes-exhausted. The remaining hard budget cannot produce useful material progress without a new unseen route."
+  },
+  "recommendation": {
+    "action": "finite-stop",
+    "owner_adoption_required": true,
+    "rationale": "Recommend a finite stop because no useful unseen route remains; do not request Human merely to continue spending the remaining budget."
+  }
+}

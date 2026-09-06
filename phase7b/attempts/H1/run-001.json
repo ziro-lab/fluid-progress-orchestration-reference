@@ -1,0 +1,14 @@
+{
+  "details": {
+    "fresh_ready": true,
+    "load_bearing_decisions_recovered": true,
+    "owner_state_revision": "owner-r2",
+    "transcript_used": false
+  },
+  "metrics": {},
+  "parent_oracle": true,
+  "probe_id": "H1",
+  "schema": "fpo.phase7b.attempt.v1",
+  "status": "PASS",
+  "worker_context": null
+}

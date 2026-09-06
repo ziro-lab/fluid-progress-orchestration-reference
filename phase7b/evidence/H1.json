@@ -1,0 +1,13 @@
+{
+  "attempt_ref": "phase7b/attempts/H1/run-001.json",
+  "details": {
+    "fresh_ready": true,
+    "load_bearing_decisions_recovered": true,
+    "owner_state_revision": "owner-r2",
+    "transcript_used": false
+  },
+  "metrics": {},
+  "probe_id": "H1",
+  "schema": "fpo.phase7b.evidence.v1",
+  "status": "PASS"
+}

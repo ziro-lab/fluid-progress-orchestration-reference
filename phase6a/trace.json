@@ -1,0 +1,185 @@
+{
+  "events": [
+    {
+      "authority_ref": "phase6a/authority.json",
+      "budget_ref": "phase6a/budget.json",
+      "kind": "seed-accepted",
+      "project": "phase6a/fixture/task-runner",
+      "seed_ref": "phase6a/seed.json",
+      "sequence": 1
+    },
+    {
+      "current_revision": "initial",
+      "kind": "initial-observation",
+      "sequence": 2,
+      "state": "seeded",
+      "workspace_digest": "093f2f36516e4eb36ca7638c94b169bf2a28855c5f5d30681c4dcc2bdec7a8c8"
+    },
+    {
+      "kind": "validation-failure",
+      "observed_failure": true,
+      "sequence": 3,
+      "source": "public-tests",
+      "stage": "initial-implementation"
+    },
+    {
+      "generation": "G1",
+      "kind": "dispatch",
+      "prompt_ref": "phase6a/runs/G1/worker-prompt.txt",
+      "recovery": false,
+      "route_selected_by": "worker-choice",
+      "sequence": 4
+    },
+    {
+      "decision": "Implemented timeout-aware task execution and validated the bounded project.",
+      "decisions": [
+        "Use subprocess.run with capture_output=True, text=True, timeout=timeout_seconds, and shell=False.",
+        "Reject an explicit timeout_seconds value unless it is a finite positive int or float; reject empty argv and an empty executable entry as invalid records.",
+        "Decode timeout bytes as UTF-8 with replacement and map missing output to an empty string so every result remains deterministic JSON.",
+        "Keep the existing result shape and report-writing behavior; no new status or environment-dependent field was introduced."
+      ],
+      "generation": "G1",
+      "hypotheses": [
+        {
+          "hypothesis": "Passing the validated timeout to subprocess.run and converting TimeoutExpired to timed_out will satisfy the timeout contract.",
+          "id": "timeout-contract",
+          "status": "confirmed",
+          "status_changes": [
+            "untested -> confirmed by the supplied timeout unittest and the boundary smoke test"
+          ]
+        },
+        {
+          "hypothesis": "Normalizing str, bytes, and None timeout output will preserve available output without serialization errors.",
+          "id": "timeout-output-normalization",
+          "status": "confirmed",
+          "status_changes": [
+            "untested -> confirmed by a timeout command that emitted non-UTF-8 bytes"
+          ]
+        },
+        {
+          "hypothesis": "Treating missing timeout as optional while rejecting explicit null, non-positive, non-numeric, non-finite, and empty-command values will keep malformed tasks isolated.",
+          "id": "record-validation",
+          "status": "confirmed",
+          "status_changes": [
+            "untested -> confirmed by direct run_task boundary checks"
+          ]
+        }
+      ],
+      "kind": "worker-return",
+      "next_action": "No further bounded-project action is required; the parent may inspect return.json and perform its acceptance/close step.",
+      "observations": [
+        "The bounded project contains README.md, src/task_runner.py, tests/test_task_runner.py, and tools/official_subprocess_reference.py.",
+        "The initial implementation passed capture_output and text to subprocess.run but did not pass timeout_seconds or catch TimeoutExpired.",
+        "Baseline unittest execution produced 2 passing tests and a failure because the timeout case was reported as success.",
+        "The shell did not provide python on PATH; the bundled workspace Python executable was used for all validation.",
+        "After the change, the supplied tests passed and additional boundary checks passed for invalid timeout values, empty argv, bytes-containing timeout output, and shell-literal argv arguments."
+      ],
+      "operations": [
+        {
+          "action": "read",
+          "result": "Established the contract, current implementation, tests, and bounded subprocess reference.",
+          "target": "phase6a/fixture/task-runner/README.md, src/task_runner.py, tests/test_task_runner.py, tools/official_subprocess_reference.py"
+        },
+        {
+          "action": "run",
+          "result": "Read-only reference returned the documented timeout, output-type, and shell-semantics claims.",
+          "target": "tools/official_subprocess_reference.py"
+        },
+        {
+          "action": "edit",
+          "result": "Added timeout validation, TimeoutExpired handling, output normalization, explicit shell=False, and malformed empty-command handling.",
+          "target": "phase6a/fixture/task-runner/src/task_runner.py"
+        },
+        {
+          "action": "validate",
+          "result": "Ran supplied unittest suite, direct boundary smoke checks, py_compile, and git diff --check; all final checks passed.",
+          "target": "phase6a/fixture/task-runner"
+        }
+      ],
+      "requirements": [
+        "Read an input JSON object with a tasks array and emit one result per task in input order.",
+        "Report success only for exit code 0 before the timeout; report non-zero exits as failed with exit code, stdout, and stderr preserved.",
+        "Report timeout expiry as timed_out with no invented exit code and with captured output preserved when available.",
+        "Report malformed task records as invalid and continue processing later tasks.",
+        "Execute argv command arrays without shell interpretation.",
+        "Produce deterministic JSON and exit 0 for a report even when individual tasks fail or time out.",
+        "Edit only phase6a/fixture/task-runner and do not commit the parent repository."
+      ],
+      "research": [
+        {
+          "claim": "subprocess.run passes timeout to Popen.communicate and raises TimeoutExpired when the timeout expires.",
+          "source_url": "https://docs.python.org/3/library/subprocess.html#subprocess.run",
+          "tool": "tools/official_subprocess_reference.py"
+        },
+        {
+          "claim": "TimeoutExpired captured output and stderr may be bytes, so the text-facing report must normalize them before JSON serialization.",
+          "source_url": "https://docs.python.org/3/library/subprocess.html#subprocess.run",
+          "tool": "tools/official_subprocess_reference.py"
+        },
+        {
+          "claim": "An argv list is not shell syntax when shell is false.",
+          "source_url": "https://docs.python.org/3/library/subprocess.html#subprocess.run",
+          "tool": "tools/official_subprocess_reference.py"
+        }
+      ],
+      "sequence": 5,
+      "validation": [
+        {
+          "command": "bundled-python -m unittest discover -s tests -v",
+          "kind": "baseline",
+          "observation": "2 tests passed; test_timeout_is_reported_without_fake_success failed with success instead of timed_out.",
+          "status": "failed_as_expected"
+        },
+        {
+          "command": "bundled-python -m unittest discover -s tests -v",
+          "kind": "supplied_tests",
+          "observation": "3 tests ran and all passed.",
+          "status": "passed"
+        },
+        {
+          "command": "direct run_task checks",
+          "kind": "boundary_smoke",
+          "observation": "Invalid timeout values, empty argv, non-UTF-8 timeout output, and literal argv arguments behaved as intended.",
+          "status": "passed"
+        },
+        {
+          "command": "bundled-python -m py_compile phase6a/fixture/task-runner/src/task_runner.py",
+          "kind": "compile",
+          "observation": "No syntax errors.",
+          "status": "passed"
+        },
+        {
+          "command": "git diff --check -- phase6a/fixture/task-runner",
+          "kind": "whitespace",
+          "observation": "No whitespace diagnostics.",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "cause": "initial-validation-failure",
+      "generation": "G1",
+      "kind": "recovery",
+      "operation_count": 4,
+      "selected_by": "Fresh worker after observing current project",
+      "sequence": 6
+    },
+    {
+      "generation": "G1",
+      "hidden_oracle": true,
+      "independent": true,
+      "kind": "final-validation",
+      "sequence": 7,
+      "status": "PASS"
+    },
+    {
+      "human_requests": 0,
+      "independent_validation": true,
+      "kind": "acceptance",
+      "sequence": 8,
+      "status": "closed/completed"
+    }
+  ],
+  "posthoc": true,
+  "schema": "fpo.phase6a.naturalistic-trace.v1"
+}

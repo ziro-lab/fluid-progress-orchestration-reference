@@ -1,0 +1,81 @@
+{
+  "generation": "G1",
+  "hidden": {
+    "failures": [],
+    "process": {
+      "args": [
+        "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "E:\\TEST\\FPO_Runtime_Probe_Starter\\.phase2-sync\\phase6a\\fixture\\task-runner\\src\\task_runner.py",
+        "E:\\TEST\\FPO_Runtime_Probe_Starter\\.phase2-sync\\phase6a\\validation\\G1\\hidden-input.json",
+        "E:\\TEST\\FPO_Runtime_Probe_Starter\\.phase2-sync\\phase6a\\validation\\G1\\hidden-output.json"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    "report": {
+      "results": [
+        {
+          "exit_code": 0,
+          "id": "ok",
+          "status": "success",
+          "stderr": "",
+          "stdout": "ok\n"
+        },
+        {
+          "exit_code": 3,
+          "id": "bad",
+          "status": "failed",
+          "stderr": "",
+          "stdout": "bad\n"
+        },
+        {
+          "exit_code": null,
+          "id": "slow",
+          "status": "timed_out",
+          "stderr": "",
+          "stdout": "before\n"
+        },
+        {
+          "exit_code": null,
+          "id": "bad-shape",
+          "status": "invalid",
+          "stderr": "",
+          "stdout": ""
+        }
+      ]
+    },
+    "second_process": {
+      "args": [
+        "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "E:\\TEST\\FPO_Runtime_Probe_Starter\\.phase2-sync\\phase6a\\fixture\\task-runner\\src\\task_runner.py",
+        "E:\\TEST\\FPO_Runtime_Probe_Starter\\.phase2-sync\\phase6a\\validation\\G1\\hidden-input.json",
+        "E:\\TEST\\FPO_Runtime_Probe_Starter\\.phase2-sync\\phase6a\\validation\\G1\\hidden-output-second.json"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    }
+  },
+  "independent": true,
+  "oracle_checked_parent_only": true,
+  "public_tests": {
+    "args": [
+      "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "returncode": 0,
+    "stderr": "test_invalid_task_does_not_abort_report (test_task_runner.TaskRunnerTests.test_invalid_task_does_not_abort_report) ... ok\ntest_success_failure_and_order (test_task_runner.TaskRunnerTests.test_success_failure_and_order) ... ok\ntest_timeout_is_reported_without_fake_success (test_task_runner.TaskRunnerTests.test_timeout_is_reported_without_fake_success) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.323s\n\nOK\n",
+    "stdout": "",
+    "timed_out": false
+  },
+  "schema": "fpo.phase6a.parent-validation.v1",
+  "status": "PASS"
+}

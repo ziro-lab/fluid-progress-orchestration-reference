@@ -1,0 +1,11 @@
+{
+  "accepted_as": "evidence/proposal only",
+  "ai_return_authoritative": false,
+  "decision": "accepted-as-implementation-return",
+  "fixture": "I2",
+  "owner": "FPO parent",
+  "reason": "parent FPO retains acceptance and close authority",
+  "return_status": "DONE",
+  "schema": "fpo.phase7a.parent-adoption.v1",
+  "stage": "execution-1"
+}

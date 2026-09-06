@@ -1,0 +1,13 @@
+{
+  "attempt_ref": "phase7b/attempts/H2/run-001.json",
+  "details": {
+    "blocker": "material decision omitted",
+    "fresh_ready": false,
+    "guess_used": false,
+    "planning_status": "GAP"
+  },
+  "metrics": {},
+  "probe_id": "H2",
+  "schema": "fpo.phase7b.evidence.v1",
+  "status": "PASS"
+}

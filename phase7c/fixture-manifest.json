@@ -1,0 +1,8 @@
+{
+  "J1": "fixtures/j1-natural-parallel",
+  "J2": "fixtures/j2-serial",
+  "oracle_not_worker_input": true,
+  "oracle_owner": "parent FPO",
+  "schema": "fpo.phase7c.fixture-manifest.v1",
+  "seed": "Make these small tools usable according to their project materials, validate the result, and confirm completion."
+}

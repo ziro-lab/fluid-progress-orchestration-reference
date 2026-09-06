@@ -1,0 +1,7 @@
+{
+  "current_revision": "after-fpo-acceptance",
+  "fixture": "I2",
+  "schema": "fpo.phase7a.projection.v1",
+  "status": "closed/completed",
+  "workspace_digest": "41e18723671d536ad8f0ffb20bd0aa57a14e60c82d74b22011f61ccf41f4aaf9"
+}

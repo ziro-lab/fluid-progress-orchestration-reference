@@ -1,0 +1,85 @@
+{
+  "details": {
+    "acceptance": {
+      "accepted_revision": "ee2c745ed246d0b37caa7167cdb11162aadd40357e7d8c7bf28b6d286a6fa63b",
+      "status": "accepted",
+      "validation_ref": "phase7b/validation/FANIN.json"
+    },
+    "admissions": [
+      {
+        "admitted": true,
+        "child_identity": [
+          "ATT-FANIN-001",
+          "child-a"
+        ]
+      },
+      {
+        "admitted": true,
+        "child_identity": [
+          "ATT-FANIN-001",
+          "child-b"
+        ]
+      }
+    ],
+    "attempt_id": "ATT-FANIN-001",
+    "branch_validation": [
+      {
+        "revision": "branch-a-r1",
+        "status": "PASS"
+      },
+      {
+        "revision": "branch-b-r1",
+        "status": "PASS"
+      }
+    ],
+    "child_identities": [
+      [
+        "ATT-FANIN-001",
+        "child-a"
+      ],
+      [
+        "ATT-FANIN-001",
+        "child-b"
+      ]
+    ],
+    "closures": [
+      "SETTLED",
+      "SETTLED"
+    ],
+    "commits": [
+      {
+        "destination": "surface-a",
+        "effect_id": "effect:ATT-FANIN-001:child-a:FANIN-A",
+        "expected_revision": "r0",
+        "mechanism": "destination-CAS",
+        "result_revision": "branch-a-r1",
+        "schema": "fpo.parallel.external-commit-proof.v1"
+      },
+      {
+        "destination": "surface-b",
+        "effect_id": "effect:ATT-FANIN-001:child-b:FANIN-B",
+        "expected_revision": "r0",
+        "mechanism": "destination-CAS",
+        "result_revision": "branch-b-r1",
+        "schema": "fpo.parallel.external-commit-proof.v1"
+      }
+    ],
+    "effects": [
+      "effect:ATT-FANIN-001:child-a:FANIN-A",
+      "effect:ATT-FANIN-001:child-b:FANIN-B"
+    ],
+    "independent_validation": {
+      "independent": true,
+      "status": "PASS",
+      "validated_revision": "ee2c745ed246d0b37caa7167cdb11162aadd40357e7d8c7bf28b6d286a6fa63b"
+    },
+    "integrated_revision": "ee2c745ed246d0b37caa7167cdb11162aadd40357e7d8c7bf28b6d286a6fa63b",
+    "new_integrated_revision": true,
+    "preintegration_validation_reused": false
+  },
+  "evidence_ref": "phase7b/evidence/FANIN.json",
+  "independent": false,
+  "probe_id": "FANIN",
+  "schema": "fpo.phase7b.validation.v1",
+  "status": "PASS"
+}

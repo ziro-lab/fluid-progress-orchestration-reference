@@ -1,0 +1,48 @@
+{
+  "attempt_ref": "phase7b/attempts/X3/run-001.json",
+  "details": {
+    "absent": {
+      "decision": "RETRY_SAME_IDENTITY",
+      "duplicate_physical_child": false,
+      "mapping": {
+        "attempt_id": "ATT-X3-ABSENT",
+        "child_sub_id": "child",
+        "physical_id": "physical:absent",
+        "schema": "fpo.parallel.attempt-rooted-spawn-mapping.v1",
+        "spawn_count": 1,
+        "status": "SPAWNED"
+      }
+    },
+    "exists_running": {
+      "decision": "ADOPT",
+      "duplicate_physical_child": false,
+      "mapping": {
+        "attempt_id": "ATT-X3-EXISTS",
+        "child_sub_id": "child",
+        "physical_id": "physical:ATT-X3-EXISTS:child",
+        "schema": "fpo.parallel.attempt-rooted-spawn-mapping.v1",
+        "spawn_count": 0,
+        "status": "ADOPTED"
+      }
+    },
+    "retry_spawn_count": 1,
+    "unknown": {
+      "decision": "RECONCILE_OR_FENCE",
+      "duplicate_physical_child": false,
+      "mapping": {
+        "attempt_id": "ATT-X3-UNKNOWN",
+        "child_sub_id": "child",
+        "physical_id": "physical:unknown",
+        "schema": "fpo.parallel.attempt-rooted-spawn-mapping.v1",
+        "spawn_count": 0,
+        "status": "MAPPING_DURABLE"
+      }
+    }
+  },
+  "metrics": {
+    "duplicate_physical_child": 0
+  },
+  "probe_id": "X3",
+  "schema": "fpo.phase7b.evidence.v1",
+  "status": "PASS"
+}

@@ -1,0 +1,12 @@
+{
+  "attempt_ref": "phase7b/attempts/D1/run-001.json",
+  "details": {
+    "hidden_dependency": "hidden-semantic-index",
+    "unsafe_narrowing": true,
+    "worker_claim_accepted_as_complete": false
+  },
+  "metrics": {},
+  "probe_id": "D1",
+  "schema": "fpo.phase7b.evidence.v1",
+  "status": "PASS"
+}

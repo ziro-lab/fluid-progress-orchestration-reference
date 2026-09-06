@@ -1,0 +1,10 @@
+{
+  "observation_id": "OBS-0001",
+  "observed_at": "2026-08-25T07:30:00Z",
+  "observer": "probe-1",
+  "environment_revision": "ENV-R1",
+  "target": "workspace/output/normalized.txt",
+  "existence": "unknown",
+  "digest": null,
+  "reason": "fixture represents the point before filesystem reconciliation"
+}

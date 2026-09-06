@@ -1,0 +1,39 @@
+{
+  "schema": "fpo.phase5b.worker-return.v1",
+  "case_id": "N5",
+  "generation_id": "N5-G2",
+  "work_id": "FPO-5B-N5",
+  "work_revision": "r1",
+  "decision": "PROPOSE_REPAIR",
+  "route_id": "N5-RECOVERY-A",
+  "route_semantic_key": "recovery-a",
+  "observed_facts": [
+    {
+      "fact_id": "N5-FACT-FAILURE-A",
+      "text": "Failure A is diagnosed at checkpoint diagnosis-A; the current result remains FAIL and acceptance evidence is false.",
+      "evidence_refs": ["phase5b/fixture/no-progress-work.json#N5"]
+    }
+  ],
+  "evidence_refs": ["phase5b/fixture/no-progress-work.json#N5"],
+  "hypothesis_updates": [],
+  "route_attempts": [
+    {
+      "route_id": "N5-RECOVERY-A",
+      "semantic_key": "recovery-a",
+      "materially_distinct": true,
+      "attempt_status": "proposed"
+    }
+  ],
+  "route_rejections": [],
+  "material_progress_signals": [],
+  "observed_checkpoint": "diagnosis-A",
+  "proposal": {
+    "proposal_id": "N5-PROPOSAL-RECOVERY-A",
+    "operation_id": "N5-RECOVERY-A",
+    "route_id": "N5-RECOVERY-A",
+    "target_ref": "phase5b/commits/COM-N5-0001.json",
+    "owner_adoption_required": true,
+    "reversible": true
+  },
+  "notes": "Failure Aの現行状態を保持したまま、recovery-aをowner-controlledなrepair routeとして提案する。直接effect、rollback、close、acceptanceは実行していない。"
+}

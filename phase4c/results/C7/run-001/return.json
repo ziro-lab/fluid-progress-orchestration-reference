@@ -1,0 +1,44 @@
+{
+  "case_id": "C7",
+  "run_number": 1,
+  "capability_run_id": "human-last-C7-001",
+  "dispatch_id": "DISP-C7-001",
+  "operation_id": "OP-C7-001",
+  "capability_revision": "phase4c-v1",
+  "decision": "NO_HUMAN",
+  "autonomous_routes_available": [
+    "route_b",
+    "route_c"
+  ],
+  "autonomous_routes_attempted": [
+    "route_a",
+    "route_b",
+    "route_c"
+  ],
+  "evidence_refs": [
+    "phase4c/fixtures/C7-route-choice.json",
+    "phase4c/results/C7/run-001/dispatch.json"
+  ],
+  "facts": [
+    "Route A depends on an unavailable optional helper and has an injected failure.",
+    "Route B reads the same local file using the standard filesystem capability.",
+    "The fixture identifies Route B as safe and reversible.",
+    "Route C is the deterministic local validator to run after Route B.",
+    "The fixture states that a human request is not justified while Routes B and C are available."
+  ],
+  "findings": [
+    "The failure of Route A does not create an irreducible human preference, authority, evidence, or capability boundary.",
+    "Routes B and C provide a safe autonomous path to read the local configuration and produce a validated normalized copy.",
+    "No bounded public research is needed because the decision is fully supported by local evidence and the remaining routes."
+  ],
+  "uncertainties": [],
+  "notes": [
+    "No human escalation is warranted after the first route failure.",
+    "No public sources were inspected."
+  ],
+  "research_trace": {
+    "queries": [],
+    "rounds": 0,
+    "sources_inspected": []
+  }
+}

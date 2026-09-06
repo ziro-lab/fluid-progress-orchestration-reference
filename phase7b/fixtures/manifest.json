@@ -1,0 +1,117 @@
+{
+  "integrated": {
+    "fixture": "fixtures/FANIN.json",
+    "oracle_ref": "phase7b/oracles/parallel.oracle.json"
+  },
+  "mechanical": [
+    {
+      "fixture": "fixtures/X1a.json",
+      "id": "X1a",
+      "oracle_ref": "phase7b/oracles/parallel.oracle.json"
+    },
+    {
+      "fixture": "fixtures/X1b.json",
+      "id": "X1b",
+      "oracle_ref": "phase7b/oracles/parallel.oracle.json"
+    },
+    {
+      "fixture": "fixtures/X2a.json",
+      "id": "X2a",
+      "oracle_ref": "phase7b/oracles/parallel.oracle.json"
+    },
+    {
+      "fixture": "fixtures/X2b.json",
+      "id": "X2b",
+      "oracle_ref": "phase7b/oracles/parallel.oracle.json"
+    },
+    {
+      "fixture": "fixtures/X3.json",
+      "id": "X3",
+      "oracle_ref": "phase7b/oracles/parallel.oracle.json"
+    },
+    {
+      "fixture": "fixtures/X4.json",
+      "id": "X4",
+      "oracle_ref": "phase7b/oracles/parallel.oracle.json"
+    },
+    {
+      "fixture": "fixtures/X5.json",
+      "id": "X5",
+      "oracle_ref": "phase7b/oracles/parallel.oracle.json"
+    },
+    {
+      "fixture": "fixtures/X6.json",
+      "id": "X6",
+      "oracle_ref": "phase7b/oracles/parallel.oracle.json"
+    },
+    {
+      "fixture": "fixtures/E1a.json",
+      "id": "E1a",
+      "oracle_ref": "phase7b/oracles/parallel.oracle.json"
+    },
+    {
+      "fixture": "fixtures/E1b.json",
+      "id": "E1b",
+      "oracle_ref": "phase7b/oracles/parallel.oracle.json"
+    },
+    {
+      "fixture": "fixtures/H3.json",
+      "id": "H3",
+      "oracle_ref": "phase7b/oracles/parallel.oracle.json"
+    },
+    {
+      "fixture": "fixtures/L1.json",
+      "id": "L1",
+      "oracle_ref": "phase7b/oracles/parallel.oracle.json"
+    },
+    {
+      "fixture": "fixtures/T1a.json",
+      "id": "T1a",
+      "oracle_ref": "phase7b/oracles/parallel.oracle.json"
+    },
+    {
+      "fixture": "fixtures/T1b.json",
+      "id": "T1b",
+      "oracle_ref": "phase7b/oracles/parallel.oracle.json"
+    }
+  ],
+  "oracle": [
+    {
+      "fixture": "fixtures/T2.json",
+      "id": "T2",
+      "oracle_ref": "phase7b/oracles/parallel.oracle.json"
+    },
+    {
+      "fixture": "fixtures/D1.json",
+      "id": "D1",
+      "oracle_ref": "phase7b/oracles/parallel.oracle.json"
+    },
+    {
+      "fixture": "fixtures/P1.json",
+      "id": "P1",
+      "oracle_ref": "phase7b/oracles/parallel.oracle.json"
+    },
+    {
+      "fixture": "fixtures/R1.json",
+      "id": "R1",
+      "oracle_ref": "phase7b/oracles/parallel.oracle.json"
+    },
+    {
+      "fixture": "fixtures/H1.json",
+      "id": "H1",
+      "oracle_ref": "phase7b/oracles/parallel.oracle.json"
+    },
+    {
+      "fixture": "fixtures/H2.json",
+      "id": "H2",
+      "oracle_ref": "phase7b/oracles/parallel.oracle.json"
+    }
+  ],
+  "schema": "fpo.phase7b.independent-fixture-manifest.v1",
+  "seed": "Execute the bounded v0.1.4.2 Provider conformance work, verify safety, and report only what is proven.",
+  "worker_context": {
+    "fresh_workers": 0,
+    "hidden_oracle": false,
+    "transcript": false
+  }
+}

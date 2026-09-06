@@ -1,0 +1,13 @@
+{
+  "attempt_ref": "phase7b/attempts/P1/run-001.json",
+  "details": {
+    "first_admitted": true,
+    "physical_domains_disjoint": true,
+    "second_rejected": true,
+    "shared_invariant": "shared-semantic-invariant"
+  },
+  "metrics": {},
+  "probe_id": "P1",
+  "schema": "fpo.phase7b.evidence.v1",
+  "status": "PASS"
+}

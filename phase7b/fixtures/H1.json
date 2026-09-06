@@ -1,0 +1,8 @@
+{
+  "class": "ORACLE",
+  "independent": true,
+  "probe_id": "H1",
+  "schema": "fpo.phase7b.fixture.v1",
+  "seed_ref": "phase7b/fixtures/manifest.json",
+  "trusted_oracle_ref": "phase7b/oracles/parallel.oracle.json"
+}

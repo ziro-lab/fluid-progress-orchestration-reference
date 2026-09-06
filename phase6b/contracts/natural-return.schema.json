@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FPO Phase 6B Naturalistic Worker Return",
+  "type": "object",
+  "required": ["schema", "fixture", "decision", "requirements", "observations", "research", "hypotheses", "decisions", "operations", "validation", "recovery_actions", "human_requests", "next_action", "notes"],
+  "properties": {
+    "schema": {"const": "fpo.phase6b.natural-return.v1"},
+    "fixture": {"enum": ["V1", "V2", "V3"]},
+    "decision": {"type": "string"},
+    "requirements": {"type": "array", "items": {"type": "string"}},
+    "observations": {"type": "array", "items": {"type": "string"}},
+    "research": {"type": "array", "items": {"type": "object"}},
+    "hypotheses": {"type": "array", "items": {"type": "object"}},
+    "decisions": {"type": "array", "items": {"type": "string"}},
+    "operations": {"type": "array", "items": {"type": "object"}},
+    "validation": {"type": "array", "items": {"type": "object"}},
+    "recovery_actions": {"type": "array", "items": {"type": "object"}},
+    "human_requests": {"type": "array", "items": {"type": "object"}},
+    "next_action": {"type": "string"},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": false
+}

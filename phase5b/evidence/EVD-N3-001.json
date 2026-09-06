@@ -1,0 +1,1 @@
+{"case_id":"N3","claim":"The resolved uncertainty and eliminated hypothesis narrow the search space while the checkpoint remains diagnosis.","evidence_id":"EVD-N3-001","parent_verified":true,"schema":"fpo.phase5b.evidence.v1","source_refs":["generations/N3-G1/return.json","fixture/no-progress-work.json#N3"],"status":"accepted"}

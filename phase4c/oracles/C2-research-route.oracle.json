@@ -1,0 +1,1 @@
+{"case_id":"C2","required_decision":"NO_HUMAN","required_reason_code":"NO_HUMAN","required_research":true,"required_resolution_patterns":["3.12|TimeoutError"],"required_source_kind":"official_documentation","required_human_request_count":0,"required_validation":true}

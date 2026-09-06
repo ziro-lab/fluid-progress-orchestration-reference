@@ -1,0 +1,19 @@
+{
+  "attempt_ref": "phase7b/attempts/R1/run-001.json",
+  "details": {
+    "compensation": {
+      "reason": "intervening-valid-change",
+      "status": "REJECTED_SAFE"
+    },
+    "current_value": {
+      "value": "intervening-change"
+    },
+    "intervening_revision_preserved": true
+  },
+  "metrics": {
+    "unsafe_compensation_overwrite": 0
+  },
+  "probe_id": "R1",
+  "schema": "fpo.phase7b.evidence.v1",
+  "status": "PASS"
+}

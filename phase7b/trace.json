@@ -1,0 +1,213 @@
+{
+  "events": [
+    {
+      "authority": "parent FPO",
+      "bounded": true,
+      "kind": "seed",
+      "posthoc": true,
+      "seed": "Execute the bounded v0.1.4.2 Provider conformance work, verify safety, and report only what is proven.",
+      "sequence": 1
+    },
+    {
+      "interfaces": [
+        "normalize_execution_binding",
+        "validate_binding_completeness",
+        "eligible",
+        "begin_effect",
+        "external_commit",
+        "derive_closure",
+        "freeze_publish",
+        "covers"
+      ],
+      "kind": "requirements",
+      "sequence": 2,
+      "source": "profile handoff"
+    },
+    {
+      "kind": "observation",
+      "profile_revision": "0.1.4.2",
+      "provider": "phase7b/provider/parallel_provider.py",
+      "runtime": {
+        "implementation": "CPython",
+        "machine": "AMD64",
+        "platform": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.13"
+      },
+      "sequence": 3
+    },
+    {
+      "kind": "research",
+      "sequence": 4,
+      "source_bound_evidence": [],
+      "used": false
+    },
+    {
+      "changed": false,
+      "kind": "hypotheses",
+      "notes": "mechanical and parent-oracle fixtures did not require a worker hypothesis route",
+      "sequence": 5
+    },
+    {
+      "decisions": [
+        "retain compressed mapping",
+        "use destination CAS for T1b",
+        "keep FPO acceptance bridge",
+        "do not expand Core/Profile"
+      ],
+      "kind": "decisions",
+      "sequence": 6
+    },
+    {
+      "integrated": "PASS",
+      "kind": "operations",
+      "mechanical": [
+        {
+          "evidence_ref": "phase7b/evidence/X1a.json",
+          "probe_id": "X1a",
+          "status": "PASS"
+        },
+        {
+          "evidence_ref": "phase7b/evidence/X1b.json",
+          "probe_id": "X1b",
+          "status": "PASS"
+        },
+        {
+          "evidence_ref": "phase7b/evidence/X2a.json",
+          "probe_id": "X2a",
+          "status": "PASS"
+        },
+        {
+          "evidence_ref": "phase7b/evidence/X2b.json",
+          "probe_id": "X2b",
+          "status": "PASS"
+        },
+        {
+          "evidence_ref": "phase7b/evidence/X3.json",
+          "probe_id": "X3",
+          "status": "PASS"
+        },
+        {
+          "evidence_ref": "phase7b/evidence/X4.json",
+          "probe_id": "X4",
+          "status": "PASS"
+        },
+        {
+          "evidence_ref": "phase7b/evidence/X5.json",
+          "probe_id": "X5",
+          "status": "PASS"
+        },
+        {
+          "evidence_ref": "phase7b/evidence/X6.json",
+          "probe_id": "X6",
+          "status": "PASS"
+        },
+        {
+          "evidence_ref": "phase7b/evidence/E1a.json",
+          "probe_id": "E1a",
+          "status": "PASS"
+        },
+        {
+          "evidence_ref": "phase7b/evidence/E1b.json",
+          "probe_id": "E1b",
+          "status": "PASS"
+        },
+        {
+          "evidence_ref": "phase7b/evidence/H3.json",
+          "probe_id": "H3",
+          "status": "PASS"
+        },
+        {
+          "evidence_ref": "phase7b/evidence/L1.json",
+          "probe_id": "L1",
+          "status": "PASS"
+        },
+        {
+          "evidence_ref": "phase7b/evidence/T1a.json",
+          "probe_id": "T1a",
+          "status": "PASS"
+        },
+        {
+          "evidence_ref": "phase7b/evidence/T1b.json",
+          "probe_id": "T1b",
+          "status": "PASS"
+        },
+        {
+          "evidence_ref": "phase7b/evidence/T2.json",
+          "probe_id": "T2",
+          "status": "PASS"
+        },
+        {
+          "evidence_ref": "phase7b/evidence/D1.json",
+          "probe_id": "D1",
+          "status": "PASS"
+        },
+        {
+          "evidence_ref": "phase7b/evidence/P1.json",
+          "probe_id": "P1",
+          "status": "PASS"
+        },
+        {
+          "evidence_ref": "phase7b/evidence/R1.json",
+          "probe_id": "R1",
+          "status": "PASS"
+        },
+        {
+          "evidence_ref": "phase7b/evidence/H1.json",
+          "probe_id": "H1",
+          "status": "PASS"
+        },
+        {
+          "evidence_ref": "phase7b/evidence/H2.json",
+          "probe_id": "H2",
+          "status": "PASS"
+        }
+      ],
+      "sequence": 7
+    },
+    {
+      "expected_rejections": [
+        "X1b",
+        "X2b",
+        "E1b",
+        "H3",
+        "L1",
+        "T1a",
+        "T1b",
+        "T2",
+        "D1",
+        "P1",
+        "R1",
+        "H2"
+      ],
+      "independent_probe_validation": true,
+      "kind": "validation",
+      "sequence": 8
+    },
+    {
+      "actions": [
+        "X3 reconcile/adopt/retry/fence",
+        "X4 reconstruct from existing artifact surface",
+        "R1 reject unsafe compensation overwrite"
+      ],
+      "kind": "recovery",
+      "sequence": 9
+    },
+    {
+      "integrated_revision": "ee2c745ed246d0b37caa7167cdb11162aadd40357e7d8c7bf28b6d286a6fa63b",
+      "kind": "final_validation",
+      "sequence": 10,
+      "status": "PASS"
+    },
+    {
+      "accepted_revision": "ee2c745ed246d0b37caa7167cdb11162aadd40357e7d8c7bf28b6d286a6fa63b",
+      "exact_validation_match": true,
+      "kind": "acceptance",
+      "owner": "FPO parent",
+      "sequence": 11
+    }
+  ],
+  "oracle_owner": "parent FPO",
+  "posthoc": true,
+  "schema": "fpo.phase7b.posthoc-trace.v1",
+  "worker_inputs": []
+}

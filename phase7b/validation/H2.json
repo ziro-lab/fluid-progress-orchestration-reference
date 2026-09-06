@@ -1,0 +1,13 @@
+{
+  "details": {
+    "blocker": "material decision omitted",
+    "fresh_ready": false,
+    "guess_used": false,
+    "planning_status": "GAP"
+  },
+  "evidence_ref": "phase7b/evidence/H2.json",
+  "independent": true,
+  "probe_id": "H2",
+  "schema": "fpo.phase7b.validation.v1",
+  "status": "PASS"
+}

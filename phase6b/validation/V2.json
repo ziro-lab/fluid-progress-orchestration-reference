@@ -1,0 +1,25 @@
+{
+  "fixture": "V2",
+  "hidden": {
+    "failures": [],
+    "oracle_checked_parent_only": true
+  },
+  "independent": true,
+  "public_tests": {
+    "args": [
+      "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "returncode": 0,
+    "stderr": "test_invalid_timestamp_raises (test_iso_compat.IsoCompatibilityTests.test_invalid_timestamp_raises) ... ok\ntest_naive_timestamp_is_rejected_without_a_timezone_guess (test_iso_compat.IsoCompatibilityTests.test_naive_timestamp_is_rejected_without_a_timezone_guess) ... ok\ntest_offsets_remain_aware (test_iso_compat.IsoCompatibilityTests.test_offsets_remain_aware) ... ok\ntest_unsupported_runtime_profile_raises (test_iso_compat.IsoCompatibilityTests.test_unsupported_runtime_profile_raises) ... ok\ntest_utc_z_is_supported_on_both_profiles (test_iso_compat.IsoCompatibilityTests.test_utc_z_is_supported_on_both_profiles) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.000s\n\nOK\n",
+    "stdout": "",
+    "timed_out": false
+  },
+  "schema": "fpo.phase6b.parent-validation.v1",
+  "status": "PASS"
+}

@@ -1,0 +1,1 @@
+{"case_id":"C1","required_decision":"NO_HUMAN","required_reason_code":"NO_HUMAN","required_route_patterns":["trim|normalize"],"forbidden_escalation":true,"required_human_request_count":0,"required_validation":true}

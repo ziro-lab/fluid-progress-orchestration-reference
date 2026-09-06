@@ -1,0 +1,12 @@
+{
+  "attempt_ref": "phase7b/attempts/X6/run-001.json",
+  "details": {
+    "narrowed_claim_accepted": false,
+    "trusted_constraints_preserved": true,
+    "widened_claim_accepted": true
+  },
+  "metrics": {},
+  "probe_id": "X6",
+  "schema": "fpo.phase7b.evidence.v1",
+  "status": "PASS"
+}

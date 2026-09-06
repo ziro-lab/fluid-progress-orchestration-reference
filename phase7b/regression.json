@@ -1,0 +1,9 @@
+{
+  "changed_protected_paths": [],
+  "commit_integrity": true,
+  "mode": "evidence_verification_only",
+  "phase0_7a_baseline_integrity": true,
+  "profile_manifest_integrity": true,
+  "schema": "fpo.phase7b.regression.v1",
+  "status": "PASS"
+}

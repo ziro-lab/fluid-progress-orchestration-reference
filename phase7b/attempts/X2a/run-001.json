@@ -1,0 +1,23 @@
+{
+  "details": {
+    "fenced": "FENCED",
+    "incomplete": "UNKNOWN",
+    "required_channels": [
+      {
+        "applicable": true,
+        "channel": "process_tree"
+      },
+      {
+        "applicable": true,
+        "channel": "queued_callback"
+      }
+    ],
+    "settled": "SETTLED"
+  },
+  "metrics": {},
+  "parent_oracle": true,
+  "probe_id": "X2a",
+  "schema": "fpo.phase7b.attempt.v1",
+  "status": "PASS",
+  "worker_context": null
+}

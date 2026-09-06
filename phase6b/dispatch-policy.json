@@ -1,0 +1,10 @@
+{
+  "default_worker": "gpt-5.6-luna",
+  "fresh_only_when_needed": true,
+  "queue_on_slot_shortage": true,
+  "reasoning": "xhigh",
+  "recovery_skill": "candidate-only",
+  "schema": "fpo.phase6b.provider-policy.v1",
+  "sol": "only-after-Luna-routes-exhausted",
+  "top_level_fallback": false
+}

@@ -1,0 +1,73 @@
+{
+  "schema": "fpo.phase5b.worker-return.v1",
+  "case_id": "N4",
+  "generation_id": "N4-G2",
+  "work_id": "FPO-5B-N4",
+  "work_revision": "r1",
+  "decision": "PROPOSE_ROLLBACK",
+  "route_id": "N4-ROLLBACK-ROUTE-001",
+  "route_semantic_key": "owner-controlled-reversible-rollback-to-known-good",
+  "observed_facts": [
+    {
+      "fact_id": "N4-F-001",
+      "text": "現在のチェックポイントは degraded で、N4-REPAIR-A は状態を degraded にした実行済み操作である。",
+      "evidence_refs": [
+        "phase5b/fixture/no-progress-work.json#N4",
+        "phase5b/source/N4-immutable-r1.json"
+      ]
+    },
+    {
+      "fact_id": "N4-F-002",
+      "text": "現在の状態には acceptance evidence がなく、rollback は child が直接実行できない。",
+      "evidence_refs": [
+        "phase5b/fixture/no-progress-work.json#N4",
+        "phase5b/source/N4-immutable-r1.json"
+      ]
+    }
+  ],
+  "evidence_refs": [
+    "phase5b/fixture/no-progress-work.json#N4",
+    "phase5b/source/N4-immutable-r1.json"
+  ],
+  "hypothesis_updates": [
+    {
+      "hypothesis_id": "N4-H-ROLLBACK-001",
+      "status": "proposed",
+      "statement": "N4-known-good への owner-controlled な可逆 rollback は、悪化した状態からの安全な復旧候補であるが、未実行かつ未検証である。",
+      "basis_refs": [
+        "phase5b/fixture/no-progress-work.json#N4",
+        "phase5b/source/N4-immutable-r1.json"
+      ]
+    }
+  ],
+  "route_attempts": [
+    {
+      "route_id": "N4-REPAIR-A",
+      "semantic_key": "repair-A",
+      "materially_distinct": true,
+      "attempt_status": "executed_degraded"
+    }
+  ],
+  "route_rejections": [
+    {
+      "route_id": "N4-DIRECT-ROLLBACK",
+      "semantic_key": "direct-rollback",
+      "reason": "child による直接実行は許可されず、owner adoption が必要なため。"
+    }
+  ],
+  "material_progress_signals": [
+    "safe_route_narrowing"
+  ],
+  "observed_checkpoint": "degraded",
+  "proposed_checkpoint": "N4-known-good",
+  "proposal": {
+    "proposal_id": "N4-ROLLBACK-PROPOSAL-001",
+    "operation_id": "N4-ROLLBACK-001",
+    "route_id": "N4-ROLLBACK-ROUTE-001",
+    "target_ref": "N4-known-good",
+    "owner_adoption_required": true,
+    "reversible": true,
+    "known_good_ref": "N4-known-good"
+  },
+  "notes": "rollback は提案のみで、child は実行・close・acceptance を行っていない。"
+}

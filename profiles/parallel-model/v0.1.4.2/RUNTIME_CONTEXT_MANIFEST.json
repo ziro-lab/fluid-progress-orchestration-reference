@@ -1,0 +1,21 @@
+{
+  "schema": "fpo.parallel.runtime-context-manifest.v1",
+  "profile_revision": "0.1.4.2",
+  "ordinary_runtime_context": [
+    "01_PARALLEL_SAFETY_CONFORMANCE_v0.1.4.2.md",
+    "02_PROVIDER_IMPLEMENTATION_CONFORMANCE_v0.1.4.2.md",
+    "03_EXISTING_FPO_FLOWMINI_MAPPING_v0.1.4.2.md"
+  ],
+  "load_when_operational_policy_needed": [
+    "04_OPERATIONAL_POLICIES_v0.1.4.2.md"
+  ],
+  "load_for_probe_or_promotion_only": [
+    "05_PROBE_PACK_AND_MAPPING_v0.1.4.2.md",
+    "06_IMPLEMENTATION_HANDOFF_v0.1.4.2.md",
+    "07_COMPRESSION_CONFORMANCE_AUDIT_v0.1.4.2.md",
+    "08_PROVEN_SUBJECT_TEMPLATE.json"
+  ],
+  "never_load_in_ordinary_runtime": [
+    "archive/"
+  ]
+}

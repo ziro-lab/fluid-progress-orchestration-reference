@@ -1,0 +1,91 @@
+{
+  "schema": "fpo.phase7a.flow-mini-return.v1",
+  "fixture": "I2",
+  "stage": "execution",
+  "dispatch_id": "P7A-I2-EXECUTION-1",
+  "input_sha256": "322e83eb5cc8c87956d87da722517bef40cdc7a875c69bc42315c9c22235afb3",
+  "status": "DONE",
+  "current_revision": "FM-EXEC-0.5.0-r3",
+  "provider": {
+    "model": "gpt-5.6-luna",
+    "reasoning": "xhigh"
+  },
+  "fresh_context": true,
+  "requirements": [
+    "Preserve render_badge(channel, version) and its {text, color} result shape.",
+    "For stable, return text stable <version> and color green.",
+    "For canary, return text canary <version> and color amber.",
+    "Keep output deterministic and propagate the supplied channel and version text without substitution."
+  ],
+  "observations": [
+    "The current four-file Core has coherent Core Generation P7A-I2-PLANNING-2-d32fce32 and Controller Revision FM-EXEC-0.5.0-r3.",
+    "The resolved design settles channel-label text with stable→green and canary→amber.",
+    "Before implementation, src/badge.py returned release <version> with blue, and the existing two tests failed against the settled behavior.",
+    "After implementation, the bounded source directly returns the settled stable/canary mappings and retains the existing function boundary."
+  ],
+  "planning": {
+    "core_generation": "P7A-I2-PLANNING-2-d32fce32",
+    "reference": "Current .flow-mini CONTRACT.md, ACCEPTANCE.md, WORKPLAN.md, and fixed EXECUTION.md",
+    "execution_scope": "Small dependency-free source change and implementation-local validation inside the bounded I2 project"
+  },
+  "operations": [
+    {
+      "operation_id": "op-001-reconcile",
+      "action": "Read the current four .flow-mini files and bounded I2 project materials; inspect source, tests, and scoped VCS state.",
+      "result": "Core coherence confirmed; the implementation was the known release/blue behavior and no pre-existing bounded-project diff was present."
+    },
+    {
+      "operation_id": "op-002-implement",
+      "action": "Update phase7a/fixture/i2-design-gap/src/badge.py with the smallest local channel-color mapping and caller-supplied text construction.",
+      "result": "Implemented stable→green and canary→amber while preserving the public call shape and result fields."
+    },
+    {
+      "operation_id": "op-003-suite",
+      "action": "Run the complete bounded-project unittest suite with the bundled Python runtime.",
+      "result": "Passed 2 tests: test_resolved_canary_badge and test_resolved_stable_badge."
+    },
+    {
+      "operation_id": "op-004-focused",
+      "action": "Run direct runtime checks for both settled channels, repeated-call determinism, a second version string, and exact result shape; compile the source.",
+      "result": "All focused checks passed, including version 2026.08.29+build.7 propagation; py_compile passed."
+    },
+    {
+      "operation_id": "op-005-workplan",
+      "action": "Record implementation and validation evidence in the existing .flow-mini/WORKPLAN.md without changing Core Generation.",
+      "result": "R1, R2, and R3 are marked complete and Resume Status is DONE."
+    }
+  ],
+  "local_validation": {
+    "bounded_suite": {
+      "command": "bundled Python -m unittest discover -s tests -v",
+      "result": "PASS: 2/2"
+    },
+    "focused_runtime": {
+      "result": "PASS: stable and canary expected dictionaries, deterministic repeated calls, supplied version propagation, and exact text/color shape"
+    },
+    "syntax": {
+      "command": "bundled Python -m py_compile src\\badge.py",
+      "result": "PASS"
+    }
+  },
+  "evidence": [
+    "phase7a/fixture/i2-design-gap/src/badge.py",
+    "phase7a/fixture/i2-design-gap/tests/test_badge.py",
+    "phase7a/fixture/i2-design-gap/.flow-mini/CONTRACT.md",
+    "phase7a/fixture/i2-design-gap/.flow-mini/ACCEPTANCE.md",
+    "phase7a/fixture/i2-design-gap/.flow-mini/WORKPLAN.md",
+    "phase7a/fixture/i2-design-gap/.flow-mini/EXECUTION.md",
+    "phase7a/fixture/i2-design-gap/design/owner-resolution.md"
+  ],
+  "blockers": [],
+  "reentry": {
+    "required": false,
+    "reason": "The current settled design and implementation boundary were sufficient; no unresolved design or implementation contract conflict was observed."
+  },
+  "next_action": "Upstream FPO may review this implementation Return; no further implementation action is required in this bounded Stage.",
+  "notes": [
+    "This DONE is an implementation Return only; it does not assert upstream review, acceptance, or close.",
+    "Unsupported channels and unusual input types remain unsettled and were not given additional semantics.",
+    "No commit or push was performed."
+  ]
+}

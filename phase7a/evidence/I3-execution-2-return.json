@@ -1,0 +1,100 @@
+{
+  "schema": "fpo.phase7a.flow-mini-return.v1",
+  "fixture": "I3",
+  "stage": "execution",
+  "dispatch_id": "P7A-I3-EXECUTION-2",
+  "input_sha256": "6195581db9ca9cc19cf98dee04e9be153b42bbb0a5bbde67c3c0d8710add8ba8",
+  "status": "DONE",
+  "current_revision": "FM-EXEC-0.5.0-r3",
+  "provider": {
+    "model": "gpt-5.6-luna",
+    "reasoning": "xhigh"
+  },
+  "fresh_context": true,
+  "requirements": [
+    "Implement the bounded project's public build_manifest(config) callable.",
+    "Reuse phase7a/evidence/I3-research.json as the only vendor-specific input.",
+    "Preserve artifact input order and leave FPO acceptance and close to FPO."
+  ],
+  "observations": [
+    "The persisted Evidence is accepted_for_resume and binds schema version 2, channel field track, stable/canary values, and preserve-input-order artifact behavior.",
+    "The previous implementation emitted channel, defaulted a missing channel to stable, and sorted artifacts lexically.",
+    "The current bounded project now emits the Evidence-bound schema-v2 shape and retains the public callable interface."
+  ],
+  "planning": {
+    "reference": "phase7a/fixture/i3-external-gap/.flow-mini/WORKPLAN.md",
+    "core_generation": "P7A-I3-PLANNING-1-G1",
+    "mode": "reference-only"
+  },
+  "operations": [
+    {
+      "operation_id": "P7A-I3-EXECUTION-2-OP-01",
+      "action": "Reconcile the persisted Evidence with the bounded Flow Mini stage.",
+      "result": "Input gap resolved; implementation stage remained within scope."
+    },
+    {
+      "operation_id": "P7A-I3-EXECUTION-2-OP-02",
+      "action": "Implement src/manifest.py from the persisted Evidence.",
+      "result": "Added schema_version 2, mapped channel to track, validated stable/canary, and copied artifacts in input order."
+    },
+    {
+      "operation_id": "P7A-I3-EXECUTION-2-OP-03",
+      "action": "Add focused tests at the public callable boundary.",
+      "result": "Covered exact output, both valid tracks, invalid-track rejection, order preservation, and determinism."
+    },
+    {
+      "operation_id": "P7A-I3-EXECUTION-2-OP-04",
+      "action": "Run the bounded project's local unittest suite.",
+      "result": "4 tests passed."
+    },
+    {
+      "operation_id": "P7A-I3-EXECUTION-2-OP-05",
+      "action": "Run direct focused validation against build_manifest(config).",
+      "result": "PASS for exact output, both tracks, nontrivial order, repeated equality, and input non-mutation."
+    }
+  ],
+  "local_validation": {
+    "status": "PASS",
+    "commands": [
+      {
+        "command": "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -m unittest discover -s tests -v",
+        "runtime": "workspace bundled Python",
+        "result": "4 tests passed"
+      },
+      {
+        "command": "direct public callable assertions",
+        "result": "PASS"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "ref": "phase7a/evidence/I3-research.json",
+      "schema": "fpo.phase7a.source-bound-research.v1",
+      "accepted_for_resume": true,
+      "claims_used": [
+        "schema_version=2",
+        "channel_field=track",
+        "stable and canary are accepted",
+        "artifact_order=preserve-input-order"
+      ]
+    },
+    {
+      "ref": "phase7a/fixture/i3-external-gap/.flow-mini/WORKPLAN.md",
+      "result": "Resume Status updated from BLOCKED to DONE with implementation and validation evidence."
+    }
+  ],
+  "blockers": [],
+  "reentry": {
+    "required": false,
+    "condition": "Reopen only if the persisted Evidence or bounded project contract materially changes.",
+    "out_of_scope": "FPO evaluation and close"
+  },
+  "next_action": "FPO may independently evaluate this implementation Return and continue its acceptance/close flow.",
+  "notes": [
+    "Flow Mini DONE records an implementation Return only; it does not assert FPO acceptance or close.",
+    "No commit or push was performed.",
+    "No files outside the bounded project and the assigned Return file were modified.",
+    "The parent-only vendor snapshot was not used as authority."
+  ]
+}

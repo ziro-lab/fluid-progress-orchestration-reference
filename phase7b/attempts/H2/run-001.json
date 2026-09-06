@@ -1,0 +1,14 @@
+{
+  "details": {
+    "blocker": "material decision omitted",
+    "fresh_ready": false,
+    "guess_used": false,
+    "planning_status": "GAP"
+  },
+  "metrics": {},
+  "parent_oracle": true,
+  "probe_id": "H2",
+  "schema": "fpo.phase7b.attempt.v1",
+  "status": "PASS",
+  "worker_context": null
+}

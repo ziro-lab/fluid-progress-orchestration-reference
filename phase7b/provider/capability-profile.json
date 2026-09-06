@@ -1,0 +1,58 @@
+{
+  "profile_revision": "0.1.4.2",
+  "publication": "existing-fpo-artifact-surface",
+  "required_binding": [
+    {
+      "name": "definition"
+    },
+    {
+      "name": "plan"
+    },
+    {
+      "name": "attempt"
+    },
+    {
+      "name": "target"
+    },
+    {
+      "name": "approval"
+    },
+    {
+      "name": "capability"
+    },
+    {
+      "name": "dispatch"
+    }
+  ],
+  "required_channels": [
+    {
+      "applicable": true,
+      "channel": "process_tree"
+    },
+    {
+      "applicable": true,
+      "channel": "queued_callback"
+    }
+  ],
+  "revision": "phase7b-capability-v1",
+  "schema": "fpo.phase7b.provider-capability-profile.v1",
+  "semantic_safety": {
+    "capability_restrictions": {
+      "digest_identity_required": true,
+      "no_unmediated_persistent_write": true
+    },
+    "conflict_domains": [
+      "semantic-index"
+    ],
+    "dependencies": [
+      "owner-native-definition",
+      "owner-native-plan"
+    ],
+    "effect_class": "file-write",
+    "invariants": [
+      "artifact-integrity",
+      "owner-currentness"
+    ],
+    "provider_path": "local-cas"
+  }
+}

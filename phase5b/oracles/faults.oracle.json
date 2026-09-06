@@ -1,0 +1,5 @@
+{
+  "schema": "fpo.phase5b.fault-oracle.v1",
+  "expected_faults": ["P1_ACTIVITY_ONLY", "P2_STATIC_CHECKPOINT", "P3_EXHAUSTED_ROUTE"],
+  "all_status": "PASS"
+}

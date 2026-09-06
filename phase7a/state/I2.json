@@ -1,0 +1,15 @@
+{
+  "current_revision": "FM-EXEC-0.5.0-r3",
+  "design_resolution_ref": "phase7a/evidence/I2-design-resolution.json",
+  "design_source_digest_after_reentry": "3aa4adf847d30d64a1c8ad2fbd716f3e83dbe40dabcfadb5215f2f598d8dbc47",
+  "design_source_digest_before_reentry": "3aa4adf847d30d64a1c8ad2fbd716f3e83dbe40dabcfadb5215f2f598d8dbc47",
+  "fixture": "I2",
+  "last_stage": "execution-1",
+  "schema": "fpo.phase7a.external-state.v1",
+  "source_digest": "39cb9e48f258025c3bac0a079848bbf11ec1211c59d4f01221939231a6c4b9db",
+  "state": "design-resolved",
+  "transcript": null,
+  "validation_ref": "phase7a/validation/I2.json",
+  "validation_status": "PASS",
+  "workspace_digest": "41e18723671d536ad8f0ffb20bd0aa57a14e60c82d74b22011f61ccf41f4aaf9"
+}

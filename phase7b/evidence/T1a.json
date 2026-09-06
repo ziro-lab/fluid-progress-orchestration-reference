@@ -1,0 +1,11 @@
+{
+  "attempt_ref": "phase7b/attempts/T1a/run-001.json",
+  "details": {
+    "admitted": true,
+    "begin_effect_rejected_after_supersession": true
+  },
+  "metrics": {},
+  "probe_id": "T1a",
+  "schema": "fpo.phase7b.evidence.v1",
+  "status": "PASS"
+}

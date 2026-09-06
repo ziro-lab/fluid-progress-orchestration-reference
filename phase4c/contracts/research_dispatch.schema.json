@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fpo.phase4c.research-dispatch.v1",
+  "title": "FPO Phase 4C Decision Dispatch",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "case_id", "run_number", "capability_run_id", "dispatch_id", "operation_id", "capability_id", "capability_revision", "fixture_ref", "return_schema_ref", "authority_boundary"],
+  "properties": {
+    "schema": {"const": "fpo.phase4c.research-dispatch.v1"},
+    "case_id": {"type": "string", "pattern": "^C[1-7]$"},
+    "run_number": {"type": "integer"},
+    "capability_run_id": {"type": "string", "minLength": 1},
+    "dispatch_id": {"type": "string", "pattern": "^DISP-C[1-7]-[0-9]{3}$"},
+    "operation_id": {"type": "string", "pattern": "^OP-C[1-7]-[0-9]{3}$"},
+    "capability_id": {"const": "ai.human-last-boundary.capability"},
+    "capability_revision": {"const": "phase4c-v1"},
+    "fixture_ref": {"type": "string", "minLength": 1},
+    "return_schema_ref": {"type": "string", "minLength": 1},
+    "authority_boundary": {"type": "object", "additionalProperties": false, "required": ["return_only", "may_change_fpo_authority"], "properties": {"return_only": {"const": true}, "may_change_fpo_authority": {"const": false}}}
+  }
+}

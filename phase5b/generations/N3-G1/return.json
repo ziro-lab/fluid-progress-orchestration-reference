@@ -1,0 +1,60 @@
+{
+  "schema": "fpo.phase5b.worker-return.v1",
+  "case_id": "N3",
+  "generation_id": "N3-G1",
+  "work_id": "FPO-5B-N3",
+  "work_revision": "r0",
+  "decision": "DIAGNOSE",
+  "route_id": "N3-G1-DIAGNOSIS",
+  "route_semantic_key": "diagnosis-static-checkpoint-material-progress",
+  "observed_facts": [
+    {
+      "fact_id": "N3-F-001",
+      "text": "The authoritative handoff projection remains at checkpoint diagnosis with status FAIL, failure_id N3-INITIAL, and no acceptance evidence.",
+      "evidence_refs": [
+        "phase5b/handoffs/HO-N3-G1-001.json#state_projection/current_result"
+      ]
+    },
+    {
+      "fact_id": "N3-F-002",
+      "text": "The current projection records no accepted evidence, no active hypotheses, no uncertainties, and no progress history.",
+      "evidence_refs": [
+        "phase5b/handoffs/HO-N3-G1-001.json#state_projection"
+      ]
+    },
+    {
+      "fact_id": "N3-F-003",
+      "text": "Activity-only events are explicitly excluded from material progress classification, so the search is narrowed to evidence-backed changes.",
+      "evidence_refs": [
+        "phase5b/generations/N3-G1/worker-prompt.txt#progress-criteria",
+        "phase5b/handoffs/HO-N3-G1-001.json#prohibitions"
+      ]
+    }
+  ],
+  "evidence_refs": [
+    "phase5b/handoffs/HO-N3-G1-001.json#state_projection",
+    "phase5b/generations/N3-G1/dispatch.json",
+    "phase5b/fixture/no-progress-work.json#N3"
+  ],
+  "hypothesis_updates": [
+    {
+      "hypothesis_id": "N3-H-BAD",
+      "status": "invalidated",
+      "statement": "The hypothesis that activity-only work constitutes material progress is invalidated for N3.",
+      "basis_refs": [
+        "phase5b/generations/N3-G1/worker-prompt.txt#progress-criteria",
+        "phase5b/handoffs/HO-N3-G1-001.json#prohibitions"
+      ]
+    }
+  ],
+  "route_attempts": [],
+  "route_rejections": [],
+  "material_progress_signals": [
+    "uncertainty_reduction",
+    "invalid_hypothesis_elimination",
+    "safe_route_narrowing"
+  ],
+  "observed_checkpoint": "diagnosis",
+  "proposed_checkpoint": "diagnosis",
+  "notes": "Diagnosis records material progress through uncertainty reduction, elimination of N3-H-BAD, and safe route narrowing while leaving the checkpoint unchanged. No repair, rollback, close, or acceptance is executed or claimed."
+}

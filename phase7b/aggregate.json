@@ -1,0 +1,155 @@
+{
+  "baseline_integrity": {
+    "changed_protected_paths": [],
+    "phase7a_aggregate_pass": true,
+    "phase7a_regression_pass": true,
+    "protected_paths_unchanged": true
+  },
+  "bound_subject_ref": "phase7b/bound-proven-subject.json",
+  "integrated_fanout_fanin": "PASS",
+  "invariants": {
+    "ai_authority_promotion_zero": true,
+    "commit_integrity_pass": true,
+    "duplicate_effect_zero": true,
+    "duplicate_physical_child_zero": true,
+    "false_acceptance_zero": true,
+    "false_close_zero": true,
+    "false_fenced_zero": true,
+    "false_settled_zero": true,
+    "flow_mini_done_to_fpo_acceptance_close_zero": true,
+    "hidden_oracle_leakage_zero": true,
+    "late_stale_return_adoption_zero": true,
+    "phase0_7a_regression_pass": true,
+    "preintegration_validation_reused_zero": true,
+    "premature_publication_zero": true,
+    "projection_rebuild_pass": true,
+    "stale_binding_effect_zero": true,
+    "torn_publication_adoption_zero": true,
+    "transcript_dependency_zero": true,
+    "unmediated_persistent_effect_zero": true,
+    "unsafe_compensation_overwrite_zero": true,
+    "validated_revision_equals_accepted_revision": true,
+    "worker_safety_narrowing_zero": true
+  },
+  "mechanical": {
+    "E1a": "PASS",
+    "E1b": "PASS",
+    "H3": "PASS",
+    "L1": "PASS",
+    "T1a": "PASS",
+    "T1b": "PASS",
+    "X1a": "PASS",
+    "X1b": "PASS",
+    "X2a": "PASS",
+    "X2b": "PASS",
+    "X3": "PASS",
+    "X4": "PASS",
+    "X5": "PASS",
+    "X6": "PASS"
+  },
+  "metrics": {
+    "duplicate_effect": 0,
+    "duplicate_physical_child": 0,
+    "expected_rejections": 20,
+    "false_fenced": 0,
+    "false_settled": 0,
+    "hypothesis_changes": 0,
+    "late_stale_return_adoption": 0,
+    "material_progress_events": 8,
+    "premature_publication": 0,
+    "recovery_actions": 3,
+    "requirements_discovered": 8,
+    "research_calls": 0,
+    "stale_binding_effect": 0,
+    "torn_publication_adoption": 0,
+    "unmediated_persistent_effect": 0,
+    "unsafe_compensation_overwrite": 0,
+    "validation_failures": 0
+  },
+  "oracle": {
+    "D1": "PASS",
+    "H1": "PASS",
+    "H2": "PASS",
+    "P1": "PASS",
+    "R1": "PASS",
+    "T2": "PASS"
+  },
+  "parallel_efficiency": "NOT_CHARACTERIZED",
+  "profile_integrity": {
+    "archive_hash_matches": true,
+    "archive_mirrored_to_repo": false,
+    "archive_sha256": "566d7cf8f6f7ce47bb61ad1355153bf00f6fce2398cf225f170f8d581c1e7a16",
+    "file_checks": [
+      {
+        "bytes_ok": true,
+        "hash_ok": true,
+        "path": "00_README.md"
+      },
+      {
+        "bytes_ok": true,
+        "hash_ok": true,
+        "path": "01_PARALLEL_SAFETY_CONFORMANCE_v0.1.4.2.md"
+      },
+      {
+        "bytes_ok": true,
+        "hash_ok": true,
+        "path": "02_PROVIDER_IMPLEMENTATION_CONFORMANCE_v0.1.4.2.md"
+      },
+      {
+        "bytes_ok": true,
+        "hash_ok": true,
+        "path": "03_EXISTING_FPO_FLOWMINI_MAPPING_v0.1.4.2.md"
+      },
+      {
+        "bytes_ok": true,
+        "hash_ok": true,
+        "path": "04_OPERATIONAL_POLICIES_v0.1.4.2.md"
+      },
+      {
+        "bytes_ok": true,
+        "hash_ok": true,
+        "path": "05_PROBE_PACK_AND_MAPPING_v0.1.4.2.md"
+      },
+      {
+        "bytes_ok": true,
+        "hash_ok": true,
+        "path": "06_IMPLEMENTATION_HANDOFF_v0.1.4.2.md"
+      },
+      {
+        "bytes_ok": true,
+        "hash_ok": true,
+        "path": "07_COMPRESSION_CONFORMANCE_AUDIT_v0.1.4.2.md"
+      },
+      {
+        "bytes_ok": true,
+        "hash_ok": true,
+        "path": "08_PROVEN_SUBJECT_TEMPLATE.json"
+      },
+      {
+        "bytes_ok": true,
+        "hash_ok": true,
+        "path": "RUNTIME_CONTEXT_MANIFEST.json"
+      }
+    ],
+    "listed_byte_sizes_ok": true,
+    "listed_files": 10,
+    "listed_hashes_ok": true,
+    "ordinary_runtime_excludes_archive": true,
+    "revision": "0.1.4.2",
+    "runtime_context_paths_exist": true,
+    "schema": "fpo.parallel.repo-snapshot-manifest.v1"
+  },
+  "profile_revision": "0.1.4.2",
+  "provider_usage": {
+    "ai_workers": 0,
+    "fresh_workers": 0,
+    "luna_calls": 0,
+    "model_calls": 0,
+    "recovery_skill_calls": 0,
+    "sol_calls": 0,
+    "terra_calls": 0
+  },
+  "safety_verdict": "PROVEN",
+  "schema": "fpo.phase7b.parallel-profile-runtime-conformance-aggregate.v1",
+  "starting_revision": "0407c72a642ce7c98a30a9016feaf63bf1e62351"
+}

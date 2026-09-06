@@ -1,0 +1,12 @@
+{
+  "details": {
+    "current_owner_wins": true,
+    "delayed_return_adopted": false
+  },
+  "metrics": {},
+  "parent_oracle": true,
+  "probe_id": "T2",
+  "schema": "fpo.phase7b.attempt.v1",
+  "status": "PASS",
+  "worker_context": null
+}

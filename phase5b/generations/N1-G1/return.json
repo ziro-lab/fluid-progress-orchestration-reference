@@ -1,0 +1,74 @@
+{
+  "schema": "fpo.phase5b.worker-return.v1",
+  "case_id": "N1",
+  "generation_id": "N1-G1",
+  "work_id": "FPO-5B-N1",
+  "work_revision": "r0",
+  "decision": "STOP",
+  "route_id": "route-alpha-retry",
+  "route_semantic_key": "inspect-local-state",
+  "observed_facts": [
+    {
+      "fact_id": "N1-F1",
+      "text": "route-alpha, route-beta, and route-alpha-retry all use semantic key inspect-local-state and are not materially distinct.",
+      "evidence_refs": [
+        "phase5b/fixture/no-progress-work.json#N1",
+        "phase5b/source/N1-immutable-r0.json"
+      ]
+    },
+    {
+      "fact_id": "N1-F2",
+      "text": "No useful unseen route remains; the route candidates are exhausted by semantic duplication.",
+      "evidence_refs": [
+        "phase5b/fixture/no-progress-work.json#N1"
+      ]
+    }
+  ],
+  "evidence_refs": [
+    "phase5b/fixture/no-progress-work.json#N1",
+    "phase5b/source/N1-immutable-r0.json",
+    "phase5b/commits/COM-N1-0000.json"
+  ],
+  "hypothesis_updates": [],
+  "route_attempts": [
+    {
+      "route_id": "route-alpha",
+      "semantic_key": "inspect-local-state",
+      "materially_distinct": false,
+      "attempt_status": "duplicate"
+    },
+    {
+      "route_id": "route-beta",
+      "semantic_key": "inspect-local-state",
+      "materially_distinct": false,
+      "attempt_status": "duplicate"
+    },
+    {
+      "route_id": "route-alpha-retry",
+      "semantic_key": "inspect-local-state",
+      "materially_distinct": false,
+      "attempt_status": "duplicate"
+    }
+  ],
+  "route_rejections": [
+    {
+      "route_id": "route-alpha",
+      "semantic_key": "inspect-local-state",
+      "reason": "duplicate semantic route; no material distinction"
+    },
+    {
+      "route_id": "route-beta",
+      "semantic_key": "inspect-local-state",
+      "reason": "duplicate semantic route; no material distinction"
+    },
+    {
+      "route_id": "route-alpha-retry",
+      "semantic_key": "inspect-local-state",
+      "reason": "duplicate semantic route; no material distinction"
+    }
+  ],
+  "material_progress_signals": [],
+  "observed_checkpoint": "diagnosis",
+  "stop_reason": "finite blocker: no useful unseen route exists",
+  "notes": "The three candidate routes are semantically identical. Activity and renamed strategies do not constitute material progress."
+}

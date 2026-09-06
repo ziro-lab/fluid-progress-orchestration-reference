@@ -1,0 +1,23 @@
+You are a fresh, isolated real AI capability worker for FPO Phase 4A.
+
+Read only these three input files:
+- E:\TEST\FPO_Runtime_Probe_Starter\.phase2-sync\phase4a\fixtures\A1-bounded-diagnosis.json
+- E:\TEST\FPO_Runtime_Probe_Starter\.phase2-sync\phase4a\contracts\ai_capability_return.schema.json
+- E:\TEST\FPO_Runtime_Probe_Starter\.phase2-sync\phase4a\results\A1\run-001\dispatch.json
+
+Analyze the fixture using only its supplied evidence. Return a machine-readable
+JSON object conforming exactly to the named return schema. Use the exact
+capability_run_id, dispatch_id, operation_id, and capability_revision from the
+dispatch packet. Put observations in facts/findings/evidence_refs,
+uncertainty in uncertainties, a minimal repair or next step in proposals, and
+additional checks in requested_observations. Do not change any file or make a
+decision for FPO.
+
+The JSON object must not contain checkpoint, accepted, closed, work_lifecycle,
+approval_granted, budget_override, work_state, work_control, acceptance, or
+terminal_disposition keys. Do not read any oracle, aggregate, report, prior
+result, or other task output. Do not use tools for anything except writing the
+single output file below.
+
+Write only this output file, with no Markdown fences or commentary:
+E:\TEST\FPO_Runtime_Probe_Starter\.phase2-sync\phase4a\results\A1\run-001\return.json

@@ -1,0 +1,526 @@
+{
+  "acceptance": {
+    "accepted_after_independent_validation": true,
+    "accepted_revision": "1edb9347ea553e99d11376584134f84f7984444d464bf85679865ff9c6514689",
+    "flow_mini_done_is_not_acceptance": true,
+    "job": "J1",
+    "preintegration_validation_reused": false,
+    "schema": "fpo.phase7c.fpo-acceptance.v1",
+    "status": "closed/completed",
+    "validated_revision": "1edb9347ea553e99d11376584134f84f7984444d464bf85679865ff9c6514689"
+  },
+  "branch_validation": {
+    "labels": {
+      "pattern": "test_labels.py",
+      "returncode": 0,
+      "status": "PASS",
+      "stderr": "test_label (test_labels.LabelTests.test_label) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+      "stdout": ""
+    },
+    "versions": {
+      "pattern": "test_versions.py",
+      "returncode": 0,
+      "status": "PASS",
+      "stderr": "test_versions (test_versions.VersionTests.test_versions) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+      "stdout": ""
+    }
+  },
+  "inspection": {
+    "baseline": {
+      "pattern": "test*.py",
+      "returncode": 1,
+      "status": "FAIL",
+      "stderr": "test_label (test_labels.LabelTests.test_label) ... FAIL\ntest_report (test_report.ReportTests.test_report) ... ERROR\ntest_versions (test_versions.VersionTests.test_versions) ... FAIL\n\n======================================================================\nERROR: test_report (test_report.ReportTests.test_report)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"E:\\TEST\\FPO_Runtime_Probe_Starter\\.phase2-sync\\phase7c\\fixtures\\j1-natural-parallel\\tests\\test_report.py\", line 9, in test_report\n    self.assertEqual(build_report([{'label': 'North America!', 'version': '1.10.0'}, {'label': 'East', 'version': '1.2.0'}]), 'east: 1.2.0\\nnorth-america: 1.10.0')\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\TEST\\FPO_Runtime_Probe_Starter\\.phase2-sync\\phase7c\\fixtures\\j1-natural-parallel\\src\\report.py\", line 5, in build_report\n    ordered = sort_versions(records)\n              ^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\TEST\\FPO_Runtime_Probe_Starter\\.phase2-sync\\phase7c\\fixtures\\j1-natural-parallel\\src\\versions.py\", line 2, in sort_versions\n    return sorted(values)\n           ^^^^^^^^^^^^^^\nTypeError: '<' not supported between instances of 'dict' and 'dict'\n\n======================================================================\nFAIL: test_label (test_labels.LabelTests.test_label)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"E:\\TEST\\FPO_Runtime_Probe_Starter\\.phase2-sync\\phase7c\\fixtures\\j1-natural-parallel\\tests\\test_labels.py\", line 9, in test_label\n    self.assertEqual(normalize_label(' North America! '), 'north-america')\nAssertionError: 'north-america!' != 'north-america'\n- north-america!\n?              -\n+ north-america\n\n\n======================================================================\nFAIL: test_versions (test_versions.VersionTests.test_versions)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"E:\\TEST\\FPO_Runtime_Probe_Starter\\.phase2-sync\\phase7c\\fixtures\\j1-natural-parallel\\tests\\test_versions.py\", line 9, in test_versions\n    self.assertEqual(sort_versions(['1.10.0', '1.2.0', '1.1.9']), ['1.1.9', '1.2.0', '1.10.0'])\nAssertionError: Lists differ: ['1.1.9', '1.10.0', '1.2.0'] != ['1.1.9', '1.2.0', '1.10.0']\n\nFirst differing element 1:\n'1.10.0'\n'1.2.0'\n\n- ['1.1.9', '1.10.0', '1.2.0']\n+ ['1.1.9', '1.2.0', '1.10.0']\n\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nFAILED (failures=2, errors=1)\n",
+      "stdout": ""
+    },
+    "independent_targets": true,
+    "job": "J1",
+    "parallel_candidates": [
+      "labels",
+      "versions"
+    ],
+    "rationale": "multiple failing module-level checks have disjoint source dependencies",
+    "requirements_discovered": [
+      "normalize_label(value)` returns lowercase hyphen-separated words and removes punctuation.",
+      "sort_versions(values)` orders simple `major.minor.patch` versions numerically.",
+      "build_report(records)` emits one stable `label: version` line per record.",
+      "Keep the implementation local, deterministic, and dependency-free."
+    ],
+    "selected_route": "parallel",
+    "source_files": [
+      "labels.py",
+      "report.py",
+      "versions.py"
+    ],
+    "targets": [
+      "labels",
+      "report",
+      "versions"
+    ],
+    "test_files": [
+      "test_labels.py",
+      "test_report.py",
+      "test_versions.py"
+    ]
+  },
+  "integrated_validation": {
+    "independent": true,
+    "job": "J1",
+    "schema": "fpo.phase7c.independent-validation.v1",
+    "status": "PASS",
+    "subject_digest": "1edb9347ea553e99d11376584134f84f7984444d464bf85679865ff9c6514689",
+    "subject_snapshot": {
+      "src/labels.py": "e4a1445ce2003539450f4ec9d26a7c7a1b8fc201c32291175a4a04af084a9757",
+      "src/report.py": "f2ce625c8cd6bad0b0ff3c5fc4f69296ca0431aa3e9fa6151f91a6b6ffb79125",
+      "src/versions.py": "5b193168d324fac2d4d9cf06e68e0805fd9894fe76f9f23257fced216da16061",
+      "tests/test_labels.py": "36651e845fba87a7206509c5ae346abcc31a8e195bfe5102dd006a6a4d609507",
+      "tests/test_report.py": "9843b7d216e36f792fa60a4193e0e8c0fe71d7cc1fc9de052b5ed9cc7e627c84",
+      "tests/test_versions.py": "215e1b51503aabf15f42c23d2b31e575a1cb56ff0b7e513ee1c66771867a3d6f"
+    },
+    "test_result": {
+      "pattern": "test*.py",
+      "returncode": 0,
+      "status": "PASS",
+      "stderr": "test_label (test_labels.LabelTests.test_label) ... ok\ntest_report (test_report.ReportTests.test_report) ... ok\ntest_versions (test_versions.VersionTests.test_versions) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n",
+      "stdout": ""
+    }
+  },
+  "provider": {
+    "admissions": [
+      {
+        "admitted": true,
+        "child_identity": [
+          "ATT-J1-001",
+          "lane-labels"
+        ]
+      },
+      {
+        "admitted": true,
+        "child_identity": [
+          "ATT-J1-001",
+          "lane-versions"
+        ]
+      }
+    ],
+    "closures": [
+      "SETTLED",
+      "SETTLED"
+    ],
+    "commits": [
+      {
+        "destination": "j1-labels",
+        "effect_id": "effect:ATT-J1-001:lane-labels:J1-labels-effect",
+        "expected_revision": "r0",
+        "mechanism": "destination-CAS",
+        "result_revision": "labels-r1",
+        "schema": "fpo.parallel.external-commit-proof.v1"
+      },
+      {
+        "destination": "j1-versions",
+        "effect_id": "effect:ATT-J1-001:lane-versions:J1-versions-effect",
+        "expected_revision": "r0",
+        "mechanism": "destination-CAS",
+        "result_revision": "versions-r1",
+        "schema": "fpo.parallel.external-commit-proof.v1"
+      }
+    ],
+    "effects": [
+      {
+        "attempt_id": "ATT-J1-001",
+        "binding": {
+          "attempt_id": "ATT-J1-001",
+          "child_identity": [
+            "ATT-J1-001",
+            "lane-labels"
+          ],
+          "child_sub_id": "lane-labels",
+          "components": [
+            {
+              "name": "approval",
+              "ref": {
+                "digest": "74f475e92e0ded492c2cf82173637f9e652898c11248d12633391ca28689f753",
+                "revision": "approval-r1",
+                "source": "owner-native"
+              },
+              "source": "owner-native"
+            },
+            {
+              "name": "attempt",
+              "ref": {
+                "digest": "f8cde062412113ac014903e568515375da6ca3706c917646aba220a18924242e",
+                "revision": "ATT-J1-001-r1",
+                "source": "owner-native"
+              },
+              "source": "owner-native"
+            },
+            {
+              "name": "capability",
+              "ref": {
+                "digest": "a76b5b02567fa5951e63cfd6160e6ef887f7b1f5f0a171addc4eeedff6bb5b16",
+                "revision": "capability-r1",
+                "source": "owner-native"
+              },
+              "source": "owner-native"
+            },
+            {
+              "name": "definition",
+              "ref": {
+                "digest": "5988cae994d1a0a4eee9e603387a50bc126df14c7f44af6c134433dedb4ab5b6",
+                "revision": "definition-r1",
+                "source": "owner-native"
+              },
+              "source": "owner-native"
+            },
+            {
+              "name": "dispatch",
+              "ref": {
+                "digest": "6ba42fdd5be67cac1e680b928d13beaa778d729b7d4f9fb85360d96f45626849",
+                "revision": "dispatch-r1",
+                "source": "owner-native"
+              },
+              "source": "owner-native"
+            },
+            {
+              "name": "plan",
+              "ref": {
+                "digest": "023f3a28ceb16ed24565a0d57bc08b2a361d675c03e7063e943e11aa58dde5b1",
+                "revision": "plan-r1",
+                "source": "owner-native"
+              },
+              "source": "owner-native"
+            },
+            {
+              "name": "target",
+              "ref": {
+                "digest": "78ce59e231669eb5b97377c26f0ac4bd2d5848584983660688dc358cd29da2e8",
+                "revision": "target-r1",
+                "source": "owner-native"
+              },
+              "source": "owner-native"
+            }
+          ],
+          "execution_basis_fingerprint": "d1654676e8aafe8118b5855229fddcdcf5cbcea779d461e9d4a92c1ace3572a0",
+          "schema": "fpo.parallel.execution-binding.derived.v1"
+        },
+        "child_identity": [
+          "ATT-J1-001",
+          "lane-labels"
+        ],
+        "commit": {
+          "destination": "j1-labels",
+          "effect_id": "effect:ATT-J1-001:lane-labels:J1-labels-effect",
+          "expected_revision": "r0",
+          "mechanism": "destination-CAS",
+          "result_revision": "labels-r1",
+          "schema": "fpo.parallel.external-commit-proof.v1"
+        },
+        "currentness_recheck": true,
+        "effect_id": "effect:ATT-J1-001:lane-labels:J1-labels-effect",
+        "mediated": true,
+        "mutation_domain": "j1-labels",
+        "schema": "fpo.parallel.effect-intent.derived.v1",
+        "state": "COMMITTED"
+      },
+      {
+        "attempt_id": "ATT-J1-001",
+        "binding": {
+          "attempt_id": "ATT-J1-001",
+          "child_identity": [
+            "ATT-J1-001",
+            "lane-versions"
+          ],
+          "child_sub_id": "lane-versions",
+          "components": [
+            {
+              "name": "approval",
+              "ref": {
+                "digest": "74f475e92e0ded492c2cf82173637f9e652898c11248d12633391ca28689f753",
+                "revision": "approval-r1",
+                "source": "owner-native"
+              },
+              "source": "owner-native"
+            },
+            {
+              "name": "attempt",
+              "ref": {
+                "digest": "f8cde062412113ac014903e568515375da6ca3706c917646aba220a18924242e",
+                "revision": "ATT-J1-001-r1",
+                "source": "owner-native"
+              },
+              "source": "owner-native"
+            },
+            {
+              "name": "capability",
+              "ref": {
+                "digest": "a76b5b02567fa5951e63cfd6160e6ef887f7b1f5f0a171addc4eeedff6bb5b16",
+                "revision": "capability-r1",
+                "source": "owner-native"
+              },
+              "source": "owner-native"
+            },
+            {
+              "name": "definition",
+              "ref": {
+                "digest": "5988cae994d1a0a4eee9e603387a50bc126df14c7f44af6c134433dedb4ab5b6",
+                "revision": "definition-r1",
+                "source": "owner-native"
+              },
+              "source": "owner-native"
+            },
+            {
+              "name": "dispatch",
+              "ref": {
+                "digest": "6ba42fdd5be67cac1e680b928d13beaa778d729b7d4f9fb85360d96f45626849",
+                "revision": "dispatch-r1",
+                "source": "owner-native"
+              },
+              "source": "owner-native"
+            },
+            {
+              "name": "plan",
+              "ref": {
+                "digest": "023f3a28ceb16ed24565a0d57bc08b2a361d675c03e7063e943e11aa58dde5b1",
+                "revision": "plan-r1",
+                "source": "owner-native"
+              },
+              "source": "owner-native"
+            },
+            {
+              "name": "target",
+              "ref": {
+                "digest": "78ce59e231669eb5b97377c26f0ac4bd2d5848584983660688dc358cd29da2e8",
+                "revision": "target-r1",
+                "source": "owner-native"
+              },
+              "source": "owner-native"
+            }
+          ],
+          "execution_basis_fingerprint": "803f060ad0f95f01175e6a3d9428463ff34ea5eb776b1f46bafe5e13ffbec71c",
+          "schema": "fpo.parallel.execution-binding.derived.v1"
+        },
+        "child_identity": [
+          "ATT-J1-001",
+          "lane-versions"
+        ],
+        "commit": {
+          "destination": "j1-versions",
+          "effect_id": "effect:ATT-J1-001:lane-versions:J1-versions-effect",
+          "expected_revision": "r0",
+          "mechanism": "destination-CAS",
+          "result_revision": "versions-r1",
+          "schema": "fpo.parallel.external-commit-proof.v1"
+        },
+        "currentness_recheck": true,
+        "effect_id": "effect:ATT-J1-001:lane-versions:J1-versions-effect",
+        "mediated": true,
+        "mutation_domain": "j1-versions",
+        "schema": "fpo.parallel.effect-intent.derived.v1",
+        "state": "COMMITTED"
+      }
+    ],
+    "operations": [
+      {
+        "attempt_id": "ATT-J1-001",
+        "capability": "parallel-file-write",
+        "child_sub_id": "lane-labels",
+        "conflict_domains": [
+          "physical:j1-labels"
+        ],
+        "destination": "j1-labels",
+        "effect_class": "file-write",
+        "invariants": [
+          "J1-labels-integrity"
+        ],
+        "provider_path": "local-cas",
+        "refs": {
+          "approval": {
+            "digest": "74f475e92e0ded492c2cf82173637f9e652898c11248d12633391ca28689f753",
+            "revision": "approval-r1",
+            "source": "owner-native"
+          },
+          "attempt": {
+            "digest": "f8cde062412113ac014903e568515375da6ca3706c917646aba220a18924242e",
+            "revision": "ATT-J1-001-r1",
+            "source": "owner-native"
+          },
+          "capability": {
+            "digest": "a76b5b02567fa5951e63cfd6160e6ef887f7b1f5f0a171addc4eeedff6bb5b16",
+            "revision": "capability-r1",
+            "source": "owner-native"
+          },
+          "definition": {
+            "digest": "5988cae994d1a0a4eee9e603387a50bc126df14c7f44af6c134433dedb4ab5b6",
+            "revision": "definition-r1",
+            "source": "owner-native"
+          },
+          "dispatch": {
+            "digest": "6ba42fdd5be67cac1e680b928d13beaa778d729b7d4f9fb85360d96f45626849",
+            "revision": "dispatch-r1",
+            "source": "owner-native"
+          },
+          "plan": {
+            "digest": "023f3a28ceb16ed24565a0d57bc08b2a361d675c03e7063e943e11aa58dde5b1",
+            "revision": "plan-r1",
+            "source": "owner-native"
+          },
+          "target": {
+            "digest": "78ce59e231669eb5b97377c26f0ac4bd2d5848584983660688dc358cd29da2e8",
+            "revision": "target-r1",
+            "source": "owner-native"
+          }
+        },
+        "required_at_spawn": [
+          {
+            "applicable": true,
+            "channel": "process_tree"
+          },
+          {
+            "applicable": true,
+            "channel": "queued_callback"
+          }
+        ]
+      },
+      {
+        "attempt_id": "ATT-J1-001",
+        "capability": "parallel-file-write",
+        "child_sub_id": "lane-versions",
+        "conflict_domains": [
+          "physical:j1-versions"
+        ],
+        "destination": "j1-versions",
+        "effect_class": "file-write",
+        "invariants": [
+          "J1-versions-integrity"
+        ],
+        "provider_path": "local-cas",
+        "refs": {
+          "approval": {
+            "digest": "74f475e92e0ded492c2cf82173637f9e652898c11248d12633391ca28689f753",
+            "revision": "approval-r1",
+            "source": "owner-native"
+          },
+          "attempt": {
+            "digest": "f8cde062412113ac014903e568515375da6ca3706c917646aba220a18924242e",
+            "revision": "ATT-J1-001-r1",
+            "source": "owner-native"
+          },
+          "capability": {
+            "digest": "a76b5b02567fa5951e63cfd6160e6ef887f7b1f5f0a171addc4eeedff6bb5b16",
+            "revision": "capability-r1",
+            "source": "owner-native"
+          },
+          "definition": {
+            "digest": "5988cae994d1a0a4eee9e603387a50bc126df14c7f44af6c134433dedb4ab5b6",
+            "revision": "definition-r1",
+            "source": "owner-native"
+          },
+          "dispatch": {
+            "digest": "6ba42fdd5be67cac1e680b928d13beaa778d729b7d4f9fb85360d96f45626849",
+            "revision": "dispatch-r1",
+            "source": "owner-native"
+          },
+          "plan": {
+            "digest": "023f3a28ceb16ed24565a0d57bc08b2a361d675c03e7063e943e11aa58dde5b1",
+            "revision": "plan-r1",
+            "source": "owner-native"
+          },
+          "target": {
+            "digest": "78ce59e231669eb5b97377c26f0ac4bd2d5848584983660688dc358cd29da2e8",
+            "revision": "target-r1",
+            "source": "owner-native"
+          }
+        },
+        "required_at_spawn": [
+          {
+            "applicable": true,
+            "channel": "process_tree"
+          },
+          {
+            "applicable": true,
+            "channel": "queued_callback"
+          }
+        ]
+      }
+    ]
+  },
+  "publication": {
+    "artifact_manifest": {
+      "artifact_id": "J1-integrated",
+      "content_digest": "1edb9347ea553e99d11376584134f84f7984444d464bf85679865ff9c6514689",
+      "immutable_revision": "1edb9347ea553e99d11376584134f84f7984444d464bf85679865ff9c6514689",
+      "schema": "fpo.existing.artifact-manifest.v1",
+      "source": "provider-freeze"
+    },
+    "frozen": {
+      "alias": "J1-integrated",
+      "closure": "SETTLED",
+      "content": {
+        "src/labels.py": "e4a1445ce2003539450f4ec9d26a7c7a1b8fc201c32291175a4a04af084a9757",
+        "src/report.py": "f2ce625c8cd6bad0b0ff3c5fc4f69296ca0431aa3e9fa6151f91a6b6ffb79125",
+        "src/versions.py": "5b193168d324fac2d4d9cf06e68e0805fd9894fe76f9f23257fced216da16061",
+        "tests/test_labels.py": "36651e845fba87a7206509c5ae346abcc31a8e195bfe5102dd006a6a4d609507",
+        "tests/test_report.py": "9843b7d216e36f792fa60a4193e0e8c0fe71d7cc1fc9de052b5ed9cc7e627c84",
+        "tests/test_versions.py": "215e1b51503aabf15f42c23d2b31e575a1cb56ff0b7e513ee1c66771867a3d6f"
+      },
+      "freeze_proof": {
+        "branch_closures": [
+          "SETTLED",
+          "SETTLED"
+        ],
+        "fan_in": true
+      },
+      "immutable_revision": "1edb9347ea553e99d11376584134f84f7984444d464bf85679865ff9c6514689",
+      "schema": "fpo.parallel.frozen-subject.v1"
+    }
+  },
+  "worker_results": {
+    "labels": {
+      "changed_files": [
+        "src/labels.py"
+      ],
+      "declared_model_policy": "gpt-5.6-luna/xhigh",
+      "fresh_context": true,
+      "job": "J1",
+      "lane": "labels",
+      "local_validation": {
+        "pattern": "test_labels.py",
+        "returncode": 0,
+        "status": "PASS",
+        "stderr": "test_label (test_labels.LabelTests.test_label) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+        "stdout": ""
+      },
+      "next_action": "parent adoption and independent validation",
+      "prior_hidden_reasoning": false,
+      "prior_transcript": false,
+      "provider": "local-flow-mini-adapter",
+      "return_sha256": "f3fe71c1ec7d5e838398eaabe12f729646c87007aa4d8256e293c34c43a0d65b",
+      "schema": "fpo.phase7c.flow-mini-return.v1",
+      "status": "DONE",
+      "worker_process": "fresh-subprocess"
+    },
+    "versions": {
+      "changed_files": [
+        "src/versions.py"
+      ],
+      "declared_model_policy": "gpt-5.6-luna/xhigh",
+      "fresh_context": true,
+      "job": "J1",
+      "lane": "versions",
+      "local_validation": {
+        "pattern": "test_versions.py",
+        "returncode": 0,
+        "status": "PASS",
+        "stderr": "test_versions (test_versions.VersionTests.test_versions) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+        "stdout": ""
+      },
+      "next_action": "parent adoption and independent validation",
+      "prior_hidden_reasoning": false,
+      "prior_transcript": false,
+      "provider": "local-flow-mini-adapter",
+      "return_sha256": "4a50965cb333521d2a2b933b156c0d7bd1db67d6ae05828240e20dea6417d345",
+      "schema": "fpo.phase7c.flow-mini-return.v1",
+      "status": "DONE",
+      "worker_process": "fresh-subprocess"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "attempt_ref": "phase7b/attempts/H3/run-001.json",
+  "details": {
+    "late_artifact_authority": false,
+    "stale_eligible": false,
+    "stale_return_adopted": false
+  },
+  "metrics": {},
+  "probe_id": "H3",
+  "schema": "fpo.phase7b.evidence.v1",
+  "status": "PASS"
+}

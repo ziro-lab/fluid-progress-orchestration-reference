@@ -1,0 +1,16 @@
+{
+  "case_id": "B5",
+  "title": "Research-guided safe local repair and independent acceptance",
+  "runtime_target": "Python 3.12",
+  "initial_execution": {
+    "command_behavior": "A child process emits UTF-8 bytes for café\\n; the app captures it with subprocess.run(text=True) and no explicit encoding.",
+    "expected_output": "café\\n",
+    "observed_output": "cafÃ©\\n",
+    "validation": "FAIL: encoding behavior is not explicit and the observed output is not accepted"
+  },
+  "source_code_before": "import subprocess, sys\\n\\nresult = subprocess.run([sys.executable, 'emit.py'], capture_output=True, text=True)\\nprint(result.stdout, end='')\\n",
+  "source_code_after_required": "The same local source with encoding=\\\"utf-8\\\" explicitly supplied to subprocess.run.",
+  "research_question": "Which documented subprocess text-mode rule explains the missing encoding contract, and what minimal local repair should be proposed?",
+  "repair_constraints": ["sandbox-local only", "one reversible source edit", "no external effect", "independent validator must check output and explicit encoding"],
+  "research_instruction": "Research first. Return source-bound evidence and a proposal only. Do not edit this fixture or any app file."
+}

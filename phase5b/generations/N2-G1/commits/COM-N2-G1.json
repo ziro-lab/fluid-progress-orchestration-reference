@@ -1,0 +1,1 @@
+{"commit_id":"COM-N2-G1","event_ref":"events/EVT-N2-G1.json","event_sha256":"7c562225a0e4814d55685f600dfe7cd4566fe3de1d74839e6e540a98a0a404f0","parent_commit_id":"COM-N2-0000","projection_ref":"projections/PROJ-N2-G1.json","projection_sha256":"8943055014403785fc4e69451e7f22d2436a13175cd1296c0a4e78e3603cdb3f","schema":"fpo.phase5b.journal.commit.v1","status":"committed"}

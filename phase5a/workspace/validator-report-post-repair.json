@@ -1,0 +1,1 @@
+{"acceptance_evidence":false,"actual":{"Title":"Alpha # tag","mode":"safe"},"expected":{"mode":"safe","title":"Alpha # tag"},"failure_id":"V-002","independent":false,"schema":"fpo.phase5a.validator-report.v1","status":"FAIL","validator":"workspace/validator-report-post-repair.json"}

@@ -1,0 +1,45 @@
+{
+  "capability_profile_revisions": [
+    "phase7b/provider/capability-profile.json@sha256:03f42703b49d70ce35d9eb52378f98d0665236735d799b04885667488367e17a"
+  ],
+  "claim_status": "PROVEN",
+  "evidence_refs": [
+    "phase7b/evidence/X1a.json",
+    "phase7b/evidence/X1b.json",
+    "phase7b/evidence/X2a.json",
+    "phase7b/evidence/X2b.json",
+    "phase7b/evidence/X3.json",
+    "phase7b/evidence/X4.json",
+    "phase7b/evidence/X5.json",
+    "phase7b/evidence/X6.json",
+    "phase7b/evidence/E1a.json",
+    "phase7b/evidence/E1b.json",
+    "phase7b/evidence/H3.json",
+    "phase7b/evidence/L1.json",
+    "phase7b/evidence/T1a.json",
+    "phase7b/evidence/T1b.json",
+    "phase7b/evidence/T2.json",
+    "phase7b/evidence/D1.json",
+    "phase7b/evidence/P1.json",
+    "phase7b/evidence/R1.json",
+    "phase7b/evidence/H1.json",
+    "phase7b/evidence/H2.json",
+    "phase7b/evidence/FANIN.json"
+  ],
+  "flow_mini_revision": null,
+  "fpo_core_revision": "0407c72a642ce7c98a30a9016feaf63bf1e62351",
+  "host_policy_revision": "phase7b/provider/host-policy.json@sha256:513eac17ced14322c7c70cd516f4699989eb18f1daa985d11e908cf9336364d5",
+  "parallel_efficiency": "NOT_CHARACTERIZED",
+  "parallel_profile_revision": "0.1.4.2",
+  "probe_pack_revision": "0.1.4.2",
+  "provider_revision": "phase7b/provider/parallel_provider.py@sha256:59c8a18abd9444786a0bc3ebd06b726de31b574f19c3b98963cc99f9a36fa2da",
+  "runtime_environment_identity": {
+    "executable": "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "implementation": "CPython",
+    "machine": "AMD64",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.13"
+  },
+  "safety_verdict": "PROVEN",
+  "schema": "fpo.parallel.proven-subject.v1"
+}

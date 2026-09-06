@@ -1,0 +1,14 @@
+{
+  "case_id": "A1",
+  "title": "Bounded diagnosis of a failed uppercase transform",
+  "input": {"ref": "fixture/input.txt", "text": "aBc\n"},
+  "expected_behavior": {"ref": "fixture/expected.txt", "text": "ABC\n", "description": "Every alphabetic character is uppercase and the newline is preserved."},
+  "observed_output": {"ref": "fixture/observed.txt", "text": "AbC\n"},
+  "failing_validation": {"ref": "fixture/validation.json", "name": "expected_output_match", "status": "FAIL", "detail": "observed output is not byte-for-byte equal to expected output"},
+  "plausible_causes": [
+    "The transform was applied only to some characters or only once.",
+    "The observed file is stale or came from a different input revision.",
+    "An encoding or locale path changed the transformation behavior."
+  ],
+  "instruction": "Use only these facts. Return the most supported diagnosis, one minimal observation or repair proposal, and state what remains uncertain. Do not change files."
+}

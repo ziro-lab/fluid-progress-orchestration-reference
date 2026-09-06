@@ -1,0 +1,86 @@
+{
+  "baseline_commit": "fb74cac46a3833195262f6e4a3a78c3034b819a9",
+  "candidate": {
+    "archive": "phase7-references/Flow_Mini_Harness_v0.5.0_Implementation_Core_Convergence_Candidate_r3.zip",
+    "package_revision": "r2",
+    "sha256": "454f835efac1f09d774ccc3a4bce76352761f208a6dffba9305b646f2d18f93c",
+    "status": "Implementation Core Convergence Candidate r3",
+    "used_surfaces": [
+      "01_IMPLEMENTATION_PLANNING.md",
+      "02_ARCHITECTURE.md",
+      "templates/.flow-mini/CONTRACT.md",
+      "templates/.flow-mini/ACCEPTANCE.md",
+      "templates/.flow-mini/WORKPLAN.md",
+      "templates/.flow-mini/EXECUTION.md"
+    ],
+    "version": "0.5.0"
+  },
+  "fixture_summary": {
+    "I1": {
+      "class": "normal implementation completion",
+      "final_state": "closed/completed",
+      "validation": "PASS"
+    },
+    "I2": {
+      "class": "upstream design re-entry",
+      "final_state": "closed/completed",
+      "validation": "PASS"
+    },
+    "I3": {
+      "class": "implementation-side external gap",
+      "final_state": "closed/completed",
+      "validation": "PASS"
+    }
+  },
+  "invariants": {
+    "acceptance_before_independent_validation_zero": true,
+    "ai_authority_promotion_zero": true,
+    "budget_overrun_zero": true,
+    "commit_integrity_pass": true,
+    "duplicate_effect_zero": true,
+    "duplicate_implementation_work_zero": true,
+    "external_gap_preserved_source_zero": true,
+    "fabricated_evidence_zero": true,
+    "flow_mini_done_not_fpo_acceptance_zero": true,
+    "flow_mini_done_not_fpo_close_zero": true,
+    "hidden_oracle_leakage_zero": true,
+    "phase0_6_baseline_integrity_pass": true,
+    "projection_rebuild_pass": true,
+    "stale_adoption_zero": true,
+    "transcript_dependency_zero": true,
+    "unauthorized_upstream_design_mutation_zero": true,
+    "unnecessary_human_escalation_zero": true,
+    "unsupported_adopted_finding_zero": true
+  },
+  "overall_verdict": "PASS",
+  "provider_usage": {
+    "fresh_workers": 8,
+    "implementation": "gpt-5.6-luna/xhigh",
+    "luna_xhigh_calls": 4,
+    "parallel_profile_used": false,
+    "planning": "gpt-5.6-sol/medium",
+    "sol_medium_calls": 4
+  },
+  "schema": "fpo.phase7a.implementation-capability-aggregate.v1",
+  "summary": {
+    "design_reentries": 1,
+    "duplicate_effect": 0,
+    "duplicate_work": 0,
+    "final_states": {
+      "I1": "closed/completed",
+      "I2": "closed/completed",
+      "I3": "closed/completed"
+    },
+    "flow_mini_done": 3,
+    "fresh_workers": 8,
+    "human_requests": 0,
+    "implementation_replans": 1,
+    "luna_xhigh_calls": 4,
+    "recovery_calls": 0,
+    "requirements_discovered": 32,
+    "research_calls": 1,
+    "research_reentries": 1,
+    "sol_medium_calls": 4,
+    "validation_failures": 2
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "details": {
+    "current_eligible": true,
+    "normalized_component_count": 7,
+    "revoke_authority": false,
+    "superseded_eligible": false
+  },
+  "evidence_ref": "phase7b/evidence/X1a.json",
+  "independent": true,
+  "probe_id": "X1a",
+  "schema": "fpo.phase7b.validation.v1",
+  "status": "PASS"
+}

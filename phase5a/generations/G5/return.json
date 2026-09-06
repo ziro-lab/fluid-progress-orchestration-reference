@@ -1,0 +1,81 @@
+{
+  "schema": "fpo.phase5a.generation-return.v1",
+  "generation_id": "G5",
+  "work_id": "FPO-5A-001",
+  "work_revision": "r4",
+  "decision": "PROPOSE_REPAIR",
+  "observed_facts": [
+    "COM-0004 and source/immutable-r4.json remain the latest valid authority at state revision 4.",
+    "The prior owner-adopted repair preserves the inline # in the value and leaves quoted-value normalization in place.",
+    "Current post-repair Evidence reports V-002: actual key Title differs from expected key title while the value and mode match.",
+    "Acceptance evidence is false and the current validator report is not independent acceptance evidence."
+  ],
+  "new_observations": [
+    {
+      "observation_id": "G5-O-001",
+      "text": "V-002 is a key canonicalization mismatch in the repaired projection: key.strip() preserves Title, while the independent validator expects the canonical key title; this is separate from the already addressed inline-hash truncation.",
+      "source_ref": "workspace/validator-report-post-repair.json"
+    }
+  ],
+  "evidence_refs": [
+    "phase5a/commits/COM-0004.json",
+    "source/immutable-r4.json",
+    "phase5a/projections/PROJ-0004.json",
+    "workspace/repaired-001/profile_loader.py",
+    "workspace/policy.json",
+    "workspace/validator-report-post-repair.json",
+    "workspace/independent-validator.py"
+  ],
+  "uncertainties_seen": [
+    "Whether the owner will adopt the proposed key canonicalization repair remains unresolved.",
+    "Whether an owner-adopted key canonicalization repair will satisfy the independent validator remains unresolved."
+  ],
+  "hypothesis_updates": [
+    {
+      "hypothesis_id": "H-001",
+      "status": "updated",
+      "statement": "H-001 remains supported for V-001: unconditional inline-hash truncation explains the original loss, but it does not explain the new V-002 key mismatch.",
+      "basis_refs": [
+        "source/immutable-r4.json",
+        "workspace/repaired-001/profile_loader.py",
+        "workspace/validator-report-post-repair.json"
+      ]
+    },
+    {
+      "hypothesis_id": "H-002",
+      "status": "proposed",
+      "statement": "V-002 is caused by missing key canonicalization; an owner-adopted narrow repair should lowercase the normalized key while preserving inline # data and the existing quoted-value normalization.",
+      "basis_refs": [
+        "workspace/repaired-001/profile_loader.py",
+        "workspace/validator-report-post-repair.json",
+        "workspace/independent-validator.py",
+        "workspace/policy.json"
+      ]
+    }
+  ],
+  "route_rejections": [
+    {
+      "route": "Revive H-000 or split values at # again",
+      "reason": "H-000 is explicitly invalidated in the current handoff, and the current policy/source evidence requires inline # to remain data."
+    },
+    {
+      "route": "Treat V-002 as acceptance or rerun validation without a repair",
+      "reason": "The current post-repair report has independent=false and acceptance_evidence=false; the key mismatch must be addressed before independent validation can be considered."
+    }
+  ],
+  "repair_proposal": {
+    "proposal_id": "PR-5A-G5-001",
+    "operation_id": "RO-5A-G5-001",
+    "target_ref": "phase5a/workspace/profile_loader.py",
+    "change_summary": "After owner adoption, canonicalize parsed keys with lower() after stripping whitespace; leave inline # handling, quoted-value normalization, and other parsing behavior unchanged.",
+    "reversible": true,
+    "requires_owner_adoption": true
+  },
+  "validation_proposal": {
+    "validator_ref": "workspace/independent-validator.py",
+    "independent": true,
+    "acceptance_evidence_required": true
+  },
+  "proposed_next_action": "Owner reviews and adopts PR-5A-G5-001; only then may the owner stage apply the narrow key-canonicalization repair and obtain a fresh independent validation result.",
+  "summary": "The new V-002 failure is a separate key canonicalization mismatch. Propose an owner-adoption-required, reversible lowercase-key repair; acceptance remains unknown and no repair or validation was executed."
+}

@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fpo.phase4a.ai-capability-return.v1",
+  "title": "FPO Phase 4A AI Capability Return",
+  "description": "Untrusted, return-only data from an AI capability. This schema intentionally has no FPO authority fields.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "capability_run_id",
+    "dispatch_id",
+    "operation_id",
+    "capability_revision",
+    "facts",
+    "findings",
+    "evidence_refs",
+    "uncertainties",
+    "proposals",
+    "requested_observations",
+    "notes"
+  ],
+  "properties": {
+    "capability_run_id": {"type": "string", "minLength": 1},
+    "dispatch_id": {"type": "string", "pattern": "^DISP-A[1-4]-[0-9]{3}$"},
+    "operation_id": {"type": "string", "pattern": "^OP-A[1-4]-[0-9]{3}$"},
+    "capability_revision": {"type": "string", "minLength": 1},
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "statement", "evidence_refs"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "statement": {"type": "string", "minLength": 1},
+          "evidence_refs": {"type": "array", "items": {"type": "string", "minLength": 1}}
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "statement", "support_refs", "confidence"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "statement": {"type": "string", "minLength": 1},
+          "support_refs": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "confidence": {"type": "string", "enum": ["low", "medium", "high"]}
+        }
+      }
+    },
+    "evidence_refs": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "uncertainties": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "statement"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "statement": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "proposals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "type", "statement"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "type": {"type": "string", "enum": ["repair", "next_action", "observation", "explanation"]},
+          "statement": {"type": "string", "minLength": 1},
+          "support_refs": {"type": "array", "items": {"type": "string", "minLength": 1}}
+        }
+      }
+    },
+    "requested_observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "request", "rationale"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "request": {"type": "string", "minLength": 1},
+          "rationale": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "notes": {"type": "array", "items": {"type": "string"}}
+  }
+}

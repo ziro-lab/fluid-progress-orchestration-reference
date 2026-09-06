@@ -1,0 +1,8 @@
+{
+  "input_text": "hello world\n",
+  "expected_output_text": "HELLO WORLD\n",
+  "input_must_remain_unchanged": true,
+  "expected_terminal_disposition": "completed",
+  "duplicate_effects_allowed": 0,
+  "false_close_allowed": 0
+}

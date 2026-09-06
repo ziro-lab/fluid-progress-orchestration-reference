@@ -1,0 +1,1 @@
+{"constraints":["one reversible source edit","sandbox-local only","no external effect","independent validator required"],"input_ref":"workspace/app.py","operation_id":"OP-B5-REPAIR-001","schema":"fpo.phase4b.repair-before.v1","source_before_sha256":"c86182006c22777e53c6e3308915616f2e270c003b924c0bc9cbfd23c833cfbf"}

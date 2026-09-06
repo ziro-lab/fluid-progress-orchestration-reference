@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fpo.phase4c.source-evidence.v1",
+  "title": "FPO Phase 4C Parent-Verified Source Evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["source_id", "url", "title", "publisher", "retrieved_at", "source_class", "revision", "supports", "observation", "scope", "origin_verified"],
+  "properties": {
+    "source_id": {"type": "string", "minLength": 1},
+    "url": {"type": "string", "pattern": "^https://"},
+    "title": {"type": "string", "minLength": 1},
+    "publisher": {"type": "string", "minLength": 1},
+    "retrieved_at": {"type": "string", "minLength": 1},
+    "source_class": {"type": "string", "enum": ["official_documentation", "official_repository", "primary_technical_source", "secondary_source"]},
+    "revision": {"type": "string", "minLength": 1},
+    "supports": {"type": "array", "items": {"type": "string"}},
+    "observation": {"type": "string", "minLength": 1},
+    "scope": {"type": "string", "minLength": 1},
+    "origin_verified": {"type": "boolean"},
+    "worker_claim_matches": {"type": "array", "items": {"type": "string"}},
+    "worker_claim_observations": {"type": "array", "items": {"type": "string"}},
+    "acquisition_method": {"type": "string", "minLength": 1}
+  }
+}

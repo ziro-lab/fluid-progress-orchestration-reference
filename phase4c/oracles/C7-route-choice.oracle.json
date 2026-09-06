@@ -1,0 +1,1 @@
+{"case_id":"C7","required_decision":"NO_HUMAN","required_reason_code":"NO_HUMAN","required_route_patterns":["route B|standard filesystem","route C|validator"],"required_human_request_count":0,"first_failure_escalation":false,"required_validation":true}

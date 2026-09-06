@@ -1,0 +1,74 @@
+{
+  "schema": "fpo.phase5a.generation-return.v1",
+  "generation_id": "G4",
+  "work_id": "FPO-5A-001",
+  "work_revision": "r3",
+  "decision": "PROPOSE_REPAIR",
+  "observed_facts": [
+    "The latest valid authority is committed as COM-0003 at state revision r3.",
+    "The current independent acceptance evidence is absent: validator-report.json records FAIL for V-001 and acceptance_evidence=false.",
+    "The local policy requires inline # to remain data and quoted values to remain normalized.",
+    "The accepted source evidence states that Python 3.12 configparser disables inline comments by default."
+  ],
+  "new_observations": [
+    {
+      "observation_id": "G4-O-001",
+      "text": "normalize_profile unconditionally applies line.split(\"#\", 1) before key/value parsing, which changes the fixture title from Alpha # tag to Alpha and directly matches V-001.",
+      "source_ref": "phase5a/workspace/profile_loader.py"
+    },
+    {
+      "observation_id": "G4-O-002",
+      "text": "The narrow repair boundary is the inline-hash truncation step; existing quoted-value stripping should remain unchanged.",
+      "source_ref": "phase5a/workspace/policy.json"
+    }
+  ],
+  "evidence_refs": [
+    "phase5a/handoffs/HO-G4-001.json",
+    "phase5a/commits/COM-0003.json",
+    "phase5a/source/immutable-r3.json",
+    "phase5a/projections/PROJ-0003.json",
+    "phase5a/source/SRC-5A-G3-001.json",
+    "phase5a/workspace/profile_loader.py",
+    "phase5a/workspace/policy.json",
+    "phase5a/workspace/validator-report.json"
+  ],
+  "uncertainties_seen": [],
+  "hypothesis_updates": [
+    {
+      "hypothesis_id": "H-001",
+      "status": "updated",
+      "statement": "The V-001 failure is caused by unconditional inline-hash truncation in profile_loader.py; preserving inline # as data is consistent with local policy and the accepted Python 3.12 source evidence, while quoted-value normalization remains applicable.",
+      "basis_refs": [
+        "phase5a/workspace/profile_loader.py",
+        "phase5a/workspace/policy.json",
+        "phase5a/workspace/validator-report.json",
+        "phase5a/source/SRC-5A-G3-001.json"
+      ]
+    }
+  ],
+  "route_rejections": [
+    {
+      "route": "execute_repair",
+      "reason": "Repair execution is outside this generation's authority and requires explicit owner adoption of the proposal."
+    },
+    {
+      "route": "propose_accept",
+      "reason": "The available validator report is not independent acceptance evidence and currently records FAIL for V-001."
+    }
+  ],
+  "repair_proposal": {
+    "proposal_id": "RP-5A-G4-001",
+    "operation_id": "RO-5A-G4-001",
+    "target_ref": "phase5a/workspace/profile_loader.py",
+    "change_summary": "Remove the unconditional split of profile content at # so inline # remains part of the value; preserve the existing quoted-value stripping and key/value parsing behavior.",
+    "reversible": true,
+    "requires_owner_adoption": true
+  },
+  "validation_proposal": {
+    "validator_ref": "phase5a/workspace/independent-validator.py",
+    "independent": true,
+    "acceptance_evidence_required": true
+  },
+  "proposed_next_action": "Owner reviews and adopts RP-5A-G4-001; after adoption, apply the bounded repair and obtain a fresh independent validator result before any acceptance decision.",
+  "summary": "Source-bound evidence supports a narrow, reversible repair proposal for V-001. No repair, authority mutation, validation, acceptance, or Work close was performed."
+}

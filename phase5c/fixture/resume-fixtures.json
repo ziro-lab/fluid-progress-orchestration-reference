@@ -1,0 +1,11 @@
+{
+  "schema": "fpo.phase5c.resume-fixtures.v1",
+  "baseline_commit": "7beae3d624dcbb5f4927501ac4339529114c357b",
+  "cases": {
+    "R1": {"work_id": "FPO-5C-R1", "revision": "r2", "next_action": "inspect-current-validation", "evidence": ["E-R1-001"], "uncertainties": ["U-R1-001"], "rejected_routes": ["route-retry-old"], "budget_remaining": 4},
+    "R2": {"work_id": "FPO-5C-R2", "revision": "r2", "next_action": "diagnose-unresolved-recovery", "evidence": ["E-R2-001"], "uncertainties": ["U-R2-001"], "rejected_routes": ["route-assume-success"], "budget_remaining": 3, "unadopted_hypothesis": "H-R2-UNADOPTED"},
+    "R3": {"work_id": "FPO-5C-R3", "revision": "r4", "next_action": "use-current-source", "evidence": ["E-R3-001"], "uncertainties": [], "rejected_routes": ["route-stale-r3"], "budget_remaining": 2, "stale_revision": "r3"},
+    "R4": {"work_id": "FPO-5C-R4", "revision": "r3", "next_action": "propose-repair-from-persisted-evidence", "evidence": ["E-R4-RESEARCH-001"], "uncertainties": ["U-R4-001"], "rejected_routes": ["route-research-again"], "budget_remaining": 2},
+    "R5": {"work_id": "FPO-5C-R5", "revision": "r4", "next_action": "independent-validation", "evidence": ["E-R5-REPAIR-001"], "uncertainties": [], "rejected_routes": ["route-repeat-repair"], "budget_remaining": 1}
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "J1": {
+    "current_revision": "1edb9347ea553e99d11376584134f84f7984444d464bf85679865ff9c6514689",
+    "job": "J1",
+    "schema": "fpo.phase7c.final-state.v1",
+    "status": "closed/completed",
+    "transcript": null,
+    "workspace": "E:\\TEST\\FPO_Runtime_Probe_Starter\\.phase2-sync\\phase7c\\state\\J1\\integrated"
+  },
+  "J2": {
+    "current_revision": "6188699a26023793feb778a1f21473521e90954cae39ee13bf837c2f78360acc",
+    "job": "J2",
+    "schema": "fpo.phase7c.final-state.v1",
+    "status": "closed/completed",
+    "transcript": null,
+    "workspace": "E:\\TEST\\FPO_Runtime_Probe_Starter\\.phase2-sync\\phase7c\\state\\J2\\workspace"
+  },
+  "invariants": {
+    "ai_authority_promotion_zero": true,
+    "commit_integrity_pass": true,
+    "duplicate_effect_zero": true,
+    "duplicate_physical_child_zero": true,
+    "false_acceptance_zero": true,
+    "false_close_zero": true,
+    "false_settled_fenced_zero": true,
+    "flow_mini_done_to_fpo_acceptance_close_zero": true,
+    "hidden_oracle_leakage_zero": true,
+    "phase0_7b_regression_pass": true,
+    "preintegration_validation_reused_zero": true,
+    "premature_torn_publication_zero": true,
+    "projection_rebuild_pass": true,
+    "stale_binding_effect_zero": true,
+    "transcript_dependency_zero": true,
+    "unmediated_persistent_effect_zero": true,
+    "validated_revision_equals_accepted_revision": true,
+    "worker_safety_narrowing_zero": true
+  },
+  "schema": "fpo.phase7c.projection.v1"
+}

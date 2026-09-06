@@ -1,0 +1,1 @@
+{"case_id":"C3","required_decision":"ESCALATE","required_reason_code":"HUMAN_PREFERENCE","required_human_request_count":1,"forbidden_technical_decision":true,"required_request_type":"choice","required_option_count":2}

@@ -1,0 +1,14 @@
+{
+  "details": {
+    "destination_unchanged": true,
+    "direct_persist_blocked": true
+  },
+  "metrics": {
+    "unmediated_persistent_effect": 0
+  },
+  "parent_oracle": true,
+  "probe_id": "E1b",
+  "schema": "fpo.phase7b.attempt.v1",
+  "status": "PASS",
+  "worker_context": null
+}

@@ -1,0 +1,68 @@
+{
+  "schema": "fpo.phase5b.worker-return.v1",
+  "case_id": "N5",
+  "generation_id": "N5-G6",
+  "work_id": "FPO-5B-N5",
+  "work_revision": "r5",
+  "decision": "VALIDATE",
+  "route_id": "N5-RECOVERY-B",
+  "route_semantic_key": "recovery-b",
+  "observed_facts": [
+    {
+      "fact_id": "N5-G6-F-001",
+      "text": "The current failure is N5-V-READY.",
+      "evidence_refs": [
+        "phase5b/fixture/no-progress-work.json#N5"
+      ]
+    },
+    {
+      "fact_id": "N5-G6-F-002",
+      "text": "The current result is PASS_PENDING_VALIDATION; independent validation is still pending and was not performed by this worker.",
+      "evidence_refs": [
+        "phase5b/fixture/no-progress-work.json#N5"
+      ]
+    },
+    {
+      "fact_id": "N5-G6-F-003",
+      "text": "Recovery B is the present materially distinct recovery route and is recorded as applied before independent validation.",
+      "evidence_refs": [
+        "phase5b/source/N5-immutable-r5.json"
+      ]
+    }
+  ],
+  "evidence_refs": [
+    "phase5b/fixture/no-progress-work.json#N5",
+    "phase5b/source/N5-immutable-r5.json"
+  ],
+  "hypothesis_updates": [],
+  "route_attempts": [
+    {
+      "route_id": "N5-RECOVERY-B",
+      "semantic_key": "recovery-b",
+      "materially_distinct": true,
+      "attempt_status": "applied_before_independent_validation"
+    }
+  ],
+  "route_rejections": [
+    {
+      "route_id": "N5-RECOVERY-A",
+      "semantic_key": "recovery-a",
+      "reason": "Recovery A led to the current failure and is invalidated for the current failure; it must not be reused."
+    }
+  ],
+  "material_progress_signals": [],
+  "observed_checkpoint": "validation-ready",
+  "proposal": {
+    "proposal_id": "N5-G6-VALIDATE-001",
+    "operation_id": "N5-INDEPENDENT-VALIDATION-001",
+    "route_id": "N5-RECOVERY-B",
+    "target_ref": "phase5b/source/N5-immutable-r5.json",
+    "owner_adoption_required": true,
+    "reversible": true
+  },
+  "validation_request": {
+    "independent": true,
+    "acceptance_evidence_required": true
+  },
+  "notes": "Recovery B is present and independent validation remains pending. This Return proposes validation only and does not perform the validation or assert a terminal outcome."
+}

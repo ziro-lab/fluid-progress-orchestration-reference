@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema", "case_id", "generation_id", "work_id", "work_revision",
+    "decision", "route_id", "route_semantic_key", "observed_facts",
+    "evidence_refs", "hypothesis_updates", "route_attempts",
+    "route_rejections", "material_progress_signals", "observed_checkpoint",
+    "notes"
+  ],
+  "properties": {
+    "schema": {"const": "fpo.phase5b.worker-return.v1"},
+    "case_id": {"type": "string", "pattern": "^N[1-6]$"},
+    "generation_id": {"type": "string", "pattern": "^N[1-6]-G[1-6]$"},
+    "work_id": {"type": "string", "minLength": 1},
+    "work_revision": {"type": "string", "pattern": "^r[0-9]+$"},
+    "decision": {"type": "string", "enum": ["OBSERVE", "DIAGNOSE", "PROPOSE_ROUTE_CHANGE", "PROPOSE_REPAIR", "PROPOSE_ROLLBACK", "VALIDATE", "STOP"]},
+    "route_id": {"type": "string", "minLength": 1},
+    "route_semantic_key": {"type": "string", "minLength": 1},
+    "observed_facts": {
+      "type": "array",
+      "items": {"type": "object", "required": ["fact_id", "text", "evidence_refs"], "properties": {"fact_id": {"type": "string"}, "text": {"type": "string"}, "evidence_refs": {"type": "array", "items": {"type": "string"}}}}
+    },
+    "evidence_refs": {"type": "array", "items": {"type": "string"}},
+    "hypothesis_updates": {
+      "type": "array",
+      "items": {"type": "object", "required": ["hypothesis_id", "status", "statement", "basis_refs"], "properties": {"hypothesis_id": {"type": "string"}, "status": {"type": "string", "enum": ["proposed", "updated", "invalidated", "superseded"]}, "statement": {"type": "string"}, "basis_refs": {"type": "array", "items": {"type": "string"}}}}
+    },
+    "route_attempts": {
+      "type": "array",
+      "items": {"type": "object", "required": ["route_id", "semantic_key", "materially_distinct", "attempt_status"], "properties": {"route_id": {"type": "string"}, "semantic_key": {"type": "string"}, "materially_distinct": {"type": "boolean"}, "attempt_status": {"type": "string"}}}
+    },
+    "route_rejections": {
+      "type": "array",
+      "items": {"type": "object", "required": ["route_id", "semantic_key", "reason"], "properties": {"route_id": {"type": "string"}, "semantic_key": {"type": "string"}, "reason": {"type": "string"}}}
+    },
+    "material_progress_signals": {"type": "array", "items": {"type": "string", "enum": ["new_valid_evidence", "uncertainty_reduction", "blocker_resolution", "invalid_hypothesis_elimination", "safe_route_narrowing", "validated_rollback", "achievement_advancement"]}},
+    "observed_checkpoint": {"type": "string", "minLength": 1},
+    "proposed_checkpoint": {"type": "string"},
+    "observation_signature": {"type": "string"},
+    "observation_count": {"type": "integer", "minimum": 0},
+    "evidence_gain": {"type": "integer", "minimum": 0},
+    "uncertainties_seen": {"type": "array", "items": {"type": "object", "required": ["uncertainty_id", "status"], "properties": {"uncertainty_id": {"type": "string"}, "status": {"type": "string", "enum": ["open", "resolved"]}}}},
+    "proposal": {"type": "object", "required": ["proposal_id", "operation_id", "owner_adoption_required", "reversible"], "properties": {"proposal_id": {"type": "string"}, "operation_id": {"type": "string"}, "route_id": {"type": "string"}, "target_ref": {"type": "string"}, "owner_adoption_required": {"type": "boolean"}, "reversible": {"type": "boolean"}, "known_good_ref": {"type": "string"}}},
+    "validation_request": {"type": "object", "required": ["independent", "acceptance_evidence_required"], "properties": {"independent": {"type": "boolean"}, "acceptance_evidence_required": {"type": "boolean"}}},
+    "stop_reason": {"type": "string"},
+    "notes": {"type": "string"}
+  }
+}

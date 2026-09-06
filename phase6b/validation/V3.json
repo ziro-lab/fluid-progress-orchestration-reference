@@ -1,0 +1,25 @@
+{
+  "fixture": "V3",
+  "hidden": {
+    "failures": [],
+    "oracle_checked_parent_only": true
+  },
+  "independent": true,
+  "public_tests": {
+    "args": [
+      "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "returncode": 0,
+    "stderr": "test_explicit_channel_can_be_prepared (test_release.ReleaseTests.test_explicit_channel_can_be_prepared) ... ok\ntest_missing_channel_is_not_guessed (test_release.ReleaseTests.test_missing_channel_is_not_guessed) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n",
+    "stdout": "",
+    "timed_out": false
+  },
+  "schema": "fpo.phase6b.parent-validation.v1",
+  "status": "PASS"
+}

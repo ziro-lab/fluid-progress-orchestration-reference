@@ -1,0 +1,54 @@
+{
+  "capability_run_id": "caprun-A1-001",
+  "dispatch_id": "DISP-A1-001",
+  "operation_id": "OP-A1-001",
+  "capability_revision": "phase4a-v1",
+  "facts": [
+    {
+      "id": "F1",
+      "statement": "The supplied input text is \"aBc\\n\".",
+      "evidence_refs": ["fixture/input.txt"]
+    },
+    {
+      "id": "F2",
+      "statement": "The expected text is \"ABC\\n\", requiring every alphabetic character to be uppercase while preserving the newline.",
+      "evidence_refs": ["fixture/expected.txt"]
+    },
+    {
+      "id": "F3",
+      "statement": "The observed text is \"AbC\\n\", and the expected_output_match validation failed because it was not byte-for-byte equal to the expected text.",
+      "evidence_refs": ["fixture/observed.txt", "fixture/validation.json"]
+    }
+  ],
+  "findings": [
+    {
+      "id": "D1",
+      "statement": "The uppercase transform is incorrect or non-uniform: the observed middle character is lowercase \"b\" where the expected output requires uppercase \"B\", so the required per-character uppercase behavior was not achieved.",
+      "support_refs": ["fixture/input.txt", "fixture/expected.txt", "fixture/observed.txt", "fixture/validation.json"],
+      "confidence": "high"
+    }
+  ],
+  "evidence_refs": ["fixture/input.txt", "fixture/expected.txt", "fixture/observed.txt", "fixture/validation.json"],
+  "uncertainties": [
+    {
+      "id": "U1",
+      "statement": "The supplied evidence does not determine whether the mismatch came from a partial or repeated transform, a stale or different input revision, or an encoding or locale path."
+    }
+  ],
+  "proposals": [
+    {
+      "id": "P1",
+      "type": "repair",
+      "statement": "Correct the transform to uppercase every alphabetic character and preserve the newline, then rerun the byte-for-byte expected_output_match validation.",
+      "support_refs": ["fixture/expected.txt", "fixture/observed.txt", "fixture/validation.json"]
+    }
+  ],
+  "requested_observations": [
+    {
+      "id": "O1",
+      "request": "Capture the transform's per-character output for the supplied input and confirm the input revision used to produce the observed file.",
+      "rationale": "This distinguishes an incorrect character-processing path from a stale or different input revision, which remain unresolved by the fixture alone."
+    }
+  ],
+  "notes": ["Diagnosis is bounded to the evidence supplied in the fixture."]
+}

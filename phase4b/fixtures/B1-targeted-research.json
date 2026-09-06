@@ -1,0 +1,22 @@
+{
+  "case_id": "B1",
+  "title": "Targeted research for a version-specific subprocess decoding unknown",
+  "runtime_target": "Python 3.12",
+  "local_failure": {
+    "input": "a child process emits UTF-8 bytes for café\\n",
+    "expected_output": "café\\n",
+    "observed_output": "cafÃ©\\n",
+    "validation": "FAIL: decoded output does not match expected text"
+  },
+  "local_evidence": {
+    "code": "subprocess.run(command, capture_output=True, text=True)",
+    "missing": "the effective decoding rule for text=True when encoding is omitted"
+  },
+  "repair_candidates": [
+    "Pass encoding=\\\"utf-8\\\" to subprocess.run.",
+    "Set a process-wide UTF-8 mode or locale without changing the call.",
+    "Keep text=True and post-process the decoded string."
+  ],
+  "unknown_to_resolve": "For Python 3.12, what documented encoding rule applies when subprocess text mode is enabled without an explicit encoding, and which minimal repair is supported by that rule?",
+  "research_instruction": "Use public read-only research and an official or primary source. Do not use model memory. Return the source-bound finding, the smallest supported repair proposal, and remaining uncertainty."
+}

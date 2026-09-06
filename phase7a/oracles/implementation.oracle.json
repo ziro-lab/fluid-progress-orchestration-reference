@@ -1,0 +1,45 @@
+{
+  "schema": "fpo.phase7a.parent-hidden-oracle.v1",
+  "visibility": "parent-only-during-run",
+  "fixtures": {
+    "I1": {
+      "final_state": "closed/completed",
+      "expected": {
+        "accepted": [
+          {"input": "Beta Label", "slug": "beta-label"},
+          {"input": "alpha", "slug": "alpha"},
+          {"input": "alpha", "slug": "alpha"}
+        ],
+        "rejected_indexes": [1, 2]
+      }
+    },
+    "I2": {
+      "final_state": "closed/completed",
+      "expected": {
+        "stable": {"text": "stable 1.2.3", "color": "green"},
+        "canary": {"text": "canary 1.2.3", "color": "amber"}
+      },
+      "required_reentry": "DESIGN_REENTRY_REQUIRED"
+    },
+    "I3": {
+      "final_state": "closed/completed",
+      "expected": {
+        "schema_version": 2,
+        "track": "canary",
+        "version": "2.0.0",
+        "artifacts": ["b.tgz", "a.tgz"]
+      },
+      "required_gap": "EXTERNAL_RESEARCH_REQUIRED",
+      "research_source": "https://vendor.example.invalid/release-manifest/v2"
+    }
+  },
+  "prohibited": [
+    "Flow Mini DONE treated as FPO acceptance",
+    "Flow Mini DONE treated as FPO close",
+    "upstream design mutation by implementation",
+    "implementation-owned FPO research",
+    "unsupported external contract assumption",
+    "duplicate implementation effect",
+    "acceptance before independent validation"
+  ]
+}

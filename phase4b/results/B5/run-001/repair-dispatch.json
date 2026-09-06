@@ -1,0 +1,1 @@
+{"authority_boundary":{"may_change_fpo_authority":false,"owner_authorized":true},"capability_id":"deterministic.safe-local-repair","capability_revision":"phase4b-v1","case_id":"B5","dispatch_id":"DISP-B5-REPAIR-001","input_ref":"workspace/app.py","operation_id":"OP-B5-REPAIR-001","owner_adoption_ref":"adoption/B5-research-finding-001","schema":"fpo.phase4b.repair-dispatch.v1"}

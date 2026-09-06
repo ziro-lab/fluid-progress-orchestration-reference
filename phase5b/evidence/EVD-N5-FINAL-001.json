@@ -1,0 +1,1 @@
+{"case_id":"N5","claim":"Independent validation verified recovery B after two distinct failures and two distinct owner-controlled recovery routes.","evidence_id":"EVD-N5-FINAL-001","parent_verified":true,"schema":"fpo.phase5b.evidence.v1","source_refs":["generations/N5-G6/return.json","phase5b/source/N5-immutable-r5.json"],"status":"accepted"}

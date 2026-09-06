@@ -1,0 +1,8 @@
+{
+  "max_human_requests": 0,
+  "max_luna_execution_calls": 5,
+  "max_recovery_calls": 0,
+  "max_research_calls": 1,
+  "max_sol_planning_calls": 5,
+  "schema": "fpo.phase7a.budget.v1"
+}

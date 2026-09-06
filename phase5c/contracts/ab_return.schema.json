@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "task_id", "arm", "run_id", "work_id", "starting_revision", "decision", "next_action", "preserved_constraints", "exact_identifiers", "evidence_refs", "uncertainty_ids", "invalidated_route_ids", "retrieval_pointer_ids", "metrics", "notes"],
+  "properties": {
+    "schema": {"const": "fpo.phase5c.ab-return.v1"},
+    "task_id": {"type": "string", "pattern": "^T[1-2]$"},
+    "arm": {"type": "string", "enum": ["RAW", "COMPILED"]},
+    "run_id": {"type": "string", "pattern": "^T[1-2]-(RAW|COMPILED)$"},
+    "work_id": {"type": "string"},
+    "starting_revision": {"type": "string", "pattern": "^r[0-9]+$"},
+    "decision": {"const": "RESUME_PROPOSAL"},
+    "next_action": {"type": "string", "minLength": 1},
+    "preserved_constraints": {"type": "array", "items": {"type": "string"}},
+    "exact_identifiers": {"type": "array", "items": {"type": "string"}},
+    "evidence_refs": {"type": "array", "items": {"type": "string"}},
+    "uncertainty_ids": {"type": "array", "items": {"type": "string"}},
+    "invalidated_route_ids": {"type": "array", "items": {"type": "string"}},
+    "retrieval_pointer_ids": {"type": "array", "items": {"type": "string"}},
+    "metrics": {"type": "object", "required": ["task_success", "missed_constraints", "unsupported_assumptions", "stale_state_adoption", "invalidated_route_resurrection", "unnecessary_rereads", "unnecessary_research", "duplicate_work", "retries_rework", "evidence_quality", "retrieval_pointer_usage", "final_validation_result"], "properties": {"task_success": {"type": "boolean"}, "missed_constraints": {"type": "integer", "minimum": 0}, "unsupported_assumptions": {"type": "integer", "minimum": 0}, "stale_state_adoption": {"type": "integer", "minimum": 0}, "invalidated_route_resurrection": {"type": "integer", "minimum": 0}, "unnecessary_rereads": {"type": "integer", "minimum": 0}, "unnecessary_research": {"type": "integer", "minimum": 0}, "duplicate_work": {"type": "integer", "minimum": 0}, "retries_rework": {"type": "integer", "minimum": 0}, "evidence_quality": {"type": "string", "enum": ["source-bound", "partial", "missing"]}, "retrieval_pointer_usage": {"type": "integer", "minimum": 0}, "final_validation_result": {"type": "string", "enum": ["NOT_YET_DUE", "READY", "PASS", "FAIL"]}}},
+    "notes": {"type": "string"}
+  }
+}

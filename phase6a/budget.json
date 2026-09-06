@@ -1,0 +1,7 @@
+{
+  "human_requests_allowed": 0,
+  "max_fresh_workers": 2,
+  "max_recovery_generations": 1,
+  "research": "bounded read-only official reference",
+  "schema": "fpo.phase6a.budget.v1"
+}

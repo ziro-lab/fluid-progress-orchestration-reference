@@ -1,0 +1,11 @@
+{
+  "attempt_ref": "phase7b/attempts/T2/run-001.json",
+  "details": {
+    "current_owner_wins": true,
+    "delayed_return_adopted": false
+  },
+  "metrics": {},
+  "probe_id": "T2",
+  "schema": "fpo.phase7b.evidence.v1",
+  "status": "PASS"
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "fpo.phase5b.core-oracle.v1",
+  "expected_cases": ["N1", "N2", "N3", "N4", "N5", "N6"],
+  "expected": {
+    "false_progress": 0,
+    "false_no_progress": 0,
+    "strategy_churn_hot_loop": 0,
+    "invalidated_hypothesis_resurrection": 0,
+    "duplicate_repair_effect": 0,
+    "rollback_authority_violation": 0,
+    "ai_authority_promotion": 0,
+    "false_close": 0,
+    "false_acceptance": 0,
+    "budget_overrun": 0,
+    "phase5a_baseline": "PASS"
+  }
+}

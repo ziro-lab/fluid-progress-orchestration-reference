@@ -1,0 +1,13 @@
+{
+  "capability_id": "local.text_uppercase",
+  "revision": "1",
+  "type": "deterministic_local_worker",
+  "input": "file_path",
+  "output": "file_path",
+  "side_effect_scope": "workspace/output only",
+  "authority": {
+    "may_write_work_state": false,
+    "may_advance_checkpoint": false,
+    "may_accept_work": false
+  }
+}

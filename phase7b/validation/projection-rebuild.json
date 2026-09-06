@@ -1,0 +1,6 @@
+{
+  "fanin_status": "PASS",
+  "probe_count": 20,
+  "safety_verdict": "PROVEN",
+  "schema": "fpo.phase7b.projection.v1"
+}

@@ -1,0 +1,1 @@
+{"checks":{"authority_keys_absent":true,"binding_revision":true,"no_early_escalation":true,"oracle_conformance":true,"required_decision":true,"research_used":true,"resolution":true,"source_acquired":true,"source_bound":true},"source_artifacts":["phase4c/research-evidence/SRC-C2-001.json"],"status":"PASS","violations":[]}

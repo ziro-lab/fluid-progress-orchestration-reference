@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "case_id", "generation_id", "work_id", "source_revision", "decision", "next_action", "observed_facts", "used_source_refs", "evidence_refs", "uncertainty_ids", "route_ids", "metrics", "notes"],
+  "properties": {
+    "schema": {"const": "fpo.phase5c.resume-return.v1"},
+    "case_id": {"type": "string", "pattern": "^R[1-5]$"},
+    "generation_id": {"type": "string", "pattern": "^R[1-5]-G1$"},
+    "work_id": {"type": "string"},
+    "source_revision": {"type": "string", "pattern": "^r[0-9]+$"},
+    "decision": {"const": "RESUME"},
+    "next_action": {"type": "string", "minLength": 1},
+    "observed_facts": {"type": "array", "items": {"type": "object", "required": ["fact_id", "text", "source_refs"], "properties": {"fact_id": {"type": "string"}, "text": {"type": "string"}, "source_refs": {"type": "array", "items": {"type": "string"}}}}},
+    "used_source_refs": {"type": "array", "items": {"type": "string"}},
+    "evidence_refs": {"type": "array", "items": {"type": "string"}},
+    "uncertainty_ids": {"type": "array", "items": {"type": "string"}},
+    "route_ids": {"type": "array", "items": {"type": "string"}},
+    "adopted_hypothesis_ids": {"type": "array", "items": {"type": "string"}},
+    "unadopted_hypothesis_ids": {"type": "array", "items": {"type": "string"}},
+    "stale_revision_seen": {"type": "string"},
+    "current_source_wins": {"type": "boolean"},
+    "metrics": {"type": "object", "required": ["transcript_dependency", "restart_from_zero", "duplicate_effect", "unsupported_assumption", "stale_state_adoption", "unnecessary_research", "duplicate_work", "correct_next_stage"], "properties": {"transcript_dependency": {"type": "integer", "minimum": 0}, "restart_from_zero": {"type": "integer", "minimum": 0}, "duplicate_effect": {"type": "integer", "minimum": 0}, "unsupported_assumption": {"type": "integer", "minimum": 0}, "stale_state_adoption": {"type": "integer", "minimum": 0}, "unnecessary_research": {"type": "integer", "minimum": 0}, "duplicate_work": {"type": "integer", "minimum": 0}, "correct_next_stage": {"type": "boolean"}}},
+    "notes": {"type": "string"}
+  }
+}

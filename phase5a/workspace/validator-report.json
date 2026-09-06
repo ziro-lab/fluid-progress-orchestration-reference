@@ -1,0 +1,10 @@
+{
+  "schema": "fpo.phase5a.validator-report.v1",
+  "validator": "phase5a/workspace/validator-report.json",
+  "status": "FAIL",
+  "failure_id": "V-001",
+  "expected": { "title": "Alpha # tag", "mode": "safe" },
+  "actual": { "title": "Alpha", "mode": "safe" },
+  "independent": false,
+  "acceptance_evidence": false
+}

@@ -1,0 +1,20 @@
+{
+  "case_id": "A2",
+  "title": "Output appears correct while acceptance evidence is incomplete",
+  "input": {"ref": "fixture/input.txt", "text": "fpo\n"},
+  "expected_behavior": {"ref": "fixture/expected.txt", "text": "FPO\n", "description": "Every alphabetic character is uppercase and the newline is preserved."},
+  "observed_output": {"ref": "fixture/observed.txt", "text": "FPO\n"},
+  "failing_validation": {"ref": "fixture/validation.json", "name": "acceptance_evidence_complete", "status": "FAIL", "detail": "content match is observed, but the required independent acceptance evidence record is missing"},
+  "observed_evidence": [
+    {"ref": "obs/output-match-001", "statement": "Observed output text matches the expected text."}
+  ],
+  "missing_evidence": [
+    {"ref": "required/independent-acceptance-001", "statement": "An independent acceptance check and its evidence record are required."}
+  ],
+  "plausible_explanations": [
+    "The operation produced the correct bytes but the acceptance check was not run.",
+    "The acceptance evidence exists outside the supplied evidence set.",
+    "The observed output is coincidentally correct while another required criterion remains untested."
+  ],
+  "instruction": "Describe the observed success signal and the missing evidence. Do not treat a success claim as acceptance or closure. Request the smallest additional observation needed. Do not change files."
+}

@@ -1,0 +1,8 @@
+{
+  "available_read_only_research": "tools/official_subprocess_reference.py",
+  "bounded": true,
+  "entrypoint": "src/task_runner.py",
+  "project": "fixture/task-runner",
+  "schema": "fpo.phase6a.project-manifest.v1",
+  "tests": "tests/test_task_runner.py"
+}

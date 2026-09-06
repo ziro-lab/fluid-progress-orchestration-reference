@@ -1,0 +1,343 @@
+{
+  "artifact": "Fluid Progress Orchestration v0.2 Architectural Hardening Candidate",
+  "scope": "static bundle integrity + JSON Schema/canonical fixture + deterministic contract model",
+  "overall_status": "PASS",
+  "runtime_e2e": "NOT_EXECUTED",
+  "static_summary": {
+    "pass": 30,
+    "fail": 0,
+    "skip": 0
+  },
+  "model_summary": {
+    "pass": 64,
+    "fail": 0
+  },
+  "model_cases": [
+    {
+      "case_id": "M-01",
+      "status": "PASS",
+      "detail": "J1 six-checkpoint routing"
+    },
+    {
+      "case_id": "M-02",
+      "status": "PASS",
+      "detail": "Suspended Work Control blocks J1"
+    },
+    {
+      "case_id": "M-03",
+      "status": "PASS",
+      "detail": "Active blocker routes P5"
+    },
+    {
+      "case_id": "M-04",
+      "status": "PASS",
+      "detail": "Pending cancel/amendment blocks J1"
+    },
+    {
+      "case_id": "M-05",
+      "status": "PASS",
+      "detail": "Unknown Achievement state fails closed"
+    },
+    {
+      "case_id": "M-06",
+      "status": "PASS",
+      "detail": "Pause/resume lifecycle"
+    },
+    {
+      "case_id": "M-07",
+      "status": "PASS",
+      "detail": "Finite cancel lifecycle"
+    },
+    {
+      "case_id": "M-08",
+      "status": "PASS",
+      "detail": "Terminal work cannot silently resume"
+    },
+    {
+      "case_id": "M-09",
+      "status": "PASS",
+      "detail": "Immediate provider success is legal"
+    },
+    {
+      "case_id": "M-10",
+      "status": "PASS",
+      "detail": "Unknown Operation reconciles to observed terminal"
+    },
+    {
+      "case_id": "M-11",
+      "status": "PASS",
+      "detail": "Terminal Operation cannot restart"
+    },
+    {
+      "case_id": "M-12",
+      "status": "PASS",
+      "detail": "Unknown Operation prevents duplicate retry"
+    },
+    {
+      "case_id": "M-13",
+      "status": "PASS",
+      "detail": "Current ordered Return is adoptable"
+    },
+    {
+      "case_id": "M-14",
+      "status": "PASS",
+      "detail": "Stale Return is rejected"
+    },
+    {
+      "case_id": "M-15",
+      "status": "PASS",
+      "detail": "Capability revision drift is rejected"
+    },
+    {
+      "case_id": "M-16",
+      "status": "PASS",
+      "detail": "Duplicate/out-of-order Return is rejected"
+    },
+    {
+      "case_id": "M-17",
+      "status": "PASS",
+      "detail": "Partial blocker resolution keeps set open"
+    },
+    {
+      "case_id": "M-18",
+      "status": "PASS",
+      "detail": "All blockers resolved/superseded clear set"
+    },
+    {
+      "case_id": "M-19",
+      "status": "PASS",
+      "detail": "One waiting blocker does not freeze other diagnosable blockers"
+    },
+    {
+      "case_id": "M-20",
+      "status": "PASS",
+      "detail": "All blocking work waiting causes suspend"
+    },
+    {
+      "case_id": "M-21",
+      "status": "PASS",
+      "detail": "P4 may apply predefined validation route"
+    },
+    {
+      "case_id": "M-22",
+      "status": "PASS",
+      "detail": "P4 cannot invent rollback route"
+    },
+    {
+      "case_id": "M-23",
+      "status": "PASS",
+      "detail": "Target mutation returns to P3 authority"
+    },
+    {
+      "case_id": "M-24",
+      "status": "PASS",
+      "detail": "Design mutation returns to P2 authority"
+    },
+    {
+      "case_id": "M-25",
+      "status": "PASS",
+      "detail": "Definition invalidation returns to P1 authority"
+    },
+    {
+      "case_id": "M-26",
+      "status": "PASS",
+      "detail": "Evidence-only recovery may retain executed"
+    },
+    {
+      "case_id": "M-27",
+      "status": "PASS",
+      "detail": "UNKNOWN criterion prevents Acceptance"
+    },
+    {
+      "case_id": "M-28",
+      "status": "PASS",
+      "detail": "Contradictory Evidence prevents Acceptance"
+    },
+    {
+      "case_id": "M-29",
+      "status": "PASS",
+      "detail": "Stale Evidence prevents Acceptance"
+    },
+    {
+      "case_id": "M-30",
+      "status": "PASS",
+      "detail": "Partial coverage prevents Acceptance"
+    },
+    {
+      "case_id": "M-31",
+      "status": "PASS",
+      "detail": "Correlated-only Evidence is not an independent check"
+    },
+    {
+      "case_id": "M-32",
+      "status": "PASS",
+      "detail": "Current independent Evidence can pass"
+    },
+    {
+      "case_id": "M-33",
+      "status": "PASS",
+      "detail": "Unknown Effect prevents retry"
+    },
+    {
+      "case_id": "M-34",
+      "status": "PASS",
+      "detail": "Confirmed Effect is not duplicated"
+    },
+    {
+      "case_id": "M-35",
+      "status": "PASS",
+      "detail": "Compensated Effect may permit a new attempt"
+    },
+    {
+      "case_id": "M-36",
+      "status": "PASS",
+      "detail": "Crash before Commit ignores staging"
+    },
+    {
+      "case_id": "M-37",
+      "status": "PASS",
+      "detail": "Commit before alias update rebuilds new projection"
+    },
+    {
+      "case_id": "M-38",
+      "status": "PASS",
+      "detail": "Uncommitted alias is rejected"
+    },
+    {
+      "case_id": "M-39",
+      "status": "PASS",
+      "detail": "Inflight Operation blocks closure"
+    },
+    {
+      "case_id": "M-40",
+      "status": "PASS",
+      "detail": "Unsettled Effect blocks closure"
+    },
+    {
+      "case_id": "M-41",
+      "status": "PASS",
+      "detail": "Completion settlement can close"
+    },
+    {
+      "case_id": "M-42",
+      "status": "PASS",
+      "detail": "Successful terminal aligns closed/completed"
+    },
+    {
+      "case_id": "M-43",
+      "status": "PASS",
+      "detail": "Canceled terminal preserves last valid Achievement"
+    },
+    {
+      "case_id": "M-44",
+      "status": "PASS",
+      "detail": "Non-success terminal cannot claim closed"
+    },
+    {
+      "case_id": "M-45",
+      "status": "PASS",
+      "detail": "Bounded T1 digital work is admissible"
+    },
+    {
+      "case_id": "M-46",
+      "status": "PASS",
+      "detail": "T2 requires explicit controls"
+    },
+    {
+      "case_id": "M-47",
+      "status": "PASS",
+      "detail": "Controlled T2 may be admitted within scope"
+    },
+    {
+      "case_id": "M-48",
+      "status": "PASS",
+      "detail": "T3 is outside autonomous P3 scope"
+    },
+    {
+      "case_id": "M-49",
+      "status": "PASS",
+      "detail": "Open-ended monitoring is rejected/split"
+    },
+    {
+      "case_id": "M-50",
+      "status": "PASS",
+      "detail": "Complete source coverage can promote Definition"
+    },
+    {
+      "case_id": "M-51",
+      "status": "PASS",
+      "detail": "Dropped source clause prevents defined"
+    },
+    {
+      "case_id": "M-52",
+      "status": "PASS",
+      "detail": "Unresolved blocker prevents defined"
+    },
+    {
+      "case_id": "M-53",
+      "status": "PASS",
+      "detail": "Resume only unfinished units"
+    },
+    {
+      "case_id": "M-54",
+      "status": "PASS",
+      "detail": "Dependency invalidation reruns only affected unit"
+    },
+    {
+      "case_id": "M-55",
+      "status": "PASS",
+      "detail": "Exact Dispatch digest and identity binding is accepted"
+    },
+    {
+      "case_id": "M-56",
+      "status": "PASS",
+      "detail": "Mutated Dispatch digest is rejected"
+    },
+    {
+      "case_id": "M-57",
+      "status": "PASS",
+      "detail": "Immutable Budget/Unit sources can agree with current projection caches"
+    },
+    {
+      "case_id": "M-58",
+      "status": "PASS",
+      "detail": "Projection/source drift is rejected"
+    },
+    {
+      "case_id": "M-59",
+      "status": "PASS",
+      "detail": "Activity or strategy churn alone is not Progress"
+    },
+    {
+      "case_id": "M-60",
+      "status": "PASS",
+      "detail": "Adopted material net improvement is Progress"
+    },
+    {
+      "case_id": "M-61",
+      "status": "PASS",
+      "detail": "Hard autonomy budget stops further execution"
+    },
+    {
+      "case_id": "M-62",
+      "status": "PASS",
+      "detail": "Provider success without P3 adoption cannot promote executed"
+    },
+    {
+      "case_id": "M-63",
+      "status": "PASS",
+      "detail": "Capability Return digest mismatch prevents adoption"
+    },
+    {
+      "case_id": "M-64",
+      "status": "PASS",
+      "detail": "P6 settlement failure routes through Active Blocker rather than direct rollback"
+    }
+  ],
+  "limitations": [
+    "No LLM/Agent behavior executed",
+    "No real filesystem crash/fsync/lock implementation tested",
+    "No external side effect or adversarial prompt injection executed",
+    "No repeated sandbox E2E performed"
+  ]
+}

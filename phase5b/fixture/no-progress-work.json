@@ -1,0 +1,13 @@
+{
+  "schema": "fpo.phase5b.fixture.v1",
+  "work_id": "FPO-5B-001",
+  "baseline_commit": "396f63eafdbe86c4ad20f4ea86e446d527b5ecb2",
+  "cases": {
+    "N1": {"title": "Strategy Churn", "initial_checkpoint": "diagnosis", "budget": 4, "initial_blocker": "route-unknown", "route_candidates": [{"route_id": "route-alpha", "semantic_key": "inspect-local-state"}, {"route_id": "route-beta", "semantic_key": "inspect-local-state"}, {"route_id": "route-alpha-retry", "semantic_key": "inspect-local-state"}], "useful_unseen_routes": []},
+    "N2": {"title": "Repeated Observation", "initial_checkpoint": "observation", "budget": 4, "initial_blocker": "evidence-unchanged", "repeated_observation_count": 3, "observation_signature": "same-observation-same-evidence"},
+    "N3": {"title": "Progress Without Checkpoint Advance", "initial_checkpoint": "diagnosis", "budget": 3, "initial_blocker": "checkpoint-held", "material_changes": ["uncertainty_reduction", "invalid_hypothesis_elimination", "safe_route_narrowing"], "checkpoint_must_remain": "diagnosis"},
+    "N4": {"title": "Rollback Is Progress", "initial_checkpoint": "known-good", "budget": 3, "initial_blocker": "repair-not-tried", "repair_a": "intentionally-degrades-state", "known_good_ref": "N4-known-good"},
+    "N5": {"title": "Repeated Recovery", "initial_checkpoint": "failure-A", "budget": 8, "initial_blocker": "failure-A", "required_failures": ["FAILURE-A", "FAILURE-B"], "required_recovery_routes": ["recovery-a", "recovery-b"]},
+    "N6": {"title": "Exhausted Routes / Budget Stop", "initial_checkpoint": "diagnosis", "budget": 3, "initial_blocker": "routes-exhausted", "remaining_routes": [], "hard_budget": 3}
+  }
+}

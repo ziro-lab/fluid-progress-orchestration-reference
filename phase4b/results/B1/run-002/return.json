@@ -1,0 +1,159 @@
+{
+  "capability_run_id": "research-B1-002",
+  "dispatch_id": "DISP-B1-002",
+  "operation_id": "OP-B1-002",
+  "capability_revision": "phase4b-v1",
+  "facts": [
+    {
+      "id": "FACT-B1-001",
+      "statement": "In CPython 3.12, subprocess text mode is enabled by text=True, and when encoding is omitted Popen assigns an encoding through its internal _text_encoding() helper.",
+      "evidence_refs": ["SRC-B1-CPYTHON-312-SUBPROCESS"]
+    },
+    {
+      "id": "FACT-B1-002",
+      "statement": "In CPython 3.12, _text_encoding() returns utf-8 when Python UTF-8 Mode is enabled; otherwise it returns locale.getencoding().",
+      "evidence_refs": ["SRC-B1-CPYTHON-312-SUBPROCESS"]
+    },
+    {
+      "id": "FACT-B1-003",
+      "statement": "Python 3.12 documents locale.getencoding() as the current LC_CTYPE encoding on Unix and the Windows ANSI code page on Windows.",
+      "evidence_refs": ["SRC-B1-LOCALE-312-DOC"]
+    },
+    {
+      "id": "FACT-B1-004",
+      "statement": "Python UTF-8 Mode forces UTF-8 while ignoring the locale encoding, can be enabled with -X utf8 or PYTHONUTF8, and is selected at interpreter startup.",
+      "evidence_refs": ["SRC-B1-OS-312-DOC"]
+    }
+  ],
+  "findings": [
+    {
+      "id": "FINDING-B1-001",
+      "statement": "For Python 3.12, subprocess.run(command, capture_output=True, text=True) does not guarantee UTF-8 decoding. With no explicit encoding, captured text uses UTF-8 only if Python UTF-8 Mode is active; otherwise it uses the process locale encoding returned by locale.getencoding().",
+      "support_refs": ["SRC-B1-CPYTHON-312-SUBPROCESS", "SRC-B1-LOCALE-312-DOC"],
+      "confidence": "high"
+    },
+    {
+      "id": "FINDING-B1-002",
+      "statement": "For a child known to emit UTF-8 bytes, the smallest repair supported by the documented rule is to pass encoding=\"utf-8\" at the subprocess call site, for example subprocess.run(command, capture_output=True, text=True, encoding=\"utf-8\").",
+      "support_refs": ["SRC-B1-SUBPROCESS-312-DOC", "SRC-B1-CPYTHON-312-SUBPROCESS"],
+      "confidence": "high"
+    },
+    {
+      "id": "FINDING-B1-003",
+      "statement": "Enabling Python UTF-8 Mode or changing the locale can alter the omitted-encoding result without changing the call, but those are process-wide or environment-dependent choices and are broader than an explicit call-site encoding.",
+      "support_refs": ["SRC-B1-OS-312-DOC", "SRC-B1-CPYTHON-312-SUBPROCESS", "SRC-B1-LOCALE-312-DOC"],
+      "confidence": "high"
+    }
+  ],
+  "evidence_refs": [
+    "SRC-B1-SUBPROCESS-312-DOC",
+    "SRC-B1-CPYTHON-312-SUBPROCESS",
+    "SRC-B1-LOCALE-312-DOC",
+    "SRC-B1-OS-312-DOC"
+  ],
+  "uncertainties": [
+    {
+      "id": "UNCERTAINTY-B1-001",
+      "statement": "The fixture does not provide the runtime OS, locale.getencoding() value, or sys.flags.utf8_mode value, so the exact codec selected in the failing run cannot be identified from the public rule alone."
+    },
+    {
+      "id": "UNCERTAINTY-B1-002",
+      "statement": "The fixture describes the child output as UTF-8 but does not provide the raw captured bytes or the child's exact command and encoding configuration, so the full provenance of the mojibake cannot be independently distinguished from the decode step."
+    }
+  ],
+  "proposals": [
+    {
+      "id": "PROPOSAL-B1-001",
+      "type": "repair",
+      "statement": "Add encoding=\"utf-8\" to the existing subprocess.run call while retaining text=True and capture_output=True.",
+      "support_refs": ["FINDING-B1-002", "SRC-B1-SUBPROCESS-312-DOC", "SRC-B1-CPYTHON-312-SUBPROCESS"]
+    },
+    {
+      "id": "PROPOSAL-B1-002",
+      "type": "next_action",
+      "statement": "If an ambient repair is being considered, record the Python 3.12 startup UTF-8-mode state and locale before changing process-wide settings.",
+      "support_refs": ["FINDING-B1-003", "SRC-B1-OS-312-DOC", "SRC-B1-LOCALE-312-DOC"]
+    }
+  ],
+  "requested_observations": [
+    {
+      "id": "OBSERVATION-B1-001",
+      "request": "At the failing call site, record sys.flags.utf8_mode, locale.getencoding(), the Python version, and the operating system.",
+      "rationale": "These observations identify which documented branch supplied the omitted encoding and, on Windows or Unix, which platform-specific locale rule applies."
+    },
+    {
+      "id": "OBSERVATION-B1-002",
+      "request": "Run the same child with text=False and record the exact stdout bytes, along with the child's command and declared output encoding.",
+      "rationale": "Raw bytes and the child's encoding declaration are needed to verify that the mismatch occurred during parent-side decoding and to establish exact provenance."
+    }
+  ],
+  "notes": [
+    "Public read-only research only; no local runtime experiment was performed.",
+    "This return contains research material and makes no FPO authority, acceptance, closure, checkpoint, lifecycle, approval, or blocker determination."
+  ],
+  "research_trace": {
+    "queries": [
+      "site:docs.python.org/3.12/library/subprocess.html subprocess text encoding locale.getencoding",
+      "site:github.com/python/cpython 3.12 Lib/subprocess.py encoding locale.getencoding"
+    ],
+    "rounds": 3,
+    "sources_inspected": [
+      "https://docs.python.org/3.12/library/subprocess.html",
+      "https://github.com/python/cpython/blob/v3.12.0/Lib/subprocess.py",
+      "https://docs.python.org/3.12/library/locale.html",
+      "https://docs.python.org/3.12/library/os.html#utf8-mode"
+    ],
+    "budget": {
+      "max_research_rounds": 3,
+      "max_distinct_queries": 6,
+      "max_accepted_sources": 6
+    }
+  },
+  "source_claims": [
+    {
+      "source_id": "SRC-B1-SUBPROCESS-312-DOC",
+      "url": "https://docs.python.org/3.12/library/subprocess.html",
+      "title": "subprocess — Subprocess management — Python 3.12.13 documentation",
+      "publisher": "Python Software Foundation",
+      "source_class": "official_documentation",
+      "revision": "Python 3.12.13 documentation",
+      "supports": ["FINDING-B1-002"],
+      "observation": "The Python 3.12 subprocess documentation says that text=True opens the standard streams in text mode, using the specified encoding or the io.TextIOWrapper default when no encoding is specified; it documents encoding as an available subprocess parameter."
+    },
+    {
+      "source_id": "SRC-B1-CPYTHON-312-SUBPROCESS",
+      "url": "https://github.com/python/cpython/blob/v3.12.0/Lib/subprocess.py",
+      "title": "cpython/Lib/subprocess.py at v3.12.0",
+      "publisher": "Python Software Foundation / CPython",
+      "source_class": "official_repository",
+      "revision": "v3.12.0",
+      "supports": ["FACT-B1-001", "FACT-B1-002", "FINDING-B1-001", "FINDING-B1-002", "FINDING-B1-003"],
+      "observation": "The v3.12.0 CPython implementation sets text_mode from text, encoding, errors, or universal_newlines; when text mode is active and encoding is None, it assigns _text_encoding(), which returns utf-8 in UTF-8 Mode and locale.getencoding() otherwise."
+    },
+    {
+      "source_id": "SRC-B1-LOCALE-312-DOC",
+      "url": "https://docs.python.org/3.12/library/locale.html",
+      "title": "locale — Internationalization services — Python 3.12.13 documentation",
+      "publisher": "Python Software Foundation",
+      "source_class": "official_documentation",
+      "revision": "Python 3.12.13 documentation",
+      "supports": ["FACT-B1-003", "FINDING-B1-001", "FINDING-B1-003"],
+      "observation": "The Python 3.12 locale documentation states that locale.getencoding() returns the current LC_CTYPE encoding on Unix and the ANSI code page on Windows, and that this function ignores Python UTF-8 Mode."
+    },
+    {
+      "source_id": "SRC-B1-OS-312-DOC",
+      "url": "https://docs.python.org/3.12/library/os.html#utf8-mode",
+      "title": "os — Miscellaneous operating system interfaces — Python 3.12.13 documentation: Python UTF-8 Mode",
+      "publisher": "Python Software Foundation",
+      "source_class": "official_documentation",
+      "revision": "Python 3.12.13 documentation",
+      "supports": ["FACT-B1-004", "FINDING-B1-003"],
+      "observation": "The Python 3.12 os documentation states that Python UTF-8 Mode ignores the locale and forces UTF-8, can be enabled with -X utf8 or PYTHONUTF8, and can only be enabled at Python startup."
+    }
+  ],
+  "hypothesis_trace": {
+    "initial": "The failure may be caused by subprocess text mode selecting an unspecified default codec rather than the child's UTF-8 encoding; the available fixture does not identify whether the default is locale-based or process-wide UTF-8.",
+    "after_research": "In Python 3.12, omitted encoding in subprocess text mode selects UTF-8 only when Python UTF-8 Mode is active and otherwise selects locale.getencoding(); for a child known to emit UTF-8, explicit encoding=\"utf-8\" is the narrowest supported repair, while the exact ambient codec remains unresolved.",
+    "revision_reason": "The Python 3.12 CPython source and official documentation identify the encoding branch and platform-dependent locale behavior, but the fixture lacks the runtime observations needed to identify the exact branch and codec in the failing run."
+  }
+}

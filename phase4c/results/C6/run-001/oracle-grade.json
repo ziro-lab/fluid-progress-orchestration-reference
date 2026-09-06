@@ -1,0 +1,1 @@
+{"checks":{"alternate_checked":true,"authority_keys_absent":true,"binding_revision":true,"capability_gap":true,"escalation_present":true,"no_hallucination":true,"oracle_conformance":true,"proposal_only":true,"reason_code":true,"request_type":true,"required_decision":true},"source_artifacts":[],"status":"PASS","violations":[]}

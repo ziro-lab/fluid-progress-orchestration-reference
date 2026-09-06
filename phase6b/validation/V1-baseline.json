@@ -1,0 +1,21 @@
+{
+  "expected_initial_failure": true,
+  "fixture": "V1",
+  "result": {
+    "args": [
+      "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "returncode": 1,
+    "stderr": "test_preserves_input_order_and_exact_total (test_ledger.LedgerTests.test_preserves_input_order_and_exact_total) ... FAIL\ntest_rejects_bad_records_without_abort (test_ledger.LedgerTests.test_rejects_bad_records_without_abort) ... FAIL\n\n======================================================================\nFAIL: test_preserves_input_order_and_exact_total (test_ledger.LedgerTests.test_preserves_input_order_and_exact_total)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"E:\\TEST\\FPO_Runtime_Probe_Starter\\.phase2-sync\\phase6b\\fixture\\v1-local\\tests\\test_ledger.py\", line 17, in test_preserves_input_order_and_exact_total\n    self.assertEqual([item[\"id\"] for item in result[\"accepted\"]], [\"b\", \"a\"])\nAssertionError: Lists differ: ['a', 'b'] != ['b', 'a']\n\nFirst differing element 0:\n'a'\n'b'\n\n- ['a', 'b']\n+ ['b', 'a']\n\n======================================================================\nFAIL: test_rejects_bad_records_without_abort (test_ledger.LedgerTests.test_rejects_bad_records_without_abort)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"E:\\TEST\\FPO_Runtime_Probe_Starter\\.phase2-sync\\phase6b\\fixture\\v1-local\\tests\\test_ledger.py\", line 26, in test_rejects_bad_records_without_abort\n    self.assertEqual([item[\"id\"] for item in result[\"accepted\"]], [\"ok\", \"later\"])\nAssertionError: Lists differ: ['later', 'ok'] != ['ok', 'later']\n\nFirst differing element 0:\n'later'\n'ok'\n\n- ['later', 'ok']\n+ ['ok', 'later']\n\n----------------------------------------------------------------------\nRan 2 tests in 0.001s\n\nFAILED (failures=2)\n",
+    "stdout": "",
+    "timed_out": false
+  },
+  "schema": "fpo.phase6b.baseline-validation.v1",
+  "status": "FAIL"
+}

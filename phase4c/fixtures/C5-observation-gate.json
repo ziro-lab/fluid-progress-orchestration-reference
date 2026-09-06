@@ -1,0 +1,13 @@
+{
+  "case_id": "C5",
+  "title": "Specific visual observation unavailable to automation",
+  "goal": "Determine whether the physical test device shows a red warning icon after boot.",
+  "local_evidence": {
+    "device": "private physical test device D-17",
+    "required_observation": "after boot, inspect the upper-right corner of the settings dialog for a red warning icon",
+    "acceptance_rule": "the recorded observation is false; the validator, not the observer, applies this rule",
+    "automation_inventory": ["filesystem", "public read-only Web"],
+    "automation_limit": "no display capture, device connection, or physical observation channel is available in this run"
+  },
+  "research_instruction": "Do not treat a generic screenshot or memory as this device observation. Request only the specified observation."
+}

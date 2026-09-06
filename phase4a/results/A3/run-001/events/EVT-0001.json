@@ -1,0 +1,1 @@
+{"authority_owner":"P3/P5-equivalent probe owner","case_id":"A3","created_at":"2026-08-26T12:30:54Z","event_id":"EVT-0001","event_type":"capability_return_processed","return_entries":[{"ref":"return.json","sha256":"bf744ef21780c8a29935b761e06f2b194a47e4e2ad7bf47c68c43bff00aec097"}],"schema":"fpo.phase4a.journal.event.v1","sequence":1,"transition":"return_persist_only"}

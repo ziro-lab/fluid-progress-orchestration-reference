@@ -1,0 +1,18 @@
+{
+  "case_id": "R4",
+  "generation_id": "R4-G1",
+  "source_revision": "r3",
+  "decision": "RESUME",
+  "next_action": "propose-repair-from-persisted-evidence",
+  "evidence_refs": [
+    "E-R4-RESEARCH-001"
+  ],
+  "used_source_refs": [
+    "phase5c/source/R4-immutable-r3.json"
+  ],
+  "metrics": {
+    "unnecessary_research": 0,
+    "duplicate_work": 0
+  },
+  "correct_next_stage": true
+}

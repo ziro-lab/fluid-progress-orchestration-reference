@@ -1,0 +1,11 @@
+{
+  "acceptance_is_not_flow_mini_return": true,
+  "accepted_after_independent_validation": true,
+  "fixture": "I1",
+  "flow_mini_return_status": "DONE",
+  "independent_validation_ref": "phase7a/validation/I1.json",
+  "owner": "FPO parent",
+  "prior_state_revision": "fb74cac46a3833195262f6e4a3a78c3034b819a9+working-tree",
+  "schema": "fpo.phase7a.fpo-acceptance.v1",
+  "status": "closed/completed"
+}

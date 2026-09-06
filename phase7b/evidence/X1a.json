@@ -1,0 +1,15 @@
+{
+  "attempt_ref": "phase7b/attempts/X1a/run-001.json",
+  "details": {
+    "current_eligible": true,
+    "normalized_component_count": 7,
+    "revoke_authority": false,
+    "superseded_eligible": false
+  },
+  "metrics": {
+    "derived_currentness": true
+  },
+  "probe_id": "X1a",
+  "schema": "fpo.phase7b.evidence.v1",
+  "status": "PASS"
+}

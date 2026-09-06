@@ -1,0 +1,21 @@
+{
+  "J1": {
+    "final_state": "closed/completed",
+    "label": "north-america",
+    "version_order": [
+      "1.1.9",
+      "1.2.0",
+      "1.10.0"
+    ]
+  },
+  "J2": {
+    "final_state": "closed/completed",
+    "threshold": [
+      "warning",
+      7
+    ]
+  },
+  "not_worker_input": true,
+  "owner": "parent FPO",
+  "schema": "fpo.phase7c.parent-only-oracle.v1"
+}

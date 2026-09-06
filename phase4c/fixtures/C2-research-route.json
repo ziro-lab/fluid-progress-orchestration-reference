@@ -1,0 +1,17 @@
+{
+  "case_id": "C2",
+  "title": "A versioned public rule can resolve a local compatibility note",
+  "runtime_target": "Python 3.12",
+  "local_evidence": {
+    "code": "try: await asyncio.wait_for(job(), timeout=1)\nexcept asyncio.TimeoutError: handle_timeout()",
+    "review_note": "The timeout exception name is disputed; the note has no source revision.",
+    "trusted_fact": "the deployed interpreter target is Python 3.12"
+  },
+  "candidate_routes": [
+    "ask a person to select an exception name",
+    "inspect versioned official Python documentation",
+    "catch broad Exception"
+  ],
+  "research_question": "Can bounded public primary-source research resolve the target-version timeout exception contract?",
+  "research_instruction": "Research before deciding. Do not use majority vote or model memory, and do not escalate if the target-version evidence resolves the choice."
+}

@@ -1,0 +1,12 @@
+{
+  "details": {
+    "mutation_domain_reusable_after_settled": true,
+    "mutation_domain_reusable_while_unknown": false,
+    "slot_released": true
+  },
+  "evidence_ref": "phase7b/evidence/L1.json",
+  "independent": true,
+  "probe_id": "L1",
+  "schema": "fpo.phase7b.validation.v1",
+  "status": "PASS"
+}

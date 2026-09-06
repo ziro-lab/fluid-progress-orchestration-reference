@@ -1,0 +1,171 @@
+{
+  "capability_run_id": "research-B2-002",
+  "dispatch_id": "DISP-B2-002",
+  "operation_id": "OP-B2-002",
+  "capability_revision": "phase4b-v1",
+  "facts": [
+    {
+      "id": "FACT-SUBPROCESS-TEXT-MODE",
+      "statement": "The Python 3.12 subprocess documentation states that when encoding or errors is specified, or text is true, stdin, stdout, and stderr are opened in text mode using the specified settings or the defaults for io.TextIOWrapper; by default they are opened in binary mode.",
+      "evidence_refs": ["SRC-SUBPROCESS-312"]
+    },
+    {
+      "id": "FACT-TEXTIOWRAPPER-DEFAULT",
+      "statement": "The Python 3.12 io documentation states that TextIOWrapper's default encoding is locale-specific via locale.getencoding(), and recommends specifying encoding=\"utf-8\" when UTF-8 is intended; it notes that the locale encoding is not UTF-8 for most Windows users.",
+      "evidence_refs": ["SRC-IO-312"]
+    },
+    {
+      "id": "FACT-WINDOWS-LOCALE-ENCODING",
+      "statement": "The Python 3.12 locale documentation states that locale.getencoding() returns the ANSI code page on Windows, while Python UTF-8 Mode can affect the related preferred-encoding result.",
+      "evidence_refs": ["SRC-LOCALE-312"]
+    }
+  ],
+  "findings": [
+    {
+      "id": "FIND-CONSUMER-DECODE-CANDIDATE",
+      "statement": "The official documentation supports a consumer-side decoding explanation: subprocess text-mode output is decoded with an explicit encoding or a locale-dependent TextIOWrapper default. If the producer's bytes are UTF-8 but the consumer uses a different locale encoding, the final decoded text can be wrong. This contradicts treating producer corruption as the leading hypothesis, but it does not prove that the producer bytes were valid in this run.",
+      "support_refs": ["SRC-SUBPROCESS-312", "SRC-IO-312", "SRC-LOCALE-312"],
+      "confidence": "medium"
+    },
+    {
+      "id": "FIND-EXPLICIT-UTF8-SUPPORTED",
+      "statement": "The documentation supports making UTF-8 decoding explicit at the subprocess consumer boundary when UTF-8 output is intended, using encoding=\"utf-8\" rather than relying on the locale-dependent default.",
+      "support_refs": ["SRC-SUBPROCESS-312", "SRC-IO-312"],
+      "confidence": "high"
+    },
+    {
+      "id": "FIND-PROVENANCE-UNRESOLVED",
+      "statement": "The sources explain a plausible consumer decoding failure mode but cannot identify the actual producer bytes or effective decoder for this invocation; the available local evidence therefore cannot assign exact fault provenance.",
+      "support_refs": ["SRC-SUBPROCESS-312", "SRC-IO-312", "SRC-LOCALE-312"],
+      "confidence": "high"
+    }
+  ],
+  "evidence_refs": [
+    "SRC-SUBPROCESS-312",
+    "SRC-IO-312",
+    "SRC-LOCALE-312"
+  ],
+  "uncertainties": [
+    {
+      "id": "UNC-RAW-BYTES-MISSING",
+      "statement": "The raw stdout bytes are unavailable, so it is not established whether the producer emitted valid UTF-8 or already-corrupted bytes."
+    },
+    {
+      "id": "UNC-EFFECTIVE-ENCODING-MISSING",
+      "statement": "The locale, Python UTF-8 Mode status, and effective default encoding are unavailable, so the decoder used by the failing invocation cannot be determined."
+    },
+    {
+      "id": "UNC-DOC-DEFAULT-NUANCE",
+      "statement": "The subprocess documentation includes a historical note about universal_newlines=True and locale.getpreferredencoding(False), but that note does not establish the concrete effective encoding for this particular invocation."
+    }
+  ],
+  "proposals": [
+    {
+      "id": "PROP-DIAGNOSTIC-EXPLICIT-UTF8",
+      "type": "next_action",
+      "statement": "Run a diagnostic consumer pass with subprocess text mode and encoding=\"utf-8\", then compare the exact output with the expected text. Treat the result as evidence about the consumer configuration, not as proof about the original producer bytes.",
+      "support_refs": ["SRC-SUBPROCESS-312", "SRC-IO-312"]
+    },
+    {
+      "id": "PROP-CAPTURE-BYTES",
+      "type": "observation",
+      "statement": "Capture stdout in binary mode for the failing case and preserve the raw byte sequence before any decoding.",
+      "support_refs": ["SRC-SUBPROCESS-312"]
+    },
+    {
+      "id": "PROP-RECORD-DECODER-CONTEXT",
+      "type": "observation",
+      "statement": "Record the effective locale encoding, Python UTF-8 Mode status, and the subprocess text/encoding arguments for the failing invocation.",
+      "support_refs": ["SRC-SUBPROCESS-312", "SRC-IO-312", "SRC-LOCALE-312"]
+    }
+  ],
+  "requested_observations": [
+    {
+      "id": "OBS-RAW-STDOUT",
+      "request": "Provide the raw stdout bytes from the failing child-process invocation, captured before decoding.",
+      "rationale": "The bytes are required to distinguish producer emission from a later consumer decoding error."
+    },
+    {
+      "id": "OBS-EFFECTIVE-DECODER",
+      "request": "Provide the actual subprocess text/encoding arguments together with locale.getencoding() and Python UTF-8 Mode status for the failing run.",
+      "rationale": "The Python 3.12 documentation makes omitted text-mode encoding dependent on TextIOWrapper and locale context, so the concrete decoder must be observed."
+    },
+    {
+      "id": "OBS-EXPLICIT-UTF8-RERUN",
+      "request": "Provide the output of a controlled rerun that sets subprocess encoding=\"utf-8\".",
+      "rationale": "A matching result would test the consumer-side decoding candidate while leaving producer byte provenance to the raw-byte observation."
+    }
+  ],
+  "notes": [
+    "Public read-only research only; source observations, findings, uncertainties, proposals, requested observations, and hypothesis revision are kept separate.",
+    "No FPO acceptance, closure, checkpoint, lifecycle, approval, or blocker decision was made."
+  ],
+  "research_trace": {
+    "queries": [
+      "site:docs.python.org/3.12/library/subprocess.html subprocess text mode encoding omitted official Python 3.12",
+      "site:docs.python.org/3.12/library/subprocess.html Popen text universal_newlines encoding locale official"
+    ],
+    "rounds": 3,
+    "sources_inspected": [
+      "https://docs.python.org/3.12/library/subprocess.html",
+      "https://docs.python.org/3.12/library/io.html",
+      "https://docs.python.org/3.12/library/locale.html"
+    ],
+    "budget": {
+      "max_research_rounds": 3,
+      "max_distinct_queries": 6,
+      "max_accepted_sources": 6
+    }
+  },
+  "source_claims": [
+    {
+      "source_id": "SRC-SUBPROCESS-312",
+      "url": "https://docs.python.org/3.12/library/subprocess.html",
+      "title": "subprocess — Subprocess management — Python 3.12.13 documentation",
+      "publisher": "Python Software Foundation",
+      "source_class": "official_documentation",
+      "revision": "Python 3.12.13",
+      "supports": [
+        "FACT-SUBPROCESS-TEXT-MODE",
+        "FIND-CONSUMER-DECODE-CANDIDATE",
+        "FIND-EXPLICIT-UTF8-SUPPORTED",
+        "FIND-PROVENANCE-UNRESOLVED"
+      ],
+      "observation": "The page says that text=True or an encoding/errors argument opens subprocess streams in text mode using the specified settings or io.TextIOWrapper defaults, while the default is binary mode; it also documents the text/universal_newlines relationship and a locale-based encoding note."
+    },
+    {
+      "source_id": "SRC-IO-312",
+      "url": "https://docs.python.org/3.12/library/io.html",
+      "title": "io — Core tools for working with streams — Python 3.12.13 documentation",
+      "publisher": "Python Software Foundation",
+      "source_class": "official_documentation",
+      "revision": "Python 3.12.13",
+      "supports": [
+        "FACT-TEXTIOWRAPPER-DEFAULT",
+        "FIND-CONSUMER-DECODE-CANDIDATE",
+        "FIND-EXPLICIT-UTF8-SUPPORTED",
+        "FIND-PROVENANCE-UNRESOLVED"
+      ],
+      "observation": "The page says TextIOWrapper defaults to locale.getencoding(), explains that text I/O decodes bytes to strings, and recommends encoding=\"utf-8\" when UTF-8 is intended."
+    },
+    {
+      "source_id": "SRC-LOCALE-312",
+      "url": "https://docs.python.org/3.12/library/locale.html",
+      "title": "locale — Internationalization services — Python 3.12.13 documentation",
+      "publisher": "Python Software Foundation",
+      "source_class": "official_documentation",
+      "revision": "Python 3.12.13",
+      "supports": [
+        "FACT-WINDOWS-LOCALE-ENCODING",
+        "FIND-CONSUMER-DECODE-CANDIDATE",
+        "FIND-PROVENANCE-UNRESOLVED"
+      ],
+      "observation": "The page says locale.getencoding() returns the ANSI code page on Windows and describes how getpreferredencoding(False) relates to locale encoding and Python UTF-8 Mode."
+    }
+  ],
+  "hypothesis_trace": {
+    "initial": "The producer probably emitted invalid or already-corrupted bytes.",
+    "after_research": "The producer-corruption hypothesis is no longer the leading hypothesis. A consumer-side locale-dependent decoding error is a stronger candidate, while producer corruption remains unresolved until raw bytes and decoder context are observed.",
+    "revision_reason": "Python 3.12 documentation explicitly describes omitted subprocess text-mode encoding as using the TextIOWrapper default, documents that default as locale-specific, and recommends explicit UTF-8 when UTF-8 is intended. The available local evidence lacks the raw bytes and locale context needed to prove exact provenance."
+  }
+}

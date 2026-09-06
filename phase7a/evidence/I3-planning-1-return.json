@@ -1,0 +1,121 @@
+{
+  "schema": "fpo.phase7a.flow-mini-return.v1",
+  "fixture": "I3",
+  "stage": "planning",
+  "dispatch_id": "P7A-I3-PLANNING-1",
+  "input_sha256": "86b1c3d471b9270ecf36fddca88e322a324b331565b778fad5209e7c3f991dd4",
+  "status": "PLANNING_READY_BLOCKED_EXTERNAL_INPUT",
+  "current_revision": "P7A-I3-PLANNING-1-G1",
+  "provider": {
+    "model": "gpt-5.6-sol",
+    "reasoning": "medium"
+  },
+  "fresh_context": true,
+  "requirements": [
+    {
+      "id": "R1",
+      "text": "build_manifest(config) accepts the documented name, version, channel, and artifacts mapping and produces a deterministic vendor manifest."
+    },
+    {
+      "id": "R2",
+      "text": "The implementation must conform to official version-specific schema, channel, and artifact-ordering semantics without guessing absent vendor facts."
+    },
+    {
+      "id": "R3",
+      "text": "When those facts are unavailable, preserve a structured blocker for FPO-owned research and source-bound Evidence persistence."
+    },
+    {
+      "id": "R4",
+      "text": "Planning must stop at PLANNING READY, make no src implementation change, and remain inside the bounded project except for this assigned Return."
+    }
+  ],
+  "observations": [
+    {
+      "kind": "current_reality",
+      "text": "The current function returns name/version, applies a local channel default, and sorts artifacts; these behaviors are not authoritative vendor-contract facts."
+    },
+    {
+      "kind": "current_reality",
+      "text": "The existing test observes only preservation of name and version for one input and cannot prove the vendor schema, channel semantics, ordering, or full determinism obligation."
+    },
+    {
+      "kind": "open",
+      "text": "Authoritative local Evidence does not establish the applicable contract identity, schema version, channel field semantics, or artifact-ordering rule."
+    },
+    {
+      "kind": "excluded_reference",
+      "text": "tools/vendor_release_contract.py identifies itself as parent-only; its claims were not adopted as authority or used to set expected vendor values."
+    }
+  ],
+  "planning": {
+    "result": "PLANNING READY",
+    "core_generation": "P7A-I3-PLANNING-1-G1",
+    "controller_revision": "FM-EXEC-0.5.0-r3",
+    "active_stage": "After FPO-persisted vendor-contract Evidence is available, implement the smallest conforming build_manifest behavior and validate all material contract dimensions plus determinism.",
+    "resume_status": "BLOCKED",
+    "files": [
+      ".flow-mini/CONTRACT.md",
+      ".flow-mini/ACCEPTANCE.md",
+      ".flow-mini/WORKPLAN.md",
+      ".flow-mini/EXECUTION.md"
+    ],
+    "implementation_changed": false
+  },
+  "operations": [],
+  "local_validation": {
+    "scope": "planning artifacts only",
+    "status": "PASS",
+    "checks": [
+      "PASS: four Core files exist",
+      "PASS: Core Generation P7A-I3-PLANNING-1-G1 matches across CONTRACT, ACCEPTANCE, and WORKPLAN",
+      "PASS: CONTRACT Controller Revision FM-EXEC-0.5.0-r3 matches the EXECUTION template header",
+      "PASS: EXECUTION.md is byte-identical to the pinned candidate template (SHA-256 3AEC52D7A53A16AEE677EA640070106F7CAF39BECD10F252ACD6EF83B612FBFC)",
+      "PASS: return.json parses as one JSON object with all schema-required top-level keys, no forbidden keys, exact dispatch metadata, and empty operations",
+      "PASS: no src implementation change was made"
+    ],
+    "implementation_validation": "NOT RUN"
+  },
+  "evidence": [
+    {
+      "source": "phase7a/fixture/i3-external-gap/README.md",
+      "role": "Normative",
+      "claim": "The bounded goal and prohibition on guessing missing vendor-specific facts."
+    },
+    {
+      "source": "phase7a/fixture/i3-external-gap/src/manifest.py",
+      "role": "Fact-Evidence",
+      "claim": "Current implementation reality only."
+    },
+    {
+      "source": "phase7a/fixture/i3-external-gap/tests/test_manifest.py",
+      "role": "Fact-Evidence",
+      "claim": "Current local test coverage only."
+    },
+    {
+      "source": "pinned Flow Mini v0.5.0 candidate r3",
+      "role": "Planning mechanism",
+      "claim": "Four-Core structure, ownership boundaries, readiness checks, and fixed controller revision."
+    }
+  ],
+  "blockers": [
+    {
+      "id": "B1",
+      "owner": "FPO",
+      "state": "OPEN",
+      "text": "Official source-bound Evidence is required for the applicable vendor contract identity, manifest schema version/representation, channel field semantics, and artifact-ordering rule.",
+      "resume_condition": "FPO persists and supplies durable, applicable, non-conflicting Evidence covering every required vendor-specific input."
+    }
+  ],
+  "reentry": {
+    "route": "execution_after_input_reconciliation",
+    "condition": "Required FPO-persisted Evidence is available and does not materially change upstream-owned Goal, Requirements, Scope, Settled Design, acceptance meaning, or Authority.",
+    "otherwise": "Route to Planning for changed implementation basis or Design re-entry for changed upstream-owned semantics."
+  },
+  "next_action": "FPO should perform the official read-only research it owns and persist source-bound Evidence for the missing vendor-contract facts; then dispatch a fresh Execution context to reconcile that input before any src change.",
+  "notes": [
+    "No FPO Research was performed.",
+    "No vendor-specific schema, channel, allowed-value, defaulting, or ordering fact was invented or adopted from the parent-only snapshot.",
+    "No source implementation, commit, or push was performed.",
+    "This Planning Return is a non-authoritative candidate for FPO and does not claim FPO Approval, Acceptance, or Close."
+  ]
+}

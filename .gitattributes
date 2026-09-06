@@ -1,0 +1,4 @@
+# Runtime Manifest hashes are byte-level identities; keep their canonical
+# UTF-8/LF bytes on Windows checkouts as well.
+spec/v0.2/runtime/** text eol=lf
+workspace/input.txt text eol=lf

@@ -1,0 +1,20 @@
+{
+  "case_id": "B2",
+  "title": "Revise an initially plausible but wrong producer hypothesis",
+  "runtime_target": "Python 3.12",
+  "local_failure": {
+    "input": "a child process emits UTF-8 bytes for café\\n",
+    "expected_output": "café\\n",
+    "observed_output": "cafÃ©\\n",
+    "validation": "FAIL: decoded output does not match expected text"
+  },
+  "initial_hypothesis": "The producer probably emitted invalid or already-corrupted bytes.",
+  "local_evidence_limit": "Only the final decoded string and the subprocess call are available; raw bytes and locale are not available.",
+  "repair_candidates": [
+    "Fix the producer's byte emission.",
+    "Make the consumer's subprocess decoding explicit as UTF-8.",
+    "Add a broad replacement of mojibake after decoding."
+  ],
+  "research_question": "What does the official Python 3.12 documentation say about text mode and omitted subprocess encoding, and does that evidence support or contradict the initial producer hypothesis?",
+  "research_instruction": "Record the initial hypothesis before search. Use public read-only research, then explicitly update or retain it based on source evidence. Do not use model memory or an oracle."
+}

@@ -1,0 +1,21 @@
+{
+  "details": {
+    "effective_channels_after_unrelated_discovery": [
+      {
+        "applicable": true,
+        "channel": "process_tree"
+      },
+      {
+        "applicable": true,
+        "channel": "queued_callback"
+      }
+    ],
+    "omitted_applicable_channel": "UNKNOWN",
+    "unrelated_does_not_poison": "SETTLED"
+  },
+  "evidence_ref": "phase7b/evidence/X2b.json",
+  "independent": true,
+  "probe_id": "X2b",
+  "schema": "fpo.phase7b.validation.v1",
+  "status": "PASS"
+}

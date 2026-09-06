@@ -1,0 +1,72 @@
+{
+  "case_id": "C5",
+  "run_number": 1,
+  "capability_run_id": "human-last-C5-001",
+  "dispatch_id": "DISP-C5-001",
+  "operation_id": "OP-C5-001",
+  "capability_revision": "phase4c-v1",
+  "decision": "ESCALATE",
+  "autonomous_routes_available": [
+    "filesystem inspection of the supplied local evidence",
+    "public read-only Web research"
+  ],
+  "autonomous_routes_attempted": [
+    "Inspected the supplied fixture and dispatch metadata.",
+    "Determined that filesystem inspection contains no device-state observation and that public Web research cannot establish the state of private physical device D-17."
+  ],
+  "evidence_refs": [
+    "phase4c/fixtures/C5-observation-gate.json",
+    "phase4c/results/C5/run-001/dispatch.json"
+  ],
+  "facts": [
+    "The requested fact is whether a red warning icon is visible after boot in the upper-right corner of the settings dialog on private physical test device D-17.",
+    "The available automation inventory is filesystem access and public read-only Web access.",
+    "This run has no display capture, device connection, or physical observation channel."
+  ],
+  "findings": [
+    "No autonomous safe route can establish the specified device observation.",
+    "Exactly one irreducible boundary remains: human evidence of the specified physical observation.",
+    "Bounded public research is not needed because external generic information cannot determine the current state of this private device."
+  ],
+  "uncertainties": [
+    "Whether the red warning icon is present on device D-17 after boot is unobserved."
+  ],
+  "notes": [
+    "The validator, rather than the observer, applies the supplied truth condition.",
+    "No generic screenshot or model memory was used as evidence."
+  ],
+  "research_trace": {
+    "queries": [],
+    "rounds": 0,
+    "sources_inspected": []
+  },
+  "escalation": {
+    "escalation_id": "ESC-C5-001",
+    "work_id": "OP-C5-001",
+    "work_revision": "phase4c-v1",
+    "reason_code": "HUMAN_EVIDENCE",
+    "blocking_question": "After boot, does the upper-right corner of the settings dialog on private physical test device D-17 show a red warning icon?",
+    "autonomous_actions_attempted": [
+      "Inspected the supplied local fixture and dispatch metadata.",
+      "Checked the available automation channels against the requested observation."
+    ],
+    "evidence_refs": [
+      "phase4c/fixtures/C5-observation-gate.json",
+      "phase4c/results/C5/run-001/dispatch.json"
+    ],
+    "why_machine_cannot_resolve": "The run has no display capture, device connection, or physical observation channel, and public information cannot reveal the current visual state of private device D-17.",
+    "request": {
+      "type": "observation",
+      "prompt": "After boot, inspect the upper-right corner of the settings dialog on private physical test device D-17 and report whether a red warning icon is visible.",
+      "options": [
+        "yes",
+        "no"
+      ]
+    },
+    "consequence_if_unanswered": "The validator cannot determine the result of the requested device-state check.",
+    "resume_plan": "Use the reported yes/no observation as the missing evidence and let the validator apply the supplied truth condition; retain the existing authority boundary.",
+    "authority_boundary": {
+      "proposal_only": true
+    }
+  }
+}

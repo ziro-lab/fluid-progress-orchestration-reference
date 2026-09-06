@@ -1,0 +1,13 @@
+{
+  "fixed_worker_topology": false,
+  "host_parallel_cap": 3,
+  "model_policy": {
+    "default_worker": "gpt-5.6-luna",
+    "reasoning": "xhigh",
+    "sol": "only-if-needed"
+  },
+  "queue_on_slot_shortage": true,
+  "revision": "phase7b-host-policy-v1",
+  "schema": "fpo.phase7b.host-policy.v1",
+  "top_level_fallback": false
+}

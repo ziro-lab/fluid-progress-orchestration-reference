@@ -1,0 +1,12 @@
+{
+  "attempt_ref": "phase7b/attempts/L1/run-001.json",
+  "details": {
+    "mutation_domain_reusable_after_settled": true,
+    "mutation_domain_reusable_while_unknown": false,
+    "slot_released": true
+  },
+  "metrics": {},
+  "probe_id": "L1",
+  "schema": "fpo.phase7b.evidence.v1",
+  "status": "PASS"
+}

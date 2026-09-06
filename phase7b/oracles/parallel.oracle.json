@@ -1,0 +1,30 @@
+{
+  "integrated": "exact immutable fan-in revision independently validated and accepted",
+  "mechanical": {
+    "E1a": "profile-defined safety expectation",
+    "E1b": "profile-defined safety expectation",
+    "H3": "profile-defined safety expectation",
+    "L1": "profile-defined safety expectation",
+    "T1a": "profile-defined safety expectation",
+    "T1b": "profile-defined safety expectation",
+    "X1a": "profile-defined safety expectation",
+    "X1b": "profile-defined safety expectation",
+    "X2a": "profile-defined safety expectation",
+    "X2b": "profile-defined safety expectation",
+    "X3": "profile-defined safety expectation",
+    "X4": "profile-defined safety expectation",
+    "X5": "profile-defined safety expectation",
+    "X6": "profile-defined safety expectation"
+  },
+  "not_worker_input": true,
+  "oracle": {
+    "D1": "parent semantic expectation",
+    "H1": "parent semantic expectation",
+    "H2": "parent semantic expectation",
+    "P1": "parent semantic expectation",
+    "R1": "parent semantic expectation",
+    "T2": "parent semantic expectation"
+  },
+  "owner": "parent FPO",
+  "schema": "fpo.phase7b.parent-only-oracle.v1"
+}

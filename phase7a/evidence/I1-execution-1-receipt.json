@@ -1,0 +1,14 @@
+{
+  "agent_id": "01a04b94-0e63-7942-9802-9d658d4b9a9a",
+  "dispatch_id": "P7A-I1-EXECUTION-1",
+  "evidence_ref": "phase7a/evidence/I1-execution-1-return.json",
+  "fixture": "I1",
+  "fresh_worker": true,
+  "input_sha256": "7160dc5351524839847a9cc98fccb84a6747d252a07195509435561ca4e6924b",
+  "prior_hidden_reasoning": false,
+  "prior_transcript": false,
+  "raw_return_sha256": "06fbb865803edbf10962ee6bc6c7e5f20f2e549cd3148ef559d6d4b3eaec3ac2",
+  "schema": "fpo.phase7a.worker-receipt.v1",
+  "stage": "execution-1",
+  "status": "recorded"
+}

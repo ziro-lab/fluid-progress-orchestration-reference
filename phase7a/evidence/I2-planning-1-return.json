@@ -1,0 +1,106 @@
+{
+  "schema": "fpo.phase7a.flow-mini-return.v1",
+  "fixture": "I2",
+  "stage": "planning",
+  "dispatch_id": "P7A-I2-PLANNING-1",
+  "input_sha256": "0b04514fa94b6cb2bc8189cf4c6f44824accf5260f31e5e1194f04106bf75643",
+  "status": "DESIGN_REENTRY_REQUIRED",
+  "current_revision": "fb74cac46a3833195262f6e4a3a78c3034b819a9",
+  "provider": {
+    "model": "gpt-5.6-sol",
+    "reasoning": "medium"
+  },
+  "fresh_context": true,
+  "requirements": [
+    "Make the bounded release-badge tool usable according to authoritative current project materials, then implement, validate, and confirm completion only after the design is settled.",
+    "render_badge(channel, version) must return an object with text and color fields.",
+    "Output must be deterministic and must not invent a channel or version.",
+    "Preserve upstream Goal, Requirements, Scope, Settled Design, Acceptance meaning, and Authority; Planning must not choose among contradictory owner briefs."
+  ],
+  "observations": [
+    {
+      "kind": "source_conflict",
+      "detail": "design/brief-release.md and design/brief-channel.md both identify themselves as current owner briefs and neither contains a supersession marker."
+    },
+    {
+      "kind": "semantic_conflict",
+      "detail": "The release brief requires text 'release <version>' with blue for every badge, while the channel brief requires text '<channel> <version>' with green for stable and amber for canary. The conflict changes user-visible badge meaning and color behavior."
+    },
+    {
+      "kind": "current_reality",
+      "detail": "src/badge.py currently follows the release-presentation meaning, while tests/test_badge.py expects the channel-presentation meaning. Implementation and tests therefore embody opposite unresolved briefs and cannot establish product authority."
+    },
+    {
+      "kind": "route_basis",
+      "detail": "Flow Mini v0.5.0 assigns Settled Design and design-level Acceptance meaning to upstream Design. Resolving this conflict would require Planning to redesign or select authority, so Planning Ready is not permitted."
+    }
+  ],
+  "planning": {
+    "route": "DESIGN_REENTRY_REQUIRED",
+    "planning_ready": false,
+    "active_stage": null,
+    "core_materialized": false,
+    "bare_design_bootstrap_used": false,
+    "reason": "No safe Active Implementation Stage can be compiled until the upstream owner establishes one authoritative badge presentation meaning and its corresponding acceptance behavior.",
+    "preserved_boundary": "No .flow-mini plan was created and neither owner brief was changed."
+  },
+  "operations": [],
+  "local_validation": {
+    "scope": "planning return only; no implementation validation performed",
+    "result": "PASS",
+    "checks": [
+      "Inspected only the bounded I2 project, the pinned Flow Mini candidate documents/templates named by the worker prompt, the assigned worker prompt, and the Return schema.",
+      "Confirmed that no .flow-mini files were created in the bounded project.",
+      "Parsed return.json as JSON and validated it against phase7a/contracts/flow-mini-return.schema.json."
+    ]
+  },
+  "evidence": [
+    {
+      "locator": "phase7a/fixture/i2-design-gap/README.md",
+      "supports": "The project explicitly reports two current-looking owner briefs with different badge-text meanings and directs escalation of the design gap."
+    },
+    {
+      "locator": "phase7a/fixture/i2-design-gap/design/brief-release.md",
+      "supports": "Current owner brief specifying release-plus-version text and blue color, with no supersession marker."
+    },
+    {
+      "locator": "phase7a/fixture/i2-design-gap/design/brief-channel.md",
+      "supports": "Current owner brief specifying channel-plus-version text and stable/green plus canary/amber colors, with no supersession marker."
+    },
+    {
+      "locator": "phase7a/fixture/i2-design-gap/src/badge.py",
+      "supports": "Current implementation follows the release brief."
+    },
+    {
+      "locator": "phase7a/fixture/i2-design-gap/tests/test_badge.py",
+      "supports": "Current tests follow the conflicting channel brief."
+    },
+    {
+      "locator": "phase7a/vendor/flow-mini/Flow_Mini_Harness_v0.5.0_Implementation_Core_Convergence_Candidate_r3/01_IMPLEMENTATION_PLANNING.md",
+      "supports": "Material ambiguity that would change upstream-owned meaning requires DESIGN_REENTRY_REQUIRED rather than Planning reinterpretation."
+    }
+  ],
+  "blockers": [
+    {
+      "owner": "upstream design owner",
+      "blocked_semantics": [
+        "Settled Design for badge text",
+        "Settled Design for badge color mapping",
+        "design-level Acceptance meaning and authoritative precedence"
+      ],
+      "condition": "Two non-superseded current owner briefs prescribe mutually incompatible user-visible results."
+    }
+  ],
+  "reentry": {
+    "required": true,
+    "type": "design",
+    "owner_state_change": "The upstream design owner must designate a single authoritative badge-presentation rule, explicitly supersede or reconcile the other brief, and state the expected channel/version and color behavior used for acceptance.",
+    "resume_condition": "A current authoritative design source resolves precedence and provides one coherent expected result for stable and canary inputs without requiring Planning to choose product meaning."
+  },
+  "next_action": "Return to the upstream design owner to reconcile or supersede the two current briefs; after an authoritative design is available, dispatch a fresh Implementation Planning context.",
+  "notes": [
+    "No source code, tests, design briefs, or .flow-mini files were modified.",
+    "No Bare Design Bootstrap was used because contradictory current design materials already exist and their authority cannot be replaced by a local bootstrap.",
+    "No commit or push was performed."
+  ]
+}

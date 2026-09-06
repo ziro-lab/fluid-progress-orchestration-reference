@@ -1,0 +1,1 @@
+{"checks":{"authority_keys_absent":true,"binding_revision":true,"both_options_accepted":true,"escalation_present":true,"oracle_conformance":true,"preference_not_chosen":true,"proposal_only":true,"reason_code":true,"request_type":true,"required_decision":true},"source_artifacts":[],"status":"PASS","violations":[]}

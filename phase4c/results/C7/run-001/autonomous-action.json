@@ -1,0 +1,1 @@
+{"human_needed":false,"route_events":[{"reason":"injected optional helper failure","route":"A","status":"FAIL"},{"capability":"standard filesystem","route":"B","status":"PASS"},{"capability":"deterministic validator","route":"C","status":"PASS"}],"schema":"fpo.phase4c.route-recovery.v1"}

@@ -1,0 +1,50 @@
+{
+  "schema": "fpo.phase5b.worker-return.v1",
+  "case_id": "N1",
+  "generation_id": "N1-G1",
+  "work_id": "FPO-5B-N1",
+  "work_revision": "r0",
+  "decision": "DIAGNOSE",
+  "route_id": "route-unknown",
+  "route_semantic_key": "route-semantic-key-unknown",
+  "observed_facts": [
+    {
+      "fact_id": "N1-G1-F1",
+      "text": "The authoritative source has an empty route_history, so no route semantic keys are available for comparison.",
+      "evidence_refs": ["phase5b/source/N1-immutable-r0.json"]
+    },
+    {
+      "fact_id": "N1-G1-F2",
+      "text": "No route attempts or route rejections are present in the supplied inputs; repeated semantically identical routes are not evidenced.",
+      "evidence_refs": [
+        "phase5b/source/N1-immutable-r0.json",
+        "phase5b/fixture/no-progress-work.json#N1"
+      ]
+    },
+    {
+      "fact_id": "N1-G1-F3",
+      "text": "The supplied state retains the route-unknown blocker, and no unseen materially different useful route can be established from these inputs.",
+      "evidence_refs": [
+        "phase5b/source/N1-immutable-r0.json",
+        "phase5b/fixture/no-progress-work.json#N1"
+      ]
+    }
+  ],
+  "evidence_refs": [
+    "phase5b/source/N1-immutable-r0.json",
+    "phase5b/fixture/no-progress-work.json#N1"
+  ],
+  "hypothesis_updates": [],
+  "route_attempts": [],
+  "route_rejections": [],
+  "material_progress_signals": [],
+  "observed_checkpoint": "diagnosis",
+  "uncertainties_seen": [
+    {
+      "uncertainty_id": "route-unknown",
+      "status": "open"
+    }
+  ],
+  "evidence_gain": 0,
+  "notes": "No route semantic key comparison is possible from the supplied state. Repeated identical routes and an unseen materially different useful route remain unestablished; no route change is proposed, and any future route change requires owner adoption."
+}

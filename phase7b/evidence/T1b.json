@@ -1,0 +1,19 @@
+{
+  "attempt_ref": "phase7b/attempts/T1b/run-001.json",
+  "details": {
+    "check_then_mutate_gap": false,
+    "destination_revision": "r1-a",
+    "mechanism": "destination-CAS",
+    "outcomes": {
+      "effect:ATT-T1B-A:child:T1b-A": "COMMITTED",
+      "effect:ATT-T1B-B:child:T1b-B": "CAS_REJECTED"
+    }
+  },
+  "metrics": {
+    "cas_rejections": 1,
+    "successful_commits": 1
+  },
+  "probe_id": "T1b",
+  "schema": "fpo.phase7b.evidence.v1",
+  "status": "PASS"
+}

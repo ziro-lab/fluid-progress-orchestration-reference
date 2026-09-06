@@ -1,0 +1,24 @@
+{
+  "attempt_ref": "phase7b/attempts/X5/run-001.json",
+  "details": {
+    "fpo_acceptance": {
+      "accepted_revision": "0a5642067c63bc57a1f90ded4b8474ed824085dfd135880f253fe3c6a2435a4c",
+      "status": "accepted",
+      "validation_ref": "validation/X5.json"
+    },
+    "frozen_revision": "0a5642067c63bc57a1f90ded4b8474ed824085dfd135880f253fe3c6a2435a4c",
+    "independent_validation": {
+      "independent": true,
+      "status": "PASS",
+      "validated_revision": "0a5642067c63bc57a1f90ded4b8474ed824085dfd135880f253fe3c6a2435a4c"
+    },
+    "neighboring_revision": "4057e36b1a2a38e7a4030e40409c4498dc93eb45109410f063b2954a80368c43",
+    "pre_integration_transfer": false
+  },
+  "metrics": {
+    "validated_revision_equals_accepted_revision": 1
+  },
+  "probe_id": "X5",
+  "schema": "fpo.phase7b.evidence.v1",
+  "status": "PASS"
+}

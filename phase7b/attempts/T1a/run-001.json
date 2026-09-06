@@ -1,0 +1,12 @@
+{
+  "details": {
+    "admitted": true,
+    "begin_effect_rejected_after_supersession": true
+  },
+  "metrics": {},
+  "parent_oracle": true,
+  "probe_id": "T1a",
+  "schema": "fpo.phase7b.attempt.v1",
+  "status": "PASS",
+  "worker_context": null
+}

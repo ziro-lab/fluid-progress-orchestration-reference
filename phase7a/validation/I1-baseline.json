@@ -1,0 +1,21 @@
+{
+  "expected_initial_failure": true,
+  "fixture": "I1",
+  "result": {
+    "args": [
+      "C:\\Users\\<user>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "returncode": 1,
+    "stderr": "test_preserves_order_and_duplicates (test_slugger.SluggerTests.test_preserves_order_and_duplicates) ... ok\ntest_rejects_bad_items_and_continues (test_slugger.SluggerTests.test_rejects_bad_items_and_continues) ... FAIL\n\n======================================================================\nFAIL: test_rejects_bad_items_and_continues (test_slugger.SluggerTests.test_rejects_bad_items_and_continues)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"E:\\TEST\\FPO_Runtime_Probe_Starter\\.phase2-sync\\phase7a\\fixture\\i1-local\\tests\\test_slugger.py\", line 23, in test_rejects_bad_items_and_continues\n    self.assertEqual([item[\"input\"] for item in result[\"accepted\"]], [\"ok\", \"later\"])\nAssertionError: Lists differ: ['later', 'ok'] != ['ok', 'later']\n\nFirst differing element 0:\n'later'\n'ok'\n\n- ['later', 'ok']\n+ ['ok', 'later']\n\n----------------------------------------------------------------------\nRan 2 tests in 0.001s\n\nFAILED (failures=1)\n",
+    "stdout": "",
+    "timed_out": false
+  },
+  "schema": "fpo.phase7a.baseline-validation.v1",
+  "status": "FAIL"
+}

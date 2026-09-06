@@ -1,0 +1,17 @@
+{
+  "source_revision": "r4",
+  "decision": "RESUME",
+  "next_action": "independent-validation",
+  "evidence_refs": [
+    "E-R5-REPAIR-001"
+  ],
+  "route_ids": [
+    "route-repeat-repair"
+  ],
+  "metrics": {
+    "duplicate_effect": 0,
+    "duplicate_work": 0,
+    "transcript_dependency": 0
+  },
+  "correct_next_stage": true
+}

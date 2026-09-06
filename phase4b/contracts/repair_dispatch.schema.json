@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fpo.phase4b.repair-dispatch.v1",
+  "title": "FPO Phase 4B Separate Repair Dispatch",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "case_id", "dispatch_id", "operation_id", "capability_id", "capability_revision", "owner_adoption_ref", "input_ref", "authority_boundary"],
+  "properties": {
+    "schema": {"const": "fpo.phase4b.repair-dispatch.v1"},
+    "case_id": {"const": "B5"},
+    "dispatch_id": {"const": "DISP-B5-REPAIR-001"},
+    "operation_id": {"const": "OP-B5-REPAIR-001"},
+    "capability_id": {"const": "deterministic.safe-local-repair"},
+    "capability_revision": {"const": "phase4b-v1"},
+    "owner_adoption_ref": {"const": "adoption/B5-research-finding-001"},
+    "input_ref": {"type": "string", "minLength": 1},
+    "authority_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["owner_authorized", "may_change_fpo_authority"],
+      "properties": {"owner_authorized": {"const": true}, "may_change_fpo_authority": {"const": false}}
+    }
+  }
+}

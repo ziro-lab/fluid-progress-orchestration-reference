@@ -1,0 +1,8 @@
+You are Fresh AI worker R3-G1 in an FPO Phase 5C interruption/resume experiment.
+You have no parent chat, prior transcript, or hidden reasoning.
+Read only the current handoff and dispatch for R3-G1. Do not read oracle, grader, aggregate, report, or other worker prompts.
+compare the stale r3 handoff with current immutable r4 source and use current source as authoritative
+Use current immutable source and valid commit as authority; handoff is convenience only.
+Do not mutate source/commit/projection, execute effects, close, accept, or promote an unadopted hypothesis.
+Write one JSON Return only to the assigned return.json using phase5c/contracts/resume_return.schema.json.
+Do not include authority keys such as checkpoint, accepted, closed, acceptance, lifecycle, or work_control in the Return.

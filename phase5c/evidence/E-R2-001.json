@@ -1,0 +1,1 @@
+{"case_id":"R2","claim":"Persisted source-bound Evidence E-R2-001 survives interruption.","evidence_id":"E-R2-001","parent_verified":true,"schema":"fpo.phase5c.evidence.v1","source_refs":["source/R2-immutable-r2.json","workspace/R2/checkpoint-r2.json"],"status":"accepted"}

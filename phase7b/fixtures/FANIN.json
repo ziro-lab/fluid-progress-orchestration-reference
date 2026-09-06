@@ -1,0 +1,8 @@
+{
+  "class": "INTEGRATED_FAN_OUT_FAN_IN",
+  "independent": true,
+  "probe_id": "FANIN",
+  "schema": "fpo.phase7b.fixture.v1",
+  "seed_ref": "phase7b/fixtures/manifest.json",
+  "trusted_oracle_ref": "phase7b/oracles/parallel.oracle.json"
+}

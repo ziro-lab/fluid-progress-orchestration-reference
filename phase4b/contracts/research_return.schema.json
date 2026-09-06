@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fpo.phase4b.research-return.v1",
+  "title": "FPO Phase 4B Research Capability Return",
+  "description": "Untrusted research return. Source observations, findings, uncertainty, and proposals are data; no FPO authority fields are permitted.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["capability_run_id", "dispatch_id", "operation_id", "capability_revision", "facts", "findings", "evidence_refs", "uncertainties", "proposals", "requested_observations", "notes", "research_trace", "source_claims", "hypothesis_trace"],
+  "properties": {
+    "capability_run_id": {"type": "string", "minLength": 1},
+    "dispatch_id": {"type": "string", "pattern": "^DISP-B[1-6]-[0-9]{3}$"},
+    "operation_id": {"type": "string", "pattern": "^OP-B[1-6]-[0-9]{3}$"},
+    "capability_revision": {"type": "string", "const": "phase4b-v1"},
+    "facts": {"type": "array", "items": {"$ref": "#/$defs/fact"}},
+    "findings": {"type": "array", "items": {"$ref": "#/$defs/finding"}},
+    "evidence_refs": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "uncertainties": {"type": "array", "items": {"$ref": "#/$defs/uncertainty"}},
+    "proposals": {"type": "array", "items": {"$ref": "#/$defs/proposal"}},
+    "requested_observations": {"type": "array", "items": {"$ref": "#/$defs/requestedObservation"}},
+    "notes": {"type": "array", "items": {"type": "string"}},
+    "research_trace": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["queries", "rounds", "sources_inspected", "budget"],
+      "properties": {
+        "queries": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "rounds": {"type": "integer"},
+        "sources_inspected": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "budget": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["max_research_rounds", "max_distinct_queries", "max_accepted_sources"],
+          "properties": {
+            "max_research_rounds": {"type": "integer"},
+            "max_distinct_queries": {"type": "integer"},
+            "max_accepted_sources": {"type": "integer"}
+          }
+        }
+      }
+    },
+    "source_claims": {"type": "array", "items": {"$ref": "#/$defs/sourceClaim"}},
+    "hypothesis_trace": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["initial", "after_research", "revision_reason"],
+      "properties": {
+        "initial": {"type": "string", "minLength": 1},
+        "after_research": {"type": "string", "minLength": 1},
+        "revision_reason": {"type": "string", "minLength": 1}
+      }
+    }
+  },
+  "$defs": {
+    "fact": {"type": "object", "additionalProperties": false, "required": ["id", "statement", "evidence_refs"], "properties": {"id": {"type": "string", "minLength": 1}, "statement": {"type": "string", "minLength": 1}, "evidence_refs": {"type": "array", "items": {"type": "string", "minLength": 1}}}},
+    "finding": {"type": "object", "additionalProperties": false, "required": ["id", "statement", "support_refs", "confidence"], "properties": {"id": {"type": "string", "minLength": 1}, "statement": {"type": "string", "minLength": 1}, "support_refs": {"type": "array", "items": {"type": "string", "minLength": 1}}, "confidence": {"type": "string", "enum": ["low", "medium", "high"]}}},
+    "uncertainty": {"type": "object", "additionalProperties": false, "required": ["id", "statement"], "properties": {"id": {"type": "string", "minLength": 1}, "statement": {"type": "string", "minLength": 1}}},
+    "proposal": {"type": "object", "additionalProperties": false, "required": ["id", "type", "statement"], "properties": {"id": {"type": "string", "minLength": 1}, "type": {"type": "string", "enum": ["repair", "next_action", "observation", "explanation"]}, "statement": {"type": "string", "minLength": 1}, "support_refs": {"type": "array", "items": {"type": "string", "minLength": 1}}}},
+    "requestedObservation": {"type": "object", "additionalProperties": false, "required": ["id", "request", "rationale"], "properties": {"id": {"type": "string", "minLength": 1}, "request": {"type": "string", "minLength": 1}, "rationale": {"type": "string", "minLength": 1}}},
+    "sourceClaim": {"type": "object", "additionalProperties": false, "required": ["source_id", "url", "title", "publisher", "source_class", "revision", "supports", "observation"], "properties": {"source_id": {"type": "string", "minLength": 1}, "url": {"type": "string", "pattern": "^https://"}, "title": {"type": "string", "minLength": 1}, "publisher": {"type": "string", "minLength": 1}, "source_class": {"type": "string", "enum": ["official_documentation", "official_repository", "primary_technical_source", "secondary_source"]}, "revision": {"type": "string", "minLength": 1}, "supports": {"type": "array", "items": {"type": "string", "minLength": 1}}, "observation": {"type": "string", "minLength": 1}}}
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schema": "fpo.phase5a.fixture.v1",
+  "work_id": "FPO-5A-001",
+  "title": "Bounded profile text normalizer recovery",
+  "scope": "One local Python profile normalizer and its deterministic validator",
+  "initial_revision": "r0",
+  "initial_checkpoint": "diagnosis",
+  "initial_failure": {
+    "failure_id": "V-001",
+    "validator": "phase5a/workspace/validator-report.json",
+    "expected": "inline # remains part of the value and quoted values are normalized",
+    "actual": "inline # is discarded before normalization"
+  },
+  "initial_unknowns": [
+    "Does the project policy treat an inline # as data or as a comment?",
+    "Is the current failure caused by parsing, value normalization, or both?"
+  ],
+  "accepted_policy_facts": [
+    "The normalizer is local and bounded.",
+    "Only the owner may adopt a repair proposal.",
+    "Acceptance requires an independent validator result."
+  ],
+  "research_pointer": "https://docs.python.org/3.12/library/configparser.html",
+  "budget": { "generation_budget": 6, "research_round_budget": 2, "repair_budget": 2 },
+  "required_progress": {
+    "minimum_generations": 6,
+    "minimum_hypothesis_updates": 2,
+    "minimum_research_operations": 1,
+    "minimum_route_rejections": 1,
+    "minimum_repair_operations": 2,
+    "minimum_post_repair_failure": 1,
+    "final_validator": "phase5a/workspace/independent-validator.py"
+  },
+  "prohibited": [
+    "No prior worker transcript is a source.",
+    "No worker may mutate authority or close the Work.",
+    "No research Return is itself Evidence.",
+    "Research Operation and Repair Operation must remain distinct."
+  ]
+}

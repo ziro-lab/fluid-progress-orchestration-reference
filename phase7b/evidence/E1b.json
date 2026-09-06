@@ -1,0 +1,13 @@
+{
+  "attempt_ref": "phase7b/attempts/E1b/run-001.json",
+  "details": {
+    "destination_unchanged": true,
+    "direct_persist_blocked": true
+  },
+  "metrics": {
+    "unmediated_persistent_effect": 0
+  },
+  "probe_id": "E1b",
+  "schema": "fpo.phase7b.evidence.v1",
+  "status": "PASS"
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fpo.phase5a.source-evidence.v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "source_id", "url", "source_kind", "claim", "claim_binding", "parent_verified", "status"],
+  "properties": {
+    "schema": { "const": "fpo.phase5a.source-evidence.v1" },
+    "source_id": { "type": "string", "pattern": "^SRC-5A-G3-[0-9]{3}$" },
+    "url": { "type": "string", "format": "uri" },
+    "source_kind": { "const": "official_primary" },
+    "claim": { "type": "string", "minLength": 1 },
+    "claim_binding": { "type": "string", "minLength": 1 },
+    "parent_verified": { "const": true },
+    "status": { "const": "accepted" }
+  }
+}

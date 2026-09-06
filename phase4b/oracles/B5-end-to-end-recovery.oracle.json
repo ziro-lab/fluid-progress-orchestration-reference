@@ -1,0 +1,1 @@
+{"case_id":"B5","required_source_kind":"official_documentation","required_source_topic":"Python 3.12 subprocess text-mode encoding","required_proposal_patterns":["encoding","utf-8"],"required_source_binding":true,"repair_effect_count":1,"acceptance_requires_validation":true,"max_research_rounds":3,"max_queries":6,"max_sources":6}
